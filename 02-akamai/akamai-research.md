@@ -1,3 +1,23 @@
+# Akamai Research
+
+> **Two layers.** This file is the initial synthesis from May 2026, written before deep research executed. Useful as a scoping document and for quick-lookup data points (market sizes, regulatory facts, competitive snapshot).
+>
+> **For production work, use the deep research outputs in `research/outputs/`:**
+> - `research/outputs/company/` - 6 files, ~30 pages: corporate fundamentals, DACH regional intelligence, cultural and operational intelligence, channel marketing organization, risks and questions, master summary
+> - `research/outputs/partner-program/akamai-partner-program-dach-dossier.md` - 7-section dossier with 50 named DACH partners, displacement targets identified (KAEMI, Navixia, Computacenter), anchor partners (Deutsche Telekom Security, Bechtle, Controlware, InfoGuard), and Mittelstand recruitment candidates (SVA, Cancom, Axians)
+>
+> When the deep research contradicts this initial synthesis, the deep research wins.
+
+---
+
+## Provenance of this file
+
+This file pre-dates the deep research missions. Written during D2-1 (initial pass) using web search across Akamai partner program documentation, BCG, IDC, Gartner, Mordor Intelligence, Grand View Research, KENSAI, ChannelDive, ChannelE2E, ChannelBuzz. Confidence varies by section.
+
+The deep research missions in `research/outputs/` use Exa search at scale (150+ tool calls per mission) and include explicit confidence markers (✅ Confirmed, ⚠️ Single-sourced, 🧠 Inferred, ❌ Blind spot) per claim.
+
+---
+
 # Akamai DACH Research: Channel, Zero Trust, Competition, Regulation
 
 Research date: May 2026. Sources: Akamai partner program documentation, BCG, IDC, Gartner, Mordor Intelligence, Grand View Research, KENSAI, ChannelDive, ChannelE2E, ChannelBuzz.
