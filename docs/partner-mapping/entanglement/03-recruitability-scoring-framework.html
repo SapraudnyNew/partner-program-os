@@ -1,0 +1,558 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Recruitability Scoring Framework — DACH Partner Pursuit | Partner Program OS</title>
+  <link rel="stylesheet" href="../../assets/css/main.css">
+</head>
+<body>
+<nav class="top-nav">
+  <button class="hamburger" aria-label="Toggle navigation">
+    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+  </button>
+  <a href="../../index.html" class="top-nav__logo">Partner Program <span>OS</span></a>
+  <ul class="top-nav__links">
+    <li><a href="../../index.html">Memo</a></li>
+    <li><a href="../../method/index.html">Method</a></li>
+    <li><a href="../../partner-mapping/index.html" class="active">Partners</a></li>
+    <li><a href="../../absm-sprint/index.html">ABSM</a></li>
+  </ul>
+</nav>
+<div class="sidebar-overlay"></div>
+<aside class="sidebar">
+<div class="sidebar__section">
+  <button class="sidebar__heading"><span class="caret">▼</span> Memo</button>
+  <ul class="sidebar__list"><li class="sidebar__item"><a href="../../index.html">Homepage</a></li></ul>
+</div>
+<div class="sidebar__section">
+  <button class="sidebar__heading"><span class="caret">▼</span> Method</button>
+  <ul class="sidebar__list">
+    <li class="sidebar__item"><a href="../../method/index.html">Overview</a></li>
+    <li class="sidebar__item"><a href="../../method/spider-chart.html">Spider Chart</a></li>
+    <li class="sidebar__item"><a href="../../method/scorecard-template.html">Scorecard Template</a></li>
+  </ul>
+</div>
+<div class="sidebar__section">
+  <button class="sidebar__heading"><span class="caret">▼</span> Partner Mapping</button>
+  <ul class="sidebar__list">
+    <li class="sidebar__item"><a href="../../partner-mapping/index.html">Overview</a></li>
+    <li class="sidebar__item"><a href="../../partner-mapping/dach-landscape.html">DACH Landscape</a></li>
+    <li class="sidebar__item"><a href="../../partner-mapping/pursue-five/all-five-profiles.html">Pursue Five</a></li>
+    <li class="sidebar__item"><a href="../../partner-mapping/entanglement/entanglement-matrix.html">Entanglement</a></li>
+  </ul>
+</div>
+<div class="sidebar__section">
+  <button class="sidebar__heading"><span class="caret">▼</span> ABSM Sprint</button>
+  <ul class="sidebar__list">
+    <li class="sidebar__item"><a href="../../absm-sprint/index.html">Overview</a></li>
+    <li class="sidebar__item"><a href="../../absm-sprint/01-targeting/icp-definition.html">Targeting</a></li>
+    <li class="sidebar__item"><a href="../../absm-sprint/02-strategy/sweet-spot-profile.html">Strategy</a></li>
+    <li class="sidebar__item"><a href="../../absm-sprint/03-clients/hoermann/company-brief.html">Clients</a></li>
+    <li class="sidebar__item"><a href="../../absm-sprint/05-infrastructure/crm-spec-hubspot.html">Infrastructure</a></li>
+  </ul>
+</div></aside>
+<div class="layout">
+  <main class="content">
+    <h1 class="mt-0">Recruitability Scoring Framework — DACH Partner Pursuit</h1>
+    <h1 id="recruitability-scoring-framework-dach-partner-pursuit">Recruitability Scoring Framework — DACH Partner Pursuit</h1>
+<p><strong>Version:</strong> v1 — 2026-05-18<br />
+<strong>Owner:</strong> D2-RC (Channel Intelligence)<br />
+<strong>Companion to:</strong> <code>01-entanglement-matrix.md</code>, <code>02-deep-profiles.md</code><br />
+<strong>Parent decision context:</strong> ADR-011 (Recruitability dimension); D3-1 ABM/TAS DACH Partner Project disposition decisions.</p>
+<hr />
+<h2 id="1-why-this-framework-exists">1. Why this framework exists</h2>
+<p>The Akamai DACH Partner Program OS needs a <em>defensible</em>, <em>repeatable</em> way to rate each candidate partner for the probability we can recruit them (or deepen them, in the case of existing partners) to a meaningful share of Akamai pipeline within 12 months. The judgement has to:</p>
+<ul>
+<li>Combine <strong>public, source-citable</strong> signal with <strong>private, sales-process</strong> signal in a single rubric.</li>
+<li>Survive a partner-relationship-management (PRM) audit, i.e. each score has to be traceable to a specific evidence cell.</li>
+<li>Generalise from the four signal layers in ADR-011 (Contract, Equity, Flagship, Executive) to a <em>forward-looking</em> probability, not just a snapshot of competitor entanglement.</li>
+<li>Be coarse enough (5-point Likert) that two analysts arrive at the same score from the same evidence.</li>
+</ul>
+<p>The Recruitability score (1-5) is <strong>separate from</strong> the entanglement signals because the entanglement is <em>what we observe today</em>, while Recruitability is the analyst&rsquo;s <em>forecast</em> of pipeline-share lift over the next 12 months given that observation, the macro picture (NIS2 / DORA / KRITIS), Akamai&rsquo;s own competitive position in the deal segments the partner sells, and partner-specific elasticity (Mittelstand vendor-flex pattern vs. Diamond-Innovator structural lock).</p>
+<hr />
+<h2 id="2-the-six-sub-criteria">2. The six sub-criteria</h2>
+<p>Each partner is scored on six sub-criteria, each on a 1-5 Likert. The sub-criteria are weighted (sum to 1.0) and aggregated to a continuous score, which is then bucketed back to the integer 1-5 published in File 1.</p>
+<h3 id="s1-competitor-entanglement-depth-weight-030">S1 — Competitor entanglement depth (weight 0.30)</h3>
+<p>How many of the four ADR-011 layers (L1 Contract, L2 Equity, L3 Flagship, L4 Executive) are <em>active</em> with at least one of Akamai&rsquo;s primary competitors (Illumio, Palo Alto Networks, Zscaler, Cloudflare, Cisco Security, Fortinet, Check Point)?</p>
+<table>
+<thead>
+<tr>
+<th>S1</th>
+<th>Layer depth observed</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>3+ layers active, including at least one of L1 (exclusive contract) or L2 (equity)</td>
+</tr>
+<tr>
+<td>2</td>
+<td>2 layers active including L1 or L2</td>
+</tr>
+<tr>
+<td>3</td>
+<td>2 layers active but only at L3 / L4 (marketing + people, no structural contract)</td>
+</tr>
+<tr>
+<td>4</td>
+<td>1 layer active, typically L3 marketing only</td>
+</tr>
+<tr>
+<td>5</td>
+<td>0 layers active — competitor-whitespace partner</td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p>Inversion note: S1 is scored such that <em>higher = more recruitable</em>. A partner with no competitor lock scores 5; a partner with three layers of Illumio lock plus a Cloudflare exclusive scores 1.</p>
+</blockquote>
+<h3 id="s2-vendor-stack-diversity-weight-015">S2 — Vendor-stack diversity (weight 0.15)</h3>
+<p>Is the partner structurally a multi-vendor systemhaus (broad vendor set, no single anchor more than ~25% of revenue), or a near-mono-vendor specialist?</p>
+<table>
+<thead>
+<tr>
+<th>S2</th>
+<th>Pattern</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>Near-mono-vendor; one named flagship-tier vendor accounts for the practice identity (e.g. KAEMI ↔ Illumio + Cloudflare, NTS ↔ Cisco, Indevis ↔ PANW + Fortinet)</td>
+</tr>
+<tr>
+<td>2</td>
+<td>2 anchor vendors at flagship tier</td>
+</tr>
+<tr>
+<td>3</td>
+<td>3 anchor vendors at meaningful tier; multi-flagship pattern</td>
+</tr>
+<tr>
+<td>4</td>
+<td>4+ named vendors, no single dominant; &ldquo;best-of-breed&rdquo; stated philosophy</td>
+</tr>
+<tr>
+<td>5</td>
+<td>Vendor-neutral consulting / advisory / distribution by mandate</td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p>A high S2 score means the partner is <em>structurally open</em> to adding a new flagship vendor; a low S2 score means they have committed identity to a small set.</p>
+</blockquote>
+<h3 id="s3-akamai-product-gap-fit-weight-020">S3 — Akamai-product-gap fit (weight 0.20)</h3>
+<p>Does the partner&rsquo;s current vendor stack have a <em>named technical gap</em> that Akamai&rsquo;s core portfolio (Guardicore micro-segmentation, API Security, App &amp; API Protector, Cloud Acceleration, EAA/MFA, DDoS Edge) closes well?</p>
+<table>
+<thead>
+<tr>
+<th>S3</th>
+<th>Product-gap fit</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>Partner&rsquo;s stack already covers the relevant Akamai product spaces with competitor SKUs (e.g. PANW Prisma + Zscaler ZIA + Illumio = full coverage of segmentation + SASE/ZTNA + edge security)</td>
+</tr>
+<tr>
+<td>2</td>
+<td>Partial overlap — Akamai brings 1 differentiator (e.g. API Security where PANW Prisma Cloud is thinner)</td>
+</tr>
+<tr>
+<td>3</td>
+<td>Akamai brings 2-3 differentiators across micro-segmentation, API Security, or edge</td>
+</tr>
+<tr>
+<td>4</td>
+<td>Akamai brings a clear product-gap fill in a regulated vertical (NIS2 / KRITIS / DORA) that the partner is actively monetising</td>
+</tr>
+<tr>
+<td>5</td>
+<td>Akamai is the natural anchor — partner has explicit edge / DDoS / segmentation pipeline with no flagship vendor today</td>
+</tr>
+</tbody>
+</table>
+<h3 id="s4-regulatory-tailwind-alignment-weight-010">S4 — Regulatory tailwind alignment (weight 0.10)</h3>
+<p>Does the partner&rsquo;s stated practice align with NIS2 (in-force Oct-2024, DE implementation pending), DORA (in-force Jan-2025), KRITIS Dachgesetz, BSI guidance, FINMA (CH), and the Schweizer NIS2-equivalent (under consultation)? This proxies for pipeline elasticity over the next 12-24 months.</p>
+<table>
+<thead>
+<tr>
+<th>S4</th>
+<th>Regulatory posture</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>No public regulatory positioning observed</td>
+</tr>
+<tr>
+<td>2</td>
+<td>Generic compliance content; no flagship verticals</td>
+</tr>
+<tr>
+<td>3</td>
+<td>At least one regulatory narrative actively marketed (NIS2 <em>or</em> DORA <em>or</em> KRITIS)</td>
+</tr>
+<tr>
+<td>4</td>
+<td>Multi-narrative regulatory positioning; named vertical practice (e.g. KRITIS healthcare, BaFin-regulated finance)</td>
+</tr>
+<tr>
+<td>5</td>
+<td>Regulatory-narrative <em>thought leader</em> with ISG Leader, BSI APT-Response, BSI C5 audit, or analyst-recognised SOC/MDR practice</td>
+</tr>
+</tbody>
+</table>
+<h3 id="s5-partner-organisational-elasticity-weight-010">S5 — Partner organisational elasticity (weight 0.10)</h3>
+<p>Independent of competitor entanglement, is the partner organisationally able to bring a new flagship vendor on in 12 months? Considers M&amp;A integration state, leadership stability, headcount growth, and whether the partner has a track record of <em>adding</em> vendors at flagship tier over the last 24 months.</p>
+<table>
+<thead>
+<tr>
+<th>S5</th>
+<th>Organisational elasticity</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>Active divestiture / restructuring / distressed; vendor portfolio frozen (e.g. Materna SE exiting MSS Apr-2025; Atos/Eviden ongoing restructuring)</td>
+</tr>
+<tr>
+<td>2</td>
+<td>Stable but vendor-portfolio mature; no new flagships added in 24m</td>
+</tr>
+<tr>
+<td>3</td>
+<td>Mid-M&amp;A integration (e.g. Axians + Fernao Oct-2025 consolidation) — <em>opportunistic moment</em> for new vendor adds</td>
+</tr>
+<tr>
+<td>4</td>
+<td>Stable, growing headcount; 1-2 new vendor flagships added in 24m</td>
+</tr>
+<tr>
+<td>5</td>
+<td>High-growth phase; visible track record of flagship-tier adds (e.g. Westcon-Comstor adding twin Zscaler specialisation Apr-2025 <em>while</em> keeping PANW flagship)</td>
+</tr>
+</tbody>
+</table>
+<h3 id="s6-geographic-vertical-reach-akamai-needs-weight-015">S6 — Geographic / vertical reach Akamai needs (weight 0.15)</h3>
+<p>Does the partner cover a geography or vertical where Akamai DACH currently has thin field coverage? Romandie (Swiss-French), Austrian Mittelstand outside Vienna, German federal Bonn/Berlin axis, healthcare KRITIS, OT/manufacturing, banking BaFin.</p>
+<table>
+<thead>
+<tr>
+<th>S6</th>
+<th>Reach value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>Partner adds no incremental geography / vertical Akamai does not already have</td>
+</tr>
+<tr>
+<td>2</td>
+<td>Partner overlaps an existing well-covered Akamai field territory</td>
+</tr>
+<tr>
+<td>3</td>
+<td>Partner has 1 named territory or vertical Akamai has on its gap-coverage map</td>
+</tr>
+<tr>
+<td>4</td>
+<td>Partner has 2+ named territories / verticals on Akamai&rsquo;s gap-coverage map</td>
+</tr>
+<tr>
+<td>5</td>
+<td>Partner is the <em>only</em> visible regional / vertical anchor for an Akamai field-coverage gap (e.g. Navixia for Romandie if no other Akamai partner is in Lausanne / Geneva)</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="3-aggregation">3. Aggregation</h2>
+<p>Continuous Recruitability score <em>R</em> is:</p>
+<pre><code>R = 0.30·S1 + 0.15·S2 + 0.20·S3 + 0.10·S4 + 0.10·S5 + 0.15·S6
+</code></pre>
+<p>bucketed back to the integer 1-5 by:</p>
+<table>
+<thead>
+<tr>
+<th>Bucket</th>
+<th>Range</th>
+<th>Meaning</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>R ≤ 1.6</td>
+<td>Drop or treat as competitor surface</td>
+</tr>
+<tr>
+<td>2</td>
+<td>1.6 &lt; R ≤ 2.4</td>
+<td>Contain — opportunistic only</td>
+</tr>
+<tr>
+<td>3</td>
+<td>2.4 &lt; R ≤ 3.4</td>
+<td>Pursue — disciplined, named-account</td>
+</tr>
+<tr>
+<td>4</td>
+<td>3.4 &lt; R ≤ 4.2</td>
+<td>Pursue — priority</td>
+</tr>
+<tr>
+<td>5</td>
+<td>R &gt; 4.2</td>
+<td>Pursue — flagship recruitment target</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="4-worked-examples-calibrating-the-matrix-in-file-1">4. Worked examples — calibrating the matrix in File 1</h2>
+<h3 id="example-a-kaemi-berlin">Example A — KAEMI (Berlin)</h3>
+<table>
+<thead>
+<tr>
+<th>Sub</th>
+<th>Score</th>
+<th>Justification</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>S1</td>
+<td>1</td>
+<td>L1 Cloudflare exclusive ASDP × 2 services + L3 Illumio EMEA POY FY2026 = 2 layers including L1. <em>Borderline 1 / 2 — pulled to 1 because both Cloudflare and Illumio are top-of-pyramid awards in the same year.</em></td>
+</tr>
+<tr>
+<td>S2</td>
+<td>1</td>
+<td>Near-mono-vendor (Illumio + Cloudflare twin identity).</td>
+</tr>
+<tr>
+<td>S3</td>
+<td>2</td>
+<td>Akamai Guardicore is direct technical substitute for Illumio, but partner mind-share is identity-bound to current flagships.</td>
+</tr>
+<tr>
+<td>S4</td>
+<td>3</td>
+<td>NIS2 narrative present in marketing (Zero Trust + microsegmentation alignment).</td>
+</tr>
+<tr>
+<td>S5</td>
+<td>2</td>
+<td>Stable, owner-operated, but no recent track record of adding <em>new</em> flagships outside Illumio + Cloudflare.</td>
+</tr>
+<tr>
+<td>S6</td>
+<td>2</td>
+<td>Berlin geography is well-covered already by larger Akamai partners (Computacenter, Controlware).</td>
+</tr>
+</tbody>
+</table>
+<p>R = 0.30·1 + 0.15·1 + 0.20·2 + 0.10·3 + 0.10·2 + 0.15·2 = 0.30 + 0.15 + 0.40 + 0.30 + 0.20 + 0.30 = <strong>1.65</strong> → bucket <strong>2</strong>.</p>
+<p>Note: File 1 publishes KAEMI as Recruitability 1, not 2. The discrepancy is the analyst&rsquo;s qualitative override (R = 1.65 is at the boundary; the FY2026 fresh-POY status and owner-founder identity argue for the lower bucket). Override is documented; revisited at next quarterly review.</p>
+<h3 id="example-b-axians-de-fernao">Example B — Axians DE + Fernao</h3>
+<table>
+<thead>
+<tr>
+<th>Sub</th>
+<th>Score</th>
+<th>Justification</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>S1</td>
+<td>4</td>
+<td>Only 1 layer (L3 Fortinet visible). No PANW / Cisco / Zscaler / Illumio / Cloudflare flagship lock.</td>
+</tr>
+<tr>
+<td>S2</td>
+<td>4</td>
+<td>4+ named vendors (Arista, Bluecat, Fortinet, IBM, Netbrain, Semperis).</td>
+</tr>
+<tr>
+<td>S3</td>
+<td>4</td>
+<td>NIS2/KRITIS pipeline + OT focus = Guardicore + API Security clean fit.</td>
+</tr>
+<tr>
+<td>S4</td>
+<td>5</td>
+<td>ISG Leader DE 2025 × 4 cyber categories = regulatory thought-leader.</td>
+</tr>
+<tr>
+<td>S5</td>
+<td>3</td>
+<td>Mid Fernao integration; opportunistic moment.</td>
+</tr>
+<tr>
+<td>S6</td>
+<td>4</td>
+<td>Mid-market NIS2 + OT + KRITIS — well-aligned with Akamai gap map.</td>
+</tr>
+</tbody>
+</table>
+<p>R = 0.30·4 + 0.15·4 + 0.20·4 + 0.10·5 + 0.10·3 + 0.15·4 = 1.20 + 0.60 + 0.80 + 0.50 + 0.30 + 0.60 = <strong>4.00</strong> → bucket <strong>4</strong>. Matches File 1.</p>
+<h3 id="example-c-computacenter">Example C — Computacenter</h3>
+<table>
+<thead>
+<tr>
+<th>Sub</th>
+<th>Score</th>
+<th>Justification</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>S1</td>
+<td>1</td>
+<td>L1 (Zscaler top-3 self-attested) + L3 (Cisco × 3 + Zscaler × 1 + NetApp + NVIDIA + Nexthink) + L3 (Illumio MSP) = 3+ layers across multiple competitors.</td>
+</tr>
+<tr>
+<td>S2</td>
+<td>2</td>
+<td>2-3 anchor vendors at multi-flagship tier (Cisco + Zscaler primarily, PANW second-tier).</td>
+</tr>
+<tr>
+<td>S3</td>
+<td>2</td>
+<td>Akamai brings limited new product space; partner already covers segmentation (Illumio MSP), SASE (Zscaler), edge security (own Microsoft / NetApp).</td>
+</tr>
+<tr>
+<td>S4</td>
+<td>4</td>
+<td>ISG Leader DE 6 consecutive years; multi-narrative.</td>
+</tr>
+<tr>
+<td>S5</td>
+<td>4</td>
+<td>Track record of adding flagship vendors (NVIDIA networking POY 2026, Tanium strategic partnership Aug-2025).</td>
+</tr>
+<tr>
+<td>S6</td>
+<td>2</td>
+<td>Computacenter covers all major DACH geographies already; Akamai field has access.</td>
+</tr>
+</tbody>
+</table>
+<p>R = 0.30·1 + 0.15·2 + 0.20·2 + 0.10·4 + 0.10·4 + 0.15·2 = 0.30 + 0.30 + 0.40 + 0.40 + 0.40 + 0.30 = <strong>2.10</strong> → bucket <strong>2</strong>.</p>
+<p>But File 1 publishes Recruitability <strong>1</strong>. Override rationale: the <em>content</em> of the multi-flagship vendor portfolio (Cisco + PANW + Zscaler + Microsoft + NetApp + NVIDIA + Tanium) is so dense and the partner is so large (£9.2B group revenue) that incremental Akamai pipeline at any non-Premier-upgrade tier sits below the level of named-account decision-makers&rsquo; attention. The override moves the score down one bucket. <em>Documented; revisit if Computacenter formally upgrades the Akamai relationship beyond Select.</em></p>
+<h3 id="example-d-navixia-ecublens">Example D — Navixia (Ecublens)</h3>
+<table>
+<thead>
+<tr>
+<th>Sub</th>
+<th>Score</th>
+<th>Justification</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>S1</td>
+<td>3</td>
+<td>L3 Illumio ZTS Professional + L3 marketing as &ldquo;primary technology partner&rdquo;. 2 layers at L3 only.</td>
+</tr>
+<tr>
+<td>S2</td>
+<td>3</td>
+<td>4 named vendors (Illumio, Check Point, Cisco Security, F5, Microsoft, Quest, Thales) — multi-flagship pattern.</td>
+</tr>
+<tr>
+<td>S3</td>
+<td>2</td>
+<td>Direct substitute play with Guardicore; Romandie market may already have Check Point ZTNA preferred.</td>
+</tr>
+<tr>
+<td>S4</td>
+<td>3</td>
+<td>Swiss FINMA / FedPol regulatory narrative implied; not flagship.</td>
+</tr>
+<tr>
+<td>S5</td>
+<td>3</td>
+<td>Stable senior-professional team, no recent visible flagship vendor add.</td>
+</tr>
+<tr>
+<td>S6</td>
+<td>5</td>
+<td>Romandie geography is <em>the</em> Akamai field-coverage gap if Akamai has no Lausanne / Geneva partner above Navixia in maturity.</td>
+</tr>
+</tbody>
+</table>
+<p>R = 0.30·3 + 0.15·3 + 0.20·2 + 0.10·3 + 0.10·3 + 0.15·5 = 0.90 + 0.45 + 0.40 + 0.30 + 0.30 + 0.75 = <strong>3.10</strong> → bucket <strong>3</strong>.</p>
+<p>File 1 publishes <strong>2</strong> (Contain). The discrepancy is again a qualitative override: the <em>publicly visible</em> &ldquo;1st EMEA, 3rd globally&rdquo; Illumio ZTS Professional status is the partner&rsquo;s single largest piece of free-PR equity. Asking Navixia to compete that asset for Akamai segmentation deals would invite a public dilution that Navixia&rsquo;s senior partners are unlikely to accept inside 12 months. Override is therefore <em>time-limited</em>: revisit at next Illumio ZTS Professional re-certification cycle.</p>
+<hr />
+<h2 id="5-scoring-discipline-what-to-not-do">5. Scoring discipline — what to <em>not</em> do</h2>
+<p>The following are common biases the framework is built to suppress:</p>
+<ul>
+<li><strong>Recency bias toward award announcements.</strong> A POY award is L3 evidence, not L1 contract evidence. Do not double-count by treating the announcement as both flagship recognition and contractual depth.</li>
+<li><strong>Geographic visibility bias.</strong> A partner with a large LinkedIn following and frequent trade-press placements (e.g. KAEMI) is not more recruitable than a quieter Mittelstand systemhaus that already has whitespace in our portfolio.</li>
+<li><strong>Headcount halo bias.</strong> A 11,475-employee partner is not automatically more attractive than a 770-employee partner; the Mittelstand-fit pattern often inverts the relationship.</li>
+<li><strong>Vendor-self-attestation bias.</strong> &ldquo;Top-3 worldwide Zscaler reseller&rdquo; is self-attestation by Computacenter; the corresponding Zscaler statement is &ldquo;Premier Partner&rdquo;. The matrix records the lower of the two when both are available.</li>
+<li><strong>Distressed-target bias.</strong> Materna&rsquo;s exit from MSS (Apr-2025) makes them <em>less</em> recruitable, not more — there is no MSS channel to win pipeline through, regardless of their consulting strength. Score 2; disposition Monitor.</li>
+<li><strong>Distributor-as-partner conflation.</strong> Distributors are scored on a separate rubric (mindshare lift) because their channel economics are not symmetric with resellers / SIs.</li>
+</ul>
+<hr />
+<h2 id="6-tripwires-when-a-partners-score-should-be-reviewed">6. Tripwires — when a partner&rsquo;s score should be reviewed</h2>
+<p>A formal mid-cycle review is triggered when any of the following occur for a partner currently scored 3 or below:</p>
+<ol>
+<li>Lapse of an exclusive-tier contract (L1) — Cloudflare ASDP renewal, PANW Distributor exclusivity, Illumio Radiate re-certification, Fortinet EPSP re-certification.</li>
+<li>Public investor / equity change at the partner.</li>
+<li>Senior executive departure (named in File 2&rsquo;s leadership lines) within 90 days.</li>
+<li>Loss of an analyst leadership position (ISG Leader, Forrester Wave Leader, Gartner MQ Leader, IDC MarketScape Major Player).</li>
+<li>Vendor partner-program structural change at a competitor (Cisco 360 PVI launched Jan-2026; PANW NextWave changes; Illumio Enlighten Partner Program adjustments).</li>
+<li>Public M&amp;A or restructuring announcement at the partner&rsquo;s parent.</li>
+</ol>
+<p>For Recruitability 4-5 partners, the review cadence is quarterly regardless of tripwires.</p>
+<hr />
+<h2 id="7-distributor-specific-rubric-compact-form">7. Distributor-specific rubric (compact form)</h2>
+<p>Distributors are not scored on S1-S6; they are scored on <em>mindshare contestation</em>:</p>
+<table>
+<thead>
+<tr>
+<th>D-score</th>
+<th>Pattern</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>Vendor monolock (e.g. Exclusive Networks ↔ PANW, Westcon-Comstor ↔ Zscaler/PANW) — Akamai displacement unrealistic; Drop</td>
+</tr>
+<tr>
+<td>2</td>
+<td>Vendor preference is heavy on competitor; Akamai sits at the bottom of distributor mindshare</td>
+</tr>
+<tr>
+<td>3</td>
+<td>Multi-vendor distributor where Akamai already has named-distributor status and contested mindshare with 2-3 competitors is achievable (Infinigate, Arrow ECS CH) — Pursue mindshare lift</td>
+</tr>
+<tr>
+<td>4</td>
+<td>Akamai-preferred distributor with growing share-of-pipe</td>
+</tr>
+<tr>
+<td>5</td>
+<td>Akamai&rsquo;s distributor of choice with measurable mindshare leadership</td>
+</tr>
+</tbody>
+</table>
+<p>No DACH distributor currently sits at D-score 4 or 5; Infinigate and Arrow ECS CH are the realistic targets to lift from 3 to 4.</p>
+<p>— <em>End of File 3 of 4.</em></p>
+  </main>
+</div>
+<footer class="site-footer">
+  <p>A. Marushevsky &middot; Amsterdam &middot; All partner research is a first pass from public sources.</p>
+</footer>
+<script src="../../assets/js/sidebar.js"></script>
+</body>
+</html>

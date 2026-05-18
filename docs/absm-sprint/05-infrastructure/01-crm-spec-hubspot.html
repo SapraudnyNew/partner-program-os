@@ -1,0 +1,377 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CRM Specification — HubSpot Configuration for the Partner Intelligence Program | Partner Program OS</title>
+  <link rel="stylesheet" href="../../assets/css/main.css">
+</head>
+<body>
+<nav class="top-nav">
+  <button class="hamburger" aria-label="Toggle navigation">
+    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+  </button>
+  <a href="../../index.html" class="top-nav__logo">Partner Program <span>OS</span></a>
+  <ul class="top-nav__links">
+    <li><a href="../../index.html">Memo</a></li>
+    <li><a href="../../method/index.html">Method</a></li>
+    <li><a href="../../partner-mapping/index.html">Partners</a></li>
+    <li><a href="../../absm-sprint/index.html" class="active">ABSM</a></li>
+  </ul>
+</nav>
+<div class="sidebar-overlay"></div>
+<aside class="sidebar">
+<div class="sidebar__section">
+  <button class="sidebar__heading"><span class="caret">▼</span> Memo</button>
+  <ul class="sidebar__list"><li class="sidebar__item"><a href="../../index.html">Homepage</a></li></ul>
+</div>
+<div class="sidebar__section">
+  <button class="sidebar__heading"><span class="caret">▼</span> Method</button>
+  <ul class="sidebar__list">
+    <li class="sidebar__item"><a href="../../method/index.html">Overview</a></li>
+    <li class="sidebar__item"><a href="../../method/spider-chart.html">Spider Chart</a></li>
+    <li class="sidebar__item"><a href="../../method/scorecard-template.html">Scorecard Template</a></li>
+  </ul>
+</div>
+<div class="sidebar__section">
+  <button class="sidebar__heading"><span class="caret">▼</span> Partner Mapping</button>
+  <ul class="sidebar__list">
+    <li class="sidebar__item"><a href="../../partner-mapping/index.html">Overview</a></li>
+    <li class="sidebar__item"><a href="../../partner-mapping/dach-landscape.html">DACH Landscape</a></li>
+    <li class="sidebar__item"><a href="../../partner-mapping/pursue-five/all-five-profiles.html">Pursue Five</a></li>
+    <li class="sidebar__item"><a href="../../partner-mapping/entanglement/entanglement-matrix.html">Entanglement</a></li>
+  </ul>
+</div>
+<div class="sidebar__section">
+  <button class="sidebar__heading"><span class="caret">▼</span> ABSM Sprint</button>
+  <ul class="sidebar__list">
+    <li class="sidebar__item"><a href="../../absm-sprint/index.html">Overview</a></li>
+    <li class="sidebar__item"><a href="../../absm-sprint/01-targeting/icp-definition.html">Targeting</a></li>
+    <li class="sidebar__item"><a href="../../absm-sprint/02-strategy/sweet-spot-profile.html">Strategy</a></li>
+    <li class="sidebar__item"><a href="../../absm-sprint/03-clients/hoermann/company-brief.html">Clients</a></li>
+    <li class="sidebar__item"><a href="../../absm-sprint/05-infrastructure/crm-spec-hubspot.html">Infrastructure</a></li>
+  </ul>
+</div></aside>
+<div class="layout">
+  <main class="content">
+    <h1 class="mt-0">CRM Specification — HubSpot Configuration for the Partner Intelligence Program</h1>
+    <h1 id="crm-specification-hubspot-configuration-for-the-partner-intelligence-program">CRM Specification — HubSpot Configuration for the Partner Intelligence Program</h1>
+<blockquote>
+<p><strong>Stage 5 Infrastructure · D3-2 ABSM Sprint</strong><br />
+<strong>CRM platform:</strong> HubSpot (confirmed via cookie tracking on axians.de)<br />
+<strong>Purpose:</strong> Define the HubSpot configuration required to operationalize the PIP at Axians, including deal object structure, automation, and Akamai data ingestion.</p>
+</blockquote>
+<hr />
+<h2 id="context-why-hubspot-and-why-this-configuration">Context: Why HubSpot and Why This Configuration</h2>
+<p>Axians uses HubSpot as its primary CRM (confirmed by HubSpot cookie presence on axians.de). The PIP requires HubSpot to do three things it doesn&rsquo;t currently do:</p>
+<ol>
+<li><strong>Receive intent-signal-routed accounts</strong> from Akamai (via HubSpot API or CSV import)</li>
+<li><strong>Attach account intelligence packages</strong> to Company and Deal objects as structured data</li>
+<li><strong>Trigger cross-portfolio routing workflows</strong> when an intent-routed account matches an existing Axians customer</li>
+</ol>
+<hr />
+<h2 id="hubspot-object-model-for-the-pip">HubSpot Object Model for the PIP</h2>
+<h3 id="1-company-object-pip-specific-custom-properties">1. Company Object — PIP-Specific Custom Properties</h3>
+<p>Add the following custom properties to the HubSpot Company object:</p>
+<table>
+<thead>
+<tr>
+<th>Property name</th>
+<th>Type</th>
+<th>Values</th>
+<th>Purpose</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>pip_target</code></td>
+<td>Boolean</td>
+<td>Yes/No</td>
+<td>Whether this company is in the active PIP target universe</td>
+</tr>
+<tr>
+<td><code>pip_nis2_status</code></td>
+<td>Single-line text</td>
+<td>&ldquo;Essential entity&rdquo; / &ldquo;Important entity&rdquo; / &ldquo;Unclear&rdquo; / &ldquo;Not in scope&rdquo;</td>
+<td>NIS2 classification</td>
+</tr>
+<tr>
+<td><code>pip_axians_relationship</code></td>
+<td>Dropdown</td>
+<td>&ldquo;None&rdquo; / &ldquo;NEO Solutions&rdquo; / &ldquo;IT Security&rdquo; / &ldquo;Network&rdquo; / &ldquo;Cloud&rdquo; / &ldquo;Multiple&rdquo;</td>
+<td>Existing Axians portfolio engagement</td>
+</tr>
+<tr>
+<td><code>pip_primary_contact_linkedin</code></td>
+<td>URL</td>
+<td>LinkedIn profile URL</td>
+<td>CISO / IT Security lead verified contact</td>
+</tr>
+<tr>
+<td><code>pip_intent_score</code></td>
+<td>Number (0–100)</td>
+<td>Akamai 6sense composite score</td>
+<td>Monthly update from Akamai</td>
+</tr>
+<tr>
+<td><code>pip_triple_obligation</code></td>
+<td>Checkbox list</td>
+<td>NIS2 / KRITIS cascade / TISAX</td>
+<td>Which obligation layers apply</td>
+</tr>
+<tr>
+<td><code>pip_incumbent_seg_vendor</code></td>
+<td>Single-line text</td>
+<td>e.g., &ldquo;Illumio&rdquo;, &ldquo;None known&rdquo;, &ldquo;NSX&rdquo;</td>
+<td>Known competitive situation</td>
+</tr>
+<tr>
+<td><code>pip_intel_kit_url</code></td>
+<td>URL</td>
+<td>Link to account intel folder</td>
+<td>Axians-accessible drive link</td>
+</tr>
+</tbody>
+</table>
+<h3 id="2-deal-object-pip-deal-stage-mapping">2. Deal Object — PIP Deal Stage Mapping</h3>
+<p>Map the PIP buying stages to HubSpot deal stages in the IT Security pipeline:</p>
+<table>
+<thead>
+<tr>
+<th>HubSpot Stage</th>
+<th>PIP Stage</th>
+<th>Exit criteria</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>PIP Routed</td>
+<td>0 — Unaware</td>
+<td>Account intel kit assigned; AE reviewed</td>
+</tr>
+<tr>
+<td>First Contact Sent</td>
+<td>1 — Aware</td>
+<td>First LinkedIn/email touch sent</td>
+</tr>
+<tr>
+<td>Meeting Booked</td>
+<td>1→2 — Considering</td>
+<td>Meeting confirmed in calendar</td>
+</tr>
+<tr>
+<td>Discovery Complete</td>
+<td>2 — Considering</td>
+<td>Pain confirmed; budget holder identified</td>
+</tr>
+<tr>
+<td>POC Proposed</td>
+<td>2→3 — Evaluating</td>
+<td>POC scope doc sent and under review</td>
+</tr>
+<tr>
+<td>POC In Progress</td>
+<td>3 — Evaluating</td>
+<td>Guardicore deployed in test environment</td>
+</tr>
+<tr>
+<td>Business Case Submitted</td>
+<td>3→4 — Deciding</td>
+<td>Formal ROI doc submitted to CFO/CIO</td>
+</tr>
+<tr>
+<td>Verbal Commit</td>
+<td>4 — Deciding</td>
+<td>Verbal approval from budget holder</td>
+</tr>
+<tr>
+<td>Closed Won</td>
+<td>5 — Live</td>
+<td>Contract signed; deployment started</td>
+</tr>
+<tr>
+<td>Closed Lost</td>
+<td>—</td>
+<td>Record reason: Illumio / No budget / Timing / Other</td>
+</tr>
+</tbody>
+</table>
+<p>Custom deal properties to add:</p>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Type</th>
+<th>Purpose</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>pip_account_type</code></td>
+<td>Dropdown</td>
+<td>&ldquo;Warm path (cross-portfolio)&rdquo; / &ldquo;Cold (direct)&rdquo; / &ldquo;Showcase&rdquo;</td>
+</tr>
+<tr>
+<td><code>pip_guardicore_arp</code></td>
+<td>Currency</td>
+<td>Annual recurring price agreed</td>
+</tr>
+<tr>
+<td><code>pip_deployment_scope</code></td>
+<td>Multi-select</td>
+<td>&ldquo;Germany only&rdquo; / &ldquo;EU&rdquo; / &ldquo;Global&rdquo; / &ldquo;OT only&rdquo; / &ldquo;IT + OT&rdquo;</td>
+</tr>
+<tr>
+<td><code>pip_axians_portfolio_referrer</code></td>
+<td>Single-line text</td>
+<td>Which Axians portfolio made the intro (e.g., &ldquo;NEO Solutions — Hörmann&rdquo;)</td>
+</tr>
+</tbody>
+</table>
+<h3 id="3-association-company-axians-account-manager">3. Association: Company → Axians Account Manager</h3>
+<p>For cross-portfolio routing, create an Association between the Company object and the Axians employee who currently manages the relationship:</p>
+<ul>
+<li><code>axians_neo_am</code> — User lookup (Axians NEO account manager)</li>
+<li><code>axians_it_security_ae</code> — User lookup (IT Security AE assigned)</li>
+</ul>
+<p>This enables automated notification workflows.</p>
+<hr />
+<h2 id="automation-workflows">Automation Workflows</h2>
+<h3 id="workflow-1-monthly-pip-account-import">Workflow 1 — Monthly PIP Account Import</h3>
+<p><strong>Trigger:</strong> Akamai delivers &ldquo;Hot 20 DACH Accounts&rdquo; CSV on the first business day of each month.</p>
+<p><strong>Steps:</strong><br />
+1. Import CSV via HubSpot API (<code>/crm/v3/objects/companies</code>) — creates or updates Company objects<br />
+2. Set <code>pip_target = Yes</code> and <code>pip_intent_score</code> from import<br />
+3. Check if <code>pip_axians_relationship</code> ≠ &ldquo;None&rdquo; — if match found, trigger Workflow 2<br />
+4. Enroll all new PIP-target companies in Deal pipeline at stage &ldquo;PIP Routed&rdquo;<br />
+5. Assign <code>axians_it_security_ae</code> based on account geography (NRW accounts → NRW AE, BW accounts → BW AE, etc.)<br />
+6. Send AE notification email with link to account intel kit</p>
+<h3 id="workflow-2-cross-portfolio-routing-alert">Workflow 2 — Cross-Portfolio Routing Alert</h3>
+<p><strong>Trigger:</strong> Company object has both <code>pip_target = Yes</code> AND <code>pip_axians_relationship</code> ≠ &ldquo;None&rdquo;</p>
+<p><strong>Steps:</strong><br />
+1. Email to <code>axians_it_security_ae</code> AND <code>axians_neo_am</code> simultaneously<br />
+2. Subject: &ldquo;PIP Cross-Portfolio Alert: [Company Name] — existing relationship + Guardicore opportunity&rdquo;<br />
+3. Body includes: company name, NIS2 status, triple obligation flags, existing relationship type, primary CISO contact name<br />
+4. Creates a shared task: &ldquo;Schedule cross-portfolio intro call within 10 business days&rdquo;<br />
+5. Logs all activities on the Company object timeline</p>
+<h3 id="workflow-3-poc-milestone-notification">Workflow 3 — POC Milestone Notification</h3>
+<p><strong>Trigger:</strong> Deal stage moves to &ldquo;POC In Progress&rdquo;</p>
+<p><strong>Steps:</strong><br />
+1. Notify Akamai overlay (channel manager) via email<br />
+2. Create 30-day countdown task: &ldquo;POC review meeting with [Company Name] + [CISO contact]&rdquo;<br />
+3. Attach Guardicore POC documentation kit from linked Google Drive<br />
+4. Set deal <code>closedate</code> = 90 days from POC start (default close timeline)</p>
+<h3 id="workflow-4-competitive-alert">Workflow 4 — Competitive Alert</h3>
+<p><strong>Trigger:</strong> <code>pip_incumbent_seg_vendor</code> updated to &ldquo;Illumio&rdquo;</p>
+<p><strong>Steps:</strong><br />
+1. Notify AE: &ldquo;Competitive deal — Illumio identified at [Company Name]&rdquo;<br />
+2. Attach competitive battlecard (PDF-07 link)<br />
+3. Tag deal with <code>competitive = True</code> for pipeline reporting<br />
+4. Alert Axians IT Security practice lead for deal support</p>
+<hr />
+<h2 id="account-intel-kit-attachment-structure">Account Intel Kit — Attachment Structure</h2>
+<p>For each PIP account, create a Google Drive folder and link it via <code>pip_intel_kit_url</code>:</p>
+<pre><code>[COMPANY NAME] — Guardicore PIP Kit/
+├── 01-company-brief.md
+├── 02-pain-map.md
+├── 03-relationship-map.md
+├── 04-axians-connection.md
+├── XX-executive-brief.pdf       (Stage 4 PDF)
+├── ASSETS/
+│   ├── 01-nis2-segmentation-brief.pdf
+│   ├── 02-triple-obligation-poster.pdf
+│   └── [other relevant Stage 4 PDFs]
+└── OUTREACH/
+    └── email-sequence.txt
+</code></pre>
+<p>This structure mirrors the ABSM sprint deliverable format exactly.</p>
+<hr />
+<h2 id="reporting-dashboard-hubspot">Reporting Dashboard (HubSpot)</h2>
+<p>Create a PIP Pipeline dashboard with the following reports:</p>
+<table>
+<thead>
+<tr>
+<th>Report</th>
+<th>Metric</th>
+<th>Filter</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>PIP Funnel</td>
+<td>Count of deals per stage</td>
+<td><code>pip_target = Yes</code></td>
+</tr>
+<tr>
+<td>Cross-portfolio velocity</td>
+<td>Time from &ldquo;PIP Routed&rdquo; to &ldquo;Meeting Booked&rdquo;</td>
+<td><code>pip_account_type = Warm path</code></td>
+</tr>
+<tr>
+<td>Cold vs warm conversion</td>
+<td>% of warm-path vs cold accounts reaching POC</td>
+<td>Both types</td>
+</tr>
+<tr>
+<td>Intent score distribution</td>
+<td>Histogram of <code>pip_intent_score</code></td>
+<td>All PIP accounts</td>
+</tr>
+<tr>
+<td>ARR by deal type</td>
+<td>Sum of <code>pip_guardicore_arp</code></td>
+<td>Won deals only</td>
+</tr>
+<tr>
+<td>Competitive loss rate</td>
+<td>% lost to Illumio</td>
+<td><code>competitive = True</code>, <code>Closed Lost</code></td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="implementation-timeline">Implementation Timeline</h2>
+<table>
+<thead>
+<tr>
+<th>Week</th>
+<th>Activity</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>Add custom properties to Company and Deal objects</td>
+</tr>
+<tr>
+<td>2</td>
+<td>Configure deal pipeline stages</td>
+</tr>
+<tr>
+<td>3</td>
+<td>Build Workflows 1–4 and test with sample data</td>
+</tr>
+<tr>
+<td>4</td>
+<td>Connect Akamai 6sense API (or set up CSV import routine)</td>
+</tr>
+<tr>
+<td>5</td>
+<td>Create reporting dashboard; train AEs</td>
+</tr>
+<tr>
+<td>6</td>
+<td>First live monthly import — &ldquo;Hot 20 DACH Accounts&rdquo;</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<p><strong>End of CRM specification.</strong></p>
+  </main>
+</div>
+<footer class="site-footer">
+  <p>A. Marushevsky &middot; Amsterdam &middot; All partner research is a first pass from public sources.</p>
+</footer>
+<script src="../../assets/js/sidebar.js"></script>
+</body>
+</html>

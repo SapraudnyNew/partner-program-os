@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CRM Specification — HubSpot (Axians ABSM Program) | Partner Program OS</title>
+  <link rel="stylesheet" href="../../assets/css/main.css">
+</head>
+<body>
+<nav class="top-nav">
+  <button class="hamburger" aria-label="Toggle navigation">
+    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+  </button>
+  <a href="../../index.html" class="top-nav__logo">Partner Program <span>OS</span></a>
+  <ul class="top-nav__links">
+    <li><a href="../../index.html">Memo</a></li>
+    <li><a href="../../method/index.html">Method</a></li>
+    <li><a href="../../partner-mapping/index.html">Partners</a></li>
+    <li><a href="../../absm-sprint/index.html" class="active">ABSM</a></li>
+  </ul>
+</nav>
+<div class="sidebar-overlay"></div>
+<aside class="sidebar">
+<div class="sidebar__section">
+  <button class="sidebar__heading"><span class="caret">▼</span> Memo</button>
+  <ul class="sidebar__list"><li class="sidebar__item"><a href="../../index.html">Homepage</a></li></ul>
+</div>
+<div class="sidebar__section">
+  <button class="sidebar__heading"><span class="caret">▼</span> Method</button>
+  <ul class="sidebar__list">
+    <li class="sidebar__item"><a href="../../method/index.html">Overview</a></li>
+    <li class="sidebar__item"><a href="../../method/spider-chart.html">Spider Chart</a></li>
+    <li class="sidebar__item"><a href="../../method/scorecard-template.html">Scorecard Template</a></li>
+  </ul>
+</div>
+<div class="sidebar__section">
+  <button class="sidebar__heading"><span class="caret">▼</span> Partner Mapping</button>
+  <ul class="sidebar__list">
+    <li class="sidebar__item"><a href="../../partner-mapping/index.html">Overview</a></li>
+    <li class="sidebar__item"><a href="../../partner-mapping/dach-landscape.html">DACH Landscape</a></li>
+    <li class="sidebar__item"><a href="../../partner-mapping/pursue-five/all-five-profiles.html">Pursue Five</a></li>
+    <li class="sidebar__item"><a href="../../partner-mapping/entanglement/entanglement-matrix.html">Entanglement</a></li>
+  </ul>
+</div>
+<div class="sidebar__section">
+  <button class="sidebar__heading"><span class="caret">▼</span> ABSM Sprint</button>
+  <ul class="sidebar__list">
+    <li class="sidebar__item"><a href="../../absm-sprint/index.html">Overview</a></li>
+    <li class="sidebar__item"><a href="../../absm-sprint/01-targeting/icp-definition.html">Targeting</a></li>
+    <li class="sidebar__item"><a href="../../absm-sprint/02-strategy/sweet-spot-profile.html">Strategy</a></li>
+    <li class="sidebar__item"><a href="../../absm-sprint/03-clients/hoermann/company-brief.html">Clients</a></li>
+    <li class="sidebar__item"><a href="../../absm-sprint/05-infrastructure/crm-spec-hubspot.html">Infrastructure</a></li>
+  </ul>
+</div></aside>
+<div class="layout">
+  <main class="content">
+    <h1 class="mt-0">CRM Specification — HubSpot (Axians ABSM Program)</h1>
+    <h1 id="crm-specification-hubspot-axians-absm-program">CRM Specification — HubSpot (Axians ABSM Program)</h1>
+<hr />
+<h2 id="pipeline-structure">Pipeline structure</h2>
+<p><strong>Pipeline name:</strong> Axians–Akamai Guardicore</p>
+<table>
+<thead>
+<tr>
+<th>Stage</th>
+<th>Probability</th>
+<th>Definition</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Identified</td>
+<td>5%</td>
+<td>Account in program; no contact yet</td>
+</tr>
+<tr>
+<td>Contacted</td>
+<td>10%</td>
+<td>First outreach sent</td>
+</tr>
+<tr>
+<td>Meeting scheduled</td>
+<td>20%</td>
+<td>Call or meeting confirmed</td>
+</tr>
+<tr>
+<td>Technical briefing</td>
+<td>35%</td>
+<td>Technical session completed; interest confirmed</td>
+</tr>
+<tr>
+<td>POC proposed</td>
+<td>50%</td>
+<td>POC proposal submitted or agreed</td>
+</tr>
+<tr>
+<td>POC in progress</td>
+<td>65%</td>
+<td>Active POC running</td>
+</tr>
+<tr>
+<td>Proposal submitted</td>
+<td>75%</td>
+<td>Commercial proposal sent</td>
+</tr>
+<tr>
+<td>Verbal yes</td>
+<td>85%</td>
+<td>Verbal commitment; legal review</td>
+</tr>
+<tr>
+<td>Closed won</td>
+<td>100%</td>
+<td>Signed</td>
+</tr>
+<tr>
+<td>Closed lost</td>
+<td>0%</td>
+<td>Opportunity ended</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="custom-properties-deal-level">Custom properties (deal level)</h2>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Type</th>
+<th>Options</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>ICP score</td>
+<td>Number</td>
+<td>0–30</td>
+</tr>
+<tr>
+<td>Primary trigger</td>
+<td>Dropdown</td>
+<td>NIS2 / TISAX / Post-incident / OT convergence / SAP migration</td>
+</tr>
+<tr>
+<td>Guardicore deployment scope</td>
+<td>Text</td>
+<td>OT-only / IT-only / Hybrid</td>
+</tr>
+<tr>
+<td>Competitor at account</td>
+<td>Dropdown</td>
+<td>Illumio / PANW / Cisco / None / Unknown</td>
+</tr>
+<tr>
+<td>MDF activated</td>
+<td>Yes/No</td>
+<td>—</td>
+</tr>
+<tr>
+<td>MDF amount (€)</td>
+<td>Number</td>
+<td>—</td>
+</tr>
+<tr>
+<td>Partner (Axians rep)</td>
+<td>Contact</td>
+<td>—</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="custom-properties-contact-level">Custom properties (contact level)</h2>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Type</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Decision-making role</td>
+<td>Dropdown: CISO / CIO / Security Architect / Champion / Influencer</td>
+</tr>
+<tr>
+<td>NIS2 awareness level</td>
+<td>Dropdown: None / Aware / Actively addressing / Compliance project active</td>
+</tr>
+<tr>
+<td>TISAX status</td>
+<td>Dropdown: Not applicable / Required / Audit scheduled / Certified</td>
+</tr>
+<tr>
+<td>Last meaningful interaction</td>
+<td>Date</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="reporting-views">Reporting views</h2>
+<ol>
+<li><strong>Pipeline by stage</strong> — where are the 4 accounts right now</li>
+<li><strong>Activity by rep</strong> — calls, emails, meetings per week</li>
+<li><strong>Content engagement</strong> — which PDFs/briefs were shared and opened (HubSpot tracking)</li>
+<li><strong>MDF ROI</strong> — cost per meeting, cost per opportunity, cost per closed deal</li>
+</ol>
+<hr />
+<h2 id="integration-requirements">Integration requirements</h2>
+<ul>
+<li><strong>Akamai Partner Hub:</strong> Sync deal registrations from HubSpot to Akamai deal registration system</li>
+<li><strong>Email tracking:</strong> HubSpot email open/click tracking enabled for all program outreach</li>
+<li><strong>Meeting scheduling:</strong> Calendly or HubSpot Meeting Links for first meeting booking</li>
+</ul>
+<hr />
+<p><em>May 2026 · Spec for Axians HubSpot instance setup</em></p>
+  </main>
+</div>
+<footer class="site-footer">
+  <p>A. Marushevsky &middot; Amsterdam &middot; All partner research is a first pass from public sources.</p>
+</footer>
+<script src="../../assets/js/sidebar.js"></script>
+</body>
+</html>

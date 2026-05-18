@@ -1,0 +1,312 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>02 · Scoring Matrix | Partner Program OS</title>
+  <link rel="stylesheet" href="../../assets/css/main.css">
+</head>
+<body>
+<nav class="top-nav">
+  <button class="hamburger" aria-label="Toggle navigation">
+    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+  </button>
+  <a href="../../index.html" class="top-nav__logo">Partner Program <span>OS</span></a>
+  <ul class="top-nav__links">
+    <li><a href="../../index.html">Memo</a></li>
+    <li><a href="../../method/index.html">Method</a></li>
+    <li><a href="../../partner-mapping/index.html">Partners</a></li>
+    <li><a href="../../absm-sprint/index.html" class="active">ABSM</a></li>
+  </ul>
+</nav>
+<div class="sidebar-overlay"></div>
+<aside class="sidebar">
+<div class="sidebar__section">
+  <button class="sidebar__heading"><span class="caret">▼</span> Memo</button>
+  <ul class="sidebar__list"><li class="sidebar__item"><a href="../../index.html">Homepage</a></li></ul>
+</div>
+<div class="sidebar__section">
+  <button class="sidebar__heading"><span class="caret">▼</span> Method</button>
+  <ul class="sidebar__list">
+    <li class="sidebar__item"><a href="../../method/index.html">Overview</a></li>
+    <li class="sidebar__item"><a href="../../method/spider-chart.html">Spider Chart</a></li>
+    <li class="sidebar__item"><a href="../../method/scorecard-template.html">Scorecard Template</a></li>
+  </ul>
+</div>
+<div class="sidebar__section">
+  <button class="sidebar__heading"><span class="caret">▼</span> Partner Mapping</button>
+  <ul class="sidebar__list">
+    <li class="sidebar__item"><a href="../../partner-mapping/index.html">Overview</a></li>
+    <li class="sidebar__item"><a href="../../partner-mapping/dach-landscape.html">DACH Landscape</a></li>
+    <li class="sidebar__item"><a href="../../partner-mapping/pursue-five/all-five-profiles.html">Pursue Five</a></li>
+    <li class="sidebar__item"><a href="../../partner-mapping/entanglement/entanglement-matrix.html">Entanglement</a></li>
+  </ul>
+</div>
+<div class="sidebar__section">
+  <button class="sidebar__heading"><span class="caret">▼</span> ABSM Sprint</button>
+  <ul class="sidebar__list">
+    <li class="sidebar__item"><a href="../../absm-sprint/index.html">Overview</a></li>
+    <li class="sidebar__item"><a href="../../absm-sprint/01-targeting/icp-definition.html">Targeting</a></li>
+    <li class="sidebar__item"><a href="../../absm-sprint/02-strategy/sweet-spot-profile.html">Strategy</a></li>
+    <li class="sidebar__item"><a href="../../absm-sprint/03-clients/hoermann/company-brief.html">Clients</a></li>
+    <li class="sidebar__item"><a href="../../absm-sprint/05-infrastructure/crm-spec-hubspot.html">Infrastructure</a></li>
+  </ul>
+</div></aside>
+<div class="layout">
+  <main class="content">
+    <h1 class="mt-0">02 · Scoring Matrix</h1>
+    <h1 id="02-scoring-matrix">02 · Scoring Matrix</h1>
+<blockquote>
+<p><strong>Stage 1 deliverable</strong> · D3-2 ABSM Sprint<br />
+<strong>Purpose:</strong> Translate ICP into a numerical scoring system. Apply to longlist → produce shortlist.</p>
+</blockquote>
+<hr />
+<h2 id="scoring-philosophy">Scoring Philosophy</h2>
+<p>Five criteria, each scored <strong>0–5</strong>, with explicit weights. Maximum raw score: 100 points.</p>
+<p><strong>Design principles:</strong><br />
+1. Weights reflect business value to Axians + Akamai, not just data availability<br />
+2. NIS2 obligation strength is the strongest signal (highest weight) — it&rsquo;s both regulatory pressure and budget-unlocking<br />
+3. OT/IT convergence is the second-strongest — it&rsquo;s the actual technical fit for Guardicore<br />
+4. Axians reachability is meaningful but not dispositive — a perfect-fit account with no Axians relationship is still worth pursuing<br />
+5. Public cyber incident history is weighted carefully — too high and we punish quiet competence</p>
+<hr />
+<h2 id="the-five-criteria">The Five Criteria</h2>
+<h3 id="criterion-1-nis2-obligation-strength-weight-25">Criterion 1 — NIS2 Obligation Strength <strong>(weight: 25%)</strong></h3>
+<p>How clearly is this company an obligated entity under the German NIS2 Implementation Act, and how much regulatory pressure are they under right now?</p>
+<table>
+<thead>
+<tr>
+<th>Score</th>
+<th>Definition</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>5</td>
+<td>Clearly an <strong>essential entity</strong> (large company, mechanical engineering, motor vehicle, medical device, or electrical equipment manufacturer); explicit public NIS2 statements or registration confirmed</td>
+</tr>
+<tr>
+<td>4</td>
+<td>Almost certainly <strong>important entity</strong>; sector explicitly in scope, size threshold cleared; some public NIS2 discussion</td>
+</tr>
+<tr>
+<td>3</td>
+<td>Likely in scope (sector match, size cleared); no public NIS2 statements yet</td>
+</tr>
+<tr>
+<td>2</td>
+<td>Probably in scope but boundary case (sector adjacent, size near threshold)</td>
+</tr>
+<tr>
+<td>1</td>
+<td>Marginal applicability (e.g. small subsidiary of foreign parent)</td>
+</tr>
+<tr>
+<td>0</td>
+<td>Not in NIS2 scope</td>
+</tr>
+</tbody>
+</table>
+<h3 id="criterion-2-otit-convergence-level-weight-25">Criterion 2 — OT/IT Convergence Level <strong>(weight: 25%)</strong></h3>
+<p>How real is the operational technology footprint, and how exposed is it to lateral movement from the corporate network?</p>
+<table>
+<thead>
+<tr>
+<th>Score</th>
+<th>Definition</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>5</td>
+<td>Heavy OT footprint (multiple plants, connected machinery, public Industrie 4.0 strategy, IoT platform, smart factory initiative); known IT/OT integration projects</td>
+</tr>
+<tr>
+<td>4</td>
+<td>Significant OT footprint (1+ plant, connected production, machine-to-cloud telemetry); digital-transformation projects visible</td>
+</tr>
+<tr>
+<td>3</td>
+<td>Standard manufacturing OT (PLCs, SCADA in plant, but limited cloud integration); minimal public Industrie 4.0 narrative</td>
+</tr>
+<tr>
+<td>2</td>
+<td>Light OT (assembly only, mostly office IT environment)</td>
+</tr>
+<tr>
+<td>1</td>
+<td>Very light (light assembly or distribution only)</td>
+</tr>
+<tr>
+<td>0</td>
+<td>No OT footprint</td>
+</tr>
+</tbody>
+</table>
+<h3 id="criterion-3-revenue-band-fit-weight-20">Criterion 3 — Revenue Band Fit <strong>(weight: 20%)</strong></h3>
+<p>How well does the company sit in the €100M–€2B, 1K–10K employee sweet spot for partner-led motion?</p>
+<table>
+<thead>
+<tr>
+<th>Score</th>
+<th>Definition</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>5</td>
+<td>€300M–€1B revenue, 2,000–6,000 employees — the platonic sweet spot</td>
+</tr>
+<tr>
+<td>4</td>
+<td>€100M–€300M or €1B–€1.5B; 1,500–8,000 employees — solid fit</td>
+</tr>
+<tr>
+<td>3</td>
+<td>At the edges of the band (€100M–€150M or €1.5B–€2B)</td>
+</tr>
+<tr>
+<td>2</td>
+<td>Just outside the band but compelling (€2B–€2.5B and strong other signals, or €80M–€100M and strong other signals)</td>
+</tr>
+<tr>
+<td>1</td>
+<td>Outside the band, included only for showcase or special reason</td>
+</tr>
+<tr>
+<td>0</td>
+<td>Far outside band, not viable</td>
+</tr>
+</tbody>
+</table>
+<h3 id="criterion-4-axians-reachability-weight-15">Criterion 4 — Axians Reachability <strong>(weight: 15%)</strong></h3>
+<p>How warm is the path from Axians&rsquo; first call to a meaningful conversation?</p>
+<table>
+<thead>
+<tr>
+<th>Score</th>
+<th>Definition</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>5</td>
+<td>Existing public Axians or VINCI Energies customer relationship (Axians.de reference, joint case study, joint event with leadership visibility)</td>
+</tr>
+<tr>
+<td>4</td>
+<td>Sister-brand relationship (Actemium, Omexom, VINCI Facilities) or close geographic proximity to an Axians office + plant in same Bundesland</td>
+</tr>
+<tr>
+<td>3</td>
+<td>Public co-attendance at industry events with Axians (Hannover Messe, it-sa); LinkedIn second-degree connections likely</td>
+</tr>
+<tr>
+<td>2</td>
+<td>No known relationship but geographic match (plant near Axians office)</td>
+</tr>
+<tr>
+<td>1</td>
+<td>No known signal but reachable via cold outreach</td>
+</tr>
+<tr>
+<td>0</td>
+<td>Hostile signal — known competitor relationship, prior Axians escalation, public preference for other ICT integrator</td>
+</tr>
+</tbody>
+</table>
+<h3 id="criterion-5-security-posture-signals-weight-15">Criterion 5 — Security Posture Signals <strong>(weight: 15%)</strong></h3>
+<p>Are there public signals that the company is <em>aware</em> and <em>willing</em> — not necessarily that they&rsquo;ve already been breached?</p>
+<table>
+<thead>
+<tr>
+<th>Score</th>
+<th>Definition</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>5</td>
+<td>Multiple recent signals: CISO hiring posts, cybersecurity job postings, public statements on NIS2/Zero Trust/OT security, recent supplier or peer breach disclosure</td>
+</tr>
+<tr>
+<td>4</td>
+<td>One or two strong signals (recent CISO hire, public OT security commentary, NIS2 ISMS project)</td>
+</tr>
+<tr>
+<td>3</td>
+<td>General digital-transformation signals + sector peer pressure, but nothing security-specific</td>
+</tr>
+<tr>
+<td>2</td>
+<td>Quiet on security topics publicly</td>
+</tr>
+<tr>
+<td>1</td>
+<td>Very quiet, no public signals at all (still viable but harder to time)</td>
+</tr>
+<tr>
+<td>0</td>
+<td>Public statements of &ldquo;we have it covered&rdquo; or recent vendor commitment to a competitor</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Note on this criterion:</strong> Companies that have <em>suffered</em> a public breach are not penalized — they&rsquo;re sometimes the highest-converting prospects post-incident. But the cost is awkward outreach. We let the intel stage (Stage 2) decide how to handle.</p>
+<hr />
+<h2 id="the-math">The Math</h2>
+<pre><code>Total Score = (C1 × 0.25) + (C2 × 0.25) + (C3 × 0.20) + (C4 × 0.15) + (C5 × 0.15)
+            × 20    [to express as percentage]
+</code></pre>
+<p><strong>Maximum possible:</strong> 100 (every criterion at 5)<br />
+<strong>Strong shortlist threshold:</strong> ≥ 70<br />
+<strong>Final 3 cutoff:</strong> typically ≥ 75 with positive Stage 2 verification</p>
+<hr />
+<h2 id="cross-cutting-tiebreakers">Cross-Cutting Tiebreakers</h2>
+<p>When two accounts tie on total score, prefer the one that:<br />
+1. Has stronger NIS2-obligation pressure (more time-sensitive deal)<br />
+2. Has clearer Axians warm-path (faster execution)<br />
+3. Has more accessible identifiable CISO/CTO (more actionable outreach)<br />
+4. Is geographically closer to an Axians SOC (Hamburg, Ulm) — easier service delivery<br />
+5. Has a Bundesland match with VINCI Energies branch density</p>
+<hr />
+<h2 id="what-this-matrix-does-not-score">What This Matrix Does Not Score</h2>
+<p>By design, this scoring system <strong>does not</strong> include:</p>
+<ul>
+<li><strong>Intent signals</strong> — explicitly excluded per Decision D-03 (intent is a separate hypothesis overlay, not a scoring dimension)</li>
+<li><strong>Deal size estimates</strong> — handled in Stage 4 business cases</li>
+<li><strong>Competitive incumbency depth</strong> — handled in Stage 2 tech-stack intel</li>
+<li><strong>Buying committee complexity</strong> — handled in Stage 2 relationship map</li>
+</ul>
+<p>Keeping the matrix to five criteria makes it readable, defensible, and easy to audit. More criteria would create the illusion of precision without adding signal.</p>
+<hr />
+<h2 id="validation-check-sanity-examples">Validation Check (sanity examples)</h2>
+<p>To verify the matrix discriminates well, here&rsquo;s how three reference profiles would score:</p>
+<h3 id="example-a-strong-fit">Example A — Strong fit</h3>
+<ul>
+<li>&ldquo;€800M family-owned automotive supplier, 5,000 employees, NRW; smart factory press releases; recent CISO LinkedIn post; uses Actemium for automation&rdquo;</li>
+<li>C1: 5 (clear NIS2), C2: 5 (heavy OT), C3: 5 (sweet spot), C4: 4 (Actemium link), C5: 5 (strong signals)</li>
+<li><strong>Score: (5×0.25 + 5×0.25 + 5×0.20 + 4×0.15 + 5×0.15) × 20 = 96</strong></li>
+</ul>
+<h3 id="example-b-borderline">Example B — Borderline</h3>
+<ul>
+<li>&ldquo;€200M instrumentation maker, 1,500 employees, BW; very quiet publicly; no known Axians relationship&rdquo;</li>
+<li>C1: 3, C2: 3, C3: 4, C4: 1, C5: 1</li>
+<li><strong>Score: (3×0.25 + 3×0.25 + 4×0.20 + 1×0.15 + 1×0.15) × 20 = 52</strong></li>
+</ul>
+<h3 id="example-c-showcase-trumpf-like">Example C — Showcase (Trumpf-like)</h3>
+<ul>
+<li>&ldquo;€5.4B family-owned machine tools, 20,000 employees, BW; Industrie 4.0 leader; CISO publicly identified; no Axians relationship&rdquo;</li>
+<li>C1: 5, C2: 5, C3: 2 (above band), C4: 1, C5: 4</li>
+<li><strong>Score: (5×0.25 + 5×0.25 + 2×0.20 + 1×0.15 + 4×0.15) × 20 = 73</strong></li>
+</ul>
+<p>The matrix correctly identifies Example A as the strongest fit, Example B as borderline, and Example C (Trumpf-like) as score-eligible but flagged by the revenue-band criterion as out-of-standard for partner-led motion. This is the intended behavior — Trumpf is included by <strong>editorial decision</strong> as the showcase, not by matrix-forced ranking.</p>
+<hr />
+<p><strong>End of Stage 1.2.</strong> Longlist research next.</p>
+  </main>
+</div>
+<footer class="site-footer">
+  <p>A. Marushevsky &middot; Amsterdam &middot; All partner research is a first pass from public sources.</p>
+</footer>
+<script src="../../assets/js/sidebar.js"></script>
+</body>
+</html>

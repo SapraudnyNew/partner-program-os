@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>01 · ICP Definition | Partner Program OS</title>
+  <link rel="stylesheet" href="../../assets/css/main.css">
+</head>
+<body>
+<nav class="top-nav">
+  <button class="hamburger" aria-label="Toggle navigation">
+    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+  </button>
+  <a href="../../index.html" class="top-nav__logo">Partner Program <span>OS</span></a>
+  <ul class="top-nav__links">
+    <li><a href="../../index.html">Memo</a></li>
+    <li><a href="../../method/index.html">Method</a></li>
+    <li><a href="../../partner-mapping/index.html">Partners</a></li>
+    <li><a href="../../absm-sprint/index.html" class="active">ABSM</a></li>
+  </ul>
+</nav>
+<div class="sidebar-overlay"></div>
+<aside class="sidebar">
+<div class="sidebar__section">
+  <button class="sidebar__heading"><span class="caret">▼</span> Memo</button>
+  <ul class="sidebar__list"><li class="sidebar__item"><a href="../../index.html">Homepage</a></li></ul>
+</div>
+<div class="sidebar__section">
+  <button class="sidebar__heading"><span class="caret">▼</span> Method</button>
+  <ul class="sidebar__list">
+    <li class="sidebar__item"><a href="../../method/index.html">Overview</a></li>
+    <li class="sidebar__item"><a href="../../method/spider-chart.html">Spider Chart</a></li>
+    <li class="sidebar__item"><a href="../../method/scorecard-template.html">Scorecard Template</a></li>
+  </ul>
+</div>
+<div class="sidebar__section">
+  <button class="sidebar__heading"><span class="caret">▼</span> Partner Mapping</button>
+  <ul class="sidebar__list">
+    <li class="sidebar__item"><a href="../../partner-mapping/index.html">Overview</a></li>
+    <li class="sidebar__item"><a href="../../partner-mapping/dach-landscape.html">DACH Landscape</a></li>
+    <li class="sidebar__item"><a href="../../partner-mapping/pursue-five/all-five-profiles.html">Pursue Five</a></li>
+    <li class="sidebar__item"><a href="../../partner-mapping/entanglement/entanglement-matrix.html">Entanglement</a></li>
+  </ul>
+</div>
+<div class="sidebar__section">
+  <button class="sidebar__heading"><span class="caret">▼</span> ABSM Sprint</button>
+  <ul class="sidebar__list">
+    <li class="sidebar__item"><a href="../../absm-sprint/index.html">Overview</a></li>
+    <li class="sidebar__item"><a href="../../absm-sprint/01-targeting/icp-definition.html">Targeting</a></li>
+    <li class="sidebar__item"><a href="../../absm-sprint/02-strategy/sweet-spot-profile.html">Strategy</a></li>
+    <li class="sidebar__item"><a href="../../absm-sprint/03-clients/hoermann/company-brief.html">Clients</a></li>
+    <li class="sidebar__item"><a href="../../absm-sprint/05-infrastructure/crm-spec-hubspot.html">Infrastructure</a></li>
+  </ul>
+</div></aside>
+<div class="layout">
+  <main class="content">
+    <h1 class="mt-0">01 · ICP Definition</h1>
+    <h1 id="01-icp-definition">01 · ICP Definition</h1>
+<blockquote>
+<p><strong>Stage 1 deliverable</strong> · D3-2 ABSM Sprint<br />
+<strong>Purpose:</strong> Define exactly which companies belong in the target universe before scoring begins.</p>
+</blockquote>
+<hr />
+<h2 id="operational-frame-how-this-icp-plugs-into-the-partner-intelligence-program">Operational Frame: How This ICP Plugs Into the Partner Intelligence Program 🧠</h2>
+<p>This sprint operates under a <strong>hypothesis overlay</strong>. In a production deployment of the proposed Partner Intelligence Program (PIP), the funnel would be:</p>
+<pre><code>Akamai 6sense intent + 1st-party telemetry
+            ↓
+   [Filter: matches ICP criteria below]
+            ↓
+   &quot;Hot 20 DACH Accounts&quot; — monthly curated list
+            ↓
+   Axians receives via HubSpot deal-stage import
+            ↓
+   Pre-built sales kit attached per account
+            ↓
+   Axians executes outreach
+</code></pre>
+<p><strong>For this sprint</strong>, since we cannot verify actual 6sense signals on specific accounts, the ICP defined below is used to <strong>pre-qualify the universe</strong> of accounts that would be worth flagging when intent fires. Targeting in Stage 1 uses firmographic and public-data criteria only. Intent is marked 🧠 hypothesis throughout downstream artifacts.</p>
+<hr />
+<h2 id="icp-the-target-account-profile">ICP — The Target Account Profile</h2>
+<p>A company belongs in the target universe if it meets <strong>all</strong> of the following:</p>
+<h3 id="1-firmographic-fit">1. Firmographic fit</h3>
+<table>
+<thead>
+<tr>
+<th>Attribute</th>
+<th>Criterion</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Headquarters</td>
+<td>Germany</td>
+</tr>
+<tr>
+<td>Revenue</td>
+<td>€100M–€2B (FY2024 or most recent reported)</td>
+</tr>
+<tr>
+<td>Employees</td>
+<td>1,000–10,000</td>
+</tr>
+<tr>
+<td>Ownership type</td>
+<td>Family-owned, Mittelstand, Stiftung (foundation-owned), or private equity portfolio — <strong>excluding</strong> DAX 40 and most MDAX listed</td>
+</tr>
+<tr>
+<td>Sector</td>
+<td>Manufacturing — mechanical engineering, automotive supply (Tier 1/2), machine tools, industrial components, electrical equipment, industrial process, instruments/sensors</td>
+</tr>
+</tbody>
+</table>
+<h3 id="2-nis2-status">2. NIS2 status</h3>
+<p>The company must qualify as either an <strong>&ldquo;essential&rdquo; or &ldquo;important&rdquo; entity</strong> under the new BSIG (German NIS2 Implementation Act, in force 6 December 2025). For Mittelstand manufacturers, this typically means:</p>
+<ul>
+<li>Revenue &gt;€10M <strong>OR</strong> &gt;49 employees (almost all targets clear this)</li>
+<li>Sector explicitly listed in NIS2 Annex I or II: mechanical engineering, motor vehicles, medical devices, electrical equipment, or chemicals</li>
+<li>OR: supplier to a critical infrastructure operator (KRITIS contractor relationship)</li>
+</ul>
+<h3 id="3-otit-convergence">3. OT/IT convergence</h3>
+<p>The company must have <strong>real operational technology</strong> in its operating model — not just office IT:<br />
+- Physical manufacturing or assembly operations<br />
+- Connected machinery, robots, PLCs, HMIs, SCADA, or industrial control systems<br />
+- IoT or Industry 4.0 initiatives publicly visible (digital twin, smart factory, predictive maintenance, machine-as-a-service)<br />
+- Production network distinct from corporate IT, with at least some interconnection between them</p>
+<p><strong>Exclusion:</strong> Pure-software companies, IT services firms, and B2B SaaS — even if they have a German manufacturing customer base — don&rsquo;t qualify. The motion is for companies <em>that run factories</em>.</p>
+<h3 id="4-below-akamai-direct-sales-coverage">4. Below Akamai direct sales coverage</h3>
+<p>Akamai&rsquo;s direct sales team in DACH typically focuses on:<br />
+- DAX 40 constituents<br />
+- Large MDAX constituents (&gt;€2B revenue)<br />
+- KRITIS operators with their own SOC and dedicated security budget &gt;€10M</p>
+<p>Target accounts for this sprint sit <strong>below</strong> that threshold. The implicit ICP message: &ldquo;If Akamai&rsquo;s named-account team isn&rsquo;t calling you, but you still need enterprise-grade microsegmentation, Axians is the way you get it.&rdquo;</p>
+<p><strong>Exception for the showcase:</strong> Trumpf GmbH (~€5.4B revenue, ~20,000 employees) is <strong>above</strong> this threshold but is included as the named public showcase — a way to demonstrate the methodology against a recognizable manufacturing brand. The remaining 3 accounts will sit firmly in the Mittelstand band.</p>
+<h3 id="5-axians-reachability-preference-not-hard-filter">5. Axians reachability (preference, not hard filter)</h3>
+<p>Bonus weight in scoring is given to companies showing one of:<br />
+- Existing Axians or VINCI Energies relationship (publicly disclosed customer, joint event, joint case study)<br />
+- Sister-brand connection (Actemium, Omexom, VINCI Facilities engagement)<br />
+- Geographic proximity to an Axians office (65 German locations) or to an Axians SOC (Hamburg, Ulm)<br />
+- Public co-attendance at industry events (Hannover Messe, it-sa, IFAT)</p>
+<p>This isn&rsquo;t a filter that rejects companies — it&rsquo;s a tilt that elevates accounts where the &ldquo;first phone call&rdquo; already has a warm bridge.</p>
+<hr />
+<h2 id="what-we-exclude-negative-icp">What We Exclude (negative ICP)</h2>
+<p>The motion is <strong>not</strong> for:</p>
+<table>
+<thead>
+<tr>
+<th>Type</th>
+<th>Why excluded</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>DAX 40 / large MDAX</td>
+<td>Already Akamai-direct accounts</td>
+</tr>
+<tr>
+<td>&lt;€100M revenue</td>
+<td>Too small for the deal economics</td>
+</tr>
+<tr>
+<td>&gt;€2B revenue (except Trumpf showcase)</td>
+<td>Above partner-led threshold</td>
+</tr>
+<tr>
+<td>&lt;1,000 employees</td>
+<td>OT footprint typically too small to justify Guardicore commercial</td>
+</tr>
+<tr>
+<td>Pure software / IT services / SaaS</td>
+<td>No physical OT to segment</td>
+</tr>
+<tr>
+<td>Banking, insurance, professional services</td>
+<td>Different motion, different vendor positioning</td>
+</tr>
+<tr>
+<td>Pharma manufacturing (NIS2 highly regulated already)</td>
+<td>Often have mature segmentation; different sales motion</td>
+</tr>
+<tr>
+<td>Energy / utilities (KRITIS regulated already, IT-SiG 2.0)</td>
+<td>Akamai-direct or already advanced</td>
+</tr>
+<tr>
+<td>Healthcare providers</td>
+<td>Different vertical motion</td>
+</tr>
+<tr>
+<td>Existing Illumio or Akamai customers</td>
+<td>Already covered</td>
+</tr>
+<tr>
+<td>Companies with publicly disclosed mature Zero Trust deployment</td>
+<td>Late stage, low convertibility</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="sweet-spot-profile-the-ideal-target">Sweet Spot Profile (the &ldquo;ideal target&rdquo;)</h2>
+<p>The platonic ideal of this ICP — a company that would score very high on every dimension:</p>
+<ul>
+<li><strong>A €500M–€1.5B German mechanical engineering or automotive-supply company</strong>, family-owned or Stiftung-owned</li>
+<li><strong>3,000–6,000 employees</strong>, headquartered in Baden-Württemberg, Bavaria, or NRW</li>
+<li><strong>Recently launched a digital transformation initiative</strong> (Industrie 4.0, smart factory, IoT) → flat-but-now-connected OT network</li>
+<li><strong>NIS2 &ldquo;important entity&rdquo;</strong> under the new BSIG → fines exposure but not in the &ldquo;highest-attention&rdquo; critical bucket</li>
+<li><strong>No public Illumio or Akamai relationship</strong>, no large internal SOC</li>
+<li><strong>Geographic proximity</strong> to an Axians office or visible at Hannover Messe / industry events</li>
+<li><strong>Cybersecurity is publicly on the agenda</strong> — recent annual report mention, a security-related job posting, or a public incident in the sector</li>
+</ul>
+<hr />
+<h2 id="what-each-stage-2-intel-file-will-verify">What Each Stage 2 Intel File Will Verify</h2>
+<p>For each shortlisted account, the Stage 2 intel files will confirm or invalidate:</p>
+<ol>
+<li><strong>Company brief</strong> — exact revenue/employees/sector codes, parent/owner, key digital transformation initiatives</li>
+<li><strong>Pain map</strong> — concrete OT/IT convergence pressure points, any public incidents in the company or peer set, insurance signals, NIS2 statements</li>
+<li><strong>Relationship map</strong> — CISO, CTO, OT security lead, plant directors (LinkedIn-verified contacts only)</li>
+<li><strong>Axians connection</strong> — concrete evidence of relationship (or absence thereof), warmest realistic entry path</li>
+</ol>
+<hr />
+<p><strong>End of Stage 1.1.</strong> Scoring matrix next.</p>
+  </main>
+</div>
+<footer class="site-footer">
+  <p>A. Marushevsky &middot; Amsterdam &middot; All partner research is a first pass from public sources.</p>
+</footer>
+<script src="../../assets/js/sidebar.js"></script>
+</body>
+</html>

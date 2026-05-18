@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Pain Pattern Library | Partner Program OS</title>
+  <link rel="stylesheet" href="../../assets/css/main.css">
+</head>
+<body>
+<nav class="top-nav">
+  <button class="hamburger" aria-label="Toggle navigation">
+    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+  </button>
+  <a href="../../index.html" class="top-nav__logo">Partner Program <span>OS</span></a>
+  <ul class="top-nav__links">
+    <li><a href="../../index.html">Memo</a></li>
+    <li><a href="../../method/index.html">Method</a></li>
+    <li><a href="../../partner-mapping/index.html">Partners</a></li>
+    <li><a href="../../absm-sprint/index.html" class="active">ABSM</a></li>
+  </ul>
+</nav>
+<div class="sidebar-overlay"></div>
+<aside class="sidebar">
+<div class="sidebar__section">
+  <button class="sidebar__heading"><span class="caret">▼</span> Memo</button>
+  <ul class="sidebar__list"><li class="sidebar__item"><a href="../../index.html">Homepage</a></li></ul>
+</div>
+<div class="sidebar__section">
+  <button class="sidebar__heading"><span class="caret">▼</span> Method</button>
+  <ul class="sidebar__list">
+    <li class="sidebar__item"><a href="../../method/index.html">Overview</a></li>
+    <li class="sidebar__item"><a href="../../method/spider-chart.html">Spider Chart</a></li>
+    <li class="sidebar__item"><a href="../../method/scorecard-template.html">Scorecard Template</a></li>
+  </ul>
+</div>
+<div class="sidebar__section">
+  <button class="sidebar__heading"><span class="caret">▼</span> Partner Mapping</button>
+  <ul class="sidebar__list">
+    <li class="sidebar__item"><a href="../../partner-mapping/index.html">Overview</a></li>
+    <li class="sidebar__item"><a href="../../partner-mapping/dach-landscape.html">DACH Landscape</a></li>
+    <li class="sidebar__item"><a href="../../partner-mapping/pursue-five/all-five-profiles.html">Pursue Five</a></li>
+    <li class="sidebar__item"><a href="../../partner-mapping/entanglement/entanglement-matrix.html">Entanglement</a></li>
+  </ul>
+</div>
+<div class="sidebar__section">
+  <button class="sidebar__heading"><span class="caret">▼</span> ABSM Sprint</button>
+  <ul class="sidebar__list">
+    <li class="sidebar__item"><a href="../../absm-sprint/index.html">Overview</a></li>
+    <li class="sidebar__item"><a href="../../absm-sprint/01-targeting/icp-definition.html">Targeting</a></li>
+    <li class="sidebar__item"><a href="../../absm-sprint/02-strategy/sweet-spot-profile.html">Strategy</a></li>
+    <li class="sidebar__item"><a href="../../absm-sprint/03-clients/hoermann/company-brief.html">Clients</a></li>
+    <li class="sidebar__item"><a href="../../absm-sprint/05-infrastructure/crm-spec-hubspot.html">Infrastructure</a></li>
+  </ul>
+</div></aside>
+<div class="layout">
+  <main class="content">
+    <h1 class="mt-0">Pain Pattern Library</h1>
+    <h1 id="pain-pattern-library">Pain Pattern Library</h1>
+<p>Recurring pain patterns identified across German Mittelstand manufacturing through public research (incident reports, NIS2 guidance documents, industry association publications).</p>
+<hr />
+<h2 id="pattern-1-the-nis2-audit-problem">Pattern 1: The NIS2 Audit Problem</h2>
+<p><strong>The pain:</strong> &ldquo;My auditor is asking for evidence of network segmentation. I don&rsquo;t know what I have.&rdquo;</p>
+<p><strong>Who feels it:</strong> CISO, compliance manager<br />
+<strong>Urgency:</strong> High — NIS2 enforcement started Q4 2024 in Germany<br />
+<strong>What they&rsquo;re currently doing:</strong> Asking their SI (Axians) to help them figure out what &ldquo;segmentation&rdquo; means in practice</p>
+<p><strong>Guardicore answer:</strong> Visibility first (network map), then segmentation policy enforcement. Auditor-ready reporting built in.</p>
+<hr />
+<h2 id="pattern-2-the-otit-convergence-risk">Pattern 2: The OT/IT Convergence Risk</h2>
+<p><strong>The pain:</strong> &ldquo;We connected our factory floor to the corporate network for Industry 4.0. Now our security team is terrified. We can&rsquo;t put firewalls between PLCs and the corporate network without stopping production.&rdquo;</p>
+<p><strong>Who feels it:</strong> IT Director, OT Engineer, Production Manager<br />
+<strong>Urgency:</strong> Medium-high — no incident yet, but awareness is high<br />
+<strong>What they&rsquo;re currently doing:</strong> Separate VLAN + &ldquo;air gap by convention&rdquo; (which is not real segmentation)</p>
+<p><strong>Guardicore answer:</strong> Agentless deployment — no software on PLCs, no firewall reconfiguration. Works at the network layer, maps OT traffic, applies policies without touching production configuration.</p>
+<hr />
+<h2 id="pattern-3-the-post-incident-urgency">Pattern 3: The Post-Incident Urgency</h2>
+<p><strong>The pain:</strong> &ldquo;We got hit. We paid the ransom. We have budget now. We need to make sure it doesn&rsquo;t happen again.&rdquo;</p>
+<p><strong>Who feels it:</strong> CEO, CISO, board<br />
+<strong>Urgency:</strong> Immediate — post-incident window typically 3–6 months before urgency fades<br />
+<strong>What they&rsquo;re currently doing:</strong> Buying EDR, SIEM, backups. Missing lateral movement prevention.</p>
+<p><strong>Guardicore answer:</strong> Lateral movement prevention is the core value proposition. If Ryuk or similar ransomware enters via email, Guardicore contains it to the initial endpoint rather than letting it spread to ERP and backup systems.</p>
+<hr />
+<h2 id="pattern-4-the-tisax-burden">Pattern 4: The TISAX Burden</h2>
+<p><strong>The pain:</strong> &ldquo;Our OEM just told us our TISAX Level 3 assessment is next quarter. We need to show information security controls including network segmentation.&rdquo;</p>
+<p><strong>Who feels it:</strong> IT Security Lead, Quality Manager (in automotive)<br />
+<strong>Urgency:</strong> Hard deadline — TISAX audit is date-specific<br />
+<strong>What they&rsquo;re currently doing:</strong> Scrambling. TISAX requirements are specific and auditor-verified.</p>
+<p><strong>Guardicore answer:</strong> Maps directly to TISAX IS domains covering network separation and monitoring. Deployment timeline (4–8 weeks) is compatible with pre-audit sprint.</p>
+<hr />
+<h2 id="pattern-5-the-sap-migration-gap">Pattern 5: The SAP Migration Gap</h2>
+<p><strong>The pain:</strong> &ldquo;We&rsquo;re migrating to S/4HANA. Our consultant says we should segment the SAP environment from the rest of the network, but nobody knows how.&rdquo;</p>
+<p><strong>Who feels it:</strong> CIO, SAP project lead, security architect<br />
+<strong>Urgency:</strong> Project-driven — depends on migration timeline<br />
+<strong>What they&rsquo;re currently doing:</strong> Discussing with SAP consultants who are not security specialists</p>
+<p><strong>Guardicore answer:</strong> SAP-specific segmentation policies are pre-built. Guardicore can isolate the S/4HANA environment during and after migration with policy templates.</p>
+<hr />
+<p><em>Pain patterns from public sources: BSI reports, NIS2 guidance, TISAX documentation, VDI conference proceedings. May 2026.</em></p>
+  </main>
+</div>
+<footer class="site-footer">
+  <p>A. Marushevsky &middot; Amsterdam &middot; All partner research is a first pass from public sources.</p>
+</footer>
+<script src="../../assets/js/sidebar.js"></script>
+</body>
+</html>
