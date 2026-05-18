@@ -45,3 +45,33 @@
 
 ---
 <!-- ADD NEW SESSIONS BELOW THIS LINE -->
+
+## SESSION 2026-05-19 · Redesign Brief + KPI Dashboard + Docs Fill
+
+### What was done
+- Built `kpi-dashboard.html` — full interactive dashboard adapted from Axians dark-theme to docs site design system
+- Ran `fill-docs-stubs.sh` — copied 46 source files into docs/ (0 warnings, 78 total files in docs/)
+- Created `REDESIGN_BRIEF.md` — comprehensive spec for site v2 (12 design decisions locked)
+
+### Decisions locked this session (12)
+1. CSS: Akamai-inspired palette + clean spacing (show 2 variants)
+2. MD rendering: every .md → full .html with nav, styles, sidebar
+3. TOC: collapsible sidebar on every page
+4. Back nav: sidebar sufficient
+5. Exec summaries: McKinsey-style bullet-list with anchor links
+6. Language: keep source file languages as-is
+7. Sidebar: visible desktop, hamburger mobile
+8. Reading guide: short block on homepage
+9. Workflow: brief → Opus 4.7 (copy) → Opus 4.6 (code) → OpenClaw merge
+10. Copy scope: homepage + 3 perspective pages
+11. Name: A. Marushevsky everywhere
+12. Timeline: ship today
+
+### Commit log
+- c14daee: fill docs stubs + kpi-dashboard (46 files, 0 warnings)
+- [pending]: REDESIGN_BRIEF.md + STATE.md patch
+
+### Next steps
+- Opus 4.7 chat: copywriting (homepage + 3 perspectives)
+- Opus 4.6 chat: new CSS + sidebar + MD→HTML conversion
+- OpenClaw: merge all
