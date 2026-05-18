@@ -65,7 +65,7 @@ The Ideal Partner Profile (IPP) is to partner recruitment what the Ideal Custome
 
 **The five dimensions:**
 
-**1. Strategic fit (weight: 25-35%)**
+**1. Strategic fit (weight: 20-30%)**
 
 Does the partner's business direction align with the company's growth plan? A partner expanding into the same geographies, verticals, or customer segments the company targets has natural strategic fit. A partner retreating from those segments is a misfit regardless of current revenue.
 
@@ -76,7 +76,7 @@ Criteria to score:
 - Strategic priority assigned to the company's product category
 - Willingness to invest in the relationship (not just purchase volume) [P-12]
 
-**2. Capability (weight: 20-30%)**
+**2. Capability (weight: 15-25%)**
 
 Can the partner sell, deliver, and service the product? Capability is not aspiration. It is current, demonstrable skill.
 
@@ -87,7 +87,7 @@ Criteria to score:
 - Post-sales service and maintenance capacity
 - Project management maturity (for complex installations)
 
-**3. Market access (weight: 20-25%)**
+**3. Market access (weight: 15-20%)**
 
 Does the partner reach customers the company cannot reach efficiently through direct sales? Market access is the primary economic justification for partnering.
 
@@ -120,6 +120,54 @@ Criteria to score:
 - Willingness to share data and collaborate transparently [P-49]
 - Management stability and organizational maturity
 
+**6. Recruitability (weight: 10-15%)**
+
+Can this partner realistically be moved into an active commercial relationship with the company, given the partner's existing public commitments to competitors? A high-fit partner who is structurally locked into a competitor's go-to-market consumes recruitment cycles and produces no movement. The dimension scores how recruitable the partner actually is, separate from how desirable they would be if recruitable. See ADR-011 for the rationale.
+
+Six sub-criteria, scored 1-5 each, weighted within the dimension:
+
+- **Distribution exclusivity locks** (sub-weight: 25%). Does the partner hold exclusive or near-exclusive distribution rights with a competing vendor? Multi-year contracts, country-specific exclusivity language, security-portfolio prioritization signals all count.
+- **Equity, board, or executive overlap with competitor** (sub-weight: 20%). Verifiable through public sources only (Handelsregister, Crunchbase, partner annual reports, public filings). Inference is not enough.
+- **Joint Partner-of-Year or flagship designation with competitor in last 24 months** (sub-weight: 15%). Public awards bind the partner to the awarding vendor commercially and reputationally.
+- **Executive migration trajectory** (sub-weight: 15%). Senior people moving from the company to the partner, or from a competitor to the partner, change the gravity of the relationship.
+- **Joint case study density with competitor in last 24 months** (sub-weight: 15%). Each published case study with a competitor binds the partner to that competitor's narrative.
+- **Public statements of vendor strategy** (sub-weight: 10%). How the partner publicly describes their security portfolio. Ranking, prominence, and language signal where commitment sits.
+
+Scoring rubric (per sub-criterion):
+
+- **5:** No entanglement signal at this layer. Partner is open at this layer.
+- **4:** Minor signal; recoverable with standard relationship investment.
+- **3:** Material signal; recoverable only with significant investment and a trigger event.
+- **2:** Strong signal; recovery requires structural change (M&A, leadership replacement, contract expiry).
+- **1:** Structural lock at this layer; partner is closed to recruitment investment.
+
+The dimension score (1-5) aggregates the six sub-criteria using their sub-weights. Partners scoring 4-5 on Recruitability overall are open for active pursuit. Partners scoring 2-3 are eligible for contained co-existence on specific deal types. Partners scoring 1 are closed.
+
+The data needed to populate Recruitability is OSINT-heavy and partner-specific. For target companies in this method, the Recruitability research is documented per company in a `research/outputs/entanglement/` or equivalent file. The Akamai instance lives in `02-akamai/research/outputs/` after D2-RC executes.
+
+---
+
+### ABM/TAS skill: disposition taxonomy
+
+Recruitability scores produce portfolio-level dispositions, not just rank order. The taxonomy operationalizes how recruitment budget and executive sponsorship are allocated across partners with different entanglement profiles.
+
+| Disposition | Recruitability threshold | Investment posture |
+|---|---|---|
+| **Pursue** | Score ≥3.5 | Standard active recruitment per 9-box quadrant. Full MDF eligibility. Executive sponsorship. Named relationship owner. |
+| **Contain** | Score 2.0-3.4 | Partner remains in scope but limited to deal types where structural overlap with competitor is minimal: geographic gaps the competitor cannot serve, product gaps the competitor does not have, vertical gaps the competitor does not prioritize. No flagship MDF. Reactive deal support only. Tripwire conditions monitored quarterly. |
+| **Monitor** | Score below 2.0 WITH a defined tripwire event in 24-month horizon (founder departure, contract expiry, M&A target, leadership transition) | No active investment. Quarterly tripwire review. Disposition re-evaluated when tripwire fires. |
+| **Drop** | Score below 2.0 WITHOUT plausible tripwire | Remove from TAL. Reallocate budget to higher-Recruitability partners. Drop requires explicit justification, not just low score. |
+
+**Default disposition for any partner below the Pursue threshold is Contain, not Drop.** The Contain disposition preserves optionality and revenue capture in narrow deal types without burning flagship investment. Drop is the exception, applied only when the entanglement is structural and no realistic recovery path exists in the planning horizon.
+
+**Tripwire conditions are partner-specific.** Examples:
+- Distribution agreement with competitor scheduled to expire Q4 2026 → monitor for non-renewal signals
+- Founder of competitor product (originally from this company) ages out of CEO role → re-assess equity ties
+- Partner announces strategic review or M&A intent → re-assess all entanglement layers
+- Competitor announces product end-of-life affecting partner's primary stack → opportunity window opens
+
+Tripwires get a named owner. Quarterly review cadence. Re-scoring fires automatically when a tripwire condition occurs.
+
 ---
 
 ### ABM/TAS skill: scoring matrix
@@ -138,11 +186,11 @@ The scoring matrix converts the IPP into a quantified assessment. Each criterion
 
 **Template (one row per partner):**
 
-| Partner | Strategic fit (wt: __%) | Capability (wt: __%) | Market access (wt: __%) | Financial health (wt: __%) | Cultural alignment (wt: __%) | Weighted total |
-|---|---|---|---|---|---|---|
-| Partner A | [score] | [score] | [score] | [score] | [score] | [calculated] |
-| Partner B | [score] | [score] | [score] | [score] | [score] | [calculated] |
-| Partner N | [score] | [score] | [score] | [score] | [score] | [calculated] |
+| Partner | Strategic fit (wt: __%) | Capability (wt: __%) | Market access (wt: __%) | Recruitability (wt: __%) | Financial health (wt: __%) | Cultural alignment (wt: __%) | Weighted total |
+|---|---|---|---|---|---|---|---|
+| Partner A | [score] | [score] | [score] | [score] | [score] | [score] | [calculated] |
+| Partner B | [score] | [score] | [score] | [score] | [score] | [score] | [calculated] |
+| Partner N | [score] | [score] | [score] | [score] | [score] | [score] | [calculated] |
 
 Weights are set once during program design and applied consistently across all partners. Changing weights mid-assessment to favor a specific partner defeats the purpose.
 
