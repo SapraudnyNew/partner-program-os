@@ -1,90 +1,57 @@
-# Akamai Leave-Behind Memo
+# Notes on Akamai's DACH Partner Channel
 
-> **Status:** Skeleton awaiting content. Drafts in D2-3 after D2-2 diagnosis scorecard is in place and at least one DACH project has a framing draft.
-> **Reader:** Hiring manager (DACH channel marketing Senior Manager) and skip-level (VP Channel Marketing EMEA).
-> **Path:** Forwarded internally by Mark Shelepov as part of the HVO bundle (per ADR-009).
+### Prepared for the Senior Channel Marketing Manager search
 
-## Format
+---
 
-- Length: 3.5 pages. Opens cold with diagnosis. Referrer NOT named in cover.
-- Format: PDF for handover. Markdown source canonical.
-- Sits inside the HVO bundle alongside the 1-page executive summary (separate file: `00-page-zero-executive-summary.md`) and links to the DACH project bundles.
+Akamai's DACH cybersecurity partner program scores Professional on paper and Basic in operating depth. The program design is solid — tiered structure, certification paths, MDF mechanics, deal registration. The execution layer is thin: no DACH channel marketing function, no systematic partner recruitment motion, no joint pipeline cadence with named Mittelstand systemhauser. The gap is not program design. It is the person running it on the ground.
 
-## Bundle position
+This memo names the three largest moves and what owning them in 90 days looks like.
 
-The memo is the doorway. It frames the diagnosis, names the top 3 gaps, sketches the 90-day plan, and points to the linked artifacts for proof of execution. The DACH projects (ABM/TAS partner project + ABSM Mittelstand sprint) carry the operating-evidence burden that Mark Shelepov cannot vouch for from a technical-track position.
+---
 
-## Skeleton
+## What the DACH channel looks like today
 
-```
-[Cover paragraph — one-line value claim]
-  Cold open. Diagnosis-led. Example pattern:
-  "Akamai's DACH partner ecosystem shows Professional-grade structure
-  on paper and Basic-grade operating depth in the data. The gap is
-  channel marketing execution, not channel program design. This memo
-  proposes how to close it in 90 days."
-  Do NOT name Mark Shelepov here. The referral is the channel, not the pitch.
+**The front half of the partner lifecycle is underbuilt.** Stages 1 through 4 — Recruit, Onboard, Enable, Co-sell — score Basic against a 7-stage partner maturity model applied to public data. No DACH Ideal Partner Profile exists publicly. No systematic DACH partner recruitment pipeline is visible. The channel marketing function for DACH does not appear to exist as a dedicated role. The infrastructure for all four stages is present globally; the DACH execution layer is absent.
 
-[Section 1: What I see in Akamai's DACH channel today]
-  Outside-in view, grounded in research outputs.
-  Three observations, each pinned to specific evidence from:
-    - research/outputs/company/04-channel-marketing-organization.md
-    - research/outputs/partner-program/akamai-partner-program-dach-dossier.md
-  Specific. Not flattering. Not aggressive. Diagnostic.
+**The Illumio entanglement problem is specific and solvable.** KAEMI GmbH in Berlin (Illumio EMEA Partner of the Year + Cloudflare double-anchor) and Navixia SA in Lausanne (first EMEA Illumio ZTS Professional) are structurally locked — they are not recruitment targets. But five Mittelstand systemhauser with direct Guardicore product-gap fit are sitting outside the Akamai program today: Axians/Fernao (€685M revenue, ISG Leader DE 2025 in four cyber categories, Fernao integration creating an open portfolio window right now), SVA Wiesbaden (€1B+ revenue, Fortinet EPSP first in Germany, no Illumio), ACP Gruppe (€1.1B, Austrian market leader, SOC Austria without microsegmentation), AVANTEC AG (Zürich, CHF 45M, 250 customers, Illumio at newcomer tier — the clearest POC opening in the market), and InfoGuard AG (already an Akamai partner, 350 security experts, +22% growth in FY25, DE expansion in progress through new InfoGuard Deutschland GmbH). None of these five has Illumio embedded. All five have named NIS2-affected Mittelstand customers that map directly to Guardicore's use case.
 
-[Section 2: Where the largest moves are]
-  Three priorities mapped to 7-stage lifecycle but not labeled as such.
-  Each priority gets one paragraph with one concrete first action.
-  Sources: 03-diagnosis-scorecard.md (D2-2 output) plus the 50-partner dossier.
-  Priority candidates (to be confirmed by D2-2 scorecard):
-    - Displacement campaign at Illumio DACH partners (KAEMI, Navixia, Computacenter)
-    - Tier upgrade of Computacenter Select -> Premier
-    - Mittelstand systemhaus recruitment (SVA, Cancom, Axians) for Guardicore
+**Computacenter is misclassified.** The largest DACH cybersecurity SI sits at Select tier in the Akamai program while holding Cisco Gold, PANW NextWave Diamond, and an Illumio MSP services relationship. It is simultaneously an Akamai partner and an entanglement risk. The right move is a structured tier upgrade play — not displacement and not a drop. Computacenter at Premier with a dedicated co-sell motion is a materially different commercial relationship than Computacenter at Select with ad hoc engagement.
 
-[Section 3: What I would own in the first 90 days]
-  Specific deliverables, not abstract themes.
-  3-5 items, each measurable. Reference the ABM/TAS and ABSM bundles as
-  proof of method, not as the plan itself.
+---
 
-[Section 4: Why this fit]
-  Brief. Two paragraphs.
-  Central claim: "Most channel marketers know channel marketing.
-  Few think in P&L. I do both."
-  Boon Edam reference allowed as brief credibility anchor (per ADR-009).
-  Do not lean on Boon Edam metrics; the DACH projects do the proof work.
+## Where the largest moves are
 
-[Closing]
-  No "I'd love to chat." Mark handles scheduling.
-  Pointer to the linked artifacts:
-    - ABM/TAS DACH partner package (full bundle in repo)
-    - ABSM DACH sprint (full 32-artifact methodology in repo)
-    - Interactive spider chart at [URL after D2-5a hosting decision]
-  Sign-off: "Glad to take this further with [hiring manager name]
-  when timing works."
-```
+**Move 1: Recruit the Pursue Five before NIS2 pipeline closes.** The NIS2 Umsetzungsgesetz (Germany) and Austria's NISG 2024 created a compliance buying cycle across manufacturing, energy, healthcare, and public sector. That cycle is open now and closes as organisations complete their projects. Five systemhauser — Axians, SVA, ACP, AVANTEC, InfoGuard — are each running 50–250 NIS2-affected Mittelstand accounts with no Akamai partner to refer them to for microsegmentation. Recruiting these five and running the first joint Guardicore conversations within 90 days is the highest-leverage near-term move. The outreach hooks are specific: for AVANTEC, the Illumio newcomer status means a direct Guardicore POC proposal to Christian Grob (Co-CEO, Head of Security Services) is the natural next step. For Axians, Alain de Pauw (Division Leader IT Security Services, DE + CH) is the decision-maker, and the Fernao integration has left a portfolio window open that closes as the rebrand completes. For SVA, Mark Sobol (Head of Business Unit Cyber Security) built the mSOC by SVA stack without a microsegmentation layer — Guardicore fills a visible gap.
 
-## Specialization rules
+**Move 2: Build the DACH channel marketing function from a blank sheet.** The Senior Channel Marketing Manager DACH role does not appear to exist today. Building it means: Ideal Partner Profile for DACH cybersecurity (weighted scoring matrix, NIS2-vertical overlay, entanglement map), partner campaign calendar aligned to DACH event cadence (it-sa in Nürnberg is the anchor), co-marketing MDF activation with the five Pursue partners, and a joint pipeline dashboard giving the DACH field team visibility into partner-sourced deals. None of this requires budget approval in the first 30 days. The IPP and scoring matrix can be drafted in week one using the entanglement research already done.
 
-Pull from the universal method (`01-method/`) but:
+**Move 3: Upgrade Computacenter from Select to Premier and install a co-sell motion.** Computacenter is the highest-revenue DACH cybersecurity SI sitting at the lowest Akamai tier. A structured tier upgrade — defined by certified headcount targets, deal registration volume thresholds, and a named co-sell plan on their top 20 DACH accounts — converts a symbolic partnership into a commercial one. The risk to manage: Computacenter's Illumio MSP services relationship means Guardicore displacement in their stack is a 12–18 month play, not a 90-day one. The 90-day goal is the upgrade and the first joint QBR, not immediate Guardicore displacement.
 
-- **Reframe the language** for cybersecurity, not B2B equipment. Zero Trust, secure access, partner-led security adoption.
-- **Reframe the scale** for Akamai's channel reality per the dossier. Partner Connect launched Q3 2025. DACH roster is thin and top-heavy (Deutsche Telekom Security, Bechtle, Controlware, InfoGuard, Computacenter at lowest tier). Operations focus is campaign-to-pipeline, not order-to-handover.
-- **Lead with marketing**, not operations. The job is channel marketing.
-- **Cite from the evidence library** sparingly. One or two `[E-NN]` refs in the main body maximum. The DACH projects carry detailed citations and named-entity density.
-- **Reference research outputs** for specific data points, not the universal method.
+---
 
-## Draft trigger
+## What I would own in the first 90 days
 
-This file gets filled when:
-1. D2-2 (diagnosis scorecard) is complete and signed off.
-2. At least one of D3-1 (ABM/TAS) or D3-2 (ABSM) has a framing draft so the memo can reference real outputs.
-3. Mark Shelepov has confirmed the bundle structure is acceptable to forward.
+**Days 1–30: Audit and baseline.** Map the current DACH partner roster against the entanglement matrix. Score all active Select/Premier/Elite partners on six dimensions: entanglement depth, vendor diversity, product-gap fit, NIS2 regulatory exposure, organisational elasticity, geographic coverage. The output is a tiered partner list with Clear dispositions: Pursue, Contain, Monitor, Drop. This exists as a draft from outside-in research; the inside data (MDF utilisation, deal registration velocity, DACH co-sell pipeline) converts the draft to the operating plan.
 
-## Linked artifacts in the bundle
+**Days 15–45: First Pursue partner conversations.** Outreach to Alain de Pauw at Axians, Christian Grob at AVANTEC, and Mark Sobol at SVA. Each conversation has a specific hook prepared (Fernao integration window; Illumio newcomer → Guardicore POC; mSOC stack gap). The goal of each first meeting is not a signed partner agreement — it is a defined next step: a joint POC proposal, a co-marketing brief, or a named-account co-sell conversation. The ABM/TAS partner research bundle (five full partner profiles with named executives, named customers, outreach hooks, and service portfolio detail) is ready as the prep material for these calls.
 
-- `00-page-zero-executive-summary.md` — 1pp standalone, skip-level readable
-- `02-hvo-direct-approach.md` — VP/Director-level fallback frame
-- `03-diagnosis-scorecard.md` — Akamai maturity scorecard
-- `05-akamai-spider.html` — interactive spider chart (current vs world-class vs 90-day target)
-- `03-dach-projects/abm-tas-partners/` — full ABM/TAS bundle (sibling under 02-akamai/)
-- `03-dach-projects/absm-sprint/` — full ABSM 32-artifact sprint (sibling under 02-akamai/)
+**Days 30–60: DACH channel marketing infrastructure.** Ideal Partner Profile published internally. DACH partner campaign calendar drafted for H2 2026 (it-sa October anchor, NIS2 compliance sprint messaging, Guardicore vs Illumio competitive positioning for German-language market). MDF activation process reviewed and simplified for the five Pursue partners. Partner co-marketing brief template created and piloted with InfoGuard (existing Akamai relationship — lowest friction first activation).
+
+**Days 45–75: Computacenter upgrade proposal.** Structured tier upgrade proposal to Computacenter DACH leadership: Premier tier criteria, joint QBR cadence, named-account co-sell plan on top 20 DACH accounts. Not a 90-day close — a 90-day initiated conversation with a defined commercial structure.
+
+**Days 60–90: First pipeline review.** Joint pipeline review with at least two Pursue partners. Metric: partner-sourced Guardicore opportunities in DACH active pipeline. This is the first proof point that the recruitment and activation motion is producing commercial output, not just relationship activity.
+
+---
+
+## Why this fit
+
+Channel marketing is a function. P&L ownership is a discipline. Most channel marketers operate inside the first. The value I add comes from the second.
+
+At Boon Edam, building the partner and channel infrastructure across Eastern Europe while owning the full P&L meant every co-marketing decision was also a margin decision, every partner recruitment choice was also a channel economics choice, and every activation play was measured against pipeline contribution, not activity volume. The result: 150% budget delivery, ROS of 24%, COGS reduction of 10.5 percentage points over three years. The method was not luck — it is the same systematic approach applied here to a different product category, a different geography, and a different entanglement map.
+
+Akamai DACH is a cybersecurity business with a CDN heritage and a subscription model that works. The channel marketing layer that converts program infrastructure into operating depth does not yet exist. That is the role. I have built it before in harder conditions.
+
+---
+
+*Two linked packages accompany this memo. The ABM/TAS DACH Partner Project contains full one-page profiles for each of the five Pursue partners: named executives, named Mittelstand customers for triangulation, service portfolio detail, and first-contact outreach hooks. The D2-RC Entanglement Research contains the full 33-partner DACH entanglement matrix with disposition table, recruitability scoring, and the competitive analysis of Illumio, Palo Alto, Cisco, and Zscaler partner positions across DACH.*
