@@ -4,8 +4,8 @@
 > Replaces the previous HANDOVER.md and handover-day2-v2.md.
 > Discipline defined in ADR-010 (session continuity).
 
-**Last updated:** 2026-05-17
-**Session:** Day 2 - research integration + documentation sync
+**Last updated:** 2026-05-18
+**Session:** Day 2.5 - Recruitability dimension + entanglement research initiated
 **Updated by:** Forge (Claude)
 
 ---
@@ -35,7 +35,9 @@ Path: warm referral via Mark Shelepov (Principal Lead Architect, Akamai US).
 | D2-RA | Akamai company deep research (6 files, ~30pp, 60+ pages combined) | DONE |
 | D2-RB | Akamai partner program DACH dossier (50 named partners, 7 sections) | DONE |
 | D2-2 | Akamai diagnosis scorecard (apply maturity model to Akamai using new research) | NEXT |
-| D3-1 | ABM/TAS DACH Partner Project (30 candidates -> 10 longlist + IPP + 9-box + profiles) | TODO |
+| D2-RC | Entanglement & Recruitability research (parallel chat per `02-akamai/research/prompts/research-prompt-akamai-entanglement-v1.md`) | NEXT (parallel) |
+| D2-2.5 | IPP refactor: apply 6-dimension scoring with Recruitability scores from D2-RC | TODO |
+| D3-1 | ABM/TAS DACH Partner Project (30 candidates -> 10 longlist + 6-dim IPP + 9-box + dispositions + profiles) | TODO |
 | D3-2 | ABSM DACH Sprint (32 artifacts, Mittelstand manufacturing, 3 deep + 1 showcase) | TODO |
 | D2-3 | HVO main memo (3.5pp, diagnosis + top 3 gaps + 90-day plan + fit) | TODO |
 | D2-3a | 1-page executive summary (skip-level readable, VP forwarding) | TODO |
@@ -98,6 +100,7 @@ For Mittelstand recruitment:
 | ADR-008 | Three-layer architecture frozen |
 | ADR-009 | DACH projects as Day 2 supporting artifacts |
 | ADR-010 | Session continuity via STATE.md discipline |
+| ADR-011 | Recruitability as 6th IPP dimension + disposition taxonomy (Pursue/Contain/Monitor/Drop) |
 
 ## Repo structure (current)
 
@@ -152,6 +155,25 @@ partner-program-os/
 ## Session log
 
 Append-only. Newest first.
+
+### 2026-05-18 - Day 2.5: Recruitability dimension + entanglement research initiated
+
+**Done:**
+- Identified entanglement risks across DACH partner roster from D2-RA/D2-RB outputs: Computacenter co-invested in Illumio + simultaneously Akamai Select; KAEMI GmbH (Berlin) is Illumio EMEA Partner of the Year; Arrow ECS Switzerland holds both Akamai Guardicore and Illumio exclusive distribution; Infinigate carries triple exposure (Akamai + Illumio + Cloudflare MSSP exclusive)
+- Created ADR-011: Recruitability as 6th IPP dimension; Pursue/Contain/Monitor/Drop disposition taxonomy; default disposition for sub-threshold partners is Contain, not Drop
+- Refactored `01-method/01-recruit.md`: rebalanced 5 existing dimension weights, added Recruitability dimension with 6 sub-criteria and scoring rubric, added disposition taxonomy section, updated scoring matrix template to 6 dimensions
+- Wrote `02-akamai/research/prompts/research-prompt-akamai-entanglement-v1.md` for D2-RC mission: 4 output files, 20-25 pages, 30-partner matrix + 12 deep profiles + Recruitability scoring framework + recommended dispositions
+
+**Next session:**
+- D2-2: complete Akamai diagnosis scorecard draft -> review -> commit to repo (draft already produced in chat, awaits Alex review)
+- D2-RC: execute research mission in parallel chat using the new prompt; produces source data for Recruitability scoring
+- D2-2.5: once D2-RC returns, populate Recruitability scores for top partners, refresh IPP for D3-1
+
+**Blockers:** none. D2-RC runs in parallel chat, does not block D2-2 review.
+
+**Notes:**
+- D2-2 scorecard draft remains valid post-ADR-011. The maturity model checkpoint "Ideal Partner Profile exists with weighted scoring criteria across 5+ dimensions" is satisfied by the new 6-dimension IPP (>=5). Maturity model structure unchanged.
+- Critical principle from ADR-011: default disposition is Contain, not Drop. Drop requires explicit justification, not just low Recruitability score. Contained partners produce revenue in narrow deal types without burning flagship investment.
 
 ### 2026-05-16 - Day 2: research integration + documentation sync
 
