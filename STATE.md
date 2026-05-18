@@ -5,7 +5,7 @@
 > Discipline defined in ADR-010 (session continuity).
 
 **Last updated:** 2026-05-18
-**Session:** Day 2.7 - D2-RC integrated, dach-projects relocated, ADR-011 amended
+**Session:** Day 3 - Post-cleanup: ABSM relocated, STATE.md synced to repo reality
 **Updated by:** Forge (Claude)
 
 ---
@@ -22,8 +22,8 @@ Path: warm referral via Mark Shelepov (Principal Lead Architect, Akamai US).
 | Layer | Status | Notes |
 |---|---|---|
 | Layer 1: The Method | COMPLETE | 7 stages filled to depth, evidence library (P-01..P-50, E-01..E-12), maturity scorecard, glossary |
-| Layer 2: Playbook Engine (Akamai specialization) | IN PROGRESS | Research complete; diagnosis scorecard, ABM/TAS, ABSM next |
-| Layer 3: HVO Wrapper (Akamai bundle) | NOT STARTED | Depends on Layer 2 |
+| Layer 2: Playbook Engine (Akamai specialization) | IN PROGRESS | Research done, scorecard v1.3 done, D3-1 done, ABSM sprint done. Memo + exec summary need rewrite |
+| Layer 3: HVO Wrapper (Akamai bundle) | DRAFT | Memo + exec summary exist (v1, need rewrite). Spider chart not started |
 
 ## Day-by-day execution status
 
@@ -34,13 +34,13 @@ Path: warm referral via Mark Shelepov (Principal Lead Architect, Akamai US).
 | D2-R | Deep research prompts v2 (company + partner program) | DONE |
 | D2-RA | Akamai company deep research (6 files, ~30pp, 60+ pages combined) | DONE |
 | D2-RB | Akamai partner program DACH dossier (50 named partners, 7 sections) | DONE |
-| D2-2 | Akamai diagnosis scorecard at `02-akamai/03-diagnosis-scorecard.md` | DRAFT v1.1: Gap 2 dispositions populated; awaits human review |
+| D2-2 | Akamai diagnosis scorecard at `02-akamai/03-diagnosis-scorecard.md` | DONE v1.3 |
 | D2-RC | Entanglement & Recruitability research (4-file dossier at `02-akamai/research/outputs/entanglement/`) | DONE |
 | D2-2.5 | IPP refactor: 6-dimension scoring applied (in 01-recruit.md); Recruitability scores in scorecard Gap 2 + entanglement/ outputs | DONE |
-| D3-1 | ABM/TAS DACH Partner Project (30 candidates -> 10 longlist + 6-dim IPP + 9-box + dispositions + profiles) | TODO |
-| D3-2 | ABSM DACH Sprint (32 artifacts, Mittelstand manufacturing, 3 deep + 1 showcase) | TODO |
-| D2-3 | HVO main memo (3.5pp, diagnosis + top 3 gaps + 90-day plan + fit) | TODO |
-| D2-3a | 1-page executive summary (skip-level readable, VP forwarding) | TODO |
+| D3-1 | ABM/TAS DACH Partner Project — Pursue priority five profiles at `02-akamai/research/outputs/d3-1/` | DONE (profiles only; full scoring matrix + 9-box TODO) |
+| D3-2 | ABSM DACH Sprint (44 artifacts) at `02-akamai/03-dach-projects/absm-sprint/` | DONE |
+| D2-3 | HVO main memo at `02-akamai/01-leave-behind-memo.md` | DRAFT v1 — needs rewrite (Gap 3 structure, per STATE-patch notes) |
+| D2-3a | Exec summary at `02-akamai/00-page-zero-executive-summary.md` | DRAFT v1 — needs rewrite (aligned with memo rewrite) |
 | D2-4 | HVO direct approach version (VP/Director-level frame, fallback) | TODO |
 | D2-5 | Spider chart (3 design options presented, then static + interactive build) | TODO |
 | D2-5a | Web hosting decision and setup for interactive artifacts | TODO |
@@ -122,43 +122,41 @@ For Drop (remove from TAL):
 partner-program-os/
 ├── STATE.md                    (this file, canonical state)
 ├── README.md
-├── 00-decisions/               (ADR-001 through ADR-011 + ADR-009/011 amendments)
-├── 01-method/                  (Layer 1, COMPLETE)
+├── 00-decisions/               (ADR-001 through ADR-011)
+├── 01-method/                  (Layer 1, needs refinement)
 │   ├── 00-method-overview.md
 │   ├── 01-recruit.md           (6-dimension IPP per ADR-011)
-│   ├── 02-onboard.md
-│   ├── 03-enable.md
-│   ├── 04-cosell.md
-│   ├── 05-deliver.md
-│   ├── 06-renew.md
-│   ├── 07-expand.md
+│   ├── 02-onboard.md ... 07-expand.md
 │   ├── maturity-model/
-│   ├── tool-landscape/
-│   ├── intake/
-│   ├── research-agent/
 │   └── appendix/
 ├── 02-akamai/                  (Layer 2 + Layer 3, IN PROGRESS)
 │   ├── 00-context.md
-│   ├── 01-leave-behind-memo.md (skeleton, ADR-009 bundle structure)
+│   ├── 00-page-zero-executive-summary.md  (DRAFT v1, needs rewrite)
+│   ├── 01-leave-behind-memo.md            (DRAFT v1, needs rewrite)
 │   ├── 02-talking-points.md
-│   ├── 03-diagnosis-scorecard.md (D2-2 DRAFT v1.1, Gap 2 dispositions populated)
-│   ├── akamai-research.md      (initial synthesis pointer)
-│   ├── 03-dach-projects/        (relocated from root in PR #4)
+│   ├── 03-diagnosis-scorecard.md          (v1.3, DONE)
+│   ├── akamai-research.md
+│   ├── 03-dach-projects/
 │   │   ├── 00-context.md
-│   │   ├── abm-tas-partners/   (scaffold)
-│   │   └── absm-sprint/        (scaffold)
+│   │   ├── abm-tas-partners/              (scaffold, D3-1 profiles in research/outputs/d3-1/)
+│   │   └── absm-sprint/                   (44 artifacts, DONE)
+│   │       ├── 00-context/, 01-targeting/, 02-intel/, 03-strategy/
+│   │       ├── 04-execution/ (12 PDFs), 05-infrastructure/
+│   │       ├── showcase/trumpf-showcase.md
+│   │       ├── CLAUDE.md, README.md
 │   └── research/
-│       ├── prompts/             (3 mission prompts: company, partner-program, entanglement)
+│       ├── prompts/             (4 research mission prompts)
 │       └── outputs/
 │           ├── company/         (6 files, ~30pp)
-│           ├── partner-program/ (1 file, 7 sections)
-│           └── entanglement/    (4 files, D2-RC, PR #4)
+│           ├── partner-program/ (DACH dossier, 50 named partners)
+│           ├── entanglement/    (4 files, D2-RC)
+│           └── d3-1/            (Pursue priority five profiles)
 ├── 03-boon-edam/               (FROZEN per ADR-008)
 ├── prompts/
 │   ├── master-handover-prompt.md
 │   ├── prompt-akamai-hvo.md
 │   ├── prompt-bege-rollout.md
-│   └── _archive/                (deprecated prompts)
+│   └── _archive/
 └── docs/                        (GitHub Pages, Phase 4)
 ```
 
@@ -183,6 +181,30 @@ The full operator-instructions section lives at the top of `prompts/master-hando
 ## Session log
 
 Append-only. Newest first.
+
+### 2026-05-18 - Day 3: Cleanup — ABSM relocated, STATE.md synced, scorecard consolidated
+
+**Done:**
+- ABSM sprint (44 artifacts: Hörmann, Reinhausen, Witte, Trumpf showcase) relocated from repo root to `02-akamai/03-dach-projects/absm-sprint/`. PR #14 had placed them at root level, breaking the three-layer architecture.
+- Original Partner Program OS README.md restored (was overwritten by ABSM README).
+- Scorecard consolidated: deleted v1.2, renamed v1.3 to `03-diagnosis-scorecard.md`.
+- STATE-patch.md removed from root. Gap 3 correction notes (Computacenter not headline, Intent-Enabled Partner Activation as system solution) preserved in this session log for memo rewrite.
+- STATE.md day-by-day table updated to reflect completed work: D2-2 DONE v1.3, D3-1 DONE, D3-2 DONE, D2-3 DRAFT, D2-3a DRAFT.
+- Layer status updated: Layer 2 reflects actual progress, Layer 3 reflects DRAFT status.
+
+**STATE-patch.md notes preserved (for memo rewrite):**
+- Gap 3 headline should NOT be Computacenter Premier upgrade (Computacenter = Contain disposition)
+- Correct Gap 3: no co-sell motion exists with any Pursue partner → Intent-Enabled Partner Activation activates all five simultaneously
+- Computacenter tier upgrade is a parallel Contain-track action, not the lead move
+
+**Next:**
+- Discuss what remains before HVO goes to Mark: method refinement, memo + exec summary rewrite, spider chart, final packaging
+- D2-3 v2: rewrite memo with corrected Gap 3 structure
+- D2-3a v2: rewrite exec summary aligned with memo v2
+- D2-5: spider chart (not started)
+- Method refinement scope TBD
+
+**Blockers:** none.
 
 ### 2026-05-18 - Day 2.7: D2-RC integrated, dach-projects relocated, ADR-011 amended
 
