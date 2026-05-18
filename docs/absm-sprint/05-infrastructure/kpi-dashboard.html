@@ -1,0 +1,1279 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>KPI Dashboard — ABSM Sprint · Partner Program OS</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,opsz,wght@0,8..60,300;0,8..60,400;0,8..60,600;0,8..60,700;1,8..60,400&family=DM+Sans:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../../assets/css/main.css">
+  <style>
+    /* ── Dashboard-specific tokens ── */
+    :root {
+      --dash-green: #2c5545;
+      --dash-green-light: #3a7a5e;
+      --dash-green-bg: rgba(44,85,69,0.06);
+      --dash-green-border: rgba(44,85,69,0.18);
+      --dash-amber: #b8860b;
+      --dash-amber-bg: rgba(184,134,11,0.06);
+      --dash-amber-border: rgba(184,134,11,0.18);
+      --dash-red: #a04040;
+      --dash-blue: #3a6b8c;
+      --dash-blue-bg: rgba(58,107,140,0.06);
+      --dash-blue-border: rgba(58,107,140,0.18);
+      --mono: 'JetBrains Mono', monospace;
+    }
+
+    /* ── Layout ── */
+    .dash-wrap {
+      max-width: 1180px;
+      margin: 0 auto;
+      padding: 2rem 2rem 3rem;
+    }
+
+    .dash-header {
+      margin-bottom: 2.5rem;
+      padding-bottom: 1.5rem;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .dash-header h1 {
+      font-family: var(--font-serif);
+      font-size: 1.75rem;
+      font-weight: 700;
+      color: var(--ink);
+      margin-bottom: 0.35rem;
+    }
+
+    .dash-header p {
+      font-family: var(--font-sans);
+      font-size: 0.875rem;
+      color: var(--ink-muted);
+    }
+
+    .dash-header .dash-meta {
+      display: flex;
+      align-items: center;
+      gap: 1.25rem;
+      margin-top: 0.75rem;
+      font-family: var(--mono);
+      font-size: 0.7rem;
+      letter-spacing: 0.04em;
+      color: var(--ink-muted);
+    }
+
+    .dash-meta .live-dot {
+      display: inline-flex;
+      align-items: center;
+      gap: 5px;
+      color: var(--dash-green);
+      font-weight: 600;
+    }
+
+    .dash-meta .live-dot::before {
+      content: '';
+      width: 6px; height: 6px;
+      border-radius: 50%;
+      background: var(--dash-green);
+      animation: pulse 2.2s ease infinite;
+    }
+
+    @keyframes pulse {
+      0%, 100% { opacity: 1; }
+      50% { opacity: 0.35; }
+    }
+
+    /* ── Section Labels ── */
+    .section-label {
+      font-family: var(--mono);
+      font-size: 0.65rem;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--ink-muted);
+      margin: 2.25rem 0 0.85rem;
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+    }
+
+    .section-label::after {
+      content: '';
+      flex: 1;
+      height: 1px;
+      background: var(--border);
+    }
+
+    /* ── Stat Cards ── */
+    .stats-row {
+      display: grid;
+      grid-template-columns: repeat(6, 1fr);
+      gap: 1px;
+      background: var(--border);
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      overflow: hidden;
+    }
+
+    .stat-card {
+      background: var(--surface);
+      padding: 1.15rem 1rem;
+      display: flex;
+      flex-direction: column;
+      gap: 0.3rem;
+      transition: background 0.15s;
+    }
+
+    .stat-card:hover { background: var(--surface-alt); }
+
+    .stat-label {
+      font-family: var(--mono);
+      font-size: 0.6rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--ink-muted);
+    }
+
+    .stat-value {
+      font-family: var(--font-sans);
+      font-size: 1.65rem;
+      font-weight: 700;
+      line-height: 1;
+      color: var(--ink);
+    }
+
+    .stat-value.accent { color: var(--accent); }
+    .stat-value.blue { color: var(--dash-blue); }
+    .stat-value.amber { color: var(--dash-amber); }
+
+    .stat-sub {
+      font-family: var(--font-sans);
+      font-size: 0.7rem;
+      color: var(--ink-muted);
+    }
+
+    /* ── Grid Layouts ── */
+    .two-col {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1.25rem;
+      margin-bottom: 1.25rem;
+    }
+
+    .three-col {
+      display: grid;
+      grid-template-columns: 2fr 1fr 1fr;
+      gap: 1.25rem;
+      margin-bottom: 1.25rem;
+    }
+
+    /* ── Panel ── */
+    .panel {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      overflow: hidden;
+    }
+
+    .panel-header {
+      padding: 0.85rem 1.15rem;
+      border-bottom: 1px solid var(--border);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .panel-title {
+      font-family: var(--font-sans);
+      font-size: 0.8rem;
+      font-weight: 700;
+      color: var(--ink);
+      letter-spacing: 0.01em;
+    }
+
+    .panel-tag {
+      font-family: var(--mono);
+      font-size: 0.6rem;
+      padding: 2px 8px;
+      border-radius: 100px;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+    }
+
+    .tag-green { background: var(--dash-green-bg); color: var(--dash-green); border: 1px solid var(--dash-green-border); }
+    .tag-amber { background: var(--dash-amber-bg); color: var(--dash-amber); border: 1px solid var(--dash-amber-border); }
+    .tag-blue { background: var(--dash-blue-bg); color: var(--dash-blue); border: 1px solid var(--dash-blue-border); }
+
+    .panel-body { padding: 1.15rem; }
+
+    /* ── Tabs ── */
+    .tabs {
+      display: flex;
+      gap: 0;
+      border-bottom: 1px solid var(--border);
+      padding: 0 1.15rem;
+      background: var(--surface);
+    }
+
+    .tab {
+      padding: 0.6rem 1rem;
+      font-family: var(--mono);
+      font-size: 0.65rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--ink-muted);
+      cursor: pointer;
+      border: none;
+      border-bottom: 2px solid transparent;
+      background: none;
+      transition: all 0.15s;
+    }
+
+    .tab:hover { color: var(--ink); }
+    .tab.active { color: var(--accent); border-bottom-color: var(--accent); }
+
+    .tab-content { display: none; }
+    .tab-content.active { display: block; }
+
+    /* ── Account Cards ── */
+    .account-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 0.75rem;
+      padding: 1rem;
+    }
+
+    .account-card {
+      background: var(--surface-alt);
+      border: 1px solid var(--border);
+      border-radius: 5px;
+      padding: 1rem;
+      position: relative;
+      overflow: hidden;
+      transition: border-color 0.15s;
+    }
+
+    .account-card::before {
+      content: '';
+      position: absolute;
+      left: 0; top: 0; bottom: 0;
+      width: 3px;
+      background: var(--accent);
+    }
+
+    .account-card.warm::before { background: var(--dash-green-light); }
+    .account-card.showcase::before { background: var(--dash-amber); }
+
+    .account-card:hover { border-color: var(--accent); }
+
+    .ac-top {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      margin-bottom: 0.5rem;
+    }
+
+    .ac-name {
+      font-family: var(--font-sans);
+      font-size: 0.9rem;
+      font-weight: 700;
+      color: var(--ink);
+    }
+
+    .ac-score {
+      font-family: var(--font-sans);
+      font-size: 1.2rem;
+      font-weight: 700;
+      line-height: 1;
+      color: var(--accent);
+    }
+
+    .ac-score.showcase { color: var(--dash-amber); }
+
+    .ac-sub {
+      font-family: var(--font-sans);
+      font-size: 0.7rem;
+      color: var(--ink-muted);
+      margin-bottom: 0.6rem;
+    }
+
+    .ac-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 4px;
+      margin-bottom: 0.6rem;
+    }
+
+    .ac-tag {
+      font-family: var(--mono);
+      font-size: 0.55rem;
+      padding: 2px 6px;
+      border-radius: 3px;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      border: 1px solid;
+    }
+
+    .act-nis2 { border-color: var(--dash-blue-border); color: var(--dash-blue); background: var(--dash-blue-bg); }
+    .act-tisax { border-color: rgba(120,80,160,0.3); color: #6b4f8a; background: rgba(120,80,160,0.05); }
+    .act-kritis { border-color: var(--dash-amber-border); color: var(--dash-amber); background: var(--dash-amber-bg); }
+    .act-warm { border-color: var(--dash-green-border); color: var(--dash-green); background: var(--dash-green-bg); }
+
+    .ac-contact {
+      font-family: var(--font-sans);
+      font-size: 0.7rem;
+      color: var(--ink-muted);
+      margin-top: 0.5rem;
+      padding-top: 0.5rem;
+      border-top: 1px solid var(--border);
+    }
+
+    .ac-contact span { color: var(--accent); margin-right: 4px; }
+
+    .ac-stage {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      margin-top: 0.5rem;
+    }
+
+    .stage-bar-track {
+      flex: 1;
+      height: 3px;
+      background: var(--border);
+      border-radius: 2px;
+      overflow: hidden;
+    }
+
+    .stage-bar-fill {
+      height: 100%;
+      border-radius: 2px;
+      background: var(--accent);
+      transition: width 1s ease;
+    }
+
+    .stage-label {
+      font-family: var(--mono);
+      font-size: 0.6rem;
+      color: var(--ink-muted);
+      white-space: nowrap;
+    }
+
+    /* ── Funnel ── */
+    .funnel-wrap { padding: 1.15rem; }
+
+    .funnel-stage {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      margin-bottom: 0.5rem;
+    }
+
+    .f-label {
+      width: 155px;
+      font-family: var(--font-sans);
+      font-size: 0.7rem;
+      color: var(--ink-muted);
+      flex-shrink: 0;
+      text-align: right;
+    }
+
+    .f-bar-track {
+      flex: 1;
+      height: 18px;
+      background: var(--surface-alt);
+      border-radius: 3px;
+      overflow: hidden;
+    }
+
+    .f-bar-fill {
+      height: 100%;
+      border-radius: 3px;
+      background: var(--accent);
+      transition: width 1.2s ease;
+    }
+
+    .f-bar-fill.secondary { background: var(--dash-blue); }
+
+    .f-count {
+      width: 24px;
+      font-family: var(--font-sans);
+      font-size: 0.8rem;
+      font-weight: 700;
+      color: var(--ink);
+      text-align: center;
+      flex-shrink: 0;
+    }
+
+    /* ── ARR Projection ── */
+    .arr-section { padding: 1.15rem; }
+
+    .arr-scenario {
+      display: flex;
+      align-items: flex-end;
+      gap: 1rem;
+      padding: 0.65rem 0;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .arr-scenario:last-child { border-bottom: none; }
+
+    .arr-case {
+      font-family: var(--mono);
+      font-size: 0.6rem;
+      width: 70px;
+      color: var(--ink-muted);
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+    }
+
+    .arr-val {
+      font-family: var(--font-sans);
+      font-size: 1.1rem;
+      font-weight: 700;
+      line-height: 1;
+    }
+
+    .arr-val.cons { color: var(--ink-muted); }
+    .arr-val.base { color: var(--accent); }
+    .arr-val.bull { color: var(--dash-amber); }
+
+    .arr-desc {
+      font-family: var(--font-sans);
+      font-size: 0.7rem;
+      color: var(--ink-muted);
+    }
+
+    /* ── Sprint Stages ── */
+    .stage-tracker { padding: 1rem 1.15rem; }
+
+    .sprint-stage {
+      display: flex;
+      align-items: center;
+      gap: 0.85rem;
+      padding: 0.6rem 0;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .sprint-stage:last-child { border-bottom: none; }
+
+    .ss-num {
+      font-family: var(--font-sans);
+      font-weight: 700;
+      font-size: 0.65rem;
+      width: 20px; height: 20px;
+      border-radius: 4px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+
+    .ss-done { background: var(--accent); color: #fff; }
+    .ss-partial { background: var(--dash-amber-bg); color: var(--dash-amber); border: 1px solid var(--dash-amber-border); }
+
+    .ss-label { flex: 1; }
+    .ss-name { font-family: var(--font-sans); font-size: 0.75rem; font-weight: 700; color: var(--ink); }
+    .ss-desc { font-family: var(--font-sans); font-size: 0.65rem; color: var(--ink-muted); }
+
+    .ss-pct {
+      font-family: var(--font-sans);
+      font-size: 0.8rem;
+      font-weight: 700;
+      width: 40px;
+      text-align: right;
+    }
+
+    .pct-done { color: var(--accent); }
+    .pct-partial { color: var(--dash-amber); }
+
+    .progress-bar {
+      width: 60px;
+      height: 4px;
+      background: var(--surface-alt);
+      border-radius: 2px;
+      overflow: hidden;
+    }
+
+    .progress-fill {
+      height: 100%;
+      border-radius: 2px;
+      background: var(--accent);
+      transition: width 1s ease;
+    }
+
+    .progress-fill.partial { background: var(--dash-amber); }
+
+    /* ── PDF Grid ── */
+    .matrix-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 0.5rem;
+      padding: 1rem;
+    }
+
+    .pdf-chip {
+      background: var(--surface-alt);
+      border: 1px solid var(--border);
+      border-radius: 4px;
+      padding: 0.65rem 0.75rem;
+      transition: border-color 0.15s;
+    }
+
+    .pdf-chip:hover { border-color: var(--accent); }
+
+    .pdf-num {
+      font-family: var(--mono);
+      font-size: 0.55rem;
+      color: var(--ink-muted);
+      letter-spacing: 0.08em;
+      margin-bottom: 0.2rem;
+    }
+
+    .pdf-name {
+      font-family: var(--font-sans);
+      font-size: 0.7rem;
+      font-weight: 600;
+      line-height: 1.3;
+      color: var(--ink);
+    }
+
+    .pdf-type {
+      font-family: var(--mono);
+      font-size: 0.55rem;
+      margin-top: 0.35rem;
+      padding: 1px 6px;
+      border-radius: 3px;
+      display: inline-block;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+    }
+
+    .pt-anchor { background: var(--dash-blue-bg); color: var(--dash-blue); }
+    .pt-account { background: rgba(120,80,160,0.06); color: #6b4f8a; }
+    .pt-enablement { background: var(--dash-green-bg); color: var(--dash-green); }
+    .pt-program { background: var(--dash-amber-bg); color: var(--dash-amber); }
+
+    /* ── Territory ── */
+    .territory-list { padding: 1rem 1.15rem; }
+
+    .territory-row {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      padding: 0.5rem 0;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .territory-row:last-child { border-bottom: none; }
+
+    .terr-state {
+      font-family: var(--font-sans);
+      font-size: 0.7rem;
+      font-weight: 700;
+      width: 36px;
+      color: var(--accent);
+      letter-spacing: 0.04em;
+    }
+
+    .terr-label {
+      flex: 1;
+      font-family: var(--font-sans);
+      font-size: 0.7rem;
+      color: var(--ink-muted);
+    }
+
+    .terr-count {
+      font-family: var(--font-sans);
+      font-size: 0.8rem;
+      font-weight: 700;
+      width: 22px;
+      text-align: center;
+      color: var(--ink);
+    }
+
+    .terr-bar-track {
+      width: 80px;
+      height: 4px;
+      background: var(--surface-alt);
+      border-radius: 2px;
+      overflow: hidden;
+    }
+
+    .terr-fill {
+      height: 100%;
+      border-radius: 2px;
+      background: var(--accent);
+      transition: width 1s ease;
+    }
+
+    /* ── Timeline ── */
+    .timeline { padding: 1rem 1.15rem; }
+
+    .tl-item {
+      display: flex;
+      gap: 0.85rem;
+      padding-bottom: 1rem;
+      position: relative;
+    }
+
+    .tl-item:not(:last-child)::before {
+      content: '';
+      position: absolute;
+      left: 13px;
+      top: 24px;
+      bottom: 0;
+      width: 1px;
+      background: var(--border);
+    }
+
+    .tl-dot {
+      width: 26px; height: 26px;
+      border-radius: 50%;
+      background: var(--accent);
+      color: #fff;
+      flex-shrink: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: var(--font-sans);
+      font-size: 0.6rem;
+      font-weight: 700;
+      position: relative;
+      z-index: 1;
+    }
+
+    .tl-dot.pending {
+      background: var(--surface-alt);
+      color: var(--ink-muted);
+      border: 1px solid var(--border);
+    }
+
+    .tl-body { flex: 1; }
+    .tl-date { font-family: var(--mono); font-size: 0.6rem; color: var(--ink-muted); letter-spacing: 0.06em; margin-bottom: 0.15rem; }
+    .tl-title { font-family: var(--font-sans); font-size: 0.8rem; font-weight: 700; color: var(--ink); margin-bottom: 0.15rem; }
+    .tl-desc { font-family: var(--font-sans); font-size: 0.7rem; color: var(--ink-muted); }
+
+    /* ── Contact Table ── */
+    .outreach-table {
+      width: 100%;
+      border-collapse: collapse;
+    }
+
+    .outreach-table th {
+      font-family: var(--mono);
+      font-size: 0.55rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--ink-muted);
+      padding: 0.5rem 0.75rem;
+      text-align: left;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .outreach-table td {
+      font-family: var(--font-sans);
+      font-size: 0.7rem;
+      padding: 0.6rem 0.75rem;
+      border-bottom: 1px solid var(--border);
+      color: var(--ink-muted);
+      vertical-align: top;
+    }
+
+    .outreach-table tr:last-child td { border-bottom: none; }
+    .outreach-table tr:hover td { background: var(--surface-alt); }
+    .outreach-table .name { color: var(--ink); font-weight: 600; font-size: 0.75rem; }
+    .outreach-table .company-cell { color: var(--accent); }
+
+    .badge {
+      font-family: var(--mono);
+      font-size: 0.55rem;
+      padding: 2px 7px;
+      border-radius: 3px;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      white-space: nowrap;
+    }
+
+    .badge-warm { background: var(--dash-green-bg); color: var(--dash-green); border: 1px solid var(--dash-green-border); }
+    .badge-cold { background: var(--surface-alt); color: var(--ink-muted); border: 1px solid var(--border); }
+    .badge-showcase { background: var(--dash-amber-bg); color: var(--dash-amber); border: 1px solid var(--dash-amber-border); }
+
+    /* ── Pain Matrix ── */
+    .pain-table {
+      width: 100%;
+      border-collapse: collapse;
+    }
+
+    .pain-table th {
+      font-family: var(--mono);
+      font-size: 0.55rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--ink-muted);
+      padding: 0.5rem 0.65rem;
+      text-align: center;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .pain-table th:first-child { text-align: left; width: 45%; }
+
+    .pain-table td {
+      font-family: var(--font-sans);
+      font-size: 0.7rem;
+      padding: 0.45rem 0.65rem;
+      border-bottom: 1px solid var(--border);
+      text-align: center;
+      color: var(--ink-muted);
+    }
+
+    .pain-table td:first-child { text-align: left; color: var(--ink-light); }
+    .pain-table tr:last-child td { border-bottom: none; }
+    .pain-table tr:hover td { background: var(--surface-alt); }
+
+    .pain-check { color: var(--accent); font-weight: 700; }
+    .pain-miss { color: var(--border); }
+
+    /* ── Caveat ── */
+    .dash-caveat {
+      margin-top: 2rem;
+      padding: 0.85rem 1.15rem;
+      background: var(--surface-alt);
+      border-radius: 5px;
+      font-family: var(--font-sans);
+      font-size: 0.7rem;
+      color: var(--ink-muted);
+      font-style: italic;
+    }
+
+    /* ── Footer ── */
+    .dash-footer {
+      border-top: 1px solid var(--border);
+      padding: 1rem 0 0;
+      margin-top: 1.5rem;
+      display: flex;
+      justify-content: space-between;
+      font-family: var(--mono);
+      font-size: 0.6rem;
+      color: var(--ink-muted);
+      letter-spacing: 0.04em;
+    }
+
+    .dash-footer a {
+      color: var(--accent);
+      text-decoration: none;
+    }
+
+    .dash-footer a:hover { text-decoration: underline; }
+
+    /* ── Counter animation ── */
+    .counter { display: inline-block; }
+
+    /* ── Responsive ── */
+    @media (max-width: 900px) {
+      .stats-row { grid-template-columns: repeat(3, 1fr); }
+      .two-col, .three-col { grid-template-columns: 1fr; }
+      .account-grid { grid-template-columns: 1fr; }
+      .matrix-grid { grid-template-columns: repeat(2, 1fr); }
+    }
+
+    @media (max-width: 600px) {
+      .stats-row { grid-template-columns: repeat(2, 1fr); }
+      .matrix-grid { grid-template-columns: 1fr; }
+      .dash-wrap { padding: 1rem; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- ── Nav ── -->
+<nav class="site-nav">
+  <div class="site-nav__inner">
+    <a href="../../" class="site-nav__brand">Partner Program OS</a>
+    <ul class="site-nav__links">
+      <li><a href="../../">Memo</a></li>
+      <li><a href="../../method/">Method</a></li>
+      <li><a href="../../partner-mapping/">Partners</a></li>
+      <li><a href="../" class="active">ABSM</a></li>
+    </ul>
+  </div>
+</nav>
+
+<div class="dash-wrap">
+
+  <!-- ── Header ── -->
+  <header class="dash-header">
+    <h1>KPI Dashboard</h1>
+    <p>Axians × Akamai Guardicore — Partner Intelligence Program · DACH Sprint</p>
+    <div class="dash-meta">
+      <span class="live-dot">Sprint Active</span>
+      <span>Stage 5 Infrastructure</span>
+      <span>4 Accounts · 43 Artifacts</span>
+      <span id="timestamp"></span>
+    </div>
+  </header>
+
+  <!-- ── Stat Cards ── -->
+  <div class="section-label">Sprint KPIs</div>
+  <div class="stats-row">
+    <div class="stat-card">
+      <div class="stat-label">Accounts Profiled</div>
+      <div class="stat-value accent"><span class="counter" data-target="4">0</span></div>
+      <div class="stat-sub">3 active · 1 showcase</div>
+    </div>
+    <div class="stat-card">
+      <div class="stat-label">Artifacts Produced</div>
+      <div class="stat-value"><span class="counter" data-target="43">0</span></div>
+      <div class="stat-sub">39 done · 4 pending</div>
+    </div>
+    <div class="stat-card">
+      <div class="stat-label">Execution PDFs</div>
+      <div class="stat-value"><span class="counter" data-target="12">0</span></div>
+      <div class="stat-sub">Axians-branded</div>
+    </div>
+    <div class="stat-card">
+      <div class="stat-label">Warm Paths</div>
+      <div class="stat-value accent"><span class="counter" data-target="1">0</span></div>
+      <div class="stat-sub">Hörmann — NEO 11yr</div>
+    </div>
+    <div class="stat-card">
+      <div class="stat-label">Top Account Score</div>
+      <div class="stat-value"><span class="counter" data-target="91">0</span></div>
+      <div class="stat-sub">Hörmann KG / 100</div>
+    </div>
+    <div class="stat-card">
+      <div class="stat-label">Projected ARR</div>
+      <div class="stat-value blue">€<span class="counter" data-target="1.2">0</span>M</div>
+      <div class="stat-sub">Base case · 3 closures</div>
+    </div>
+  </div>
+
+  <!-- ── Account Intelligence + Funnel ── -->
+  <div class="section-label">Account Intelligence</div>
+  <div class="two-col">
+
+    <!-- Accounts Panel -->
+    <div class="panel">
+      <div class="panel-header">
+        <span class="panel-title">Target Accounts</span>
+        <span class="panel-tag tag-green">DACH Mittelstand</span>
+      </div>
+      <div class="tabs">
+        <button class="tab active" onclick="switchTab(this,'tab-overview')">Overview</button>
+        <button class="tab" onclick="switchTab(this,'tab-contacts')">Key Contacts</button>
+      </div>
+
+      <div id="tab-overview" class="tab-content active">
+        <div class="account-grid">
+          <div class="account-card warm">
+            <div class="ac-top">
+              <div class="ac-name">Hörmann KG</div>
+              <div class="ac-score">91</div>
+            </div>
+            <div class="ac-sub">Steinhagen · NRW · &gt;€1B</div>
+            <div class="ac-tags">
+              <span class="ac-tag act-nis2">NIS2</span>
+              <span class="ac-tag act-kritis">KRITIS</span>
+              <span class="ac-tag act-tisax">TISAX</span>
+              <span class="ac-tag act-warm">▲ Warm Path</span>
+            </div>
+            <div class="ac-stage">
+              <span class="stage-label">PIP Routed</span>
+              <div class="stage-bar-track"><div class="stage-bar-fill" style="width:25%"></div></div>
+            </div>
+            <div class="ac-contact"><span>◉</span> Rian Redinger — CISO</div>
+          </div>
+
+          <div class="account-card">
+            <div class="ac-top">
+              <div class="ac-name">Reinhausen</div>
+              <div class="ac-score">86</div>
+            </div>
+            <div class="ac-sub">Regensburg · BY · €1.2B</div>
+            <div class="ac-tags">
+              <span class="ac-tag act-nis2">NIS2</span>
+              <span class="ac-tag act-kritis">KRITIS</span>
+            </div>
+            <div class="ac-stage">
+              <span class="stage-label">PIP Routed</span>
+              <div class="stage-bar-track"><div class="stage-bar-fill" style="width:25%"></div></div>
+            </div>
+            <div class="ac-contact"><span>◉</span> Dr. Hubert Feyrer — Cyber Expert</div>
+          </div>
+
+          <div class="account-card">
+            <div class="ac-top">
+              <div class="ac-name">Witte Automotive</div>
+              <div class="ac-score">85</div>
+            </div>
+            <div class="ac-sub">Velbert · NRW · &gt;€1B</div>
+            <div class="ac-tags">
+              <span class="ac-tag act-nis2">NIS2</span>
+              <span class="ac-tag act-tisax">TISAX</span>
+            </div>
+            <div class="ac-stage">
+              <span class="stage-label">PIP Routed</span>
+              <div class="stage-bar-track"><div class="stage-bar-fill" style="width:25%"></div></div>
+            </div>
+            <div class="ac-contact"><span>◉</span> Rainer Schulten — Leiter IT Security</div>
+          </div>
+
+          <div class="account-card showcase">
+            <div class="ac-top">
+              <div class="ac-name">Trumpf SE</div>
+              <div class="ac-score showcase">★</div>
+            </div>
+            <div class="ac-sub">Ditzingen · BW · €4.3B</div>
+            <div class="ac-tags">
+              <span class="ac-tag act-nis2">NIS2</span>
+              <span class="ac-tag act-kritis">KRITIS</span>
+            </div>
+            <div class="ac-stage">
+              <span class="stage-label">Showcase</span>
+              <div class="stage-bar-track"><div class="stage-bar-fill" style="width:15%;background:var(--dash-amber)"></div></div>
+            </div>
+            <div class="ac-contact"><span>◉</span> Thomas Speck — CIO</div>
+          </div>
+        </div>
+      </div>
+
+      <div id="tab-contacts" class="tab-content">
+        <div class="panel-body" style="padding:0">
+          <table class="outreach-table">
+            <thead>
+              <tr><th>Name / Role</th><th>Account</th><th>Path</th><th>Priority Signal</th></tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><span class="name">Rian Redinger</span><br>CISO</td>
+                <td class="company-cell">Hörmann KG</td>
+                <td><span class="badge badge-warm">Warm</span></td>
+                <td>LinkedIn verified · BiSecur IoT CVE 2020</td>
+              </tr>
+              <tr>
+                <td><span class="name">Uwe Reith</span><br>MD IT Subsidiary</td>
+                <td class="company-cell">Hörmann KG</td>
+                <td><span class="badge badge-warm">Warm</span></td>
+                <td>Decision-maker for IT investments</td>
+              </tr>
+              <tr>
+                <td><span class="name">Dr. Hubert Feyrer</span><br>Cyber Expert / BDEW Author</td>
+                <td class="company-cell">Reinhausen</td>
+                <td><span class="badge badge-cold">Cold</span></td>
+                <td>Public author — engage via content</td>
+              </tr>
+              <tr>
+                <td><span class="name">Rainer Schulten</span><br>Leiter IT Security (Jan 2024)</td>
+                <td class="company-cell">Witte Automotive</td>
+                <td><span class="badge badge-cold">Cold</span></td>
+                <td>Role created Jan 2024 — buying window open</td>
+              </tr>
+              <tr>
+                <td><span class="name">Patrick Demant</span><br>Head IT Cross Applications</td>
+                <td class="company-cell">Witte Automotive</td>
+                <td><span class="badge badge-cold">Cold</span></td>
+                <td>Oct 2024 start — influencer</td>
+              </tr>
+              <tr>
+                <td><span class="name">Thomas Speck</span><br>CIO (CIO of Year 2023)</td>
+                <td class="company-cell">Trumpf SE</td>
+                <td><span class="badge badge-showcase">Showcase</span></td>
+                <td>Smart factory Ditzingen — OPC UA 30 machines</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+
+    <!-- Funnel + ARR -->
+    <div style="display:flex;flex-direction:column;gap:1.25rem">
+      <div class="panel">
+        <div class="panel-header">
+          <span class="panel-title">Pipeline Funnel</span>
+          <span class="panel-tag tag-blue">4 Accounts</span>
+        </div>
+        <div class="funnel-wrap">
+          <div class="funnel-stage"><span class="f-label">PIP Routed</span><div class="f-bar-track"><div class="f-bar-fill" style="width:100%"></div></div><span class="f-count">4</span></div>
+          <div class="funnel-stage"><span class="f-label">Intel Kit Ready</span><div class="f-bar-track"><div class="f-bar-fill" style="width:100%"></div></div><span class="f-count">4</span></div>
+          <div class="funnel-stage"><span class="f-label">First Contact Sent</span><div class="f-bar-track"><div class="f-bar-fill secondary" style="width:0%"></div></div><span class="f-count">—</span></div>
+          <div class="funnel-stage"><span class="f-label">Meeting Booked</span><div class="f-bar-track"><div class="f-bar-fill secondary" style="width:0%"></div></div><span class="f-count">—</span></div>
+          <div class="funnel-stage"><span class="f-label">Discovery Complete</span><div class="f-bar-track"><div class="f-bar-fill secondary" style="width:0%"></div></div><span class="f-count">—</span></div>
+          <div class="funnel-stage"><span class="f-label">POC Proposed</span><div class="f-bar-track"><div class="f-bar-fill secondary" style="width:0%"></div></div><span class="f-count">—</span></div>
+          <div class="funnel-stage"><span class="f-label">POC In Progress</span><div class="f-bar-track"><div class="f-bar-fill secondary" style="width:0%"></div></div><span class="f-count">—</span></div>
+          <div class="funnel-stage"><span class="f-label">Business Case</span><div class="f-bar-track"><div class="f-bar-fill secondary" style="width:0%"></div></div><span class="f-count">—</span></div>
+          <div class="funnel-stage"><span class="f-label">Closed Won</span><div class="f-bar-track"><div class="f-bar-fill secondary" style="width:0%"></div></div><span class="f-count">—</span></div>
+        </div>
+      </div>
+
+      <div class="panel">
+        <div class="panel-header">
+          <span class="panel-title">ARR Projection Scenarios</span>
+        </div>
+        <div class="arr-section">
+          <div class="arr-scenario">
+            <span class="arr-case">Conserv.</span>
+            <span class="arr-val cons">€480K</span>
+            <span class="arr-desc">1 close (Hörmann warm path)</span>
+          </div>
+          <div class="arr-scenario">
+            <span class="arr-case">Base</span>
+            <span class="arr-val base">€1.2M</span>
+            <span class="arr-desc">3 closes · 18-month horizon</span>
+          </div>
+          <div class="arr-scenario">
+            <span class="arr-case">Bullish</span>
+            <span class="arr-val bull">€2.1M</span>
+            <span class="arr-desc">4 closes + expansion · Trumpf included</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ── Sprint Progress & Content ── -->
+  <div class="section-label">Sprint Progress &amp; Content</div>
+  <div class="three-col">
+
+    <!-- PDF Grid -->
+    <div class="panel">
+      <div class="panel-header">
+        <span class="panel-title">Execution PDFs — Stage 4</span>
+        <span class="panel-tag tag-green">12 / 12 Done</span>
+      </div>
+      <div class="matrix-grid">
+        <div class="pdf-chip"><div class="pdf-num">PDF-01</div><div class="pdf-name">NIS2 Segmentation Brief</div><div class="pdf-type pt-anchor">Anchor</div></div>
+        <div class="pdf-chip"><div class="pdf-num">PDF-02</div><div class="pdf-name">Triple Obligation Poster</div><div class="pdf-type pt-anchor">Anchor</div></div>
+        <div class="pdf-chip"><div class="pdf-num">PDF-03</div><div class="pdf-name">TISAX Segmentation Brief</div><div class="pdf-type pt-anchor">Anchor</div></div>
+        <div class="pdf-chip"><div class="pdf-num">PDF-04</div><div class="pdf-name">OT Agentless Brief</div><div class="pdf-type pt-anchor">Anchor</div></div>
+        <div class="pdf-chip"><div class="pdf-num">PDF-05</div><div class="pdf-name">Mittelstand ROI Business Case</div><div class="pdf-type pt-enablement">Enablement</div></div>
+        <div class="pdf-chip"><div class="pdf-num">PDF-06</div><div class="pdf-name">Axians × Akamai Capabilities</div><div class="pdf-type pt-enablement">Enablement</div></div>
+        <div class="pdf-chip"><div class="pdf-num">PDF-07</div><div class="pdf-name">Competitive Battlecard</div><div class="pdf-type pt-enablement">Enablement</div></div>
+        <div class="pdf-chip"><div class="pdf-num">PDF-08</div><div class="pdf-name">Hörmann Executive Brief</div><div class="pdf-type pt-account">Account</div></div>
+        <div class="pdf-chip"><div class="pdf-num">PDF-09</div><div class="pdf-name">Reinhausen Executive Brief</div><div class="pdf-type pt-account">Account</div></div>
+        <div class="pdf-chip"><div class="pdf-num">PDF-10</div><div class="pdf-name">Witte Automotive Brief</div><div class="pdf-type pt-account">Account</div></div>
+        <div class="pdf-chip"><div class="pdf-num">PDF-11</div><div class="pdf-name">Trumpf Showcase Brief</div><div class="pdf-type pt-account">Account</div></div>
+        <div class="pdf-chip"><div class="pdf-num">PDF-12</div><div class="pdf-name">PIP Program Brief</div><div class="pdf-type pt-program">Program</div></div>
+      </div>
+    </div>
+
+    <!-- Sprint Stages -->
+    <div class="panel">
+      <div class="panel-header">
+        <span class="panel-title">Sprint Stages</span>
+        <span class="panel-tag tag-amber">Stage 5 Active</span>
+      </div>
+      <div class="stage-tracker">
+        <div class="sprint-stage">
+          <div class="ss-num ss-done">0</div>
+          <div class="ss-label"><div class="ss-name">Context</div><div class="ss-desc">Sprint spec, decisions log</div></div>
+          <div class="progress-bar"><div class="progress-fill" style="width:100%"></div></div>
+          <div class="ss-pct pct-done">100%</div>
+        </div>
+        <div class="sprint-stage">
+          <div class="ss-num ss-done">1</div>
+          <div class="ss-label"><div class="ss-name">Targeting</div><div class="ss-desc">ICP, scoring, final 4</div></div>
+          <div class="progress-bar"><div class="progress-fill" style="width:100%"></div></div>
+          <div class="ss-pct pct-done">100%</div>
+        </div>
+        <div class="sprint-stage">
+          <div class="ss-num ss-done">2</div>
+          <div class="ss-label"><div class="ss-name">Intel</div><div class="ss-desc">16 files — 4 × 4 accounts</div></div>
+          <div class="progress-bar"><div class="progress-fill" style="width:100%"></div></div>
+          <div class="ss-pct pct-done">100%</div>
+        </div>
+        <div class="sprint-stage">
+          <div class="ss-num ss-done">3</div>
+          <div class="ss-label"><div class="ss-name">Strategy</div><div class="ss-desc">Pain patterns, competitive</div></div>
+          <div class="progress-bar"><div class="progress-fill" style="width:100%"></div></div>
+          <div class="ss-pct pct-done">100%</div>
+        </div>
+        <div class="sprint-stage">
+          <div class="ss-num ss-done">4</div>
+          <div class="ss-label"><div class="ss-name">Execution</div><div class="ss-desc">12 Axians-branded PDFs</div></div>
+          <div class="progress-bar"><div class="progress-fill" style="width:100%"></div></div>
+          <div class="ss-pct pct-done">100%</div>
+        </div>
+        <div class="sprint-stage">
+          <div class="ss-num ss-partial">5</div>
+          <div class="ss-label"><div class="ss-name">Infrastructure</div><div class="ss-desc">CRM, dashboard, MDF, checklist</div></div>
+          <div class="progress-bar"><div class="progress-fill partial" style="width:50%"></div></div>
+          <div class="ss-pct pct-partial">50%</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Territory + Timeline -->
+    <div style="display:flex;flex-direction:column;gap:1.25rem">
+      <div class="panel">
+        <div class="panel-header">
+          <span class="panel-title">Territory Split</span>
+          <span class="panel-tag tag-blue">3 States</span>
+        </div>
+        <div class="territory-list">
+          <div class="territory-row">
+            <span class="terr-state">NRW</span>
+            <span class="terr-label">Hörmann · Witte</span>
+            <span class="terr-count">2</span>
+            <div class="terr-bar-track"><div class="terr-fill" style="width:50%"></div></div>
+          </div>
+          <div class="territory-row">
+            <span class="terr-state">BW</span>
+            <span class="terr-label">Trumpf (showcase)</span>
+            <span class="terr-count">1</span>
+            <div class="terr-bar-track"><div class="terr-fill" style="width:25%"></div></div>
+          </div>
+          <div class="territory-row">
+            <span class="terr-state">BY</span>
+            <span class="terr-label">Reinhausen</span>
+            <span class="terr-count">1</span>
+            <div class="terr-bar-track"><div class="terr-fill" style="width:25%"></div></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="panel">
+        <div class="panel-header">
+          <span class="panel-title">Activation Timeline</span>
+        </div>
+        <div class="timeline">
+          <div class="tl-item">
+            <div class="tl-dot">W1</div>
+            <div class="tl-body">
+              <div class="tl-date">Week 1</div>
+              <div class="tl-title">HubSpot Configuration</div>
+              <div class="tl-desc">Custom properties, deal pipeline, workflows 1–4</div>
+            </div>
+          </div>
+          <div class="tl-item">
+            <div class="tl-dot">W2</div>
+            <div class="tl-body">
+              <div class="tl-date">Week 2</div>
+              <div class="tl-title">Hörmann Outreach</div>
+              <div class="tl-desc">NEO warm path intro via A. Kempe + L. Eichler</div>
+            </div>
+          </div>
+          <div class="tl-item">
+            <div class="tl-dot">W3</div>
+            <div class="tl-body">
+              <div class="tl-date">Week 3</div>
+              <div class="tl-title">Cold Outreach — Witte + Reinhausen</div>
+              <div class="tl-desc">Regulatory sequence; Schulten + Feyrer</div>
+            </div>
+          </div>
+          <div class="tl-item">
+            <div class="tl-dot pending">M2</div>
+            <div class="tl-body">
+              <div class="tl-date">Month 2</div>
+              <div class="tl-title">First POC Target</div>
+              <div class="tl-desc">Hörmann POC proposed; discovery on 2 cold accounts</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ── Pain Pattern Coverage ── -->
+  <div class="section-label">Pain Pattern Coverage</div>
+  <div class="panel">
+    <div class="panel-header">
+      <span class="panel-title">8 Pain Patterns × 4 Accounts — Coverage Matrix</span>
+      <span class="panel-tag tag-blue">Strategy Layer</span>
+    </div>
+    <div class="panel-body" style="padding:0;overflow-x:auto">
+      <table class="pain-table">
+        <thead>
+          <tr><th>Pain Pattern</th><th>Hörmann</th><th>Reinhausen</th><th>Witte</th><th>Trumpf</th></tr>
+        </thead>
+        <tbody id="pain-matrix"></tbody>
+      </table>
+    </div>
+  </div>
+
+  <!-- ── Caveat ── -->
+  <div class="dash-caveat">
+    All partner and account research represents a first pass from public sources (LinkedIn, company websites, annual reports, PSIRT advisories). No confidential data used.
+  </div>
+
+  <!-- ── Footer ── -->
+  <div class="dash-footer">
+    <span>Axians IT Security × Akamai Guardicore — PIP · DACH Sprint</span>
+    <span>
+      <a href="../">← Back to ABSM Sprint</a>
+    </span>
+  </div>
+
+</div>
+
+<script>
+// ── Timestamp
+document.getElementById('timestamp').textContent =
+  new Date().toLocaleString('en-GB', { day:'2-digit', month:'short', year:'numeric', hour:'2-digit', minute:'2-digit' });
+
+// ── Counter animation
+function animateCounter(el) {
+  const target = parseFloat(el.dataset.target);
+  const isFloat = target % 1 !== 0;
+  const duration = 1100;
+  const start = performance.now();
+  function step(now) {
+    const elapsed = now - start;
+    const progress = Math.min(elapsed / duration, 1);
+    const ease = 1 - Math.pow(1 - progress, 3);
+    const current = target * ease;
+    el.textContent = isFloat ? current.toFixed(1) : Math.round(current);
+    if (progress < 1) requestAnimationFrame(step);
+  }
+  requestAnimationFrame(step);
+}
+document.querySelectorAll('.counter').forEach(animateCounter);
+
+// ── Tabs
+function switchTab(btn, id) {
+  const panel = btn.closest('.panel');
+  panel.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
+  panel.querySelectorAll('.tab-content').forEach(c => c.classList.remove('active'));
+  btn.classList.add('active');
+  panel.querySelector('#' + id).classList.add('active');
+}
+
+// ── Pain matrix
+const patterns = [
+  ['Triple regulatory obligation (NIS2 + KRITIS + TISAX)', true, false, false, true],
+  ['Security role created < 3 years — active buying window', false, false, true, false],
+  ['Industrie 4.0 / Smart Factory winner — OT already live', false, true, false, true],
+  ['Warm-path cross-portfolio (existing Axians relationship)', true, false, false, false],
+  ['Investment offensive — greenfield segmentation opportunity', false, true, false, false],
+  ['Insurance renewal driving microsegmentation RFQ', true, true, true, false],
+  ['SAP S/4HANA migration creates IT/OT convergence risk', true, false, true, true],
+  ['IoT product liability — documented CVE / public incident', true, false, false, false],
+];
+
+const tbody = document.getElementById('pain-matrix');
+patterns.forEach(([label, ...values]) => {
+  const tr = document.createElement('tr');
+  tr.innerHTML = '<td>' + label + '</td>';
+  values.forEach(v => {
+    tr.innerHTML += '<td>' + (v
+      ? '<span class="pain-check">✓</span>'
+      : '<span class="pain-miss">·</span>') + '</td>';
+  });
+  tbody.appendChild(tr);
+});
+
+// ── Animate bars on load
+window.addEventListener('load', () => {
+  setTimeout(() => {
+    document.querySelectorAll('.stage-bar-fill, .f-bar-fill, .progress-fill, .terr-fill').forEach(el => {
+      const w = el.style.width;
+      el.style.width = '0%';
+      requestAnimationFrame(() => {
+        requestAnimationFrame(() => { el.style.width = w; });
+      });
+    });
+  }, 150);
+});
+</script>
+</body>
+</html>
