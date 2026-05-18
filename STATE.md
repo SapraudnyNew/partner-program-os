@@ -137,3 +137,11 @@
 - Nav links: white text → dark text, active link in blue
 - Hamburger: white strokes → currentColor (adapts to light nav)
 - Sidebar width: 260px → 240px (tighter)
+## SESSION 2026-05-19-c · CSS rewrite + doubled h1 fix + width fix
+
+- CSS полностью переписан (313 строк): убран max-width: 60ch с p, добавлены голубые акценты, hover-эффекты на nav/sidebar/карточки
+- 54 MD-страницы: убраны задвоенные h1 (шаблон + markdown)
+- 63 файла: hamburger SVG stroke="#fff" → currentColor
+- Nav: белый с border-bottom, hover подсветка голубым
+- Применён approved copy (4 страницы) + v2 shell (5 v1 страниц)
+- 65 файлов, 784 вставок, 340 удалений
