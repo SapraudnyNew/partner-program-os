@@ -92,3 +92,14 @@ A new block D2-RC is inserted between D2-2 (diagnosis scorecard) and D3-1 (ABM/T
 - ADR-009 (DACH projects)
 - `02-akamai/research/outputs/partner-program/akamai-partner-program-dach-dossier.md` (entanglement signals surfaced)
 - `01-method/01-recruit.md` (IPP definition, modified by this ADR)
+
+## Amendment 2026-05-18 — Computacenter Illumio investment claim retracted
+
+The ADR's Context section described Computacenter as "co-invested in Illumio + simultaneously Akamai Select". D2-RC research (2026-05-18, see `02-akamai/research/outputs/entanglement/01-entanglement-matrix.md` Section 5) verified Illumio's funding history through Series C-F and found no Computacenter participation. Named Illumio investors are J.P. Morgan Asset Management, BlackRock, Andreessen Horowitz, General Catalyst, Accel, 8VC, DCVC, Formation 8, Thoma Bravo, Franklin Templeton, Hamilton Lane, and Owl Rock.
+
+The actual Computacenter-Illumio relationship verified in public sources: MSP service partnership (connect-professional.de coverage Jan-2025) plus joint co-exhibition with KAEMI at Illumio World Tour Germany 2025 (Frankfurt, Dec-2025).
+
+Effect on this ADR's decision: none. The decision to add Recruitability as the 6th IPP dimension and the Pursue/Contain/Monitor/Drop taxonomy stands. The Computacenter case still illustrates the dimension's purpose: a structurally locked partner where flagship Akamai investment would underperform. The lock is real (MSP service partnership + co-exhibition + Cisco/PANW/Zscaler triple-anchor at flagship tier). The lock is not equity-based.
+
+Per D2-RC disposition recommendation: Computacenter scores Recruitability 1 on the entanglement matrix. Disposition: Contain. Permitted deal types: residual product gaps where Akamai's portfolio has no Cisco/PANW/Zscaler analogue (Guardicore east-west micro-segmentation, API Security). No flagship MDF investment. Quarterly tripwire review.
+

@@ -29,9 +29,9 @@ partner-program-os/
 ├── 00-decisions/             → Architectural decision records. Read before changing structure.
 ├── 01-method/                → The Universal Partner Method (7-stage lifecycle, Layer 1)
 ├── 02-akamai/                → Akamai-specific application (Layer 2 + Layer 3)
-│   └── research/             → Akamai deep research (60+ pages)
+│   ├── research/             → Akamai deep research (company + partner-program + entanglement)
+│   └── 03-dach-projects/     → ABM/TAS + ABSM supporting artifacts per ADR-009
 ├── 03-boon-edam/             → BEGE-specific application (frozen per ADR-008)
-├── 03-dach-projects/         → ABM/TAS + ABSM supporting artifacts per ADR-009
 ├── prompts/                  → Starter prompts for new chats
 └── docs/                     → GitHub Pages publishable subset (sanitized)
 ```
