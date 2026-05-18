@@ -1,0 +1,410 @@
+/* ========================================
+   Partner Program OS — HVO Mini-Site
+   Design: consulting-minimal
+   ======================================== */
+
+@import url('https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,opsz,wght@0,8..60,300;0,8..60,400;0,8..60,600;1,8..60,400&family=DM+Sans:wght@400;500;600&family=JetBrains+Mono:wght@400&display=swap');
+
+:root {
+  /* Palette — warm neutrals */
+  --ink: #1a1a1a;
+  --ink-light: #4a4a4a;
+  --ink-muted: #7a7a7a;
+  --surface: #fafaf8;
+  --surface-alt: #f2f1ed;
+  --border: #e0ddd6;
+  --border-light: #eceae4;
+  --accent: #2c5545;
+  --accent-light: #3a7a5e;
+  --accent-bg: #eef4f0;
+  --white: #ffffff;
+
+  /* Type scale */
+  --font-serif: 'Source Serif 4', Georgia, serif;
+  --font-sans: 'DM Sans', -apple-system, sans-serif;
+  --font-mono: 'JetBrains Mono', monospace;
+
+  /* Spacing */
+  --sp-xs: 0.25rem;
+  --sp-sm: 0.5rem;
+  --sp-md: 1rem;
+  --sp-lg: 1.5rem;
+  --sp-xl: 2.5rem;
+  --sp-2xl: 4rem;
+  --sp-3xl: 6rem;
+
+  /* Layout */
+  --content-width: 720px;
+  --wide-width: 960px;
+  --page-padding: 1.5rem;
+}
+
+/* ── Reset ── */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+html {
+  font-size: 17px;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: var(--font-sans);
+  color: var(--ink);
+  background: var(--surface);
+  line-height: 1.65;
+}
+
+/* ── Navigation ── */
+.site-nav {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background: var(--white);
+  border-bottom: 1px solid var(--border);
+  padding: 0.75rem var(--page-padding);
+}
+
+.site-nav__inner {
+  max-width: var(--wide-width);
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+}
+
+.site-nav__brand {
+  font-family: var(--font-sans);
+  font-weight: 600;
+  font-size: 0.85rem;
+  color: var(--ink);
+  text-decoration: none;
+  letter-spacing: 0.02em;
+}
+
+.site-nav__links {
+  display: flex;
+  gap: 1.5rem;
+  list-style: none;
+}
+
+.site-nav__links a {
+  font-size: 0.8rem;
+  font-weight: 500;
+  color: var(--ink-muted);
+  text-decoration: none;
+  transition: color 0.15s;
+}
+
+.site-nav__links a:hover,
+.site-nav__links a.active {
+  color: var(--accent);
+}
+
+/* ── Page Layout ── */
+.page {
+  max-width: var(--content-width);
+  margin: 0 auto;
+  padding: var(--sp-2xl) var(--page-padding) var(--sp-3xl);
+}
+
+.page--wide {
+  max-width: var(--wide-width);
+}
+
+/* ── Typography ── */
+h1, h2, h3, h4 {
+  font-family: var(--font-serif);
+  font-weight: 600;
+  line-height: 1.25;
+  color: var(--ink);
+}
+
+h1 {
+  font-size: 2rem;
+  margin-bottom: var(--sp-lg);
+  letter-spacing: -0.01em;
+}
+
+h2 {
+  font-size: 1.35rem;
+  margin-top: var(--sp-2xl);
+  margin-bottom: var(--sp-md);
+  padding-bottom: var(--sp-sm);
+  border-bottom: 1px solid var(--border);
+}
+
+h3 {
+  font-size: 1.1rem;
+  margin-top: var(--sp-xl);
+  margin-bottom: var(--sp-sm);
+}
+
+p {
+  margin-bottom: var(--sp-md);
+  color: var(--ink-light);
+}
+
+.lead {
+  font-size: 1.1rem;
+  line-height: 1.7;
+  color: var(--ink-light);
+  margin-bottom: var(--sp-xl);
+}
+
+a {
+  color: var(--accent);
+  text-decoration: underline;
+  text-decoration-color: var(--border);
+  text-underline-offset: 2px;
+  transition: text-decoration-color 0.15s;
+}
+
+a:hover {
+  text-decoration-color: var(--accent);
+}
+
+/* ── Page Header ── */
+.page-header {
+  margin-bottom: var(--sp-2xl);
+}
+
+.page-header__kicker {
+  font-family: var(--font-sans);
+  font-size: 0.75rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--accent);
+  margin-bottom: var(--sp-sm);
+}
+
+.page-header__subtitle {
+  font-family: var(--font-sans);
+  font-size: 0.9rem;
+  color: var(--ink-muted);
+  margin-top: var(--sp-sm);
+}
+
+/* ── Caveat / Disclaimer Block ── */
+.caveat {
+  font-size: 0.8rem;
+  color: var(--ink-muted);
+  background: var(--surface-alt);
+  border-left: 3px solid var(--border);
+  padding: var(--sp-md) var(--sp-lg);
+  margin: var(--sp-xl) 0;
+  line-height: 1.6;
+}
+
+/* ── Stage Cards ── */
+.stage-grid {
+  display: grid;
+  gap: var(--sp-lg);
+  margin: var(--sp-xl) 0;
+}
+
+.stage-card {
+  background: var(--white);
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  padding: var(--sp-lg);
+  transition: border-color 0.15s;
+}
+
+.stage-card:hover {
+  border-color: var(--accent);
+}
+
+.stage-card__number {
+  font-family: var(--font-mono);
+  font-size: 0.7rem;
+  color: var(--ink-muted);
+  margin-bottom: var(--sp-xs);
+}
+
+.stage-card__title {
+  font-family: var(--font-serif);
+  font-size: 1.1rem;
+  font-weight: 600;
+  margin-bottom: var(--sp-sm);
+}
+
+.stage-card__desc {
+  font-size: 0.9rem;
+  color: var(--ink-light);
+  line-height: 1.6;
+  margin: 0;
+}
+
+/* ── Perspective Cards (homepage) ── */
+.perspective-card {
+  background: var(--white);
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  padding: var(--sp-xl);
+  margin: var(--sp-lg) 0;
+  transition: border-color 0.2s;
+}
+
+.perspective-card:hover {
+  border-color: var(--accent);
+}
+
+.perspective-card__kicker {
+  font-family: var(--font-sans);
+  font-size: 0.7rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--accent);
+  margin-bottom: var(--sp-sm);
+}
+
+.perspective-card__title {
+  font-family: var(--font-serif);
+  font-size: 1.2rem;
+  font-weight: 600;
+  margin-bottom: var(--sp-md);
+}
+
+.perspective-card__body {
+  font-size: 0.95rem;
+  color: var(--ink-light);
+  line-height: 1.65;
+  margin-bottom: var(--sp-md);
+}
+
+.perspective-card__link {
+  font-size: 0.85rem;
+  font-weight: 500;
+}
+
+/* ── Maturity Table ── */
+.maturity-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.85rem;
+  margin: var(--sp-xl) 0;
+}
+
+.maturity-table th,
+.maturity-table td {
+  padding: var(--sp-sm) var(--sp-md);
+  text-align: left;
+  border-bottom: 1px solid var(--border-light);
+  vertical-align: top;
+}
+
+.maturity-table thead th {
+  font-family: var(--font-sans);
+  font-weight: 600;
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  color: var(--ink-muted);
+  border-bottom: 2px solid var(--border);
+  padding-bottom: var(--sp-sm);
+}
+
+.maturity-table tbody td:first-child {
+  font-weight: 500;
+  color: var(--ink);
+  white-space: nowrap;
+}
+
+.maturity-table .level-basic { color: var(--ink-muted); }
+.maturity-table .level-pro { color: var(--ink-light); }
+.maturity-table .level-wc { color: var(--accent); font-weight: 500; }
+
+/* ── Timeline (30/60/90) ── */
+.timeline {
+  margin: var(--sp-xl) 0;
+  padding-left: 1.5rem;
+  border-left: 2px solid var(--border);
+}
+
+.timeline__phase {
+  position: relative;
+  padding-bottom: var(--sp-xl);
+}
+
+.timeline__phase::before {
+  content: '';
+  position: absolute;
+  left: calc(-1.5rem - 5px);
+  top: 0.35rem;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--accent);
+}
+
+.timeline__label {
+  font-family: var(--font-sans);
+  font-size: 0.75rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--accent);
+  margin-bottom: var(--sp-xs);
+}
+
+.timeline__title {
+  font-family: var(--font-serif);
+  font-size: 1.05rem;
+  font-weight: 600;
+  margin-bottom: var(--sp-sm);
+}
+
+.timeline__body {
+  font-size: 0.9rem;
+  color: var(--ink-light);
+  line-height: 1.6;
+}
+
+/* ── Footer ── */
+.site-footer {
+  border-top: 1px solid var(--border);
+  padding: var(--sp-xl) var(--page-padding);
+  text-align: center;
+  font-size: 0.75rem;
+  color: var(--ink-muted);
+}
+
+/* ── Utility ── */
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0,0,0,0);
+  border: 0;
+}
+
+.mt-0 { margin-top: 0; }
+.mb-0 { margin-bottom: 0; }
+
+/* ── Print ── */
+@media print {
+  .site-nav, .site-footer { display: none; }
+  .page { max-width: 100%; padding: 0; }
+  body { font-size: 11pt; }
+  h1 { font-size: 18pt; }
+  h2 { font-size: 14pt; }
+  a { text-decoration: none; color: var(--ink); }
+  .perspective-card, .stage-card { break-inside: avoid; }
+}
+
+/* ── Responsive ── */
+@media (max-width: 640px) {
+  html { font-size: 16px; }
+  h1 { font-size: 1.6rem; }
+  .site-nav__links { gap: 1rem; }
+  .site-nav__links a { font-size: 0.75rem; }
+  :root { --page-padding: 1rem; }
+}

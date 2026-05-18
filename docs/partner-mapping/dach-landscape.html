@@ -1,0 +1,362 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>DACH Partner Landscape — 33-Partner Matrix | Partner Program OS</title>
+  <link rel="stylesheet" href="../assets/css/main.css">
+  <style>
+    .landscape-table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 0.82rem;
+      margin: var(--sp-xl) 0;
+    }
+
+    .landscape-table th,
+    .landscape-table td {
+      padding: 0.5rem 0.6rem;
+      text-align: left;
+      border-bottom: 1px solid var(--border-light);
+      vertical-align: top;
+    }
+
+    .landscape-table thead th {
+      font-family: var(--font-sans);
+      font-weight: 600;
+      font-size: 0.7rem;
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+      color: var(--ink-muted);
+      border-bottom: 2px solid var(--border);
+      position: sticky;
+      top: 48px;
+      background: var(--surface);
+    }
+
+    .landscape-table tbody tr:hover {
+      background: var(--surface-alt);
+    }
+
+    .badge {
+      display: inline-block;
+      font-family: var(--font-sans);
+      font-size: 0.65rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+      padding: 2px 6px;
+      border-radius: 3px;
+    }
+
+    .badge--pursue { background: var(--accent-bg); color: var(--accent); }
+    .badge--contain { background: #f0f0e8; color: #6b6a40; }
+    .badge--monitor { background: #f5f5f5; color: var(--ink-muted); }
+    .badge--drop { background: #faf5f5; color: #9a5555; }
+
+    .partner-name {
+      font-weight: 500;
+      color: var(--ink);
+    }
+
+    .partner-name a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    .partner-name a:hover {
+      color: var(--accent);
+    }
+
+    .table-scroll {
+      overflow-x: auto;
+      -webkit-overflow-scrolling: touch;
+    }
+
+    .filter-row {
+      display: flex;
+      gap: 0.5rem;
+      margin: var(--sp-md) 0;
+      flex-wrap: wrap;
+    }
+
+    .filter-btn {
+      font-family: var(--font-sans);
+      font-size: 0.75rem;
+      font-weight: 500;
+      padding: 0.3rem 0.75rem;
+      border: 1px solid var(--border);
+      border-radius: 3px;
+      background: var(--white);
+      color: var(--ink-light);
+      cursor: pointer;
+      transition: all 0.15s;
+    }
+
+    .filter-btn:hover,
+    .filter-btn.active {
+      border-color: var(--accent);
+      color: var(--accent);
+      background: var(--accent-bg);
+    }
+  </style>
+</head>
+<body>
+
+<nav class="site-nav">
+  <div class="site-nav__inner">
+    <a href="../" class="site-nav__brand">Partner Program OS</a>
+    <ul class="site-nav__links">
+      <li><a href="../">Memo</a></li>
+      <li><a href="../method/">Method</a></li>
+      <li><a href="./" class="active">Partners</a></li>
+      <li><a href="../absm-sprint/">ABSM</a></li>
+    </ul>
+  </div>
+</nav>
+
+<main class="page page--wide">
+
+  <header class="page-header">
+    <div class="page-header__kicker">Partner Landscape</div>
+    <h1>DACH Cybersecurity Partners</h1>
+    <p class="page-header__subtitle">33 system integrators and MSSPs assessed against the 6-dimension Ideal Partner Profile. Filterable by disposition.</p>
+  </header>
+
+  <div class="filter-row">
+    <button class="filter-btn active" data-filter="all">All (33)</button>
+    <button class="filter-btn" data-filter="pursue">Pursue (5)</button>
+    <button class="filter-btn" data-filter="contain">Contain (3)</button>
+    <button class="filter-btn" data-filter="monitor">Monitor (23)</button>
+    <button class="filter-btn" data-filter="drop">Drop (2)</button>
+  </div>
+
+  <div class="table-scroll">
+    <table class="landscape-table" id="landscapeTable">
+      <thead>
+        <tr>
+          <th>Partner</th>
+          <th>Country</th>
+          <th>Disposition</th>
+          <th>Rationale</th>
+        </tr>
+      </thead>
+      <tbody>
+        <!-- PURSUE -->
+        <tr data-disp="pursue">
+          <td class="partner-name"><a href="pursue-five/axians-fernao.md">Axians + Fernao</a></td>
+          <td>DE</td>
+          <td><span class="badge badge--pursue">Pursue</span></td>
+          <td>Illumio absent; Fernao integration = open window. ~4,000 employees, €945M combined. 65+ locations.</td>
+        </tr>
+        <tr data-disp="pursue">
+          <td class="partner-name"><a href="pursue-five/avantec.md">AVANTEC AG</a></td>
+          <td>CH</td>
+          <td><span class="badge badge--pursue">Pursue</span></td>
+          <td>Illumio at newcomer tier = Guardicore POC opening. Swiss-focused, 50+ security specialists.</td>
+        </tr>
+        <tr data-disp="pursue">
+          <td class="partner-name"><a href="pursue-five/sva.md">SVA Wiesbaden</a></td>
+          <td>DE</td>
+          <td><span class="badge badge--pursue">Pursue</span></td>
+          <td>No Illumio; Fortinet EPSP leaves Guardicore gap. ~1,800 employees, strong public sector.</td>
+        </tr>
+        <tr data-disp="pursue">
+          <td class="partner-name"><a href="pursue-five/acp-gruppe.md">ACP Gruppe</a></td>
+          <td>AT</td>
+          <td><span class="badge badge--pursue">Pursue</span></td>
+          <td>No Illumio; SOC Austria without microsegmentation. Austrian market leader, DACH footprint.</td>
+        </tr>
+        <tr data-disp="pursue">
+          <td class="partner-name"><a href="pursue-five/infoguard.md">InfoGuard AG</a></td>
+          <td>CH</td>
+          <td><span class="badge badge--pursue">Pursue</span></td>
+          <td>Existing Akamai partner; deepen to managed service. 350 security experts, expanding into Germany.</td>
+        </tr>
+
+        <!-- CONTAIN -->
+        <tr data-disp="contain">
+          <td class="partner-name">Computacenter</td>
+          <td>DE / DACH</td>
+          <td><span class="badge badge--contain">Contain</span></td>
+          <td>Illumio MSP partner; dual-track. Currently at Select tier — significantly under-tiered for DACH footprint.</td>
+        </tr>
+        <tr data-disp="contain">
+          <td class="partner-name">Bechtle AG</td>
+          <td>DE / DACH</td>
+          <td><span class="badge badge--contain">Contain</span></td>
+          <td>Cisco/PANW primary stack; existing Akamai relationship. Selective co-sell opportunity.</td>
+        </tr>
+        <tr data-disp="contain">
+          <td class="partner-name">DT Security (T-Systems)</td>
+          <td>DE / DACH</td>
+          <td><span class="badge badge--contain">Contain</span></td>
+          <td>Zscaler-first architecture; selective Guardicore co-sell only on named accounts.</td>
+        </tr>
+
+        <!-- MONITOR (subset shown, full 23 in repo) -->
+        <tr data-disp="monitor">
+          <td class="partner-name">Cancom SE</td>
+          <td>DE</td>
+          <td><span class="badge badge--monitor">Monitor</span></td>
+          <td>Cisco SMB focus; low Guardicore fit near-term. Revisit if enterprise pivot accelerates.</td>
+        </tr>
+        <tr data-disp="monitor">
+          <td class="partner-name">SoftwareONE</td>
+          <td>CH / DACH</td>
+          <td><span class="badge badge--monitor">Monitor</span></td>
+          <td>License-first model; security services expanding but not core. Cloud marketplace potential.</td>
+        </tr>
+        <tr data-disp="monitor">
+          <td class="partner-name">Controlware GmbH</td>
+          <td>DE</td>
+          <td><span class="badge badge--monitor">Monitor</span></td>
+          <td>Cisco Gold partner; deep NAC/ISE expertise. Microsegmentation adjacent but Cisco-locked.</td>
+        </tr>
+        <tr data-disp="monitor">
+          <td class="partner-name">NTT DATA DACH</td>
+          <td>DE / DACH</td>
+          <td><span class="badge badge--monitor">Monitor</span></td>
+          <td>Global MSP; security practice exists. Decision path too long for 90-day activation.</td>
+        </tr>
+        <tr data-disp="monitor">
+          <td class="partner-name">Atos / Eviden</td>
+          <td>DE / DACH</td>
+          <td><span class="badge badge--monitor">Monitor</span></td>
+          <td>Restructuring. Security carved into Eviden. Monitoring for stability before engagement.</td>
+        </tr>
+        <tr data-disp="monitor">
+          <td class="partner-name">Telindus / Proximus</td>
+          <td>LU / DACH</td>
+          <td><span class="badge badge--monitor">Monitor</span></td>
+          <td>Benelux-first; DACH footprint limited. Monitor for DACH expansion signals.</td>
+        </tr>
+        <tr data-disp="monitor">
+          <td class="partner-name">Materna</td>
+          <td>DE</td>
+          <td><span class="badge badge--monitor">Monitor</span></td>
+          <td>Public sector IT; cybersecurity not primary practice. Monitor for BSI mandate acceleration.</td>
+        </tr>
+        <tr data-disp="monitor">
+          <td class="partner-name">Netgo Group</td>
+          <td>DE</td>
+          <td><span class="badge badge--monitor">Monitor</span></td>
+          <td>Mid-market MSP; recent acquisitions. Security stack building. Revisit Q4 2026.</td>
+        </tr>
+        <tr data-disp="monitor">
+          <td class="partner-name">Allgeier</td>
+          <td>DE</td>
+          <td><span class="badge badge--monitor">Monitor</span></td>
+          <td>Security consulting focus; solution sales secondary. Monitor for SI capability build.</td>
+        </tr>
+        <tr data-disp="monitor">
+          <td class="partner-name">Infinigate</td>
+          <td>CH / DACH</td>
+          <td><span class="badge badge--monitor">Monitor</span></td>
+          <td>Distributor, not SI. Potential channel partner for Pursue Five activation, not direct recruit.</td>
+        </tr>
+        <tr data-disp="monitor">
+          <td class="partner-name">Exclusive Networks</td>
+          <td>DACH</td>
+          <td><span class="badge badge--monitor">Monitor</span></td>
+          <td>VAD; cybersecurity focus. Distribution channel, not endpoint recruit.</td>
+        </tr>
+        <tr data-disp="monitor">
+          <td class="partner-name">Arrow ECS</td>
+          <td>DACH</td>
+          <td><span class="badge badge--monitor">Monitor</span></td>
+          <td>Broadline distributor. Channel enablement partner, not direct recruit.</td>
+        </tr>
+        <tr data-disp="monitor">
+          <td class="partner-name">Logicalis</td>
+          <td>DE</td>
+          <td><span class="badge badge--monitor">Monitor</span></td>
+          <td>Cisco-centric; German practice smaller. Monitor for vendor diversification signals.</td>
+        </tr>
+        <tr data-disp="monitor">
+          <td class="partner-name">Kudelski Security</td>
+          <td>CH</td>
+          <td><span class="badge badge--monitor">Monitor</span></td>
+          <td>Swiss MSSP; niche focus. Small but sophisticated. Revisit if DACH expansion confirmed.</td>
+        </tr>
+        <tr data-disp="monitor">
+          <td class="partner-name">Swisscom (Enterprise)</td>
+          <td>CH</td>
+          <td><span class="badge badge--monitor">Monitor</span></td>
+          <td>Telco-MSP hybrid. Decision path complex; monitor for security partner program changes.</td>
+        </tr>
+        <tr data-disp="monitor">
+          <td class="partner-name">SecureLink (Orange)</td>
+          <td>NL / DE</td>
+          <td><span class="badge badge--monitor">Monitor</span></td>
+          <td>Orange Cyberdefense integration ongoing. Monitor for DACH autonomy signals.</td>
+        </tr>
+        <tr data-disp="monitor">
+          <td class="partner-name">Cisco-aligned Tier 2s (×4)</td>
+          <td>DE</td>
+          <td><span class="badge badge--monitor">Monitor</span></td>
+          <td>Four mid-tier Cisco Gold partners with NAC/ISE practices. Grouped. Low near-term movability.</td>
+        </tr>
+        <tr data-disp="monitor">
+          <td class="partner-name">MSSP Boutiques (×4)</td>
+          <td>DE / CH</td>
+          <td><span class="badge badge--monitor">Monitor</span></td>
+          <td>Four sub-100-employee security boutiques. Good fit but low volume potential individually.</td>
+        </tr>
+
+        <!-- DROP -->
+        <tr data-disp="drop">
+          <td class="partner-name">KAEMI GmbH</td>
+          <td>DE</td>
+          <td><span class="badge badge--drop">Drop</span></td>
+          <td>Illumio EMEA Partner of the Year + Cloudflare ASDP. Structurally locked at deepest level.</td>
+        </tr>
+        <tr data-disp="drop">
+          <td class="partner-name">Navixia SA</td>
+          <td>CH</td>
+          <td><span class="badge badge--drop">Drop</span></td>
+          <td>First EMEA Illumio ZTS Professional certification. Structurally locked.</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="caveat">
+    This landscape is a first pass based on publicly available information. Partner data (revenue, headcount, vendor relationships) sourced from corporate websites, press releases, and public registries. All assessments should be validated with internal operational data. The full 33-partner count includes grouped entries (Cisco-aligned Tier 2s ×4, MSSP Boutiques ×4) that would be expanded into individual profiles with internal data access.
+  </div>
+
+  <p style="margin-top: var(--sp-xl);">
+    <a href="./" style="font-size: 0.9rem; font-weight: 500;">← Back to Partner Mapping</a>
+  </p>
+
+</main>
+
+<footer class="site-footer">
+  <p>Prepared by Alex M. · May 2026 · <a href="../">Back to memo</a></p>
+</footer>
+
+<script>
+(function() {
+  const buttons = document.querySelectorAll('.filter-btn');
+  const rows = document.querySelectorAll('#landscapeTable tbody tr');
+
+  buttons.forEach(btn => {
+    btn.addEventListener('click', () => {
+      buttons.forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+      const filter = btn.dataset.filter;
+
+      rows.forEach(row => {
+        if (filter === 'all' || row.dataset.disp === filter) {
+          row.style.display = '';
+        } else {
+          row.style.display = 'none';
+        }
+      });
+    });
+  });
+})();
+</script>
+
+</body>
+</html>

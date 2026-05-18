@@ -1,0 +1,550 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Scorecard Template — Partner Maturity Assessment | Partner Program OS</title>
+  <link rel="stylesheet" href="../assets/css/main.css">
+  <style>
+    .scorecard-stage {
+      margin: var(--sp-2xl) 0;
+    }
+
+    .scorecard-stage__header {
+      display: flex;
+      align-items: baseline;
+      gap: 0.75rem;
+      margin-bottom: var(--sp-lg);
+      padding-bottom: var(--sp-sm);
+      border-bottom: 2px solid var(--border);
+    }
+
+    .scorecard-stage__num {
+      font-family: var(--font-mono);
+      font-size: 0.75rem;
+      color: var(--ink-muted);
+    }
+
+    .scorecard-stage__name {
+      font-family: var(--font-serif);
+      font-size: 1.15rem;
+      font-weight: 600;
+    }
+
+    .level-block {
+      margin: var(--sp-md) 0;
+      padding: var(--sp-md) var(--sp-lg);
+      border-left: 3px solid var(--border);
+    }
+
+    .level-block--basic { border-color: var(--ink-muted); }
+    .level-block--pro { border-color: var(--accent-light); }
+    .level-block--wc { border-color: var(--accent); }
+
+    .level-block__title {
+      font-family: var(--font-sans);
+      font-size: 0.8rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      margin-bottom: var(--sp-sm);
+    }
+
+    .level-block--basic .level-block__title { color: var(--ink-muted); }
+    .level-block--pro .level-block__title { color: var(--accent-light); }
+    .level-block--wc .level-block__title { color: var(--accent); }
+
+    .checkpoint-list {
+      list-style: none;
+      margin: var(--sp-sm) 0;
+    }
+
+    .checkpoint-list li {
+      font-size: 0.85rem;
+      color: var(--ink-light);
+      line-height: 1.65;
+      padding: 2px 0;
+      padding-left: 1.2rem;
+      position: relative;
+    }
+
+    .checkpoint-list li::before {
+      content: '☐';
+      position: absolute;
+      left: 0;
+      font-size: 0.75rem;
+      color: var(--ink-muted);
+    }
+
+    .kpi-row {
+      display: flex;
+      gap: 1rem;
+      flex-wrap: wrap;
+      margin-top: var(--sp-sm);
+    }
+
+    .kpi-tag {
+      font-family: var(--font-mono);
+      font-size: 0.7rem;
+      background: var(--surface-alt);
+      color: var(--ink-muted);
+      padding: 0.15rem 0.5rem;
+      border-radius: 3px;
+    }
+
+    .toc {
+      background: var(--white);
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      padding: var(--sp-lg);
+      margin: var(--sp-xl) 0;
+    }
+
+    .toc__title {
+      font-family: var(--font-sans);
+      font-size: 0.75rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      color: var(--ink-muted);
+      margin-bottom: var(--sp-sm);
+    }
+
+    .toc__list {
+      list-style: none;
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+      gap: 0.25rem 1rem;
+    }
+
+    .toc__list a {
+      font-size: 0.85rem;
+      color: var(--ink-light);
+    }
+  </style>
+</head>
+<body>
+
+<nav class="site-nav">
+  <div class="site-nav__inner">
+    <a href="../" class="site-nav__brand">Partner Program OS</a>
+    <ul class="site-nav__links">
+      <li><a href="../">Memo</a></li>
+      <li><a href="./" class="active">Method</a></li>
+      <li><a href="../partner-mapping/">Partners</a></li>
+      <li><a href="../absm-sprint/">ABSM</a></li>
+    </ul>
+  </div>
+</nav>
+
+<main class="page">
+
+  <header class="page-header">
+    <div class="page-header__kicker">Assessment Tool</div>
+    <h1>Scorecard Template</h1>
+    <p class="page-header__subtitle">The full 7×3 maturity matrix. Each stage is scored across three levels using binary capability checkpoints and measurable KPIs. This template can be applied to any B2B partner program.</p>
+  </header>
+
+  <div class="toc">
+    <div class="toc__title">Stages</div>
+    <ul class="toc__list">
+      <li><a href="#recruit">1. Recruit</a></li>
+      <li><a href="#onboard">2. Onboard</a></li>
+      <li><a href="#enable">3. Enable</a></li>
+      <li><a href="#cosell">4. Co-Sell</a></li>
+      <li><a href="#deliver">5. Deliver</a></li>
+      <li><a href="#renew">6. Renew</a></li>
+      <li><a href="#expand">7. Expand</a></li>
+    </ul>
+  </div>
+
+  <p>The scoring approach is binary at the checkpoint level: each capability is either present or absent. A stage is scored at the highest level where all checkpoints are satisfied. If a program meets all Basic checkpoints and three of five Professional checkpoints, the stage score is Basic — Professional is not achieved until all Professional checkpoints are met.</p>
+
+  <!-- ══════════════════════════════════════ -->
+  <!-- STAGE 1: RECRUIT -->
+  <!-- ══════════════════════════════════════ -->
+  <div class="scorecard-stage" id="recruit">
+    <div class="scorecard-stage__header">
+      <span class="scorecard-stage__num">01</span>
+      <span class="scorecard-stage__name">Recruit</span>
+    </div>
+
+    <div class="level-block level-block--basic">
+      <div class="level-block__title">Basic</div>
+      <ul class="checkpoint-list">
+        <li>Partner program exists with defined tier structure</li>
+        <li>Partner portal operational with self-registration</li>
+        <li>Partner types defined (reseller, SI, MSSP, distributor)</li>
+        <li>At least one active partner in the region</li>
+      </ul>
+      <div class="kpi-row">
+        <span class="kpi-tag">KPI: New partners / quarter ≥ 1</span>
+        <span class="kpi-tag">KPI: Time-to-sign ≤ 90 days</span>
+      </div>
+    </div>
+
+    <div class="level-block level-block--pro">
+      <div class="level-block__title">Professional</div>
+      <ul class="checkpoint-list">
+        <li>Ideal Partner Profile (IPP) defined with weighted scoring criteria</li>
+        <li>Structured partner pipeline with named targets and dispositions</li>
+        <li>Dedicated partner recruitment headcount or allocated capacity</li>
+        <li>Account-specific outreach with tailored value propositions</li>
+        <li>Competitive entanglement mapping completed</li>
+      </ul>
+      <div class="kpi-row">
+        <span class="kpi-tag">KPI: New partners / quarter ≥ 3</span>
+        <span class="kpi-tag">KPI: IPP match rate ≥ 80%</span>
+        <span class="kpi-tag">KPI: Pipeline coverage ≥ 2× target</span>
+      </div>
+    </div>
+
+    <div class="level-block level-block--wc">
+      <div class="level-block__title">World-Class</div>
+      <ul class="checkpoint-list">
+        <li>Ecosystem-led referral mechanism producing inbound partner applications</li>
+        <li>Partner community driving peer-to-peer recruitment</li>
+        <li>GE/McKinsey prioritization framework applied to partner portfolio</li>
+        <li>Automated partner scoring with CRM/PRM integration</li>
+      </ul>
+      <div class="kpi-row">
+        <span class="kpi-tag">KPI: ≥ 30% of new partners from referral</span>
+        <span class="kpi-tag">KPI: Cost per partner acquisition tracked and declining</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- ══════════════════════════════════════ -->
+  <!-- STAGE 2: ONBOARD -->
+  <!-- ══════════════════════════════════════ -->
+  <div class="scorecard-stage" id="onboard">
+    <div class="scorecard-stage__header">
+      <span class="scorecard-stage__num">02</span>
+      <span class="scorecard-stage__name">Onboard</span>
+    </div>
+
+    <div class="level-block level-block--basic">
+      <div class="level-block__title">Basic</div>
+      <ul class="checkpoint-list">
+        <li>Global partner portal with self-serve onboarding resources</li>
+        <li>Certification path available</li>
+        <li>Deal registration system operational</li>
+      </ul>
+      <div class="kpi-row">
+        <span class="kpi-tag">KPI: Portal login rate ≥ 50%</span>
+        <span class="kpi-tag">KPI: Time-to-first-deal tracked</span>
+      </div>
+    </div>
+
+    <div class="level-block level-block--pro">
+      <div class="level-block__title">Professional</div>
+      <ul class="checkpoint-list">
+        <li>Regional onboarding playbook (localized language, regulatory context)</li>
+        <li>Dedicated partner success manager assigned to new partners</li>
+        <li>Structured onboarding SLA with time-to-first-deal target</li>
+        <li>Named internal champion paired with each new partner</li>
+        <li>First customer targeting session within 30 days of signing</li>
+      </ul>
+      <div class="kpi-row">
+        <span class="kpi-tag">KPI: Time-to-first-deal ≤ 90 days</span>
+        <span class="kpi-tag">KPI: Onboarding completion ≥ 85%</span>
+      </div>
+    </div>
+
+    <div class="level-block level-block--wc">
+      <div class="level-block__title">World-Class</div>
+      <ul class="checkpoint-list">
+        <li>Automated onboarding workflow triggered on contract signature</li>
+        <li>Personalized onboarding path based on partner type and capabilities</li>
+        <li>Real-time progress dashboard for both partner and vendor</li>
+        <li>Integration with vendor's CRM for seamless data flow</li>
+      </ul>
+      <div class="kpi-row">
+        <span class="kpi-tag">KPI: Time-to-first-deal ≤ 60 days</span>
+        <span class="kpi-tag">KPI: 90-day churn ≤ 5%</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- ══════════════════════════════════════ -->
+  <!-- STAGE 3: ENABLE -->
+  <!-- ══════════════════════════════════════ -->
+  <div class="scorecard-stage" id="enable">
+    <div class="scorecard-stage__header">
+      <span class="scorecard-stage__num">03</span>
+      <span class="scorecard-stage__name">Enable</span>
+    </div>
+
+    <div class="level-block level-block--basic">
+      <div class="level-block__title">Basic</div>
+      <ul class="checkpoint-list">
+        <li>Product training available (online or in-person)</li>
+        <li>Certification program active</li>
+        <li>MDF / co-marketing support exists</li>
+        <li>Competitive battlecards available</li>
+      </ul>
+      <div class="kpi-row">
+        <span class="kpi-tag">KPI: ≥ 1 certified rep per active partner</span>
+        <span class="kpi-tag">KPI: Content downloads tracked</span>
+      </div>
+    </div>
+
+    <div class="level-block level-block--pro">
+      <div class="level-block__title">Professional</div>
+      <ul class="checkpoint-list">
+        <li>Regional channel marketing function staffed</li>
+        <li>Localized campaign calendar aligned to regional event cadence</li>
+        <li>Co-marketing campaigns executed with measurable pipeline attribution</li>
+        <li>Industry-specific messaging and use-case libraries</li>
+        <li>Regular enablement webinars or workshops (monthly+)</li>
+      </ul>
+      <div class="kpi-row">
+        <span class="kpi-tag">KPI: MDF utilization ≥ 70%</span>
+        <span class="kpi-tag">KPI: Partner-sourced pipeline / vendor-assisted ≥ 0.5</span>
+      </div>
+    </div>
+
+    <div class="level-block level-block--wc">
+      <div class="level-block__title">World-Class</div>
+      <ul class="checkpoint-list">
+        <li>Self-service content library with customization tools</li>
+        <li>Partner generates pipeline independently without vendor hand-holding</li>
+        <li>Gamified certification with tiered incentives</li>
+        <li>AI-assisted content personalization for partner market segments</li>
+      </ul>
+      <div class="kpi-row">
+        <span class="kpi-tag">KPI: Partner-sourced pipeline / vendor-assisted ≥ 1.5</span>
+        <span class="kpi-tag">KPI: Self-serve content usage ≥ 60%</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- ══════════════════════════════════════ -->
+  <!-- STAGE 4: CO-SELL -->
+  <!-- ══════════════════════════════════════ -->
+  <div class="scorecard-stage" id="cosell">
+    <div class="scorecard-stage__header">
+      <span class="scorecard-stage__num">04</span>
+      <span class="scorecard-stage__name">Co-Sell</span>
+    </div>
+
+    <div class="level-block level-block--basic">
+      <div class="level-block__title">Basic</div>
+      <ul class="checkpoint-list">
+        <li>Deal registration system operational</li>
+        <li>Co-sell incentives documented (rebates, deal protection)</li>
+        <li>GSP / cloud marketplace co-sell program active</li>
+      </ul>
+      <div class="kpi-row">
+        <span class="kpi-tag">KPI: Deal registrations / quarter tracked</span>
+        <span class="kpi-tag">KPI: Partner-sourced pipeline exists</span>
+      </div>
+    </div>
+
+    <div class="level-block level-block--pro">
+      <div class="level-block__title">Professional</div>
+      <ul class="checkpoint-list">
+        <li>Joint pipeline review cadence (monthly with top partners)</li>
+        <li>Quarterly Business Reviews with named strategic partners</li>
+        <li>Named-account co-sell target lists per partner territory</li>
+        <li>Regional PAM team structure with assigned partner portfolios</li>
+        <li>Deal registration SLA consistently met (&lt; 48h approval)</li>
+      </ul>
+      <div class="kpi-row">
+        <span class="kpi-tag">KPI: Partner-sourced pipeline ≥ 25% of regional target</span>
+        <span class="kpi-tag">KPI: Deal-reg approval SLA met ≥ 90%</span>
+      </div>
+    </div>
+
+    <div class="level-block level-block--wc">
+      <div class="level-block__title">World-Class</div>
+      <ul class="checkpoint-list">
+        <li>Intent data routed to partners (account-level signals, GDPR-compliant)</li>
+        <li>Partner-facing account kits per intent signal (research brief, email sequence, case study)</li>
+        <li>Co-invested pipeline targets with shared risk/reward</li>
+        <li>Real-time partner pipeline visibility integrated into vendor CRM</li>
+      </ul>
+      <div class="kpi-row">
+        <span class="kpi-tag">KPI: Partner-sourced pipeline ≥ 40% of regional target</span>
+        <span class="kpi-tag">KPI: Co-sell win rate ≥ 1.2× direct win rate</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- ══════════════════════════════════════ -->
+  <!-- STAGE 5: DELIVER -->
+  <!-- ══════════════════════════════════════ -->
+  <div class="scorecard-stage" id="deliver">
+    <div class="scorecard-stage__header">
+      <span class="scorecard-stage__num">05</span>
+      <span class="scorecard-stage__name">Deliver</span>
+    </div>
+
+    <div class="level-block level-block--basic">
+      <div class="level-block__title">Basic</div>
+      <ul class="checkpoint-list">
+        <li>Partner implementation capability exists</li>
+        <li>Vendor professional services available as backstop</li>
+        <li>Basic quality expectations communicated</li>
+      </ul>
+      <div class="kpi-row">
+        <span class="kpi-tag">KPI: Implementation CSAT tracked</span>
+      </div>
+    </div>
+
+    <div class="level-block level-block--pro">
+      <div class="level-block__title">Professional</div>
+      <ul class="checkpoint-list">
+        <li>Certification gates for partner delivery (e.g., GCSP-equivalent)</li>
+        <li>Tiered SLA structure for partner-delivered implementations</li>
+        <li>Partner delivery scorecard with regular reviews</li>
+        <li>Escalation path and remediation process defined</li>
+        <li>Subscription model aligns partner economics with delivery outcomes</li>
+      </ul>
+      <div class="kpi-row">
+        <span class="kpi-tag">KPI: Partner delivery CSAT ≥ 4.0/5.0</span>
+        <span class="kpi-tag">KPI: Escalation rate ≤ 10%</span>
+      </div>
+    </div>
+
+    <div class="level-block level-block--wc">
+      <div class="level-block__title">World-Class</div>
+      <ul class="checkpoint-list">
+        <li>Partner owns full delivery lifecycle autonomously</li>
+        <li>Vendor delivery team focuses on complex/strategic accounts only</li>
+        <li>Partner delivery quality is a competitive differentiator</li>
+        <li>Delivery feedback loop directly informs product roadmap</li>
+      </ul>
+      <div class="kpi-row">
+        <span class="kpi-tag">KPI: Partner delivery CSAT ≥ 4.5/5.0</span>
+        <span class="kpi-tag">KPI: ≥ 80% implementations partner-autonomous</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- ══════════════════════════════════════ -->
+  <!-- STAGE 6: RENEW -->
+  <!-- ══════════════════════════════════════ -->
+  <div class="scorecard-stage" id="renew">
+    <div class="scorecard-stage__header">
+      <span class="scorecard-stage__num">06</span>
+      <span class="scorecard-stage__name">Renew</span>
+    </div>
+
+    <div class="level-block level-block--basic">
+      <div class="level-block__title">Basic</div>
+      <ul class="checkpoint-list">
+        <li>Renewal process exists (manual or auto-renewal)</li>
+        <li>Partner receives renewal commission</li>
+        <li>Churn rate tracked at program level</li>
+      </ul>
+      <div class="kpi-row">
+        <span class="kpi-tag">KPI: Renewal rate tracked</span>
+        <span class="kpi-tag">KPI: NRR ≥ 95%</span>
+      </div>
+    </div>
+
+    <div class="level-block level-block--pro">
+      <div class="level-block__title">Professional</div>
+      <ul class="checkpoint-list">
+        <li>Managed renewal cadence: 365/180/90-day reviews</li>
+        <li>At-risk account identification and intervention process</li>
+        <li>Expansion opportunity mapped at renewal point</li>
+        <li>Partner economics incentivize renewal equally to new business</li>
+        <li>NRR reported per partner and per product</li>
+      </ul>
+      <div class="kpi-row">
+        <span class="kpi-tag">KPI: NRR ≥ 105%</span>
+        <span class="kpi-tag">KPI: At-risk accounts intervened ≥ 80%</span>
+      </div>
+    </div>
+
+    <div class="level-block level-block--wc">
+      <div class="level-block__title">World-Class</div>
+      <ul class="checkpoint-list">
+        <li>Predictive at-risk early warning system (usage data, health scores)</li>
+        <li>Automated expansion triggers at renewal (product usage → upsell recommendation)</li>
+        <li>Partner self-manages renewal pipeline with vendor oversight only</li>
+        <li>Multi-year contract structure with built-in expansion commitments</li>
+      </ul>
+      <div class="kpi-row">
+        <span class="kpi-tag">KPI: NRR ≥ 115%</span>
+        <span class="kpi-tag">KPI: Renewal pipeline coverage ≥ 1.5×</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- ══════════════════════════════════════ -->
+  <!-- STAGE 7: EXPAND -->
+  <!-- ══════════════════════════════════════ -->
+  <div class="scorecard-stage" id="expand">
+    <div class="scorecard-stage__header">
+      <span class="scorecard-stage__num">07</span>
+      <span class="scorecard-stage__name">Expand</span>
+    </div>
+
+    <div class="level-block level-block--basic">
+      <div class="level-block__title">Basic</div>
+      <ul class="checkpoint-list">
+        <li>Multi-product portfolio available through channel</li>
+        <li>Cross-sell / upsell incentives exist</li>
+        <li>Products-per-partner metric tracked</li>
+      </ul>
+      <div class="kpi-row">
+        <span class="kpi-tag">KPI: Avg products/partner ≥ 1.5</span>
+      </div>
+    </div>
+
+    <div class="level-block level-block--pro">
+      <div class="level-block__title">Professional</div>
+      <ul class="checkpoint-list">
+        <li>Partner account planning framework in place</li>
+        <li>White-space analysis completed per strategic partner</li>
+        <li>Portfolio expansion playbooks per product combination</li>
+        <li>Multi-product deal incentives with accelerated margins</li>
+        <li>Partner-led expansion pipeline tracked separately</li>
+      </ul>
+      <div class="kpi-row">
+        <span class="kpi-tag">KPI: Avg products/partner ≥ 2.5</span>
+        <span class="kpi-tag">KPI: Expansion revenue ≥ 15% of partner total</span>
+      </div>
+    </div>
+
+    <div class="level-block level-block--wc">
+      <div class="level-block__title">World-Class</div>
+      <ul class="checkpoint-list">
+        <li>Portfolio-orchestrated expansion: automated cross-sell recommendation engine</li>
+        <li>Partner specialization paths drive deep expertise across multiple products</li>
+        <li>New market entry campaigns run jointly with expansion partners</li>
+        <li>Partner advisory board informs portfolio expansion strategy</li>
+      </ul>
+      <div class="kpi-row">
+        <span class="kpi-tag">KPI: Avg products/partner ≥ 3.5</span>
+        <span class="kpi-tag">KPI: Expansion revenue ≥ 25% of partner total</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- ── How to use ── -->
+  <h2>How to use this scorecard</h2>
+
+  <p>For each stage, work through the checkpoints top to bottom. Score the stage at the highest level where all checkpoints are satisfied. Record evidence for each checkpoint — what confirms it is present, or what confirms it is absent. Where evidence is unavailable (gated behind internal data), mark the checkpoint as "inferred" with the reasoning.</p>
+
+  <p>The resulting 7-digit score (e.g., B-B-B-B-P-P-B) produces a maturity profile that can be visualized on the <a href="spider-chart.html">radar chart</a>. The shape of the radar reveals the program's signature: which stages carry the program and which are underbuilt. The gap between current state and target state becomes the roadmap.</p>
+
+  <div class="caveat">
+    This scorecard template is a general-purpose assessment tool. When applied to a specific company, all observations should be validated with internal operational data. Checkpoints marked "inferred" require insider verification.
+  </div>
+
+  <p style="margin-top: var(--sp-xl);">
+    <a href="./" style="font-size: 0.9rem; font-weight: 500;">← Back to Method overview</a>
+  </p>
+
+</main>
+
+<footer class="site-footer">
+  <p>Prepared by Alex M. · May 2026 · <a href="../">Back to memo</a></p>
+</footer>
+
+</body>
+</html>

@@ -1,0 +1,415 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Perspective 3 — ABSM Partner Enablement | Partner Program OS</title>
+  <link rel="stylesheet" href="../assets/css/main.css">
+  <style>
+    .phase-section {
+      margin: var(--sp-2xl) 0;
+    }
+
+    .phase-header {
+      display: flex;
+      align-items: baseline;
+      gap: 0.75rem;
+      margin-bottom: var(--sp-md);
+      padding-bottom: var(--sp-sm);
+      border-bottom: 2px solid var(--border);
+    }
+
+    .phase-num {
+      font-family: var(--font-mono);
+      font-size: 0.75rem;
+      color: var(--accent);
+      font-weight: 600;
+    }
+
+    .phase-name {
+      font-family: var(--font-serif);
+      font-size: 1.15rem;
+      font-weight: 600;
+    }
+
+    .artifact-list {
+      list-style: none;
+      margin: var(--sp-md) 0;
+    }
+
+    .artifact-list li {
+      padding: 0.4rem 0;
+      border-bottom: 1px solid var(--border-light);
+      display: flex;
+      align-items: baseline;
+      gap: 0.5rem;
+      font-size: 0.85rem;
+    }
+
+    .artifact-list li:last-child {
+      border-bottom: none;
+    }
+
+    .artifact-list__icon {
+      font-family: var(--font-mono);
+      font-size: 0.7rem;
+      color: var(--ink-muted);
+      flex-shrink: 0;
+      width: 24px;
+    }
+
+    .artifact-list__name a {
+      font-weight: 500;
+      color: var(--ink);
+    }
+
+    .artifact-list__desc {
+      color: var(--ink-muted);
+      font-size: 0.8rem;
+    }
+
+    .client-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+      gap: var(--sp-md);
+      margin: var(--sp-xl) 0;
+    }
+
+    .client-card {
+      background: var(--white);
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      padding: var(--sp-lg);
+    }
+
+    .client-card__name {
+      font-family: var(--font-serif);
+      font-size: 1rem;
+      font-weight: 600;
+      margin-bottom: var(--sp-xs);
+    }
+
+    .client-card__meta {
+      font-family: var(--font-mono);
+      font-size: 0.7rem;
+      color: var(--ink-muted);
+      margin-bottom: var(--sp-sm);
+    }
+
+    .client-card__desc {
+      font-size: 0.85rem;
+      color: var(--ink-light);
+      line-height: 1.55;
+      margin: 0;
+    }
+
+    .ai-callout {
+      background: var(--accent-bg);
+      border: 1px solid #c8ddd1;
+      border-radius: 6px;
+      padding: var(--sp-lg);
+      margin: var(--sp-xl) 0;
+    }
+
+    .ai-callout__title {
+      font-family: var(--font-sans);
+      font-size: 0.85rem;
+      font-weight: 600;
+      color: var(--accent);
+      margin-bottom: var(--sp-sm);
+    }
+
+    .ai-callout__body {
+      font-size: 0.9rem;
+      color: var(--ink-light);
+      line-height: 1.6;
+      margin: 0;
+    }
+
+    .collateral-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+      gap: var(--sp-sm);
+      margin: var(--sp-md) 0;
+    }
+
+    .collateral-item {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      font-size: 0.82rem;
+      padding: 0.4rem 0.6rem;
+      background: var(--white);
+      border: 1px solid var(--border-light);
+      border-radius: 4px;
+      color: var(--ink-light);
+    }
+
+    .collateral-item__ext {
+      font-family: var(--font-mono);
+      font-size: 0.6rem;
+      color: var(--ink-muted);
+      background: var(--surface-alt);
+      padding: 1px 4px;
+      border-radius: 2px;
+    }
+  </style>
+</head>
+<body>
+
+<nav class="site-nav">
+  <div class="site-nav__inner">
+    <a href="../" class="site-nav__brand">Partner Program OS</a>
+    <ul class="site-nav__links">
+      <li><a href="../">Memo</a></li>
+      <li><a href="../method/">Method</a></li>
+      <li><a href="../partner-mapping/">Partners</a></li>
+      <li><a href="./" class="active">ABSM</a></li>
+    </ul>
+  </div>
+</nav>
+
+<main class="page">
+
+  <header class="page-header">
+    <div class="page-header__kicker">Perspective 3</div>
+    <h1>ABSM Partner Enablement</h1>
+    <p class="page-header__subtitle">A complete Account-Based Sales &amp; Marketing program built for Axians, targeting four German Mittelstand manufacturers. Everything ready-made — the partner's job is to meet clients.</p>
+  </header>
+
+  <!-- ── Philosophy ── -->
+  <h2 class="mt-0">The operating principle</h2>
+
+  <p>Most partner enablement programs create content libraries and training modules, then wait for partners to figure out how to use them. This inverts the approach. Instead of giving partners tools and hoping they sell, the program gives partners ready-made account kits — one per target customer — with the research already done, the pain points already mapped, the messaging already written, and the competitive positioning already prepared. The partner's only job is to walk into the meeting.</p>
+
+  <p>The program was designed for Axians as the template partner (from the <a href="../partner-mapping/pursue-five/">Pursue Five</a> priority list). The structure is replicable — the same framework can be deployed for any partner, any territory, any product line. The four target accounts were selected from Axians' existing customer base using a systematic scoring process described below.</p>
+
+  <!-- ── AI Angle ── -->
+  <div class="ai-callout">
+    <div class="ai-callout__title">The AI angle: personalization at scale</div>
+    <p class="ai-callout__body">The ABSM pipeline uses AI agents at every stage — from company research and pain-point extraction to collateral generation and CRM data entry. The entire program (ICP definition → target scoring → account research → collateral production → CRM setup) was built as a multi-agent pipeline. What takes a traditional channel marketing team 6–8 weeks to produce for one partner can be generated in days. This is how you enable 5–10 partners simultaneously without growing headcount proportionally.</p>
+  </div>
+
+  <!-- ── Phase 1: Targeting ── -->
+  <div class="phase-section">
+    <div class="phase-header">
+      <span class="phase-num">01</span>
+      <span class="phase-name">Targeting</span>
+    </div>
+    <p>Define the Ideal Customer Profile, build a scoring matrix, and systematically narrow from a long list to the final selection.</p>
+    <ul class="artifact-list">
+      <li>
+        <span class="artifact-list__icon">md</span>
+        <span class="artifact-list__name"><a href="01-targeting/icp-definition.md">ICP Definition</a></span>
+        <span class="artifact-list__desc">— Industry, size, regulatory exposure, technology profile</span>
+      </li>
+      <li>
+        <span class="artifact-list__icon">md</span>
+        <span class="artifact-list__name"><a href="01-targeting/scoring-matrix.md">Scoring Matrix</a></span>
+        <span class="artifact-list__desc">— Weighted criteria for target account prioritization</span>
+      </li>
+      <li>
+        <span class="artifact-list__icon">md</span>
+        <span class="artifact-list__name"><a href="01-targeting/longlist-30.md">Long List (30 accounts)</a></span>
+        <span class="artifact-list__desc">— Initial research universe</span>
+      </li>
+      <li>
+        <span class="artifact-list__icon">md</span>
+        <span class="artifact-list__name"><a href="01-targeting/shortlist-10.md">Short List (10 accounts)</a></span>
+        <span class="artifact-list__desc">— Filtered by scoring criteria</span>
+      </li>
+      <li>
+        <span class="artifact-list__icon">md</span>
+        <span class="artifact-list__name"><a href="01-targeting/final-selection.md">Final Selection (4 accounts)</a></span>
+        <span class="artifact-list__desc">— Hörmann, Reinhausen, Witte, Trumpf</span>
+      </li>
+    </ul>
+  </div>
+
+  <!-- ── Phase 2: Strategy ── -->
+  <div class="phase-section">
+    <div class="phase-header">
+      <span class="phase-num">02</span>
+      <span class="phase-name">Strategy</span>
+    </div>
+    <p>Define the sweet spot where partner capability, vendor technology, and customer pain intersect. Build the messaging framework.</p>
+    <ul class="artifact-list">
+      <li>
+        <span class="artifact-list__icon">md</span>
+        <span class="artifact-list__name"><a href="02-strategy/sweet-spot-profile.md">Sweet Spot Profile</a></span>
+        <span class="artifact-list__desc">— Where Axians + Akamai + Mittelstand pain overlap</span>
+      </li>
+      <li>
+        <span class="artifact-list__icon">md</span>
+        <span class="artifact-list__name"><a href="02-strategy/pain-pattern-library.md">Pain Pattern Library</a></span>
+        <span class="artifact-list__desc">— Recurring pain points across NIS2, OT/IT convergence, supply chain</span>
+      </li>
+      <li>
+        <span class="artifact-list__icon">md</span>
+        <span class="artifact-list__name"><a href="02-strategy/content-matrix.md">Content Matrix</a></span>
+        <span class="artifact-list__desc">— Persona × pain × content type mapping</span>
+      </li>
+      <li>
+        <span class="artifact-list__icon">md</span>
+        <span class="artifact-list__name"><a href="02-strategy/competitive-angle.md">Competitive Angle</a></span>
+        <span class="artifact-list__desc">— Guardicore vs Illumio vs PANW positioning for Mittelstand</span>
+      </li>
+    </ul>
+  </div>
+
+  <!-- ── Phase 3: Client Research ── -->
+  <div class="phase-section">
+    <div class="phase-header">
+      <span class="phase-num">03</span>
+      <span class="phase-name">Client Research</span>
+    </div>
+    <p>Deep account dossiers for each of the four target companies. Each includes company brief, pain map, relationship map, and Axians connection analysis.</p>
+
+    <div class="client-grid">
+      <div class="client-card">
+        <div class="client-card__name">Hörmann</div>
+        <div class="client-card__meta">DE · Manufacturing · Doors/gates</div>
+        <p class="client-card__desc">Family-owned, 6,000+ employees. NIS2-affected: OT/IT convergence across 30+ production sites. No public microsegmentation deployment identified.</p>
+      </div>
+      <div class="client-card">
+        <div class="client-card__name">Maschinenfabrik Reinhausen</div>
+        <div class="client-card__meta">DE · Manufacturing · Transformers</div>
+        <p class="client-card__desc">Hidden champion, ~3,500 employees. Critical infrastructure supplier. TISAX-relevant (automotive supply chain). OT security gap identified.</p>
+      </div>
+      <div class="client-card">
+        <div class="client-card__name">Witte Automotive</div>
+        <div class="client-card__meta">DE · Manufacturing · Automotive locks</div>
+        <p class="client-card__desc">Tier 1 automotive supplier, ~2,000 employees. TISAX mandatory. Supply chain security requirements cascading from OEMs.</p>
+      </div>
+      <div class="client-card">
+        <div class="client-card__name">TRUMPF</div>
+        <div class="client-card__meta">DE · Manufacturing · Laser/machine tools</div>
+        <p class="client-card__desc">Global leader, 18,000+ employees. High-value IP. Public cyberattack history (2019). NIS2 + TISAX dual exposure.</p>
+      </div>
+    </div>
+
+    <p>Each account dossier contains five files:</p>
+    <ul class="artifact-list">
+      <li>
+        <span class="artifact-list__icon">md</span>
+        <span class="artifact-list__name">Company Brief</span>
+        <span class="artifact-list__desc">— Firmographics, strategic direction, technology landscape</span>
+      </li>
+      <li>
+        <span class="artifact-list__icon">md</span>
+        <span class="artifact-list__name">Pain Map</span>
+        <span class="artifact-list__desc">— Regulatory, operational, and technology pain points</span>
+      </li>
+      <li>
+        <span class="artifact-list__icon">md</span>
+        <span class="artifact-list__name">Relationship Map</span>
+        <span class="artifact-list__desc">— Key decision makers and influencers</span>
+      </li>
+      <li>
+        <span class="artifact-list__icon">md</span>
+        <span class="artifact-list__name">Axians Connection</span>
+        <span class="artifact-list__desc">— Existing touchpoints between Axians and the account</span>
+      </li>
+      <li>
+        <span class="artifact-list__icon">pdf</span>
+        <span class="artifact-list__name">Executive Brief</span>
+        <span class="artifact-list__desc">— One-page printable brief for the partner's sales rep</span>
+      </li>
+    </ul>
+  </div>
+
+  <!-- ── Phase 4: Collateral ── -->
+  <div class="phase-section">
+    <div class="phase-header">
+      <span class="phase-num">04</span>
+      <span class="phase-name">Collateral</span>
+    </div>
+    <p>Ready-to-use sales and marketing materials. The partner does not need to create anything — every piece is prepared, branded, and localized for the German Mittelstand.</p>
+
+    <div class="collateral-grid">
+      <div class="collateral-item">
+        <span class="collateral-item__ext">PDF</span>
+        NIS2 Segmentation Brief
+      </div>
+      <div class="collateral-item">
+        <span class="collateral-item__ext">PDF</span>
+        Triple Obligation Poster
+      </div>
+      <div class="collateral-item">
+        <span class="collateral-item__ext">PDF</span>
+        TISAX Segmentation Brief
+      </div>
+      <div class="collateral-item">
+        <span class="collateral-item__ext">PDF</span>
+        OT Agentless Brief
+      </div>
+      <div class="collateral-item">
+        <span class="collateral-item__ext">PDF</span>
+        Mittelstand ROI Business Case
+      </div>
+      <div class="collateral-item">
+        <span class="collateral-item__ext">PDF</span>
+        Axians–Akamai Capabilities Deck
+      </div>
+      <div class="collateral-item">
+        <span class="collateral-item__ext">PDF</span>
+        Competitive Battlecard
+      </div>
+      <div class="collateral-item">
+        <span class="collateral-item__ext">PDF</span>
+        PIP Program Brief
+      </div>
+    </div>
+  </div>
+
+  <!-- ── Phase 5: Infrastructure ── -->
+  <div class="phase-section">
+    <div class="phase-header">
+      <span class="phase-num">05</span>
+      <span class="phase-name">Infrastructure</span>
+    </div>
+    <p>The operational backbone: CRM configuration, measurement framework, MDF mechanics, and the launch checklist that turns the program from artefacts into action.</p>
+
+    <ul class="artifact-list">
+      <li>
+        <span class="artifact-list__icon">md</span>
+        <span class="artifact-list__name"><a href="05-infrastructure/crm-spec-hubspot.md">CRM Specification (HubSpot)</a></span>
+        <span class="artifact-list__desc">— Deal pipeline, lifecycle stages, custom properties, reporting views</span>
+      </li>
+      <li>
+        <span class="artifact-list__icon">html</span>
+        <span class="artifact-list__name"><a href="05-infrastructure/kpi-dashboard.html">KPI Dashboard</a></span>
+        <span class="artifact-list__desc">— Partner-sourced pipeline, MDF ROI, content engagement, deal velocity</span>
+      </li>
+      <li>
+        <span class="artifact-list__icon">md</span>
+        <span class="artifact-list__name"><a href="05-infrastructure/mdf-spec.md">MDF Specification</a></span>
+        <span class="artifact-list__desc">— Market Development Fund mechanics: allocation, claim process, ROI measurement</span>
+      </li>
+      <li>
+        <span class="artifact-list__icon">md</span>
+        <span class="artifact-list__name"><a href="05-infrastructure/launch-checklist.md">Launch Checklist</a></span>
+        <span class="artifact-list__desc">— Week-by-week activation plan from Day 0 to first pipeline review</span>
+      </li>
+    </ul>
+  </div>
+
+  <!-- ── Why this matters ── -->
+  <h2>Why this matters</h2>
+
+  <p>The ABSM program is a proof of concept for a partner enablement operating model. Instead of asking partners to figure out their own go-to-market, the channel marketing function delivers complete campaign kits — per partner, per account — with every artifact needed to walk into a meeting prepared. The AI pipeline makes this scalable: what used to take a team weeks per partner now takes days, which means the channel marketing manager can run parallel enablement for multiple partners simultaneously without proportional headcount growth.</p>
+
+  <p>For Axians specifically, the program targets four German Mittelstand manufacturers who sit at the intersection of NIS2 compliance pressure, OT/IT convergence, and a demonstrable gap in microsegmentation. Each account was selected through a systematic scoring process, not because "they seem interesting." The rationale is auditable.</p>
+
+  <div class="caveat">
+    All company research is a first pass based on publicly available information, prepared for demonstration of methodology. Account dossiers, pain maps, and relationship maps should be validated with partner and customer data before any external engagement. Company and individual names are used for illustration purposes only.
+  </div>
+
+</main>
+
+<footer class="site-footer">
+  <p>Prepared by Alex M. · May 2026 · <a href="../">Back to memo</a></p>
+</footer>
+
+</body>
+</html>
