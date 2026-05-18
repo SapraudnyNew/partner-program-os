@@ -103,19 +103,89 @@
 </head>
 <body>
 
-<nav class="site-nav">
-  <div class="site-nav__inner">
-    <a href="../" class="site-nav__brand">Partner Program OS</a>
-    <ul class="site-nav__links">
-      <li><a href="../">Memo</a></li>
-      <li><a href="../method/">Method</a></li>
-      <li><a href="./" class="active">Partners</a></li>
-      <li><a href="../absm-sprint/">ABSM</a></li>
-    </ul>
-  </div>
+<nav class="top-nav">
+  <button class="hamburger" aria-label="Toggle navigation">
+    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+  </button>
+  <a href="../index.html" class="top-nav__logo">Partner Program <span>OS</span></a>
+  <ul class="top-nav__links">
+      <li><a href="../index.html">Memo</a></li>
+      <li><a href="../method/index.html">Method</a></li>
+      <li><a href="../partner-mapping/index.html" class="active">Partners</a></li>
+      <li><a href="../absm-sprint/index.html">ABSM</a></li>
+  </ul>
 </nav>
 
-<main class="page page--wide">
+<!-- SIDEBAR -->
+<div class="sidebar-overlay"></div>
+<aside class="sidebar">
+
+<div class="sidebar__section">
+  <button class="sidebar__heading"><span class="caret">▼</span> Memo</button>
+  <ul class="sidebar__list">
+    <li class="sidebar__item"><a href="../index.html">Homepage</a></li>
+  </ul>
+</div>
+<div class="sidebar__section">
+  <button class="sidebar__heading"><span class="caret">▼</span> Method</button>
+  <ul class="sidebar__list">
+    <li class="sidebar__item"><a href="../method/index.html">Overview</a></li>
+    <li class="sidebar__item"><a href="../method/spider-chart.html">Spider Chart</a></li>
+    <li class="sidebar__item"><a href="../method/scorecard-template.html">Scorecard Template</a></li>
+  </ul>
+</div>
+<div class="sidebar__section">
+  <button class="sidebar__heading"><span class="caret">▼</span> Partner Mapping</button>
+  <ul class="sidebar__list">
+    <li class="sidebar__item"><a href="../partner-mapping/index.html">Overview</a></li>
+    <li class="sidebar__item"><a href="../partner-mapping/dach-landscape.html">DACH Landscape</a></li>
+    <li class="sidebar__item"><a href="../partner-mapping/pursue-five/all-five-profiles.html">Pursue Five</a></li>
+    <ul class="sidebar__sublist">
+      <li class="sidebar__item"><a href="../partner-mapping/pursue-five/axians-fernao.html">Axians + Fernao</a></li>
+      <li class="sidebar__item"><a href="../partner-mapping/pursue-five/sva.html">SVA Wiesbaden</a></li>
+      <li class="sidebar__item"><a href="../partner-mapping/pursue-five/acp-gruppe.html">ACP Gruppe</a></li>
+      <li class="sidebar__item"><a href="../partner-mapping/pursue-five/avantec.html">AVANTEC</a></li>
+      <li class="sidebar__item"><a href="../partner-mapping/pursue-five/infoguard.html">InfoGuard</a></li>
+    </ul>
+    <li class="sidebar__item"><a href="../partner-mapping/entanglement/entanglement-matrix.html">Entanglement</a></li>
+    <ul class="sidebar__sublist">
+      <li class="sidebar__item"><a href="../partner-mapping/entanglement/deep-profiles.html">Deep Profiles</a></li>
+      <li class="sidebar__item"><a href="../partner-mapping/entanglement/recruitability-framework.html">Recruitability</a></li>
+      <li class="sidebar__item"><a href="../partner-mapping/entanglement/dispositions.html">Dispositions</a></li>
+    </ul>
+  </ul>
+</div>
+<div class="sidebar__section">
+  <button class="sidebar__heading"><span class="caret">▼</span> ABSM Sprint</button>
+  <ul class="sidebar__list">
+    <li class="sidebar__item"><a href="../absm-sprint/index.html">Overview</a></li>
+    <li class="sidebar__item"><a href="../absm-sprint/01-targeting/icp-definition.html">Targeting</a></li>
+    <ul class="sidebar__sublist">
+      <li class="sidebar__item"><a href="../absm-sprint/01-targeting/scoring-matrix.html">Scoring Matrix</a></li>
+      <li class="sidebar__item"><a href="../absm-sprint/01-targeting/longlist-30.html">Longlist 30</a></li>
+      <li class="sidebar__item"><a href="../absm-sprint/01-targeting/shortlist-10.html">Shortlist 10</a></li>
+      <li class="sidebar__item"><a href="../absm-sprint/01-targeting/final-selection.html">Final Selection</a></li>
+    </ul>
+    <li class="sidebar__item"><a href="../absm-sprint/02-strategy/sweet-spot-profile.html">Strategy</a></li>
+    <ul class="sidebar__sublist">
+      <li class="sidebar__item"><a href="../absm-sprint/02-strategy/pain-pattern-library.html">Pain Patterns</a></li>
+      <li class="sidebar__item"><a href="../absm-sprint/02-strategy/content-matrix.html">Content Matrix</a></li>
+      <li class="sidebar__item"><a href="../absm-sprint/02-strategy/competitive-angle.html">Competitive Angle</a></li>
+    </ul>
+    <li class="sidebar__item"><a href="../absm-sprint/03-clients/hoermann/company-brief.html">Clients</a></li>
+    <li class="sidebar__item"><a href="../absm-sprint/05-infrastructure/crm-spec-hubspot.html">Infrastructure</a></li>
+    <ul class="sidebar__sublist">
+      <li class="sidebar__item"><a href="../absm-sprint/05-infrastructure/kpi-dashboard.html">KPI Dashboard</a></li>
+      <li class="sidebar__item"><a href="../absm-sprint/05-infrastructure/mdf-spec.html">MDF Spec</a></li>
+      <li class="sidebar__item"><a href="../absm-sprint/05-infrastructure/launch-checklist.html">Launch Checklist</a></li>
+    </ul>
+  </ul>
+</div>
+</aside>
+
+<!-- LAYOUT -->
+<div class="layout">
+<main class="content">
 
   <header class="page-header">
     <div class="page-header__kicker">Partner Landscape</div>
@@ -330,9 +400,10 @@
   </p>
 
 </main>
+</div>
 
 <footer class="site-footer">
-  <p>Prepared by Alex M. · May 2026 · <a href="../">Back to memo</a></p>
+  <p>A. Marushevsky &middot; Amsterdam &middot; All partner research is a first pass from public sources.</p>
 </footer>
 
 <script>
@@ -358,5 +429,6 @@
 })();
 </script>
 
+<script src="../assets/js/sidebar.js"></script>
 </body>
 </html>

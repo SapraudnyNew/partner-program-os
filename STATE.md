@@ -75,3 +75,39 @@
 - Opus 4.7 chat: copywriting (homepage + 3 perspectives)
 - Opus 4.6 chat: new CSS + sidebar + MD→HTML conversion
 - OpenClaw: merge all
+## SESSION 2026-05-19 · v2 Redesign: Copy Application + v1 Shell Wraps + Cleanup
+
+### What was done
+
+- Applied approved copy (copy-01 through copy-04) to 4 main pages
+- Wrapped 5 remaining v1 HTML pages in v2 shell (top-nav, sidebar, footer, sidebar.js)
+- Fixed all “Alex M.” → “A. Marushevsky” (zero remaining)
+- Deleted docs/index.md.bak
+- 10 files changed, 471 insertions, 133 deletions
+
+### Priority 1: Copy updates (4 pages)
+
+- docs/index.html: new hook (“Relationships close deals…”), consulting framing for Cisco/NetApp/SAP/Dassault, “operating system does not” closer, tighter 30/60/90
+- docs/method/index.html: new intro (consulting stress-test framing), updated exec summary
+- docs/partner-mapping/index.html: new intro (“Channel recruitment without scoring criteria…”), 4-paragraph rewrite, updated exec summary
+- docs/absm-sprint/index.html: new intro (inverted approach), tighter AI callout (“6 to 8 weeks per partner gets done in days”), updated exec summary with Axians connection per account
+
+### Priority 2: v1 → v2 shell wraps (5 pages)
+
+- docs/method/spider-chart.html
+- docs/method/scorecard-template.html
+- docs/partner-mapping/dach-landscape.html
+- docs/partner-mapping/pursue-five/index.html
+- docs/absm-sprint/05-infrastructure/kpi-dashboard.html
+  Each received: dark top-nav, collapsible sidebar, sidebar-overlay, layout wrapper, v2 footer, sidebar.js
+
+### Priority 3: Cleanup
+
+- Zero “Alex M.” instances remaining across all HTML files
+- docs/index.md.bak deleted
+- Em-dashes in new copy sections: zero (only in preserved body content and timeline range labels)
+
+### Still open
+
+- PDF export of homepage for Mark
+- STATE.md append (this entry)
