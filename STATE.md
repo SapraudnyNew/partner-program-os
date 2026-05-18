@@ -5,7 +5,7 @@
 > Discipline defined in ADR-010 (session continuity).
 
 **Last updated:** 2026-05-18
-**Session:** Day 2.5 - Recruitability dimension + entanglement research initiated
+**Session:** Day 2.6 - scorecard v1 committed, handover discipline patched
 **Updated by:** Forge (Claude)
 
 ---
@@ -34,7 +34,7 @@ Path: warm referral via Mark Shelepov (Principal Lead Architect, Akamai US).
 | D2-R | Deep research prompts v2 (company + partner program) | DONE |
 | D2-RA | Akamai company deep research (6 files, ~30pp, 60+ pages combined) | DONE |
 | D2-RB | Akamai partner program DACH dossier (50 named partners, 7 sections) | DONE |
-| D2-2 | Akamai diagnosis scorecard (apply maturity model to Akamai using new research) | NEXT |
+| D2-2 | Akamai diagnosis scorecard at `02-akamai/03-diagnosis-scorecard.md` | DRAFT v1 committed, awaits Recruitability data refresh post D2-RC |
 | D2-RC | Entanglement & Recruitability research (parallel chat per `02-akamai/research/prompts/research-prompt-akamai-entanglement-v1.md`) | NEXT (parallel) |
 | D2-2.5 | IPP refactor: apply 6-dimension scoring with Recruitability scores from D2-RC | TODO |
 | D3-1 | ABM/TAS DACH Partner Project (30 candidates -> 10 longlist + 6-dim IPP + 9-box + dispositions + profiles) | TODO |
@@ -146,15 +146,44 @@ partner-program-os/
 
 ## Next session opener
 
-1. Open new Claude chat with project files attached.
-2. Paste content of `prompts/master-handover-prompt.md`.
-3. STATE.md loads automatically as project knowledge.
-4. First instruction in the new chat: "продолжаем" or specify next deliverable.
-5. Forge picks up from the row marked **NEXT** in Day-by-day execution status above.
+Project knowledge in Claude.ai is a snapshot, not GitHub-synchronized. The new chat does NOT see live STATE.md or recent ADRs. Workflow requires manual paste from VPS.
+
+Procedure for opening a new chat:
+
+1. On VPS: `cat ~/partner-program-os/prompts/master-handover-prompt.md`. Copy output.
+2. Open new Claude chat inside the Partner Program OS project (project knowledge has the three partnership books + RJSM books that Forge needs as background).
+3. Paste the master handover prompt content as the first message.
+4. On VPS: `cat ~/partner-program-os/STATE.md`. Copy output. Append to the same message (or send as second message), prefixed with `---\n## Current STATE.md (authoritative, from repo)`.
+5. End the message with `продолжаем` (or specific instruction like `Start D3-1`). Forge picks up from the NEXT row.
+6. If specific files are needed during the session (research outputs, stage docs, scorecards), `cat` them on VPS and paste on demand.
+7. At session end: ask Forge to produce a PR script that updates STATE.md with a new session log entry (per ADR-010).
+
+For parallel research missions (D2-RC and any future research), open a separate chat using the same procedure, but additionally paste the relevant `02-akamai/research/prompts/research-prompt-*.md` content and instruct Forge to execute the mission.
+
+The full operator-instructions section lives at the top of `prompts/master-handover-prompt.md` for reference.
 
 ## Session log
 
 Append-only. Newest first.
+
+### 2026-05-18 - Day 2.6: scorecard v1 committed, handover discipline patched
+
+**Done:**
+- Committed D2-2 Akamai diagnosis scorecard v1 to repo at `02-akamai/03-diagnosis-scorecard.md`. Outside-in scoring across 7 stages (Recruit/Onboard/Enable/Co-sell = Basic; Deliver/Renew = Professional [inferred]; Expand = Basic). Spider chart input data table (current vs world-class vs 90-day realistic). Top 3 gaps with revenue impact (caveated as order-of-magnitude estimates). 5 interview-grade questions for hiring manager. Sections requiring post-D2-RC refresh explicitly marked.
+- Patched `prompts/master-handover-prompt.md`: added OPERATOR INSTRUCTIONS section explaining manual paste workflow for opening new chats (project knowledge is a snapshot, not GitHub-synchronized). Adjusted the in-prompt FORGE PROMPT to acknowledge STATE.md will arrive via paste, not project knowledge.
+- Patched STATE.md Next session opener section with the same Variant B procedure.
+
+**Next session:**
+- D2-RC research mission: execute in dedicated parallel chat using the procedure documented in master-handover-prompt.md OPERATOR INSTRUCTIONS
+- D2-2 scorecard review: human read of the committed v1; refinements as needed; sections marked for D2-RC refresh updated when research returns
+- D2-3 HVO main memo: drafts after scorecard review converges
+
+**Blockers:** none. Both D2-RC (parallel chat) and D2-2 review (this chat or future main chat) are unblocked.
+
+**Notes:**
+- The scorecard is committed as v1-DRAFT, not as final. Gap 2 partner dispositions and Recruitability scoring populate after D2-RC.
+- Revenue numbers in the scorecard carry explicit caveat sections. Treat them as directional, not committed. During interview, the candidate asks the hiring manager for internal targets and re-anchors estimates on real data.
+- The manual paste workflow is now the supported procedure for handover discipline (ADR-010). Project knowledge limitation documented in master-handover-prompt.md.
 
 ### 2026-05-18 - Day 2.5: Recruitability dimension + entanglement research initiated
 
