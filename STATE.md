@@ -110,4 +110,30 @@
 ### Still open
 
 - PDF export of homepage for Mark
-- STATE.md append (this entry)
+- STATE.md append (this entry)## SESSION 2026-05-19-b · CSS Rewrite: White Nav + All Missing Classes
+
+### What was done
+- Complete CSS rewrite (153 lines → 300 lines): added ~40 missing class definitions
+- Nav changed from dark navy (#0D2137) to white with border-bottom (matches akamai.com)
+- Hamburger SVG stroke changed from hardcoded #fff to currentColor across all 63 HTML files
+- Applied approved copy (copy-01 through copy-04) to 4 main pages
+- Wrapped 5 v1 pages in v2 shell (top-nav, sidebar, footer, sidebar.js)
+- Fixed all "Alex M." → "A. Marushevsky"
+- Deleted docs/index.md.bak
+- 65 files changed, 767 insertions, 282 deletions
+
+### CSS classes added (were missing, HTML was unstyled)
+- Homepage: .memo-header, .hero, .hero__hook, .perspective-card__*, .timeline__*, .memo-rule
+- Sidebar: .sidebar__heading, .sidebar__list, .sidebar__item, .sidebar__sublist, .caret (CSS had wrong class names)
+- Method: .page-header__*, .stage-grid, .stage-card__*, .maturity-table, .level-basic/pro/wc
+- Partner Mapping: .dim-grid, .dim-card__*, .research-links, .research-link__*
+- ABSM: .phase-section, .phase-header, .phase-num, .phase-name, .artifact-list__*, .ai-callout__*, .client-grid, .client-card__*, .collateral-grid, .collateral-item__*
+- Scorecard: .scorecard-stage__*, .level-block*, .checkpoint-list, .kpi-tag, .toc*
+- DACH Landscape: .filter-btn, .landscape-table, .badge--*, .partner-name
+- Pursue Five: .partner-profile__*, .tag-row, .tag
+
+### Design changes
+- Nav: dark navy (#0D2137) → white with 1px border-bottom
+- Nav links: white text → dark text, active link in blue
+- Hamburger: white strokes → currentColor (adapts to light nav)
+- Sidebar width: 260px → 240px (tighter)
