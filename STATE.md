@@ -5,7 +5,7 @@
 > Discipline defined in ADR-010 (session continuity).
 
 **Last updated:** 2026-05-18
-**Session:** Day 3 - Post-cleanup: ABSM relocated, STATE.md synced to repo reality
+**Session:** Day 3.5 - HVO site architecture locked, 18 decisions, build starting
 **Updated by:** Forge (Claude)
 
 ---
@@ -23,7 +23,7 @@ Path: warm referral via Mark Shelepov (Principal Lead Architect, Akamai US).
 |---|---|---|
 | Layer 1: The Method | COMPLETE | 7 stages filled to depth, evidence library (P-01..P-50, E-01..E-12), maturity scorecard, glossary |
 | Layer 2: Playbook Engine (Akamai specialization) | IN PROGRESS | Research done, scorecard v1.3 done, D3-1 done, ABSM sprint done. Memo + exec summary need rewrite |
-| Layer 3: HVO Wrapper (Akamai bundle) | DRAFT | Memo + exec summary exist (v1, need rewrite). Spider chart not started |
+| Layer 3: HVO Wrapper (Akamai bundle) | IN PROGRESS | Architecture locked: GitHub Pages mini-site. Memo v2 = homepage. 3 perspectives + artifacts. Spider chart = framework illustration. Ship today. |
 
 ## Day-by-day execution status
 
@@ -181,6 +181,55 @@ The full operator-instructions section lives at the top of `prompts/master-hando
 ## Session log
 
 Append-only. Newest first.
+
+### 2026-05-18 - Day 3.5: HVO site architecture locked — 18 decisions
+
+**Format decision:** HVO is a GitHub Pages mini-site (not PDF-first). Motivation letter with proof-of-work artifacts.
+- Homepage = memo v2 (2 pages printed). Storytelling intro + Three Perspectives + 30/60/90.
+- Perspective 1: Method & Vision (method/) — 7-stage lifecycle + maturity framework + spider chart (framework illustration, NO Akamai scores)
+- Perspective 2: Partner Mapping & Prioritization (partner-mapping/) — 6-dim IPP + 33-partner matrix + entanglement + Pursue Five
+- Perspective 3: ABSM Partner Enablement for Axians (absm-sprint/) — 4 clients (Hörmann, Reinhausen, Witte, Trumpf) + AI angle
+- Each perspective has landing page + inline links to artifact files
+- URL: sapraudnynew.github.io/partner-program-os
+
+**18 decisions locked:**
+1. Cisco ABM: helped implement ABM at Cisco partners, passwordless authentication, partner portal playbooks
+2. Section naming: "Three Perspectives" (not gaps)
+3. Maturity: framework only, no Akamai scores
+4. Partner research: full 33-partner matrix with "first pass" caveat. Entanglement shown.
+5. ABSM: all 4 companies named
+6. Hosting: GitHub Pages from /docs/, repo private
+7. AI: dedicated point in ABSM section
+8. CV: separate file, parallel track
+9. Memo: 2 pages max, links to details
+10. Site structure: homepage + 3 perspectives + detail pages
+11. Design: minimal professional consulting-style
+12. Domain: default github.io
+13. Privacy: artifacts copied to /docs/, rest stays private
+14. Mark receives: CV + 1 PDF (memo) + site link
+15. Spider chart: framework illustration (no scores)
+16. Timeline: ship today
+17. Trumpf: 4th client, not separate showcase
+18. URL naming: partner-mapping/ (title: "Partner Mapping & Prioritization")
+
+**30/60/90 rewrite:**
+- Days 1-30: learn Akamai inside, study best practices, shadow best partner manager, meet partners
+- Days 31-60: validate research with internal data, begin Pursue partner conversations
+- Days 61-90: first joint pipeline review, activate co-marketing, establish measurement cadence
+
+**Intro storytelling (new):**
+- Physical security → IT evolution (not random switch)
+- Boon Edam: built partner program from scratch, global clients/partners, conservative company
+- Russia: ABM implementation for Cisco partners
+- Wants to grow into developed IT company like Akamai
+
+**Method refinement:** needed before HVO ships. Approach: don't rewrite 01-method/ source files. Create adapted web versions in docs/method/. Source stays as detailed reference.
+
+**Cleanup:** removed orphaned cleanup-pr.sh from repo.
+
+**Next:** Build the site. Start with Perspective 1 (Method) in next chat session.
+
+**Blockers:** none.
 
 ### 2026-05-18 - Day 3: Cleanup — ABSM relocated, STATE.md synced, scorecard consolidated
 
