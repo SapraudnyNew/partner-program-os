@@ -1,102 +1,83 @@
-# ABSM Sprint — Akamai DACH × Axians × Guardicore Segmentation
+# Partner Program OS
 
-> **D3-2 ABSM Sprint · Portfolio Showcase**
-> **Status:** Complete — 44 artifacts across 6 stages
-> **Author:** Account Manager (AM), Akamai Partner Sales
-> **Audience:** Hiring team, portfolio reviewers
-
----
-
-## What This Is
-
-A complete, end-to-end **Account-Based Selling Motion (ABSM) sprint** built for a real commercial scenario:
-
-- **Vendor:** Akamai (selling Guardicore Segmentation)
-- **Partner:** Axians IT Security Deutschland (formerly Fernao; part of VINCI Energies)
-- **Market:** German Mittelstand manufacturers, €100M–€2B, NIS2-obligated
-- **Product:** Akamai Guardicore Segmentation — enterprise microsegmentation for OT and IT networks
-- **Methodology:** Partner Intelligence Program (PIP) — intent-signal-driven, account-based, cross-portfolio
-
-Everything here — the ICP definition, account research, pain mapping, contact identification, execution PDFs, CRM spec, and KPI dashboard — was produced in one sprint. No client data was used. All company intelligence is sourced from public records (LinkedIn, company websites, annual reports, PSIRT advisories).
+**Owner:** Alex M.
+**Mission:** Reverse Job Search Method (RJSM) deliverable — three artifacts built on a shared methodology.
+**Status:** Active build. Layer 1 (Method) complete. Layer 2 (Akamai specialization) in progress. See `STATE.md` for current execution status.
 
 ---
 
-## Sprint Structure
+## What is this repo
+
+Three artifacts. One methodology underneath. Plus DACH supporting projects per ADR-009.
+
+| # | Artifact | Purpose | Status |
+|---|---|---|---|
+| 1 | **Universal Partner Method** | Reusable 7-stage partner program framework. Source of truth for any partner-program HVO. | COMPLETE |
+| 2 | **Akamai HVO Bundle** | Leave-behind bundle for warm referral path. Target: Senior Channel Marketing Manager, DACH, Zero Trust. | IN PROGRESS |
+| 3 | **DACH Projects** | ABM/TAS partner project + ABSM Mittelstand sprint. Supporting artifacts for Akamai HVO per ADR-009. | ABSM DONE, ABM/TAS scaffold |
+| 4 | **BEGE Rollout Map** | Dual-version implementation plan for Boon Edam. Public version = portfolio piece. | SCAFFOLDED |
+
+Detailed status in `STATE.md`.
+
+---
+
+## How to navigate
 
 ```
-absm-dach-guardicore/
-├── 00-context/          Sprint spec, locked decisions, methodology context
-├── 01-targeting/        ICP definition, scoring matrix, longlist → final 4
-├── 02-intel/            16 files: 4 accounts × 4 intel documents each
-│   ├── hoermann/        Score 91 — warm path via Axians NEO (11yr relationship)
-│   ├── reinhausen/      Score 86 — Industrie 4.0 award winner, KRITIS supply chain
-│   ├── witte/           Score 85 — automotive Tier 1, TISAX × NIS2
-│   └── trumpf/          Showcase — €4.3B, EUV sole ASML supplier, smart factory
-├── 03-strategy/         Sweet spot profile, pain library, content matrix, competitive
-├── 04-execution/        12 Axians-branded PDFs (NIS2, TISAX, OT, ROI, battlecard, etc.)
-├── 05-infrastructure/   HubSpot CRM spec, KPI dashboard (HTML), MDF spec, launch checklist
-├── showcase/            Trumpf deep-dive — full methodology at maximum depth
-└── .sprint/             Sprint spec, decisions log (11 locked decisions, no reopening)
+partner-program-os/
+├── STATE.md                  → CURRENT STATE. Read first.
+├── 00-decisions/             → Architectural decision records. Read before changing structure.
+├── 01-method/                → The Universal Partner Method (7-stage lifecycle, Layer 1)
+├── 02-akamai/                → Akamai-specific application (Layer 2 + Layer 3)
+│   ├── research/             → Akamai deep research (company + partner-program + entanglement)
+│   └── 03-dach-projects/     → ABM/TAS + ABSM supporting artifacts per ADR-009
+├── 03-boon-edam/             → BEGE-specific application (frozen per ADR-008)
+├── prompts/                  → Starter prompts for new chats
+└── docs/                     → GitHub Pages publishable subset (sanitized)
 ```
 
 ---
 
-## The Accounts
+## Foundational decisions
 
-| Account | Revenue | Location | Score | Axians path | Primary contact |
-|---------|---------|----------|-------|------------|-----------------|
-| **Hörmann KG** | >€1B | Steinhagen, NRW | 91/100 | ✅ Warm — NEO 11yr | Rian Redinger (CISO) |
-| **Maschinenfabrik Reinhausen** | €1.2B | Regensburg, BY | 86/100 | ❌ Cold | Dr. Hubert Feyrer (Cyber Expert) |
-| **Witte Automotive** | >€1B | Velbert, NRW | 85/100 | ❌ Cold | Rainer Schulten (Leiter IT Security) |
-| **Trumpf SE** | €4.3B | Ditzingen, BW | — | ❌ Cold | Thomas Speck (CIO) — showcase only |
+| ADR | Decision |
+|---|---|
+| ADR-001 | Repo private, with selective public publishing via /docs on GitHub Pages |
+| ADR-002 | All artifacts in English (market language) |
+| ADR-003 | HVO structure = 7-stage partner lifecycle (Recruit → Onboard → Enable → Co-sell → Deliver → Renew → Expand) |
+| ADR-004 | Three-reader model: CEO/Board + Head of Channel/CRO/CMO + dual-layer in same document |
+| ADR-005 | Evidence in appendix, not inline. Main documents stay clean. [P-NN] and [E-NN] bracket refs |
+| ADR-006 | Akamai HVO is a warm-referral leave-behind, NOT cold outreach. Bait-and-switch positioning |
+| ADR-007 | BEGE rollout map = two versions. Public sanitized portfolio + private internal |
+| ADR-008 | Three-layer architecture (Method + Playbook Engine + HVO Wrapper). FROZEN |
+| ADR-009 | DACH projects (ABM/TAS + ABSM) as supporting artifacts for Akamai HVO bundle |
+| ADR-010 | Session continuity via STATE.md (replaces HANDOVER.md and handover-day2-v2.md) |
+| ADR-011 | Recruitability as 6th IPP dimension + disposition taxonomy (Pursue/Contain/Monitor/Drop) |
 
----
-
-## The Guardicore Narrative — Three Lines
-
-1. **"If you have PLCs or industrial robots that can't run software agents, Guardicore is the only enterprise-grade option"** — NVIDIA BlueField agentless OT (GA Q2 2026).
-
-2. **"Forrester TEI: 152% ROI, 6-month payback for a comparable €1B manufacturer"** — vs. Illumio's 111% in comparable study.
-
-3. **"Stefan Epp at Victorinox ran both platforms in a real evaluation and chose Guardicore"** — Swiss precision manufacturer, comparable profile, reference available.
-
----
-
-## Artifact Count
-
-| Stage | Type | Count | Status |
-|-------|------|-------|--------|
-| 0 — Context | .md | 1 | ✅ |
-| 1 — Targeting | .md | 5 | ✅ |
-| 2 — Intel | .md | 16 | ✅ |
-| 3 — Strategy | .md | 4 | ✅ |
-| 4 — Execution | .pdf | 12 | ✅ |
-| 5 — Infrastructure | .md + .html | 4 | ✅ |
-| Showcase | .md | 1 | ✅ |
-| **Total** | | **43** | ✅ |
+Full reasoning: see `00-decisions/`.
 
 ---
 
-## Technical Notes
+## Source methodology
 
-- PDFs in `04-execution/` are generated by `generate_pdfs.py` using Python `reportlab`; Axians brand colors (#0068B6, #AC006D) applied throughout
-- KPI dashboard (`05-infrastructure/02-kpi-dashboard.html`) is a standalone interactive HTML file — open in any browser, no build step
-- All research is Exa-verified from public sources; confidence markers (✅ / 🧠 / ❌) throughout intel documents
-- CRM spec targets HubSpot (confirmed via cookie audit on axians.de)
+Built on synthesis of eight books (see `01-method/appendix/evidence-library.md`). Primary sources:
 
----
+1. **Bob Moore — Ecosystem-Led Growth** (Crossbeam). Central framework.
+2. **David Yovanno — The Partnership Economy** (impact.com). Third channel logic.
+3. **Atluri/Dietz — The Ecosystem Economy** (McKinsey). Strategic frame: orchestrator vs participant.
+4. **Bamford/Gomes-Casseres — Mastering Alliance Strategy**. Governance and capability layer.
+5. **Moore/Thomas — Marketing Multiplied**. Channel marketing 4-pillars (TO/WITH/THROUGH/FOR).
 
-## Regenerating the PDFs
-
-```bash
-pip install reportlab
-python3 04-execution/generate_pdfs.py
-```
-
-Output to `04-execution/`.
+Secondary: Progressive Partnerships (Laing), Strategy Rules (Yoffie), Business Partnership Essentials.
 
 ---
 
-## Questions
+## How to continue work in a new chat
 
-Contact the author. All company names are real; all contacts are publicly identifiable from LinkedIn or company websites. No confidential information.
+Use `prompts/master-handover-prompt.md`. Drop the entire content into a new Claude chat. The new chat reads STATE.md and picks up from the NEXT row in the day-by-day execution table.
+
+For phase-specific work, use the specialized prompts:
+- `prompts/prompt-akamai-hvo.md` for HVO drafting
+- `prompts/prompt-bege-rollout.md` for BEGE rollout map
+
+Archived prompts (no longer needed because their phase is complete) live in `prompts/_archive/`.

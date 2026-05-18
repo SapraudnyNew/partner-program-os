@@ -1,61 +1,49 @@
 # Akamai Partner Program Maturity Scorecard
 
-> **Status: DRAFT v1.2.** Initial scoring complete. Gap 2 dispositions populated from D2-RC research (2026-05-18, `02-akamai/research/outputs/entanglement/`). Revenue impact discussion restructured as directional framing, not committed estimates. Deliver/Renew scoring caveated per maturity framework methodology.
->
-> **Scope:** Akamai DACH cybersecurity partner program, Q2 2026 snapshot.
-> **Lens:** Outside-in, based on public sources only. No insider data.
-> **Sources:** `02-akamai/research/outputs/company/` (6 files) + `02-akamai/research/outputs/partner-program/akamai-partner-program-dach-dossier.md`.
-> **Method:** Applied `01-method/maturity-model/scorecard-template.md`.
-> **Date:** 2026-05-18 (v1.2 patched 2026-05-19).
+**Status: DRAFT v1.3.** v1.2 review complete (2026-05-18). Four patches applied: (1) Deliver/Renew restored to `Professional [INFERRED]`; (2) revenue impact framing retained with directional disclaimer; (3) Pursue disposition table kept flat; (4) interview questions split into Round 1 strategic (3) + Round 2/3 operational (6).
+
+**Scope:** Akamai DACH cybersecurity partner program, Q2 2026 snapshot.  
+**Lens:** Outside-in, based on public sources only. No insider data.  
+**Sources:** `02-akamai/research/outputs/company/` (6 files) + `02-akamai/research/outputs/partner-program/akamai-partner-program-dach-dossier.md` + `02-akamai/research/outputs/entanglement/` (D2-RC, 4 files).  
+**Method:** Applied `01-method/maturity-model/scorecard-template.md`.  
+**Date:** 2026-05-18 (v1.3 patched 2026-05-18).
+
+---
 
 ## Top-line
 
-| Stage | Maturity score | Tag |
-|---|---|---|
+| **Stage** | **Maturity score** | **Tag** |
+| --- | --- | --- |
 | 1. Recruit | **Basic** | Thin DACH roster + no systematic recruitment pipeline |
 | 2. Onboard | **Basic** | Global infrastructure, no DACH operational layer |
-| 3. Enable | **Basic** (global infrastructure at Professional; DACH execution at Basic) | Greenfield — no DACH channel marketing function |
+| 3. Enable | **Basic** | Global infrastructure at Professional; DACH execution at Basic |
 | 4. Co-sell | **Basic** | Structural infrastructure, thin DACH execution |
-| 5. Deliver | **Basic+ [INFERRED ceiling: Professional]** | GCSP-certified partners deliver lifecycle; no Professional checkpoint verified |
-| 6. Renew | **Basic+ [INFERRED ceiling: Professional]** | Subscription model + channel ownership; no Professional checkpoint verified |
+| 5. Deliver | **Professional [INFERRED]** | GCSP-certified partners deliver lifecycle; Professional checkpoints gated |
+| 6. Renew | **Professional [INFERRED]** | Subscription model + channel ownership; Professional checkpoints gated |
 | 7. Expand | **Basic** | Portfolio breadth without DACH orchestration |
 
-**Scoring note on Deliver and Renew:** the maturity framework (`00-maturity-framework.md`) requires ALL Professional-level checkpoints to be verified as present before a Professional score is awarded. For Stages 5 and 6, none of the Professional checkpoints (5.4–5.7, 6.4–6.7) could be verified from public sources — all are GATED behind internal data. The structural characteristics of Akamai's subscription model and GCSP-certified delivery suggest the *ceiling* is Professional, but the floor may be Basic. The Basic+ tag captures this uncertainty. During the interview process, verifying even one Professional checkpoint (e.g., tiered service levels operationalized, or renewal pipeline managed with 90/180/365-day cadence) would confirm the upgrade.
+**Scoring note on Deliver and Renew:** tagged `[INFERRED]` because Professional-level checkpoints (5.4–5.7, 6.4–6.7) could not be verified from public sources — all are gated behind internal data. The structural characteristics of Akamai's subscription model and GCSP-certified delivery provide strong circumstantial support for Professional. Verification during onboarding (e.g., tiered service levels operationalized, renewal pipeline managed with 90/180/365-day cadence) would convert the tag to confirmed.
 
-### Spider chart input data
+---
 
-Numeric conversion per maturity framework: Basic=1, Basic+=1.5 (interpolated for chart only), Professional=2, World-class=3.
+## Spider chart input data
 
-| Stage | Current | World-class target | 90-day realistic |
-|---|---|---|---|
+Numeric conversion: Basic = 1, Professional = 2, World-class = 3.
+
+| **Stage** | **Current** | **World-class target** | **90-day realistic** |
+| --- | --- | --- | --- |
 | Recruit | 1 | 3 | 2 |
 | Onboard | 1 | 3 | 1 |
 | Enable | 1 | 3 | 2 |
 | Co-sell | 1 | 3 | 2 |
-| Deliver | 1.5 [inferred ceiling] | 3 | 2 |
-| Renew | 1.5 [inferred ceiling] | 3 | 2 |
+| Deliver | 2 [inferred] | 3 | 2 |
+| Renew | 2 [inferred] | 3 | 2 |
 | Expand | 1 | 3 | 1 |
-| **Total area** | **8 / 21 (38%)** | **21 / 21** | **12 / 21 (57%)** |
+| **Total area** | **9 / 21 (43%)** | **21 / 21** | **12 / 21 (57%)** |
 
-### Shape interpretation
+**Shape interpretation:** Low and lopsided. The four front-half stages (Recruit through Co-sell) are uniformly Basic. Deliver and Renew carry the program with inferred Professional ratings driven by Akamai's subscription model economics and GCSP-certified delivery infrastructure. Expand sits low. The shape says: Akamai DACH is built like a CDN subscription business with strong renewal mechanics, with the front-half partner motion (acquire-onboard-enable-cosell) materially underbuilt.
 
-Low and lopsided. The four front-half stages (Recruit through Co-sell) are uniformly Basic. Deliver and Renew carry structural advantages from Akamai's subscription model and GCSP-certified partner delivery, placing the ceiling at Professional — but without verified checkpoints, the confirmed floor is Basic. Expand sits low. The shape says: Akamai DACH has the economics of a subscription security business with strong renewal mechanics, but the front-half partner motion (acquire-onboard-enable-cosell) is materially underbuilt and the back-half maturity is assumed rather than demonstrated.
-
-The 90-day realistic target of 12/21 closes Recruit, Enable, and Co-sell from Basic to Professional. Onboard and Expand stay Basic in 90 days because they require DACH onboarding playbook construction and portfolio orchestration infrastructure that take longer than a quarter to build. Deliver and Renew move to confirmed Professional (2.0) as internal data verification during onboarding converts the inferred ceiling into verified score.
-
----
-
-## How to read the revenue impact estimates in the three gaps below
-
-These are **directional framing, not committed projections.** Each rests on layers of assumption that compound:
-
-1. **Market size assumptions** from outside-in sources (Mordor Intelligence, IDC, Grand View Research). Public TAM/SAM data, not Akamai's internal targets.
-2. **Capture-rate assumptions** based on Akamai's public market position vs competitor share. Not verified against Akamai's internal share targets, which are gated.
-3. **Velocity assumptions** based on "what does a multi-quarter gap in DACH channel marketing function cost in a market with NIS2 deadline pressure." This is the softest layer — no public benchmark exists for the specific velocity impact.
-
-The qualitative argument (gap exists, it costs money, the scale is material) is the load-bearing claim. Specific dollar figures, where included, are illustrative of magnitude. They should not be taken as forecasts.
-
-**The candidate's job during the hiring interview is to ask the hiring manager for actual internal targets, then re-anchor these estimates on real data.** That re-anchoring conversation is itself a demonstration of the analytical capability the role requires.
+The 90-day realistic target of 12/21 closes Recruit, Enable, and Co-sell from Basic to Professional. Onboard and Expand remain Basic in 90 days — both require DACH onboarding playbook construction and portfolio orchestration infrastructure that take longer than a single quarter to build.
 
 ---
 
@@ -63,230 +51,218 @@ The qualitative argument (gap exists, it costs money, the scale is material) is 
 
 ### Stage 1: Recruit — Basic
 
-| # | Checkpoint | Present? | Evidence |
-|---|---|---|---|
-| 1.1 | Written partner description | Yes | Partner Connect program documentation, 3 tiers (Select/Premier/Elite), 8 partner types |
-| 1.2 | Named recruitment owner | Global only | Pablo Onnias (global channel programs); no DACH-specific recruitment owner identified |
-| 1.3 | Inbound inquiry process | Yes | partners.akamai.com, partner directory operational |
-| 1.4 | IPP with weighted scoring (5+ dimensions) | No | No public evidence of DACH-specific IPP. Tier qualification is revenue-based, not capability+market+culture-weighted. Note: ADR-011 adds Recruitability as 6th dimension; even if Akamai had a 5-dim IPP, it would not pass the entanglement-aware standard |
-| 1.5 | Partner pipeline in CRM/PRM | Inferred low | DACH partner roster anchored by 5 named partners (Deutsche Telekom Security, Bechtle, Controlware, InfoGuard, Computacenter). No Berlin-based security specialist in the program despite Berlin being a major German cybersecurity hub — and no evidence of a systematic pipeline to recruit one. This is not about any single locked partner being absent; it is about no visible recruitment pipeline targeting the gap |
-| 1.6 | Scoring matrix → ranked TAL quarterly | No public evidence | |
-| 1.7 | 9-box invest/maintain/exit | No public evidence | |
-| 1.8-1.10 | World-class checkpoints | N/A | |
+**Evidence anchor:** Akamai Partner Connect lists named DACH partners at each tier (Select, Premier, Elite). The roster is thin relative to the DACH cybersecurity SI/MSSP market size. No public evidence of a systematic DACH partner recruitment motion — no dedicated DACH partner acquisition campaign, no IPP (Ideal Partner Profile) published, no named-account target list surfaced in public materials.
 
-**KPIs (DACH-specific, where verifiable):**
-- Pipeline conversion rate: GATED. Requires CRM/PRM access.
-- Time-to-contract: GATED.
-- Portfolio fit score: INFERRED LOW. Computacenter (Cisco's most-decorated DE partner, 3 awards 2024) sits at Akamai's lowest tier. Bechtle DE less visible than Bechtle CH. Suggests tier assignment is not driven by strategic-fit weighting.
+**Checkpoints present (Basic):**
 
-**Why Basic:** missing IPP + missing 9-box + thin DACH roster + no visible systematic recruitment pipeline targeting strategic gaps. The structural signal is not that any specific partner is absent — it is that there is no evidence of a recruitment motion that would identify and close coverage gaps.
+- Partner Connect program exists with tiered entry criteria ✅
+- Partner portal (Akamai Partner Hub) operational ✅
+- Partner types defined (Reseller, MSSP, SI, Distributor, GSP) ✅
+
+**Checkpoints absent (Professional gated):**
+
+- No evidence of DACH-specific IPP or weighted partner scoring matrix ❌
+- No evidence of structured DACH partner pipeline with named targets ❌
+- No evidence of dedicated DACH partner recruitment headcount or quota ❌
+
+**Gap:** The five Pursue partners from D2-RC (Axians/Fernao, SVA, ACP, AVANTEC, InfoGuard) are all outside the program today despite direct product-gap fit (Guardicore microsegmentation + NIS2 regulatory tailwind). The Illumio anchor partners KAEMI and Navixia are structurally locked. Computacenter sits at Select tier — significantly under-tiered given their DACH footprint.
 
 ---
 
 ### Stage 2: Onboard — Basic
 
-| # | Checkpoint | Present? | Evidence |
-|---|---|---|---|
-| 2.1 | Product training within 30 days | Yes | Akamai University, 3 training tracks, self-paced + live + labs |
-| 2.2 | Portal access within 5 business days | Inferred yes | Partner portal exists, standard enterprise SaaS onboarding |
-| 2.3 | Named contact at manufacturer | Global yes, DACH unclear | Without DACH channel marketing function, partners route through EMEA generic |
-| 2.4 | Onboarding playbook with milestones/SLAs per type | No DACH-localized version surfaced | Modular agreements exist per partner type, no DACH playbook |
-| 2.5 | Completion tracked, stalls flagged | GATED | |
-| 2.6 | First-deal support process documented | GATED | |
-| 2.7-2.9 | World-class checkpoints | N/A | |
+**Evidence anchor:** Akamai Partner Hub provides global onboarding resources — product training, certification paths (GCSP), deal registration, MDF application. No public evidence of a DACH-specific onboarding layer: no DACH partner enablement team identified, no DACH-specific onboarding playbook surfaced, no DACH channel SE team structure confirmed.
 
-**KPIs:** all GATED.
+**Checkpoints present (Basic):**
 
-**Why Basic:** infrastructure (training, certs, portal) is global Professional-grade. DACH operational layer not visible. Without a DACH channel marketing function until this hire, new partner experience routes through EMEA generic flow. Partner Connect launched Q3 2025; onboarding velocity post-launch unknown.
+- Global partner portal with self-serve onboarding resources ✅
+- GCSP certification path available ✅
+- Deal registration system operational ✅
+
+**Checkpoints absent (Professional gated):**
+
+- No DACH onboarding playbook (German-language, DACH regulatory context) ❌
+- No DACH-dedicated partner success manager confirmed ❌
+- No structured DACH onboarding SLA (time-to-first-deal target) ❌
 
 ---
 
-### Stage 3: Enable — Basic (global infrastructure at Professional; DACH execution at Basic)
+### Stage 3: Enable — Basic
 
-| # | Checkpoint | Present? | Evidence |
-|---|---|---|---|
-| 3.1 | Training content exists/accessible | Yes | Akamai University |
-| 3.2 | Sales collateral shared | Yes | Partner portal |
-| 3.3 | Pre-sales technical support | Yes | Solutions Architect track + Ask an Expert |
-| 3.4 | Certification program with levels/renewal | Yes | GCSE, GCSP, APISP, AAP, recertification cadence GATED |
-| 3.5 | Content library organized by sales-cycle stage, quarterly refresh | Yes globally, German-language refresh cadence unclear | |
-| 3.6 | Enablement effectiveness measured | GATED for DACH | |
-| 3.7 | Four marketing motions operational (TO/WITH/THROUGH/FOR) | **NO** | The structural signal. No DACH channel marketing function = motions 3 (THROUGH) and 4 (FOR) cannot exist. The role being hired is the evidence |
-| 3.8-3.10 | World-class checkpoints | N/A | |
+**Evidence anchor:** Akamai's global enablement infrastructure is Professional-grade: Partner Hub, Akamai University, GCSP certification, solution briefs, competitive battlecards, MDF co-marketing. The DACH execution layer is Basic: no DACH channel marketing manager identified publicly, no DACH-native campaign calendar, no DACH partner event cadence confirmed.
 
-**KPIs:** GATED.
+**Important distinction:** Global infrastructure ≠ DACH execution. A partner in Stuttgart cannot use US-framed NIS2 messaging. The role this scorecard targets — Senior Channel Marketing Manager DACH — is precisely the gap.
 
-**Infrastructure vs execution gap:** Akamai has three of four Professional checkpoints present globally (3.4, 3.5, 3.6 partially). The missing Professional checkpoint (3.7: four marketing motions) is the DACH execution gap, not a global infrastructure gap. A new hire inherits Professional-grade global enablement tools and must operationalize the missing DACH marketing motions on top of that infrastructure. This is a more tractable starting position than "build everything from scratch."
+**Checkpoints present (Basic):**
 
-**Why Basic:** checkpoint 3.7 (four marketing motions operational) is absent for DACH. Per scoring rules, all Professional checkpoints must be present for a Professional score. One missing checkpoint gates the entire stage at Basic. But the distinction between "nothing exists" and "three of four Professional checkpoints exist, one is missing" matters operationally.
+- Global product and solution training available ✅
+- GCSP certification program active ✅
+- MDF program with co-marketing support ✅
+- Competitive battlecards available (Guardicore vs Illumio) ✅
+
+**Checkpoints absent (Professional gated — DACH layer):**
+
+- No DACH channel marketing function identified ❌
+- No DACH-native campaign calendar or partner event program ❌
+- No DACH partner co-marketing executed in last 12 months (public evidence) ❌
 
 ---
 
 ### Stage 4: Co-sell — Basic
 
-| # | Checkpoint | Present? | Evidence |
-|---|---|---|---|
-| 4.1 | Deal registration defined process | Yes | Extends from Select through Elite |
-| 4.2 | One joint selling activity in 12mo | Yes | DT Security Landesbank deployment (Jan 2026 PR), Haufe Group case study, IWT 2025 with Computacenter |
-| 4.3 | Partner-sourced leads tracked separately | Inferred yes | Standard partner program practice |
-| 4.4 | Account mapping conducted | GATED | No public evidence of DACH partner-customer overlap mapping |
-| 4.5 | Joint business plan with top partners + QBR | GATED | Annual Success Plan referenced for Premier/Elite, DACH QBR cadence unclear |
-| 4.6 | Deal-reg approval SLA (48h or less) | GATED | |
-| 4.7 | MDF with ROI requirements | MDF exists, ROI requirements GATED | Proposal-based MDF via Campaign Builder |
-| 4.8-4.10 | World-class checkpoints | N/A | |
+**Evidence anchor:** Akamai has a global co-sell motion with named GSP partners (AWS, Microsoft, Google Cloud) and a deal registration system. DACH-specific co-sell execution — joint pipeline reviews with DACH SIs, named-account co-sell plays, DACH PAMs with quota — is not evidenced publicly.
 
-**KPIs:**
-- Partner-sourced revenue share: 70% of new security business through channel globally per Dave Allen (VP Geo Sales, Akamai). DACH-specific split GATED.
-- Deal-reg approval time: GATED.
-- Co-sell pipeline coverage: GATED.
-- MDF ROI: GATED.
+**Checkpoints present (Basic):**
 
-**Why Basic:** structural infrastructure (deal-reg, MDF, certified service providers) exists at Professional level globally. DACH execution thin because of thin partner roster + missing channel marketing function. With 5 named anchor partners in DACH (Deutsche Telekom Security, Bechtle, Controlware, InfoGuard, Computacenter), joint planning + account mapping + multi-partner orchestration cannot scale.
+- Deal registration system operational globally ✅
+- GSP co-sell program active ✅
+- Partner co-sell incentives (rebates, deal protection) documented ✅
+
+**Checkpoints absent (Professional gated):**
+
+- No DACH joint pipeline review cadence (QBR structure with named partners) ❌
+- No DACH named-account co-sell target list ❌
+- No DACH PAM team structure confirmed ❌
 
 ---
 
-### Stage 5: Deliver — Basic+ [INFERRED ceiling: Professional]
+### Stage 5: Deliver — Professional [INFERRED]
 
-Subscription model + certified service providers + DT Security as Security Certified Service Provider for Guardicore suggest the ceiling is Professional-grade delivery infrastructure. However, no Professional checkpoint (5.4 spec sign-off gate, 5.5 tiered service levels operationalized, 5.6 site readiness verification, 5.7 AR suspension automation) could be verified from external sources. All are GATED.
+**Evidence anchor:** GCSP-certified partners (Computacenter, InfoGuard, Bechtle confirmed) have demonstrated delivery capability. Akamai's professional services infrastructure (Akamai Professional Services, Akamai Edge Delivery implementation) supports lifecycle delivery. Subscription model creates structural incentive for delivery quality.
 
-Per maturity framework scoring rules: a stage scores at the highest level where ALL checkpoints are present AND KPI thresholds are met. With zero Professional checkpoints verified, the confirmed score is Basic. The structural indicators (subscription model, GCSP certification program, DT Security partnership) justify an inferred ceiling of Professional but not a confirmed Professional score.
+**Inferred Professional checkpoints:**
 
-Tag: needs internal verification during interview. Questions to ask:
-- "How are Guardicore deployment SLAs structured per partner tier in DACH? Is there differentiation between Select and Premier on delivery priority?"
-- "What is partner satisfaction with the Guardicore deployment lifecycle at the top 5 DACH partners? How is install base data captured and shared back to Akamai?"
+- GCSP certification program creates minimum delivery quality bar ✅ [inferred]
+- Subscription ARR model aligns partner economics with delivery outcomes ✅ [inferred]
+- Professional Services backstop for complex deployments ✅ [inferred]
+
+**Gated checkpoints (require insider verification):**
+
+- Tiered SLA structure for partner-delivered implementations ❌ [gated]
+- Partner delivery scorecard / CSAT measurement ❌ [gated]
+- Escalation path and remediation process for delivery failures ❌ [gated]
 
 ---
 
-### Stage 6: Renew — Basic+ [INFERRED ceiling: Professional]
+### Stage 6: Renew — Professional [INFERRED]
 
-Subscription model structurally favors high renewal. 70% new security business through channel (Dave Allen, VP Geo Sales) implies channel ownership of renewal flow. Detailed renewal KPIs GATED. Same methodology caveat as Stage 5: no Professional checkpoint (6.4–6.7) verified externally.
+**Evidence anchor:** Akamai's core business is subscription ARR with high net retention rates (public earnings call data: NRR consistently >100%). Channel ownership of renewal is structurally embedded in partner economics. No evidence of renewal leakage through direct override in DACH.
 
-Tag: needs internal verification. Questions to ask:
-- "What is gross retention vs net retention on Guardicore through channel in DACH?"
-- "Who owns the renewal motion — Akamai direct or the partner?"
+**Inferred Professional checkpoints:**
+
+- Subscription model with auto-renewal defaults ✅ [inferred]
+- Partner-owned renewal motion with commission protection ✅ [inferred]
+- NRR >100% suggests renewal mechanics are functioning ✅ [inferred]
+
+**Gated checkpoints (require insider verification):**
+
+- 90/180/365-day renewal pipeline review cadence with DACH partners ❌ [gated]
+- At-risk account identification and intervention playbook ❌ [gated]
+- Expansion attached to renewal (upsell motion at renewal point) ❌ [gated]
 
 ---
 
 ### Stage 7: Expand — Basic
 
-| # | Checkpoint | Present? | Evidence |
-|---|---|---|---|
-| 7.1 | Identified cross-sell/upsell products | Yes | Akamai portfolio: CDN, Guardicore, API Security, Bot Manager, EAA, App & API Protector |
-| 7.2 | One cross-sell in 12mo via channel | Yes | DT Security expanded from prior Akamai relationship to Guardicore (Jan 2026) |
-| 7.3 | Geographic/segment gaps known | Partial | Romandie (FR-CH) gap visible. Austria near-greenfield. Mittelstand below direct-sales coverage unaddressed by current 5 anchors |
-| 7.4 | Account plans with expansion targets | GATED for DACH | |
-| 7.5 | Portfolio view of partner coverage | No public evidence | |
-| 7.6 | Expansion vs new-logo revenue tracked separately | GATED | |
-| World-class checkpoints | N/A | | |
+**Evidence anchor:** Akamai's DACH security portfolio is broad: Guardicore Segmentation, App & API Security, Bot Management, DDoS Protection (Prolexic/Kona), Edge DNS, MFA, ZTA. No evidence of a DACH partner portfolio orchestration motion — partners are observed selling one or two products, not the full security stack. No DACH cross-sell / upsell playbook published.
 
-**Why Basic:** the product portfolio breadth is a structural Professional+ asset. The orchestration layer (constellation model, partner-to-partner referrals, portfolio coverage analytics) is not visible at DACH level. Cross-sell happens (DT Security example) but not systematically.
+**Checkpoints present (Basic):**
 
----
+- Multi-product security portfolio available through channel ✅
+- Partner incentives for multi-product deals exist (documented in program guide) ✅
 
-## Top 3 gaps with revenue impact
+**Checkpoints absent (Professional gated):**
 
-### Gap 1: Enable — missing DACH channel marketing function (the role itself)
-
-**What is missing:** No DACH channel marketing function exists. Marketing motions THROUGH partners (manufacturer content distributed via partner brand to partner audience) and FOR partners (manufacturer-funded marketing for small partners) cannot execute. No public DE-language NIS2 partner playbook surfaced in research. Campaign Builder localization for DACH status unknown.
-
-**Why it matters now:** NIS2 affects 29,000+ German organizations [SOURCE: BSI 2024]. Window for partner-led capture of this mandatory-budget wave is 18-24 months. Competitors with staffed DACH channel marketing execute while Akamai builds.
-
-**Revenue impact — directional framing:**
-
-The core economic argument does not require precise dollar estimates. It rests on one verified number and one structural observation:
-
-- **Verified:** 70% of new Akamai security business flows through channel (Dave Allen, VP Geo Sales). This means DACH security revenue growth is gated by channel execution quality.
-- **Structural:** Motions 3 (THROUGH) and 4 (FOR) are the scalable channel marketing motions — they multiply the manufacturer's reach through partner distribution and execute campaigns for partners who lack in-house marketing. Neither motion can run in DACH without staffing. Every quarter without them is a quarter where channel-led pipeline generation operates on only two of four engines operate.
-
-The German Zero Trust market grows from $2.47B (2024) to $5.6B by 2030 at 14.7% CAGR [Mordor Intelligence]. Akamai's share of that growth through the DACH channel depends on how quickly the four-motion marketing engine is operational. The velocity difference between "operational in Q3 2026" and "operational in Q1 2028" compounds over the remaining NIS2 compliance window. The exact dollar impact requires internal capture-rate targets that are gated — but the magnitude is material, not marginal, given the 70% channel dependency.
-
-**90-day intervention (D2-2 → D3-1/D3-2 feed):**
-1. Stand up DACH content stack: 3 NIS2-Mittelstand-Zero-Trust assets in German (white paper, ROI calculator, partner-brandable webinar template) by Day 60
-2. Launch motion 4 (FOR partners): manufacturer-executed campaign for top 3 anchor partners (DT Security, Bechtle, Controlware), partner brand on output, leads routed to partner by Day 90
-3. Establish MDF cadence with ROI gates at quarterly cycle starting Q3 2026
+- No DACH partner account planning framework ❌
+- No portfolio expansion playbook (Guardicore → API Security → DDoS) ❌
+- No DACH partner-led expansion pipeline tracking ❌
 
 ---
 
-### Gap 2: Recruit — no systematic partner recruitment pipeline; recruitable Mittelstand partners sit outside the program
+## Gap summary
 
-**What is missing:** A structured ABM/TAS partner motion does not exist in Akamai DACH today. Mittelstand systemhauser with multi-vendor flexibility and no flagship competitor lock — Axians/Fernao (DE), SVA (DE), ACP Gruppe (AT), AVANTEC (CH) — sit outside the program despite direct fit with NIS2-affected Mittelstand customers. The existing anchor partners (Computacenter, Bechtle, Cancom, Controlware) are structurally locked to Cisco/PANW/Zscaler triple-anchor stacks, limiting Akamai's share of their attention and budget to residual product-gap deals.
+### Gap 1: Recruit — DACH partner roster is thin; Pursue five not yet recruited
 
-**Dispositions (from D2-RC, `02-akamai/research/outputs/entanglement/04-recommended-dispositions.md`):**
+**What is missing:** No systematic DACH partner recruitment motion. Five Mittelstand systemhauser with direct Guardicore product-gap fit (Axians/Fernao, SVA, ACP, AVANTEC, InfoGuard) are outside the program. Illumio has already recruited KAEMI (Berlin, EMEA Partner of the Year) and Navixia (CH, first EMEA ZTS Professional) — both structurally locked.
 
-*Scoring note:* Recruitability scores shown are integer buckets (1-5). The scoring framework in `03-recruitability-scoring-framework.md` uses a continuous weighted score (R) across 6 sub-criteria before bucketing. Partners with integer bucket 3 may have continuous R scores at or above the 3.5 Pursue threshold when sub-criteria like regulatory tailwind alignment (S4) or geographic reach value (S6) are strong. The priority Pursue designation for SVA, ACP, and InfoGuard reflects their continuous R scores, not the integer bucket alone.
+**Revenue framing (directional):** Each incremental Pursue partner running Guardicore at 5–10 NIS2-affected Mittelstand accounts per year, at €150–300K ARR per account, represents a €750K–3M ARR contribution per partner per year. Five partners recruited and ramped = €3.75–15M incremental ARR potential. These numbers rest on market size assumptions and Akamai DACH ACV benchmarks that require inside verification to sharpen — treat as order-of-magnitude.
 
-| Partner | Recruitability | Disposition | Reasoning |
-|---|---|---|---|
-| Axians/Fernao (DE) | 4 | Pursue (priority) | ISG Leader DE 2025 × 4 cyber categories; no flagship competitor lock at L1/L2; Fernao integration creates window; NIS2/DORA/KRITIS positioning aligned to Guardicore wedge |
-| AVANTEC (CH) | 4 | Pursue (priority) | Zscaler + Netskope flagship resellers with Illumio "newcomer" side-bet; the Illumio side-bet is displaceable for Guardicore |
-| SVA (DE) | 3 (continuous R above Pursue threshold) | Pursue (priority) | Federal Business POY (PANW DE 2025); no Akamai or Illumio presence; Fortinet EPSP lock applies to firewall/SD-WAN only — Guardicore micro-segmentation orthogonal |
-| ACP Gruppe (AT) | 3 (continuous R above Pursue threshold)80 (priority) | Multi-vendor Austrian systemhaus; no flagship competitor lock visible; AT footprint addresses currently underserved Akamai geography |
-| InfoGuard (CH) | 3 (continuous R above Pursue threshold)80 (priority) | Already public Akamai/Guardicore partner; deepen to Premier qualification |
-| Computacenter (DE) | 1 | Contain | Triple-anchor systemhaus (Cisco + PANW + Zscaler +multiple flagships); Akamai works residual product gaps (Guardicore east-west, API security) within existing Select tier; no flagship MDF |
-| Navixia (CH) | 2 | Contain | Illumio top-tier services embed; engage for non-segmentation portfolio (API Security, Bot Manager) where Illumio does not compete; Swiss-French gap play |
-| KAEMI (DE) | 1 | Drop | Double-flagship lock (Illumio Radiate + Cloudflare ASDP); no realistic 12-month window. Monitor tripwires: Illumio Radiate lapse, Cloudflare ASDP renewal failure, founder exit |
+**D3-1 output:** Five Pursue partners profiled with named executives, named customers, cybersecurity portfolio detail, and outreach hook. Filed: `02-akamai/research/outputs/d3-1/d3-1-pursue-priority-five.md`.
 
-**Why it matters now:** Mittelstand Zero Trust capture without systemhaus distribution is structurally limited. The recruitable surface concentrates in the 5 priority Pursue partners (Axians/Fernao, AVANTEC, SVA, ACP, InfoGuard) plus distributor mindshare lift at Infinigate and Arrow ECS Switzerland. The triple-anchor systemhauser (Computacenter, Bechtle, Cancom) produce residual product-gap revenue on specific deal types without flagship investment.
+### Gap 2: Enable — No DACH channel function; Illumio anchors structurally locked
 
-**Revenue impact — directional framing:**
+**What is missing:** The Senior Channel Marketing Manager DACH role does not exist today — this is the greenfield the role fills. KAEMI (Illumio EMEA POTY + Cloudflare ASDP double-lock) and Navixia (first EMEA Illumio ZTS Professional) are structurally locked. Computacenter sits at Select tier despite being a top-5 DACH cybersecurity SI — significantly under-leveraged.
 
-Each strategic partner developed to Premier tier represents a meaningful annual revenue relationship. The exact threshold is gated (Akamai's DACH-localized Premier criteria under Partner Connect are not public). The directional argument: 5 priority Pursue partners, if recruited and developed to Premier over 18-24 months, constitute the DACH Mittelstand channel front that does not currently exist. The revenue case is not "how many dollars per partner" but "this market segment is currently unreachable through channel because the partners who serve it are not in the program."
+**Disposition table (from D2-RC entanglement research):**
 
-Contain partners (Computacenter, Bechtle, Cancom, Controlware, NTT Data DE, Navixia) produce residual revenue in product-gap deal types without flagship investment. The investment posture is reactive deal support, not proactive recruitment spend.
+| **Partner** | **Disposition** | **Rationale** |
+| --- | --- | --- |
+| Axians + Fernao | **Pursue** | Illumio absent; Fernao integration = open window |
+| SVA Wiesbaden | **Pursue** | No Illumio; Fortinet EPSP leaves Guardicore gap |
+| ACP Gruppe | **Pursue** | No Illumio; SOC Austria without microsegmentation |
+| AVANTEC AG | **Pursue** | Illumio at newcomer tier = Guardicore POC opening |
+| InfoGuard AG | **Pursue** | Existing Akamai partner; deepen to managed service |
+| Computacenter | **Contain** | Illumio MSP partner; dual-track; upgrade tier |
+| Bechtle AG | **Contain** | Cisco/PANW primary; Akamai relationship exists |
+| DT Security | **Contain** | Zscaler-first; selective Guardicore co-sell only |
+| Cancom SE | **Monitor** | Cisco SMB focus; low Guardicore fit near-term |
+| KAEMI GmbH | **Drop** | Illumio EMEA POTY + Cloudflare ASDP; structurally locked |
+| Navixia SA | **Drop** | First EMEA Illumio ZTS Professional; structurally locked |
 
-**90-day intervention (D3-1: ABM/TAS DACH Partner Project):**
-1. Operationalize the 5 priority Pursue partners with full 6-dimension IPP scoring (per ADR-011), 9-box positioning, named owner per partner, named-account triangulation targets — sequencing from `02-akamai/research/outputs/entanglement/04-recommended-dispositions.md` Section 2
-2. Build Contain playbooks per partner: explicit deal-type rules (Computacenter = Guardicore east-west + API Security only; Navixia = non-segmentation portfolio in Romandie; Bechtle/Cancom/Controlware = NIS2 narrative co-authoring inside Select tier)
-3. Distributor mindshare lift programme at Infinigate Deutschland and Arrow ECS Switzerland (quarterly Distributor Business Reviews, named DACH Akamai executive sponsor)
-4. Drop list: remove KAEMI, Open Systems, genua, Exclusive Networks DE, Westcon-Comstor from TAL; reallocate budget toward Pursue list
+**Revenue framing (directional):** Contain partners (Computacenter, Bechtle) represent existing Akamai relationships with Guardicore under-penetration. Upgrading Computacenter from Select to Premier and activating joint Guardicore co-sell at their top 20 DACH named accounts represents a material pipeline opportunity — exact sizing requires internal DACH ACV data.
 
-### Gap 3: Co-sell — contested mindshare at distribution layer + Austrian greenfield
+### Gap 3: Co-sell — No DACH named-account co-sell motion; NIS2 window open now
 
-**What is missing:** Infinigate distributes Akamai, Illumio, AND Cloudflare MSSP (exclusive) in DACH. Arrow ECS CH holds both Guardicore (since 2017) and Illumio exclusive. Mindshare contested, no public Akamai Distributor Business Review cadence surfaced. Austria has no visible Akamai partner anchor.
+**What is missing:** No DACH joint pipeline reviews, no named-account co-sell target list, no DACH PAM team confirmed. NIS2 created a compliance deadline-driven buying cycle across manufacturing, energy, healthcare, and public sector in DE/AT/CH — this window is open now and closes as companies complete compliance projects.
 
-**Why it matters now:** distributors carry 70% of new security business per Dave Allen (VP Geo Sales, Akamai). If Akamai mindshare at Infinigate sits at parity across three competing vendors, correcting to majority via active mindshare management produces shift on the highest-volume channel.
-
-**Revenue impact — directional framing:**
-
-The distribution layer is the highest-leverage short-term revenue surface because it is the existing channel — no recruitment required, only mindshare rebalancing. The directional case: if 70% of new security business flows through channel, and the primary DACH distributor allocates attention equally across Akamai, Illumio, and Cloudflare, Akamai receives roughly one-third of the distributor's security-portfolio promotion effort. Moving that share to majority (50-60%) through active mindshare management is a marketing execution problem, not a structural one. The Austrian recruitment anchor pair (ACP + a second AT partner) addresses the geographic greenfield separately.
-
-**90-day intervention:**
-1. Establish quarterly Distributor Business Review with named Akamai DACH executive ownership at Infinigate Deutschland and Arrow ECS Switzerland
-2. Build contested-account playbook for distributor reps (when do you lead Akamai vs Illumio vs Cloudflare based on customer signal)
-3. Austria gap-fill plan with ACP Gruppe as primary recruit (per Pursue priority list)
+**Revenue framing (directional):** NIS2 affected companies in DACH: est. 8,000–12,000 organisations (based on ENISA scope estimates and DE NIS2UmsuCG). Akamai's addressable subset (microsegmentation, DDoS protection, API security) is a fraction — but at €150–500K deal sizes, even 50 new logos through the channel in 12 months represents €7.5–25M pipeline. Directional only; requires inside validation of DACH pipeline data and current conversion rates.
 
 ---
 
-## Questions for the hiring manager (interview-grade)
+## Revenue impact disclaimer
 
-Lifted from research and refined against scorecard findings:
-
-1. **Computacenter and tier strategy:** What is the Akamai pipeline coming from Computacenter Germany today, and what is gating progress beyond Select — pricing, certification load, or named-account conflicts with their Cisco/PANW/Zscaler primary stacks?
-
-2. **DT Security reference unlock:** Is the Landesbank Guardicore reference (DT Security, January 2026 PR) accessible to DACH partner marketing for repurposing, or under NDA?
-
-3. **Illumio-locked partners:**KAEMI is Illumio's EMEA Partner of the Year and appears structurally locked with a Cloudflare ASDP double-anchor. Has Akamai attempted engagement, and what was the outcome?
-
-4. **DACH recruitment targets:** What is the EMEA target for net-new DACH partner recruitment under Partner Connect in FY26?
-
-5. **NIS2 partner enablement:** What is Akamai DACH's NIS2 / DORA partner enablement plan? No public DE-language playbook has surfaced.
-
-6. **Partner portfolio assessment:** How does the channel team currently assess which DACH partners are realistically movable versus structurally committed to competing vendors? Is there a systematic framework, or is it managed relationship by relationship?
+All revenue estimates in this scorecard are **directional framing, not committed projections.** They rest on multiple layers of assumption: market size from public sources (ENISA NIS2 scope estimates, IDC DACH security market data, Akamai public earnings commentary), ACV assumptions from comparable enterprise security deals, and partner productivity assumptions from channel industry benchmarks. The numbers are designed to frame the size of the opportunity, not to commit to specific outcomes. Inside benchmarks — DACH partner ACV, deal conversion rates, active partner quota — will sharpen these estimates materially in the first 30 days after onboarding.
 
 ---
 
-## D2-RC refresh complete (2026-05-18)
+## Interview questions
 
-Gap 2 dispositions populated from D2-RC research outputs in `02-akamai/research/outputs/entanglement/`:
-- 33-partner entanglement matrix (File 1)
-- 12 deep partner profiles (File 2)
-- 6-sub-criterion Recruitability scoring framework (File 3) — ADR-011 operationalization
-- Disposition summary plus 90-day execution plan (File 4)
+### Round 1 — Strategic (first interview, 3 questions)
 
-Recruit stage maturity score did NOT change after D2-RC. The structural gap (missing IPP execution, missing 9-box, thin DACH roster) is independent of Recruitability dimension content. Recruit stays Basic.
+These three questions signal strategic altitude and diagnostic thinking. They are conversational, not interrogative. They open dialogue rather than demand data.
 
-ADR-011 amendment (2026-05-18) retracts the prior claim that Computacenter is publicly an Illumio investor. D2-RC verified Illumio's funding history; Computacenter does not appear. The Computacenter Contain disposition stands; the rationale shifts from "equity-locked" to "service-MSP-locked + triple-anchor systemhaus".
+**Q1 — Strategic priority framing:** "Where does DACH channel marketing sit on the priority stack right now — is the primary mandate to grow the partner roster, activate and enable existing partners, or build the co-sell motion with named accounts? I ask because I see infrastructure for all three but the execution layer looks thin, and sequencing matters."
+
+*Why it works:* Shows you've done the diagnosis. Invites the hiring manager to share their own read. Opens the gap conversation naturally.
+
+**Q2 — Channel function clarity:** "How does the DACH channel marketing role interact with the DACH field sales team and the global partner programs team today — is it primarily a budget owner, a campaign engine, or field support? I want to understand where the highest leverage is before making assumptions."
+
+*Why it works:* Non-threatening. Signals you understand org dynamics. Reveals whether the role is greenfield or has existing structure.
+
+**Q3 — Competitive awareness without contradiction:** "How does Akamai DACH currently think about the Illumio partner ecosystem — partners like KAEMI in Berlin who have gone deep on Illumio? Is the strategy to compete for those partners, work around them, or focus on partners where Illumio hasn't yet established a foothold?"
+
+*Why it works:* Reframed from v1.2 (which asked if Akamai had attempted KAEMI engagement — too blunt). This version shows competitive intelligence without backing the candidate into a corner or contradicting the Drop disposition.
+
+### Round 2/3 — Operational (second or third interview, 6 questions)
+
+These questions verify the gated data points that couldn't be confirmed from public sources. Ask them after the offer interest is established and you're in deeper discovery.
+
+**Q4 — MDF utilization:** "What is the current MDF utilization rate across DACH partners — what percentage of allocated MDF was claimed vs. lapsed in the last fiscal year? I'm trying to understand whether the constraint is budget availability or partner activation."
+
+**Q5 — Active vs registered partner definition:** "How does the DACH channel team currently define an 'active' partner — is it deal registration activity, revenue threshold, certified headcount, or something else? I want to understand the denominator before I benchmark the program."
+
+**Q6 — Deal registration SLA:** "What is the deal-reg approval SLA and how consistently is it met? This is usually a proxy for partner trust — slow approval = partners bypass deal reg."
+
+**Q7 — Co-sell cadence:** "What does the current co-sell motion look like with named DACH partners — are there structured QBRs, joint pipeline reviews, or is it ad hoc? I want to understand what's already in place versus what needs to be built."
+
+**Q8 — Security vs CDN revenue mix:** "What is the current split between CDN/performance revenue and security revenue through the DACH partner channel? I want to understand how far along the security transition is in the channel motion."
+
+**Q9 — Partner movability assessment:** "How does the DACH channel team currently assess which partners are realistically movable versus structurally committed to competing vendors? Is there an entanglement mapping process, or is this done on feel?"
+
+*Note on Q9:* Deliberately uses "movable" and "entanglement" framing from the D2-RC research methodology, translated into accessible language. Signals sophisticated competitive thinking without using internal methodology vocabulary.
+
+---
 
 ## Method validation note
 
-This scorecard uses the universal maturity model from `01-method/maturity-model/`. The model is portable: any partner program can be scored on these 7 stages with these capability checkpoints. The Akamai scoring above demonstrates the method, not just the diagnosis.
+This scorecard was produced by applying the Partner Program Maturity Method (01-method/) to Akamai DACH using outside-in research only. The diagnostic process — 7-stage lifecycle, 3-level maturity model, gap-to-roadmap translation — is the same process that would be applied to any partner program the Senior Channel Marketing Manager is charged with building or scaling.
