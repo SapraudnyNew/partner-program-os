@@ -55,8 +55,8 @@ The Akamai deliverable is NOT a single memo. It is a bundle:
 
 1. **Page 0:** 1-page executive summary. Standalone. Skip-level readable. For VP Channel Marketing EMEA forwarding path. (file: `00-page-zero-executive-summary.md`)
 2. **Pages 1-3.5:** main memo. Method overview, Akamai diagnosis, top 3 gaps, 90-day plan, fit. (file: `01-leave-behind-memo.md`)
-3. **Linked:** ABM/TAS DACH partner package. 30 candidates scored, 10 longlisted with full IPP + 9-box + one-page profile. (location: `03-dach-projects/abm-tas-partners/`)
-4. **Linked:** ABSM DACH sprint package. 32-artifact methodology for German Mittelstand Zero Trust, 3 accounts deep + 1 publicly-named showcase. (location: `03-dach-projects/absm-sprint/`)
+3. **Linked:** ABM/TAS DACH partner package. 30 candidates scored, 10 longlisted with full IPP + 9-box + one-page profile. (location: `02-akamai/03-dach-projects/abm-tas-partners/`)
+4. **Linked:** ABSM DACH sprint package. 32-artifact methodology for German Mittelstand Zero Trust, 3 accounts deep + 1 publicly-named showcase. (location: `02-akamai/03-dach-projects/absm-sprint/`)
 5. **Linked:** Interactive spider chart (web-hosted) + PDF static export. (file: `05-akamai-spider.html`)
 6. **Optional:** HVO direct approach version for VP/Director-level fallback frame. (file: `02-hvo-direct-approach.md`)
 

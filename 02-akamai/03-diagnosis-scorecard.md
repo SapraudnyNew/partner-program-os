@@ -1,6 +1,6 @@
 # Akamai Partner Program Maturity Scorecard
 
-> **Status: DRAFT v1.** Initial scoring complete. Recruitability dimension scores and gap-3 disposition recommendations marked for refresh after D2-RC research mission returns. Revenue impact numbers are order-of-magnitude estimates pending discovery of internal benchmarks during interview process.
+> **Status: DRAFT v1.1.** Initial scoring complete. Gap 2 dispositions populated from D2-RC research (2026-05-18, `02-akamai/research/outputs/entanglement/`). Revenue impact numbers remain order-of-magnitude estimates pending discovery of internal benchmarks during interview process.
 >
 > **Scope:** Akamai DACH cybersecurity partner program, Q2 2026 snapshot.
 > **Lens:** Outside-in, based on public sources only. No insider data.
@@ -195,28 +195,38 @@ Treat the dollar figures as directional, not committed. The qualitative argument
 
 ---
 
-### Gap 2: Recruit — KAEMI, Navixia, Mittelstand systemhauser not in program
+### Gap 2: Recruit — Mittelstand systemhauser not in program; Illumio anchors and Computacenter structurally locked
 
-> **Note: gap analysis below uses initial entanglement signals from existing research. Recruitability scores and final dispositions await D2-RC mission output (see ADR-011). What is presented here is the pre-Recruitability view; the gap remains but the specific partner-by-partner play may shift once entanglement layers are mapped systematically.**
+**What is missing:** A structured ABM/TAS partner motion does not exist in Akamai DACH today. KAEMI GmbH (Berlin, Illumio EMEA Partner of the Year FY2026 + Illumio Radiate + Cloudflare ASDP double-flagship lock) sits in Akamai's home territory outside the program. Navixia SA (first EMEA Illumio ZTS Professional, Lausanne) holds Romandie with Illumio embedded in services and brand. Mittelstand systemhauser with multi-vendor flexibility and no flagship competitor lock — Axians/Fernao (DE), SVA (DE), ACP Gruppe (AT), AVANTEC (CH) — sit outside the program despite direct fit with NIS2-affected Mittelstand customers. Computacenter is parked at Akamai's lowest tier (Select) despite Cisco/PANW/Zscaler triple-anchor systemhaus dominance; the partner is recognised as an Illumio MSP service partner (trade press Jan-2025) and co-exhibited with KAEMI at Illumio World Tour Germany Dec-2025.
 
-**What is missing:** The Illumio EMEA Partner of the Year (KAEMI GmbH, Berlin) is in Akamai's home territory and is not in Akamai's program. Navixia (first EMEA Illumio ZTS Professional, Romandie) covers Switzerland's French region where Akamai has no partner. Mittelstand systemhauser (SVA, Cancom, Axians, Materna) sit outside the program despite being the channel to NIS2-affected Mittelstand. Computacenter (Cisco's most-decorated DE partner) is parked at Akamai's lowest tier despite publicly co-investing in Illumio.
+**Dispositions (from D2-RC, `02-akamai/research/outputs/entanglement/04-recommended-dispositions.md`):**
 
-**Why it matters now:** the Berlin-headquartered Illumio star not being on Akamai's roster is a daily competitive loss in the home market. Mittelstand Zero Trust capture without systemhaus distribution is structurally limited.
+| Partner | Recruitability | Disposition | Reasoning |
+|---|---|---|---|
+| Axians/Fernao (DE) | 4 | Pursue (priority) | ISG Leader DE 2025 × 4 cyber categories; no flagship competitor lock at L1/L2; Fernao integration creates window; NIS2/DORA/KRITIS positioning aligned to Guardicore wedge |
+| AVANTEC (CH) | 4 | Pursue (priority) | Zscaler + Netskope flagship resellers with Illumio "newcomer" side-bet; the Illumio side-bet is displaceable for Guardicore |
+| SVA (DE) | 3 | Pursue (priority) | Federal Business POY (PANW DE 2025); no Akamai or Illumio presence; Fortinet EPSP lock applies to firewall/SD-WAN only — Guardicore micro-segmentation orthogonal |
+| ACP Gruppe (AT) | 3 | Pursue (priority) | Multi-vendor Austrian systemhaus; no flagship competitor lock visible; AT footprint addresses currently underserved Akamai geography |
+| InfoGuard (CH) | 3 | Pursue (deepen) | Already public Akamai/Guardicore partner; deepen to Premier qualification |
+| Computacenter (DE) | 1 | Contain | Triple-anchor systemhaus (Cisco + PANW + Zscaler + multiple flagships); Akamai works residual product gaps (Guardicore east-west, API security) within existing Select tier; no flagship MDF |
+| Navixia (CH) | 2 | Contain | Illumio top-tier services embed; engage for non-segmentation portfolio (API Security, Bot Manager) where Illumio does not compete; Swiss-French gap play |
+| KAEMI (DE) | 1 | Drop | Double-flagship lock (Illumio Radiate + Cloudflare ASDP); no realistic 12-month window. Monitor tripwires: Illumio Radiate lapse, Cloudflare ASDP renewal failure, founder exit |
+
+**Why it matters now:** Mittelstand Zero Trust capture without systemhaus distribution is structurally limited. The Berlin-headquartered Illumio star (KAEMI) not being on Akamai's roster is real, but the disposition is Drop, not Pursue. The recruitable surface concentrates in 5 priority Pursue partners (Axians/Fernao, AVANTEC, SVA, ACP, InfoGuard) plus distributor mindshare lift at Infinigate and Arrow ECS Switzerland.
 
 **Revenue impact — directional estimate:**
-- Each strategic partner at Premier tier threshold: $2M+ annual revenue minimum (Akamai's published Premier criteria suggest this scale, exact threshold GATED)
-- 10 net-new strategic partners at Premier = $20M+ annual revenue floor
-- KAEMI/Navixia displacement is a multi-quarter play (entanglement layer 3 - both hold Illumio POY/flagship status); estimated impact per displaced partner if achievable: mid-single-digit millions per year in recurring cybersecurity revenue
-- Computacenter Select → Premier upgrade (tier-upgrade play): minimum $1.7M annual revenue delta (Premier threshold $2M vs Select implied ~$300k); **but Recruitability score from D2-RC will determine if this play is viable or should be Contained**
+- Each strategic partner at Premier tier threshold: $2M+ annual revenue (Akamai's published Premier criteria; exact DACH-localised threshold under Partner Connect GATED)
+- 5 priority Pursue partners at Premier qualification = $10M+ annual revenue floor (lower bound; the priority Pursue list is qualified for Premier, not Elite)
+- Contain partners (Computacenter, Bechtle, Cancom, Controlware, NTT Data DE) produce residual product-gap revenue without flagship investment; estimated $1-2M per Contain partner per year for Guardicore east-west + API Security niche
+- KAEMI/Navixia displacement reclassified from "multi-quarter play" to Drop/Contain; the $0 net new flagship investment in these two partners is the new reality
 
-**Caveat:** the displacement numbers assume zero entanglement friction. In practice, KAEMI's Illumio Partner of the Year status and Computacenter's Illumio co-investment likely make these Contain or Monitor dispositions, not Pursue. D2-RC will resolve. The Mittelstand systemhaus recruitment numbers (SVA, Cancom, Axians) are more reliable because those partners are not publicly entangled with Illumio at flagship level.
+**Caveat:** Premier revenue threshold assumes Akamai DACH-localised tier benchmarks roughly mirror the legacy global structure. Localised thresholds under Partner Connect (Q3 2025 launch) may differ. During the interview, the candidate asks the hiring manager for the DACH Premier threshold and re-anchors estimates on real data.
 
-**90-day intervention:**
-1. Build IPP with 6-dimension weighted scoring including Recruitability per ADR-011 (depends on D2-RC research)
-2. Score 30 DACH candidates with disposition (Pursue/Contain/Monitor/Drop) - this is D3-1: ABM/TAS DACH Partner Project
-3. Open recruitment outreach at top 3 Mittelstand systemhauser (high-Recruitability), open tier-upgrade conversation at Computacenter only if Recruitability score supports Pursue, treat KAEMI/Navixia per D2-RC disposition recommendation
-
----
+**90-day intervention (D3-1: ABM/TAS DACH Partner Project):**
+1. Operationalise the 5 priority Pursue partners with full 6-dimension IPP scoring (per ADR-011), 9-box positioning, named owner per partner, named-account triangulation targets — sequencing from `02-akamai/research/outputs/entanglement/04-recommended-dispositions.md` Section 2
+2. Build Contain playbooks per partner: explicit deal-type rules (Computacenter = Guardicore east-west + API Security only; Navixia = non-segmentation portfolio in Romandie; Bechtle/Cancom/Controlware = NIS2 narrative co-authoring inside Select tier)
+3. Distributor mindshare lift programme at Infinigate Deutschland and Arrow ECS Switzerland (quarterly Distributor Business Reviews, named DACH Akamai executive sponsor)
+4. Drop list: remove KAEMI, Open Systems, genua, Exclusive Networks DE, Westcon-Comstor from TAL; reallocate budget toward Pursue list
 
 ### Gap 3: Co-sell — contested mindshare at distribution layer + Austrian greenfield
 
@@ -254,16 +264,17 @@ Add to interview list once D2-RC returns:
 
 ---
 
-## Post-D2-RC refresh required
+## D2-RC refresh complete (2026-05-18)
 
-The following sections will refresh once D2-RC research mission returns and Recruitability scores are populated:
+Gap 2 dispositions populated from D2-RC research outputs in `02-akamai/research/outputs/entanglement/`:
+- 33-partner entanglement matrix (File 1)
+- 12 deep partner profiles (File 2)
+- 6-sub-criterion Recruitability scoring framework (File 3) — ADR-011 operationalisation
+- Disposition summary plus 90-day execution plan (File 4)
 
-- Gap 2 partner-by-partner dispositions (Pursue / Contain / Monitor / Drop per partner)
-- Gap 2 revenue impact estimates: shift from "if pursued" to "weighted by realistic Recruitability"
-- 90-day intervention sequencing in Gap 2: Pursue list gets fast-track, Contain list gets narrow-deal-type playbooks, Drop list deletes from TAL
-- IPP 6-dimension scoring template (currently the 5-dim template is in `01-method/01-recruit.md`, refactored per ADR-011 but partner-level data not yet populated)
+Recruit stage maturity score did NOT change after D2-RC. The structural gap (missing IPP execution, missing 9-box, thin DACH roster) is independent of Recruitability dimension content. Recruit stays Basic.
 
-Recruit stage maturity score does NOT change after D2-RC. The structural gap (missing IPP + missing 9-box + thin DACH roster) is independent of Recruitability dimension content. Recruit stays Basic.
+ADR-011 amendment (2026-05-18) retracts the prior claim that Computacenter is publicly an Illumio investor. D2-RC verified Illumio's funding history; Computacenter does not appear. The Computacenter Contain disposition stands; the rationale shifts from "equity-locked" to "service-MSP-locked + triple-anchor systemhaus".
 
 ## Method validation note
 

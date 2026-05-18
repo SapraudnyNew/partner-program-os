@@ -5,7 +5,7 @@
 > Discipline defined in ADR-010 (session continuity).
 
 **Last updated:** 2026-05-18
-**Session:** Day 2.6 - scorecard v1 committed, handover discipline patched
+**Session:** Day 2.7 - D2-RC integrated, dach-projects relocated, ADR-011 amended
 **Updated by:** Forge (Claude)
 
 ---
@@ -34,9 +34,9 @@ Path: warm referral via Mark Shelepov (Principal Lead Architect, Akamai US).
 | D2-R | Deep research prompts v2 (company + partner program) | DONE |
 | D2-RA | Akamai company deep research (6 files, ~30pp, 60+ pages combined) | DONE |
 | D2-RB | Akamai partner program DACH dossier (50 named partners, 7 sections) | DONE |
-| D2-2 | Akamai diagnosis scorecard at `02-akamai/03-diagnosis-scorecard.md` | DRAFT v1 committed, awaits Recruitability data refresh post D2-RC |
-| D2-RC | Entanglement & Recruitability research (parallel chat per `02-akamai/research/prompts/research-prompt-akamai-entanglement-v1.md`) | NEXT (parallel) |
-| D2-2.5 | IPP refactor: apply 6-dimension scoring with Recruitability scores from D2-RC | TODO |
+| D2-2 | Akamai diagnosis scorecard at `02-akamai/03-diagnosis-scorecard.md` | DRAFT v1.1: Gap 2 dispositions populated; awaits human review |
+| D2-RC | Entanglement & Recruitability research (4-file dossier at `02-akamai/research/outputs/entanglement/`) | DONE |
+| D2-2.5 | IPP refactor: 6-dimension scoring applied (in 01-recruit.md); Recruitability scores in scorecard Gap 2 + entanglement/ outputs | DONE |
 | D3-1 | ABM/TAS DACH Partner Project (30 candidates -> 10 longlist + 6-dim IPP + 9-box + dispositions + profiles) | TODO |
 | D3-2 | ABSM DACH Sprint (32 artifacts, Mittelstand manufacturing, 3 deep + 1 showcase) | TODO |
 | D2-3 | HVO main memo (3.5pp, diagnosis + top 3 gaps + 90-day plan + fit) | TODO |
@@ -65,26 +65,40 @@ Per ADR-008, ADR-009, and the 22 locked decisions on May 15:
 
 ## Research outputs (committed to repo)
 
-- `02-akamai/research/prompts/` - the two v2 research mission prompts (DONE earlier)
-- `02-akamai/research/outputs/company/` - 6 files, ~30 pages: corporate fundamentals, DACH regional intelligence, cultural and operational intelligence, channel marketing organization, risks and questions, master summary (COMING IN PR #2)
-- `02-akamai/research/outputs/partner-program/akamai-partner-program-dach-dossier.md` - 7-section dossier, 50 named DACH partners, displacement targets identified (COMING IN PR #2)
+- `02-akamai/research/prompts/` - 3 research mission prompts (company v2, partner-program v2, entanglement v1)
+- `02-akamai/research/outputs/company/` - 6 files, ~30 pages: corporate fundamentals, DACH regional intelligence, cultural and operational intelligence, channel marketing organization, risks and questions, master summary
+- `02-akamai/research/outputs/partner-program/akamai-partner-program-dach-dossier.md` - 7-section dossier, 50 named DACH partners
+- `02-akamai/research/outputs/entanglement/` - 4 files, D2-RC: 33-partner entanglement matrix, 12 deep profiles, Recruitability scoring framework, recommended dispositions + 90-day execution plan
 - `02-akamai/akamai-research.md` - initial research synthesis (now serves as pointer/index to deep research)
 
-## Key displacement targets from partner research
+## Key targets from partner research (post-D2-RC dispositions)
 
-For ABM/TAS work:
-- **KAEMI GmbH** (Berlin) - Illumio EMEA Partner of the Year. Top displacement target.
-- **Navixia SA** (Ecublens, CH) - first EMEA partner to reach Illumio ZTS Professional. Top displacement target.
-- **Computacenter** - dual partner (both Akamai and Illumio). Tier upgrade opportunity Select -> Premier.
+For ABM/TAS work — Pursue (priority five, full plan in `02-akamai/research/outputs/entanglement/04-recommended-dispositions.md`):
+- **Axians/Fernao** (DE, Mannheim) - Recruitability 4. ISG Leader 2025 x 4 cyber categories, multi-vendor, NIS2/KRITIS aligned
+- **AVANTEC** (CH, Zürich) - Recruitability 4. Zscaler + Netskope flagship with displaceable Illumio side-bet
+- **SVA** (DE, Wiesbaden) - Recruitability 3. Federal Business POY (PANW 2025), Mittelstand
+- **ACP Gruppe** (AT, Vienna) - Recruitability 3. Multi-vendor AT systemhaus, no flagship lock
+- **InfoGuard** (CH, Baar) - Recruitability 3. Already public Akamai partner, deepen to Premier
 
-For anchor deepening:
-- Deutsche Telekom Security
-- Bechtle AG / Bechtle Schweiz
-- Controlware
-- InfoGuard (CH)
+For Contain (residual product gaps only, no flagship MDF):
+- Computacenter (Cisco/PANW/Zscaler triple-anchor; Guardicore east-west + API Security niche)
+- Bechtle AG / Bechtle Schweiz (PANW Diamond + Cisco POY)
+- Cancom (Cisco SMB POY + PANW Diamond + Zscaler Platinum)
+- Controlware (Cisco DE 2024 Networking POY + PANW DE 2025 VAR POY; NIS2 narrative co-author)
+- NTT Data Germany (PANW DE 2025 GSI POY)
+- Navixia (Illumio embedded; non-segmentation portfolio play in Romandie)
+- Deutsche Telekom Security: split disposition — Pursue for Guardicore (additive), Contain for SASE/ZTNA (PANW/Zscaler locked)
 
-For Mittelstand recruitment:
-- SVA, Cancom, Axians (systemhauser)
+For distributor mindshare lift (Pursue):
+- Infinigate (contested mindshare: Akamai + Illumio + Cloudflare exclusive MSSP DACH)
+- Arrow ECS Switzerland (Akamai Guardicore distributor since 2017 + only Illumio CH distributor)
+
+For Drop (remove from TAL):
+- KAEMI (Illumio Radiate + Cloudflare ASDP double-lock)
+- Open Systems (competitor by nature — own SASE platform)
+- genua (sovereign vendor, not a channel)
+- Exclusive Networks DE (PANW 16+ year exclusive)
+- Westcon-Comstor (Zscaler + PANW distribution lock)
 
 ## Active ADRs
 
@@ -108,10 +122,10 @@ For Mittelstand recruitment:
 partner-program-os/
 ├── STATE.md                    (this file, canonical state)
 ├── README.md
-├── 00-decisions/               (ADR-001 through ADR-010)
+├── 00-decisions/               (ADR-001 through ADR-011 + ADR-009/011 amendments)
 ├── 01-method/                  (Layer 1, COMPLETE)
 │   ├── 00-method-overview.md
-│   ├── 01-recruit.md
+│   ├── 01-recruit.md           (6-dimension IPP per ADR-011)
 │   ├── 02-onboard.md
 │   ├── 03-enable.md
 │   ├── 04-cosell.md
@@ -127,15 +141,19 @@ partner-program-os/
 │   ├── 00-context.md
 │   ├── 01-leave-behind-memo.md (skeleton, ADR-009 bundle structure)
 │   ├── 02-talking-points.md
-│   ├── akamai-research.md      (initial synthesis)
+│   ├── 03-diagnosis-scorecard.md (D2-2 DRAFT v1.1, Gap 2 dispositions populated)
+│   ├── akamai-research.md      (initial synthesis pointer)
+│   ├── 03-dach-projects/        (relocated from root in PR #4)
+│   │   ├── 00-context.md
+│   │   ├── abm-tas-partners/   (scaffold)
+│   │   └── absm-sprint/        (scaffold)
 │   └── research/
-│       ├── prompts/
-│       └── outputs/             (PR #2 adds this)
+│       ├── prompts/             (3 mission prompts: company, partner-program, entanglement)
+│       └── outputs/
+│           ├── company/         (6 files, ~30pp)
+│           ├── partner-program/ (1 file, 7 sections)
+│           └── entanglement/    (4 files, D2-RC, PR #4)
 ├── 03-boon-edam/               (FROZEN per ADR-008)
-├── 03-dach-projects/           (NOT STARTED, scaffolded per ADR-009)
-│   ├── 00-context.md
-│   ├── abm-tas-partners/       (scaffold only)
-│   └── absm-sprint/            (scaffold only)
 ├── prompts/
 │   ├── master-handover-prompt.md
 │   ├── prompt-akamai-hvo.md
@@ -165,6 +183,28 @@ The full operator-instructions section lives at the top of `prompts/master-hando
 ## Session log
 
 Append-only. Newest first.
+
+### 2026-05-18 - Day 2.7: D2-RC integrated, dach-projects relocated, ADR-011 amended
+
+**Done:**
+- D2-RC research mission (entanglement & Recruitability) completed in parallel chat per `research-prompt-akamai-entanglement-v1.md`. 4 output files committed to `02-akamai/research/outputs/entanglement/`: 33-partner entanglement matrix, 12 deep profiles, 6-sub-criterion Recruitability scoring framework, recommended dispositions plus 90-day execution plan.
+- Repo structure correction: `03-dach-projects/` relocated from root to `02-akamai/03-dach-projects/`. Architectural rationale: all Akamai-specialisation artifacts (HVO bundle, research, supporting DACH projects per ADR-009) belong under one folder. The original root-level scaffold was a leftover from initial bootstrap.
+- ADR-011 amendment: retracted the claim that Computacenter is publicly an Illumio investor. D2-RC verified Illumio funding history (Series C-F) and found no Computacenter participation. The actual relationship is MSP service partnership plus co-exhibition with KAEMI at Illumio World Tour Germany 2025. The Contain disposition for Computacenter stands; the rationale shifts from "equity-locked" to "service-MSP-locked + triple-anchor systemhaus".
+- ADR-009 amendment: path references `03-dach-projects/` updated to `02-akamai/03-dach-projects/` throughout, repo structure tree refreshed inside the ADR body.
+- D2-2 scorecard refreshed (DRAFT v1 → DRAFT v1.1): Gap 2 dispositions populated from D2-RC. Pursue priority five (Axians/Fernao, AVANTEC, SVA, ACP, InfoGuard) plus Contain rationale for triple-anchor systemhauser. KAEMI moved from "top displacement target" to Drop disposition. Computacenter tier-upgrade play deprecated. "Post-D2-RC refresh required" section replaced with "D2-RC refresh complete" with cross-references to entanglement outputs.
+- README.md, prompts/prompt-akamai-hvo.md, 02-akamai/00-context.md, 02-akamai/01-leave-behind-memo.md, and 02-akamai/research/outputs/README.md path references updated to the new dach-projects location.
+
+**Next session:**
+- Human review of D2-2 scorecard v1.1 (especially Gap 2 disposition table)
+- D3-1: ABM/TAS DACH Partner Project execution against the Pursue list (5 priority + 4 disciplined + 2 distributor) with full per-partner one-page profiles and 9-box positioning. Inputs ready: `02-akamai/research/outputs/entanglement/04-recommended-dispositions.md` 90-day plan is the operational sequencing for this work.
+- D3-2: ABSM DACH Sprint with Axians/Fernao or SVA as partner front for the showcase account
+- D2-3: HVO main memo drafts after D2-2 review and at least one D3-1 partner profile is in place
+
+**Blockers:** none. D2-2 review unblocks D2-3 drafting; D3-1 and D3-2 can run in parallel.
+
+**Notes:**
+- D2-2.5 is logically DONE: the 6-dimension IPP refactor lives in `01-method/01-recruit.md` (committed earlier) and the Recruitability scores for top DACH partners are in scorecard Gap 2 and in `02-akamai/research/outputs/entanglement/`. D3-1 will be the full portfolio application.
+- The disposition discipline is the structural learning from D2-RC: 11 of 33 partners are recruitable (Pursue), 10 are Contain (work residual gaps without flagship investment), 8 are Monitor (tripwire-conditional), 5 are Drop. The Pursue-first allocation of channel marketing budget is the immediate action item.
 
 ### 2026-05-18 - Day 2.6: scorecard v1 committed, handover discipline patched
 

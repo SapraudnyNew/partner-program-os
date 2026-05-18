@@ -16,8 +16,8 @@ CURRENT ARTIFACT SET (per ADR-009, supersedes the original single-memo plan):
 - 02-akamai/02-hvo-direct-approach.md (VP/Director-level fallback frame)
 - 02-akamai/03-diagnosis-scorecard.md (Akamai scored on maturity model)
 - 02-akamai/05-akamai-spider.html (interactive) + PDF static export
-- Linked: 03-dach-projects/abm-tas-partners/ (full ABM/TAS bundle)
-- Linked: 03-dach-projects/absm-sprint/ (full ABSM 32-artifact sprint)
+- Linked: 02-akamai/03-dach-projects/abm-tas-partners/ (full ABM/TAS bundle)
+- Linked: 02-akamai/03-dach-projects/absm-sprint/ (full ABSM 32-artifact sprint)
 
 The HVO is no longer a single memo. It is a bundle. The memo is the doorway. The DACH-native projects are the proof of execution.
 

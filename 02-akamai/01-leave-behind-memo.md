@@ -86,5 +86,5 @@ This file gets filled when:
 - `02-hvo-direct-approach.md` — VP/Director-level fallback frame
 - `03-diagnosis-scorecard.md` — Akamai maturity scorecard
 - `05-akamai-spider.html` — interactive spider chart (current vs world-class vs 90-day target)
-- `../03-dach-projects/abm-tas-partners/` — full ABM/TAS bundle
-- `../03-dach-projects/absm-sprint/` — full ABSM 32-artifact sprint
+- `03-dach-projects/abm-tas-partners/` — full ABM/TAS bundle (sibling under 02-akamai/)
+- `03-dach-projects/absm-sprint/` — full ABSM 32-artifact sprint (sibling under 02-akamai/)

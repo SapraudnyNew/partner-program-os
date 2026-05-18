@@ -117,29 +117,36 @@ Boon Edam proof metrics remain in the repo (`03-boon-edam/`) and may surface in 
 
 ### Repo structure update
 
-New top-level folder:
+DACH projects live inside the Akamai folder (relocated from root in PR #4 to consolidate all Akamai-specialisation artifacts under one branch):
 
 ```
-03-dach-projects/
-├── 00-context.md (project portfolio overview)
-├── abm-tas-partners/
-│   ├── 00-context.md
-│   ├── 01-scoring-matrix.xlsx
-│   ├── 02-target-account-list.md
-│   └── profiles/
-│       ├── 01-{partner}.pdf
-│       └── ... (10 profiles)
-└── absm-sprint/
-    ├── 00-context.md
-    ├── 01-targeting/
-    ├── 02-intel/
-    ├── 03-strategy/
-    ├── 04-execution/
-    ├── 05-infrastructure/
-    └── showcase/
+02-akamai/
+├── (HVO memo, executive summary, scorecard, spider chart, talking points)
+├── research/
+│   └── outputs/
+│       ├── company/         (Akamai corporate intelligence, D2-RA)
+│       ├── partner-program/ (Akamai partner program + DACH partner network, D2-RB)
+│       └── entanglement/    (Recruitability + dispositions, D2-RC)
+└── 03-dach-projects/
+    ├── 00-context.md (project portfolio overview)
+    ├── abm-tas-partners/
+    │   ├── 00-context.md
+    │   ├── 01-scoring-matrix.xlsx
+    │   ├── 02-target-account-list.md
+    │   └── profiles/
+    │       ├── 01-{partner}.pdf
+    │       └── ... (10 profiles)
+    └── absm-sprint/
+        ├── 00-context.md
+        ├── 01-targeting/
+        ├── 02-intel/
+        ├── 03-strategy/
+        ├── 04-execution/
+        ├── 05-infrastructure/
+        └── showcase/
 ```
 
-Akamai folder remains at `02-akamai/` and receives the HVO memo, executive summary, spider chart, and links to the DACH projects.
+Per ADR-011 amendment (2026-05-18), Recruitability dimension and disposition taxonomy applied to D3-1 inputs come from `02-akamai/research/outputs/entanglement/`.
 
 ## Consequences
 
@@ -149,3 +156,10 @@ Akamai folder remains at `02-akamai/` and receives the HVO memo, executive summa
 - The HVO is no longer a leave-behind memo in the traditional sense. It is a leave-behind bundle. The referrer (Mark Shelepov) must understand he is forwarding a portfolio, not a memo.
 - Web hosting decision deferred to D2-5 (spider chart build). Options: GitHub Pages, Cloudflare Pages, Vercel free tier.
 - Spider chart design checkpoint: three options presented for approval before build, per Q13 lock.
+
+## Amendment 2026-05-18 — dach-projects relocated under 02-akamai
+
+The original scaffold placed `03-dach-projects/` at the repo root. PR #4 moved it to `02-akamai/03-dach-projects/` to consolidate all Akamai-specialisation artifacts (HVO bundle, research outputs, supporting DACH projects) under a single branch. Decision rationale and bundle structure stand unchanged; only the path prefix updates.
+
+Path references in this ADR are updated to the new location throughout. References in other files (`STATE.md`, `README.md`, `02-akamai/00-context.md`, `02-akamai/01-leave-behind-memo.md`, `prompts/prompt-akamai-hvo.md`, `02-akamai/research/outputs/README.md`) are updated in the same PR.
+
