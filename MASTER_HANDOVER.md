@@ -22,19 +22,21 @@ You are reading this because the user said:
 
 A GitHub Pages mini-site that is Alex's motivation letter with proof-of-work artifacts for a specific job application. Not a portfolio. Not a generic site. One target, one referrer, one shot.
 
-**Repo:** https://github.com/SapraudnyNew/partner-program-os  
-**Live site:** https://sapraudnynew.github.io/partner-program-os/  
-**Source:** `docs/` directory → GitHub Pages
+**Repo:** https://github.com/SapraudnyNew/partner-program-os (PRIVATE)
+**Live site:** https://sapraudnynew.github.io/partner-program-os/ (PUBLIC)
+**Source:** `docs/` directory on branch `main` → GitHub Pages
+**Hosting:** GitHub Pro ($4/mo) — private repo, public Pages
 
 ---
 
 ## ALEX (the candidate)
 
-- **Name:** Alex M. — based in Amsterdam
+- **Name:** A. Marushevsky — based in Amsterdam
 - **Current:** Boon Edam — global physical security (revolving doors, security portals)
 - **Built:** Partner program Eastern Europe from scratch, full P&L ownership
-- **Results:** 150% budget delivery · ROS 24% · COGS −10.5pp over 3 years
-- **Earlier:** ABM implementation for Cisco partners in Russia — passwordless authentication, partner portal playbooks
+- **Results:** 150% budget delivery, ROS 24%, COGS -10.5pp over 3 years
+- **Earlier (2018-2022):** Consultant. ABM programs for partner ecosystems of Cisco, NetApp, SAP, Dassault Systemes
+- **Also:** Hilti (+128% facade growth, best profitability in Eastern Europe) — available if needed
 - **Target role:** Senior Channel Marketing Manager, Akamai DACH, Zero Trust
 - **Path:** Warm referral via **Mark Shelepov** (Principal Lead Architect, Akamai US, Rhode Island)
 - **Narrative:** Physical security channel → cybersecurity channel. Same system, different product.
@@ -48,28 +50,32 @@ A GitHub Pages mini-site that is Alex's motivation letter with proof-of-work art
 ```
 docs/
 ├── index.html                    ← Homepage = Memo (motivation letter)
-├── assets/css/main.css           ← Shared design system
+├── assets/
+│   ├── css/main.css              ← Shared design system (v2, 313 lines)
+│   └── js/sidebar.js             ← Collapsible sidebar component
 ├── method/
 │   ├── index.html                ← Perspective 1: 7-stage lifecycle + maturity model
 │   ├── spider-chart.html         ← Interactive radar (framework, no Akamai scores)
-│   └── scorecard-template.html   ← Full 7×3 scorecard
+│   └── scorecard-template.html   ← Full 7x3 scorecard
 ├── partner-mapping/
 │   ├── index.html                ← Perspective 2: IPP, 6 dims, research overview
 │   ├── dach-landscape.html       ← 33-partner matrix, filterable
 │   ├── pursue-five/
 │   │   ├── index.html            ← 5 partner profiles with hooks
-│   │   └── *.md                  ← Individual partner profiles
+│   │   ├── *.html                ← Individual partner profiles (from MD)
+│   │   └── all-five-profiles.html
 │   └── entanglement/
-│       └── *.md                  ← Entanglement matrix, deep profiles, etc.
-└── absm-sprint/
-    ├── index.html                ← Perspective 3: full ABSM program
-    ├── 01-targeting/*.md
-    ├── 02-strategy/*.md
-    ├── 03-clients/hoermann|reinhausen|witte|trumpf/*.md
-    ├── 04-collateral/*.pdf
-    └── 05-infrastructure/
-        ├── kpi-dashboard.html    ← Build: interactive KPI dashboard
-        └── *.md
+│       └── *.html                ← Entanglement matrix, deep profiles, etc. (from MD)
+├── absm-sprint/
+│   ├── index.html                ← Perspective 3: full ABSM program
+│   ├── 01-targeting/*.html       ← ICP, scoring, longlist, shortlist, final selection
+│   ├── 02-strategy/*.html        ← Sweet-spot, pain patterns, content matrix, competitive
+│   ├── 03-clients/               ← Hoermann, Reinhausen, Witte, Trumpf (4 files each)
+│   ├── 04-collateral/*.pdf       ← 12 branded execution PDFs
+│   └── 05-infrastructure/
+│       ├── kpi-dashboard.html    ← Interactive KPI dashboard
+│       └── *.html                ← CRM spec, MDF spec, launch checklist
+└── (54 MD-generated HTML pages total)
 ```
 
 ---
@@ -79,56 +85,75 @@ docs/
 | # | Decision |
 |---|---|
 | TONE | "Three Perspectives" — NOT "your program has gaps." Framework, not diagnosis. |
+| NAME | **A. Marushevsky** everywhere. Not "Alex M.", not "Alex Marushevsky." |
+| BIO | Cisco/NetApp/SAP/Dassault = consulting clients (2018-2022), NOT employer. |
 | MATURITY | Framework illustration only. No concrete Akamai scores anywhere on site. |
 | SCORECARD | `03-diagnosis-scorecard-v1.3.md` has real Akamai scores — reference only, NOT published. |
 | CAVEAT | All partner research: "first pass from public sources" caveat on every artifact. |
-| DESIGN | consulting-minimal · Source Serif 4 serif + DM Sans sans · warm neutrals · print-ready |
-| SPIDER CHART | 7 axes, 3 rings (Basic/Professional/World-class), draggable dots · No named company scores |
-| PURSUE FIVE | Axians+Fernao · AVANTEC · SVA Wiesbaden · ACP Gruppe · InfoGuard |
+| DESIGN | Akamai-inspired minimalism. DM Sans only (no serif). White nav, dark footer. Blue accents. |
+| SPIDER CHART | 7 axes, 3 rings (Basic/Professional/World-class), draggable dots. No named company scores. |
+| PURSUE FIVE | Axians+Fernao, AVANTEC, SVA Wiesbaden, ACP Gruppe, InfoGuard |
 | INFOGUARD | Deepen existing relationship (already Akamai partner) — not cold recruit |
-| ABSM TERRITORY | Germany only · Four targets: Hörmann · Reinhausen · Witte · Trumpf |
-| AI ANGLE | Dedicated callout in ABSM page: personalization at scale through AI agents |
+| ABSM TERRITORY | Germany only. Four targets: Hoermann, Reinhausen, Witte, Trumpf |
+| AI ANGLE | Dedicated callout in ABSM page: "6 to 8 weeks per partner gets done in days" |
 | URL | `partner-mapping/` (not `partners/`) |
 | PDF | Homepage generates to `docs/memo-alex-m.pdf` for Mark |
-| REPO | Private until ready. GitHub Pages from /docs/ branch main. |
+| REPO | Private (GitHub Pro). GitHub Pages public from /docs/ branch main. |
+| EM-DASHES | Zero in new copy. Colons, periods, or removed. |
 
 ---
 
-## DESIGN TOKENS (use in all new HTML pages)
+## DESIGN SYSTEM v2 — Akamai-Inspired
+
+### CSS: `docs/assets/css/main.css` (313 lines)
 
 ```css
-/* Import path — adjust for directory depth */
-<link rel="stylesheet" href="../assets/css/main.css">  /* 1 level deep */
-<link rel="stylesheet" href="../../assets/css/main.css"> /* 2 levels deep */
-
 /* Key variables */
---accent: #2c5545;          /* green — links, kickers, badges */
---ink: #1a1a1a;             /* headings */
---ink-light: #4a4a4a;       /* body paragraphs */
---ink-muted: #7a7a7a;       /* metadata, captions */
---surface: #fafaf8;         /* page bg */
---surface-alt: #f2f1ed;     /* caveat bg, alt rows */
---border: #e0ddd6;          /* card borders */
---font-serif: 'Source Serif 4', Georgia, serif;
+--ak-blue: #009FDB;            /* Akamai primary — links, accents, hover */
+--ak-blue-dark: #0077B5;       /* Hover state */
+--ak-navy: #0D2137;            /* Footer only */
+--ink: #1B2733;                /* Headings */
+--ink-light: #4A5568;          /* Body text */
+--ink-muted: #718096;          /* Captions, metadata */
+--surface: #FFFFFF;            /* Page background */
+--surface-alt: #F7FAFC;        /* Alt sections */
+--border: #E2E8F0;             /* Borders */
+--border-accent: rgba(0,159,219,0.2); /* Blue borders */
 --font-sans: 'DM Sans', sans-serif;
 --font-mono: 'JetBrains Mono', monospace;
+--sidebar-width: 240px;
+--nav-height: 52px;
 ```
 
-**Nav structure** — copy exactly:
+### Nav structure (white, not dark)
 ```html
-<nav class="site-nav">
-  <div class="site-nav__inner">
-    <a href="../" class="site-nav__brand">Partner Program OS</a>
-    <ul class="site-nav__links">
-      <li><a href="../">Memo</a></li>
-      <li><a href="../method/">Method</a></li>
-      <li><a href="../partner-mapping/">Partners</a></li>
-      <li><a href="../absm-sprint/">ABSM</a></li>
-    </ul>
-  </div>
+<nav class="top-nav">
+  <button class="hamburger" aria-label="Toggle navigation">
+    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round">
+      <line x1="3" y1="6" x2="21" y2="6"/>
+      <line x1="3" y1="12" x2="21" y2="12"/>
+      <line x1="3" y1="18" x2="21" y2="18"/>
+    </svg>
+  </button>
+  <a href="[prefix]index.html" class="top-nav__logo">Partner Program <span>OS</span></a>
+  <ul class="top-nav__links">
+    <li><a href="[prefix]index.html">Memo</a></li>
+    <li><a href="[prefix]method/index.html" class="active">Method</a></li>
+    <li><a href="[prefix]partner-mapping/index.html">Partners</a></li>
+    <li><a href="[prefix]absm-sprint/index.html">ABSM</a></li>
+  </ul>
 </nav>
 ```
-Add `class="active"` to current section's link.
+
+### Footer (dark navy)
+```html
+<footer class="site-footer">
+  <p>A. Marushevsky &middot; Amsterdam &middot; All partner research is a first pass from public sources.</p>
+</footer>
+```
+
+### Sidebar
+Copy from any of the 4 main pages. Adjust `href` paths for directory depth. JS: `sidebar.js`.
 
 ---
 
@@ -152,11 +177,11 @@ Add `class="active"` to current section's link.
 ## WHAT "DONE" LOOKS LIKE
 
 The site ships when:
-1. All 8 HTML pages render correctly on GitHub Pages
-2. All MD stub files have real content (or are removed if not needed)
-3. PDF collateral is accessible at `04-collateral/` links
-4. `kpi-dashboard.html` is built and linked
-5. Homepage generates clean PDF: `docs/memo-alex-m.pdf`
-6. All navigation links work without 404s
+1. All HTML pages render correctly on GitHub Pages ✅
+2. All MD stub files converted to HTML with sidebar ✅
+3. PDF collateral accessible at `04-collateral/` links (needs verification)
+4. `kpi-dashboard.html` built and linked ✅
+5. Homepage generates clean PDF: `docs/memo-alex-m.pdf` ← STILL OPEN
+6. All navigation links work without 404s (needs verification)
 
 Check STATE.md for current completion status.

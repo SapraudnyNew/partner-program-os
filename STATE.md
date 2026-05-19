@@ -75,22 +75,23 @@
 - Opus 4.7 chat: copywriting (homepage + 3 perspectives)
 - Opus 4.6 chat: new CSS + sidebar + MD→HTML conversion
 - OpenClaw: merge all
+
 ## SESSION 2026-05-19 · v2 Redesign: Copy Application + v1 Shell Wraps + Cleanup
 
 ### What was done
 
 - Applied approved copy (copy-01 through copy-04) to 4 main pages
 - Wrapped 5 remaining v1 HTML pages in v2 shell (top-nav, sidebar, footer, sidebar.js)
-- Fixed all “Alex M.” → “A. Marushevsky” (zero remaining)
+- Fixed all "Alex M." → "A. Marushevsky" (zero remaining)
 - Deleted docs/index.md.bak
 - 10 files changed, 471 insertions, 133 deletions
 
 ### Priority 1: Copy updates (4 pages)
 
-- docs/index.html: new hook (“Relationships close deals…”), consulting framing for Cisco/NetApp/SAP/Dassault, “operating system does not” closer, tighter 30/60/90
+- docs/index.html: new hook ("Relationships close deals…"), consulting framing for Cisco/NetApp/SAP/Dassault, "operating system does not" closer, tighter 30/60/90
 - docs/method/index.html: new intro (consulting stress-test framing), updated exec summary
-- docs/partner-mapping/index.html: new intro (“Channel recruitment without scoring criteria…”), 4-paragraph rewrite, updated exec summary
-- docs/absm-sprint/index.html: new intro (inverted approach), tighter AI callout (“6 to 8 weeks per partner gets done in days”), updated exec summary with Axians connection per account
+- docs/partner-mapping/index.html: new intro ("Channel recruitment without scoring criteria…"), 4-paragraph rewrite, updated exec summary
+- docs/absm-sprint/index.html: new intro (inverted approach), tighter AI callout ("6 to 8 weeks per partner gets done in days"), updated exec summary with Axians connection per account
 
 ### Priority 2: v1 → v2 shell wraps (5 pages)
 
@@ -103,14 +104,16 @@
 
 ### Priority 3: Cleanup
 
-- Zero “Alex M.” instances remaining across all HTML files
+- Zero "Alex M." instances remaining across all HTML files
 - docs/index.md.bak deleted
 - Em-dashes in new copy sections: zero (only in preserved body content and timeline range labels)
 
 ### Still open
 
 - PDF export of homepage for Mark
-- STATE.md append (this entry)## SESSION 2026-05-19-b · CSS Rewrite: White Nav + All Missing Classes
+- STATE.md append (this entry)
+
+## SESSION 2026-05-19-b · CSS Rewrite: White Nav + All Missing Classes
 
 ### What was done
 - Complete CSS rewrite (153 lines → 300 lines): added ~40 missing class definitions
@@ -137,6 +140,7 @@
 - Nav links: white text → dark text, active link in blue
 - Hamburger: white strokes → currentColor (adapts to light nav)
 - Sidebar width: 260px → 240px (tighter)
+
 ## SESSION 2026-05-19-c · CSS rewrite + doubled h1 fix + width fix
 
 - CSS полностью переписан (313 строк): убран max-width: 60ch с p, добавлены голубые акценты, hover-эффекты на nav/sidebar/карточки
@@ -145,3 +149,50 @@
 - Nav: белый с border-bottom, hover подсветка голубым
 - Применён approved copy (4 страницы) + v2 shell (5 v1 страниц)
 - 65 файлов, 784 вставок, 340 удалений
+
+## SESSION 2026-05-19-final · v2 Redesign Complete + Repo Private
+
+### Summary
+Full site redesign shipped across 4 sub-sessions. Repo switched to private (GitHub Pro), Pages remain public at https://sapraudnynew.github.io/partner-program-os/
+
+### What was done (consolidated)
+
+**CSS (main.css rewritten 3x, final = 313 lines)**
+- Akamai-inspired design system: DM Sans only, no serif
+- White nav with border-bottom (matches akamai.com), hover highlights blue
+- ~50 CSS class definitions added (were missing, HTML was unstyled)
+- Removed global `p { max-width: 60ch }` that was choking text width
+- Blue accents throughout: exec-summary, reading-guide, AI callout, tags, blockquotes, badges
+- All hover states: nav links, sidebar links, cards, research links, partner profiles
+
+**Copy (4 main pages updated with approved text)**
+- Homepage: "Relationships close deals" hook, consulting framing (Cisco/NetApp/SAP/Dassault), tighter 30/60/90
+- Method: consulting stress-test framing, updated exec summary
+- Partner Mapping: "Channel recruitment without scoring criteria" intro, updated exec summary
+- ABSM: inverted approach intro, "6 to 8 weeks per partner gets done in days" AI callout
+
+**Shell wraps (5 v1 pages → v2)**
+- spider-chart, scorecard-template, dach-landscape, pursue-five/index, kpi-dashboard
+- Each got: white top-nav, collapsible sidebar, v2 footer, sidebar.js
+
+**MD pages (54 files fixed)**
+- Removed doubled h1 headers (template h1 + markdown h1)
+
+**Global (63 HTML files)**
+- All "Alex M." → "A. Marushevsky"
+- Hamburger SVG stroke="#fff" → stroke="currentColor"
+
+**Repo visibility**
+- GitHub Pro enabled ($4/mo)
+- Repo set to private
+- GitHub Pages remains public (default Pro behavior)
+- REDESIGN_BRIEF.md deleted (served its purpose)
+
+### Final file counts
+- 65 files changed in final patch
+- 784 insertions, 340 deletions
+- Commits: 107b999 (copy + shell wraps), then CSS rewrite + h1 fix + width fix
+
+### Still open
+- PDF export of homepage for Mark
+- MASTER_HANDOVER.md design tokens need updating (done in this PR)
