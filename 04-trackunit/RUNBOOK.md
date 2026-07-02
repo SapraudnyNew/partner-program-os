@@ -153,6 +153,11 @@ adversarially re-check: (a) every person name+title, (b) every claimed Trackunit
 
 ## 4. QUALITY CHECKLIST (before merge)
 
+- [ ] **Anti-slop pass over every new md/html file (mandatory, dedicated agent):**
+      remove AI-tell phrasing (delve, leverage, seamless, robust, holistic, game-changer,
+      "isn't just X, it's Y", "in today's fast-paced world", empty rule-of-three chains,
+      hype adjectives), kill every em-dash and en-dash in copy, confirm 100% of published
+      text is English, prefer concrete verbs and numbers over adjectives
 - [ ] Every page renders with sidebar + nav, no 404 links inside the branch
 - [ ] No link from `/trackunit/**` to Akamai content or root (except shared `/assets/`)
 - [ ] Root index unchanged except none; no `/trackunit/` link added
