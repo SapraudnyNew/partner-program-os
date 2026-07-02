@@ -10,9 +10,9 @@ Most platform ecosystems stall for the same reason. Integrations are treated as 
 
 The root cause is structural, not technical. Three specific failures recur:
 
-First, integrations ship but get no adoption. The connector works, the demo is fine, and exactly one customer uses it. Nobody owned the stage between "code complete" and "customers running on it every day." The gap between a shipped integration and a consumed integration is where most platform ecosystems die.
+First, integrations ship but get no adoption. The connector works, the demo is fine, and exactly one customer uses it. Nobody owned the stage between "code complete" and "customers running on it every day." That gap is where most platform ecosystems die.
 
-Second, partner demand never converts into platform consumption. Inbound integration requests pile up, partnership teams sign agreements with recognizable logos, and none of it moves the metric that pays for the program: usage. Without a qualification discipline that scores consumption potential before a line of code is written, the team builds integrations for partners who will never bring volume.
+Second, partner demand never converts into platform consumption. Inbound requests pile up, agreements get signed with recognizable logos, and none of it moves the metric that pays for the program: usage. Without a qualification discipline that scores consumption potential before a line of code is written, the team builds integrations for partners who will never bring volume.
 
 Third, integration programs that cannot prove ROI lose executive sponsorship and budget. The economics of maturity are documented. A Forrester study of 454 companies found that high-maturity programs drive company-level revenue growth at nearly 2x the rate of low-maturity programs: 30% versus 16-17%. McKinsey's analysis of 100 incumbent ecosystem initiatives confirmed the difficulty: while 55% gained customer traction, only 10-15% generated more than 5% of total revenue from ecosystem value propositions. The difference between the 55% and the 10-15% is execution maturity, not strategic intent. A program that cannot report consumption per connector on a monthly cadence gets defunded, regardless of its actual contribution.
 
@@ -26,7 +26,7 @@ Integration partnerships are not projects with a beginning and an end. They are 
 
 **Stage 1: Source**
 
-Build a deliberate pipeline of integration partner candidates instead of waiting for inbound requests. The sourcing map covers the categories customers already depend on: ERP, rental and fleet management, industry software, and emerging application vendors. The output is a ranked candidate list built from customer demand signals, market coverage analysis, and competitive gaps. The failure mode is a pipeline made of whoever asked loudest, which produces a catalog shaped by chance. The core metric is qualified candidates per quarter against the annual connector launch target.
+Build a deliberate pipeline of integration partner candidates instead of waiting for inbound requests. The sourcing map covers the categories customers already depend on: ERP, rental and fleet management, industry software, and emerging application vendors. The output is a ranked candidate list built from customer demand signals and coverage gaps. The failure mode is a pipeline made of whoever asked loudest, which produces a catalog shaped by chance. The core metric is qualified candidates per quarter against the annual connector launch target.
 
 **Stage 2: Qualify**
 
@@ -34,11 +34,11 @@ Score every candidate on consumption potential before committing resources. The 
 
 **Stage 3: Scope**
 
-Convert a qualified partner into a signed integration scope: use cases, data contracts, API surface, commercial model, launch plan, and quantified success criteria. Scope is where the commercial deal and the technical design get locked together, so neither side builds on assumptions. The failure mode is build-first enthusiasm: development starts on a vague spec, scope drifts for months, and the integration that ships solves no customer problem precisely. The core metric is time from qualification to signed scope, with a consumption target written into every scope document.
+Convert a qualified partner into a signed integration scope: use cases, data contracts, API surface, commercial model, launch plan, and quantified success criteria. Scope locks the commercial deal and the technical design together, so neither side builds on assumptions. The failure mode is build-first enthusiasm: development starts on a vague spec, scope drifts for months, and the integration that ships solves no customer problem precisely. The core metric is time from qualification to signed scope, with a consumption target written into every scope document.
 
 **Stage 4: Build**
 
-The partner builds against the platform with sandbox access, documentation, reference implementations, and a named technical contact. The platform team's job is to make the partner fast, not to write the partner's code. Certification gates verify data quality, security, and error handling before anything reaches a customer. The failure mode is the engineering slog: timelines slip, the platform team quietly absorbs the work, and the partner learns nothing they can reuse. The core metric is time-to-certified-build from scope sign-off.
+The partner builds against the platform with sandbox access, documentation, reference implementations, and a named technical contact. The platform team's job is to make the partner fast, not to write the partner's code. Certification gates verify data quality, security, and error handling before anything reaches a customer. The failure mode is the engineering slog: timelines slip, and the platform team quietly absorbs the work. The core metric is time-to-certified-build from scope sign-off.
 
 **Stage 5: Launch**
 
@@ -50,7 +50,7 @@ Drive usage across the joint customer base until the integration is a habit, not
 
 **Stage 7: Scale**
 
-Turn a working integration into a reusable, marketplace-grade connector and a repeatable playbook. Scale means the connector deploys to a new account without custom work, the partner sells it independently, and the program can run the same lifecycle for the next partner faster. This is where individual integrations become an ecosystem and platform consumption compounds. The failure mode is permanent bespoke mode: every deployment is a project, so growth is capped by the team's own hours. The core metric is credit run-rate per connector and the share of platform consumption flowing through partner integrations.
+Turn a working integration into a reusable, marketplace-grade connector and a repeatable playbook. Scale means the connector deploys to a new account without custom work, the partner sells it independently, and each new partner moves through the lifecycle faster than the last. This is where individual integrations become an ecosystem and consumption compounds. The failure mode is permanent bespoke mode: every deployment is a project, so growth is capped by the team's own hours. The core metric is credit run-rate per connector and the share of platform consumption flowing through partner integrations.
 
 ---
 
