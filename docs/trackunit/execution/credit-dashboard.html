@@ -1,0 +1,1047 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Credit Consumption Dashboard</title>
+  <link rel="stylesheet" href="../../assets/css/main.css">
+  <style>
+    /* Dashboard-specific tokens */
+    :root {
+      --dash-green: #2e9464;
+      --dash-green-bg: rgba(46,148,100,0.07);
+      --dash-green-border: rgba(46,148,100,0.22);
+      --dash-amber: #b0790a;
+      --dash-amber-bg: rgba(176,121,10,0.07);
+      --dash-amber-border: rgba(176,121,10,0.24);
+      --dash-blue: #0077B5;
+      --dash-blue-bg: rgba(0,119,181,0.06);
+      --dash-blue-border: rgba(0,119,181,0.2);
+      --dash-gray: #64748b;
+      --mono: 'JetBrains Mono', monospace;
+    }
+
+    /* Layout */
+    .dash-wrap {
+      max-width: 1180px;
+      margin: 0 auto;
+      padding: 2rem 2rem 3rem;
+    }
+
+    .dash-header {
+      margin-bottom: 1.5rem;
+      padding-bottom: 1.5rem;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .dash-header h1 {
+      font-family: var(--font-sans);
+      font-size: 1.75rem;
+      font-weight: 700;
+      color: var(--ink);
+      margin-bottom: 0.35rem;
+    }
+
+    .dash-header p {
+      font-family: var(--font-sans);
+      font-size: 0.875rem;
+      color: var(--ink-muted);
+    }
+
+    .dash-header .dash-meta {
+      display: flex;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 1.25rem;
+      margin-top: 0.75rem;
+      font-family: var(--mono);
+      font-size: 0.7rem;
+      letter-spacing: 0.04em;
+      color: var(--ink-muted);
+    }
+
+    .dash-meta .live-dot {
+      display: inline-flex;
+      align-items: center;
+      gap: 5px;
+      color: var(--dash-green);
+      font-weight: 600;
+    }
+
+    .dash-meta .live-dot::before {
+      content: '';
+      width: 6px; height: 6px;
+      border-radius: 50%;
+      background: var(--dash-green);
+      animation: pulse 2.2s ease infinite;
+    }
+
+    @keyframes pulse {
+      0%, 100% { opacity: 1; }
+      50% { opacity: 0.35; }
+    }
+
+    /* Assumption banner */
+    .model-banner {
+      display: flex;
+      align-items: flex-start;
+      gap: 0.75rem;
+      background: var(--dash-amber-bg);
+      border: 1px solid var(--dash-amber-border);
+      border-left: 4px solid var(--dash-amber);
+      border-radius: 6px;
+      padding: 0.9rem 1.15rem;
+      margin-bottom: 2rem;
+    }
+
+    .model-banner .mb-icon {
+      font-family: var(--mono);
+      font-weight: 600;
+      font-size: 0.85rem;
+      color: var(--dash-amber);
+      line-height: 1.4;
+    }
+
+    .model-banner .mb-title {
+      font-family: var(--font-sans);
+      font-size: 0.85rem;
+      font-weight: 700;
+      color: var(--ink);
+    }
+
+    .model-banner .mb-text {
+      font-family: var(--font-sans);
+      font-size: 0.75rem;
+      color: var(--ink-light);
+      margin-top: 0.15rem;
+    }
+
+    /* Section labels */
+    .section-label {
+      font-family: var(--mono);
+      font-size: 0.65rem;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--ink-muted);
+      margin: 2.25rem 0 0.85rem;
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+    }
+
+    .section-label::after {
+      content: '';
+      flex: 1;
+      height: 1px;
+      background: var(--border);
+    }
+
+    /* Stat cards */
+    .stats-row {
+      display: grid;
+      grid-template-columns: repeat(6, 1fr);
+      gap: 1px;
+      background: var(--border);
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      overflow: hidden;
+    }
+
+    .stat-card {
+      background: var(--surface);
+      padding: 1.15rem 1rem;
+      display: flex;
+      flex-direction: column;
+      gap: 0.3rem;
+      transition: background 0.15s;
+    }
+
+    .stat-card:hover { background: var(--surface-alt); }
+
+    .stat-label {
+      font-family: var(--mono);
+      font-size: 0.6rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--ink-muted);
+    }
+
+    .stat-value {
+      font-family: var(--font-sans);
+      font-size: 1.65rem;
+      font-weight: 700;
+      line-height: 1;
+      color: var(--ink);
+    }
+
+    .stat-value.accent { color: var(--accent); }
+    .stat-value.blue { color: var(--dash-blue); }
+    .stat-value.green { color: var(--dash-green); }
+    .stat-value.amber { color: var(--dash-amber); }
+
+    .stat-sub {
+      font-family: var(--font-sans);
+      font-size: 0.7rem;
+      color: var(--ink-muted);
+    }
+
+    /* Grid layouts */
+    .two-col {
+      display: grid;
+      grid-template-columns: 3fr 2fr;
+      gap: 1.25rem;
+      margin-bottom: 1.25rem;
+    }
+
+    /* Panel */
+    .panel {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      overflow: hidden;
+    }
+
+    .panel-header {
+      padding: 0.85rem 1.15rem;
+      border-bottom: 1px solid var(--border);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 0.75rem;
+      flex-wrap: wrap;
+    }
+
+    .panel-title {
+      font-family: var(--font-sans);
+      font-size: 0.8rem;
+      font-weight: 700;
+      color: var(--ink);
+      letter-spacing: 0.01em;
+    }
+
+    .panel-tag {
+      font-family: var(--mono);
+      font-size: 0.6rem;
+      padding: 2px 8px;
+      border-radius: 100px;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      white-space: nowrap;
+    }
+
+    .tag-green { background: var(--dash-green-bg); color: var(--dash-green); border: 1px solid var(--dash-green-border); }
+    .tag-amber { background: var(--dash-amber-bg); color: var(--dash-amber); border: 1px solid var(--dash-amber-border); }
+    .tag-blue { background: var(--dash-blue-bg); color: var(--dash-blue); border: 1px solid var(--dash-blue-border); }
+
+    .panel-body { padding: 1.15rem; }
+
+    /* Funnel */
+    .funnel-wrap { padding: 1.15rem; }
+
+    .funnel-stage {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      margin-bottom: 0.55rem;
+      border-radius: 4px;
+      padding: 2px 4px;
+      transition: background 0.15s;
+    }
+
+    .funnel-stage:hover { background: var(--surface-alt); }
+    .funnel-stage:last-child { margin-bottom: 0; }
+
+    .f-label {
+      width: 110px;
+      font-family: var(--font-sans);
+      font-size: 0.7rem;
+      color: var(--ink-muted);
+      flex-shrink: 0;
+      text-align: right;
+    }
+
+    .f-bar-track {
+      flex: 1;
+      height: 18px;
+      background: var(--surface-alt);
+      border-radius: 3px;
+      overflow: hidden;
+    }
+
+    .f-bar-fill {
+      height: 100%;
+      border-radius: 3px;
+      background: var(--accent);
+      transition: width 1.2s ease;
+    }
+
+    .f-bar-fill.secondary { background: var(--dash-blue); }
+    .f-bar-fill.live { background: var(--dash-green); }
+
+    .f-count {
+      width: 26px;
+      font-family: var(--font-sans);
+      font-size: 0.8rem;
+      font-weight: 700;
+      color: var(--ink);
+      text-align: center;
+      flex-shrink: 0;
+    }
+
+    .f-note {
+      padding: 0 1.15rem 1rem;
+      font-family: var(--font-sans);
+      font-size: 0.68rem;
+      color: var(--ink-muted);
+    }
+
+    /* Credit class weights */
+    .weights-list { padding: 0.5rem 1.15rem 1rem; }
+
+    .weight-row {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      padding: 0.5rem 0;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .weight-row:last-child { border-bottom: none; }
+
+    .w-name {
+      flex: 1;
+      font-family: var(--font-sans);
+      font-size: 0.72rem;
+      color: var(--ink-light);
+    }
+
+    .w-name span {
+      display: block;
+      font-size: 0.62rem;
+      color: var(--ink-muted);
+    }
+
+    .w-val {
+      font-family: var(--mono);
+      font-size: 0.72rem;
+      font-weight: 600;
+      color: var(--dash-blue);
+      width: 44px;
+      text-align: right;
+    }
+
+    /* Ramp chart */
+    .chart-legend {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+      padding: 0.85rem 1.15rem 0;
+    }
+
+    .legend-chip {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      font-family: var(--font-sans);
+      font-size: 0.68rem;
+      color: var(--ink-light);
+      border: 1px solid var(--border);
+      border-radius: 100px;
+      padding: 3px 10px;
+      background: var(--surface);
+      cursor: pointer;
+      transition: all 0.15s;
+      user-select: none;
+    }
+
+    .legend-chip:hover { border-color: var(--ink-muted); }
+    .legend-chip .swatch { width: 10px; height: 10px; border-radius: 3px; }
+    .legend-chip.off { opacity: 0.4; }
+    .legend-chip.off .swatch { background: var(--border) !important; }
+
+    .ramp-area {
+      position: relative;
+      padding: 1rem 1.15rem 0.5rem;
+    }
+
+    .ramp-grid {
+      position: absolute;
+      left: calc(1.15rem + 26px);
+      right: 1.15rem;
+      top: 1rem;
+      height: 240px;
+      pointer-events: none;
+    }
+
+    .grid-line {
+      position: absolute;
+      left: 0;
+      right: 0;
+      border-top: 1px dashed var(--border);
+    }
+
+    .grid-label {
+      position: absolute;
+      right: 100%;
+      transform: translateY(-50%);
+      padding-right: 6px;
+      font-family: var(--mono);
+      font-size: 0.58rem;
+      color: var(--ink-muted);
+      white-space: nowrap;
+    }
+
+    .ramp-chart {
+      position: relative;
+      display: flex;
+      align-items: flex-end;
+      gap: 6px;
+      height: 240px;
+      margin-left: 26px;
+    }
+
+    .ramp-col {
+      flex: 1;
+      display: flex;
+      flex-direction: column-reverse;
+      align-items: stretch;
+      height: 100%;
+      justify-content: flex-start;
+      position: relative;
+      cursor: default;
+    }
+
+    .ramp-col:hover .seg { filter: brightness(1.12); }
+
+    .seg {
+      width: 100%;
+      margin-top: 2px;
+      transition: height 0.5s ease, filter 0.15s;
+    }
+
+    .seg.top { border-radius: 4px 4px 0 0; }
+
+    .col-total {
+      position: absolute;
+      bottom: 100%;
+      left: 50%;
+      transform: translateX(-50%);
+      margin-bottom: 3px;
+      font-family: var(--mono);
+      font-size: 0.6rem;
+      font-weight: 600;
+      color: var(--ink-light);
+      white-space: nowrap;
+    }
+
+    .ramp-months {
+      display: flex;
+      gap: 6px;
+      margin: 0 1.15rem 0 calc(26px + 1.15rem);
+      padding-top: 0.35rem;
+    }
+
+    .ramp-months span {
+      flex: 1;
+      text-align: center;
+      font-family: var(--mono);
+      font-size: 0.58rem;
+      color: var(--ink-muted);
+    }
+
+    .chart-tooltip {
+      position: absolute;
+      z-index: 5;
+      background: var(--ink);
+      color: #fff;
+      border-radius: 5px;
+      padding: 0.55rem 0.7rem;
+      font-family: var(--font-sans);
+      font-size: 0.68rem;
+      line-height: 1.5;
+      pointer-events: none;
+      opacity: 0;
+      transition: opacity 0.12s;
+      white-space: nowrap;
+      box-shadow: 0 4px 14px rgba(0,0,0,0.18);
+    }
+
+    .chart-tooltip .tt-title {
+      font-family: var(--mono);
+      font-size: 0.6rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      opacity: 0.7;
+      margin-bottom: 2px;
+    }
+
+    .chart-tooltip .tt-row { display: flex; align-items: center; gap: 6px; }
+    .chart-tooltip .tt-row .swatch { width: 8px; height: 8px; border-radius: 2px; flex-shrink: 0; }
+    .chart-tooltip .tt-row .tt-val { margin-left: auto; font-weight: 700; padding-left: 12px; }
+
+    .chart-note {
+      padding: 0.75rem 1.15rem 1rem;
+      font-family: var(--font-sans);
+      font-size: 0.68rem;
+      color: var(--ink-muted);
+    }
+
+    /* Connector table */
+    .stage-filter {
+      display: flex;
+      gap: 0;
+      border-bottom: 1px solid var(--border);
+      padding: 0 1.15rem;
+      background: var(--surface);
+      flex-wrap: wrap;
+    }
+
+    .filter-btn {
+      padding: 0.6rem 1rem;
+      font-family: var(--mono);
+      font-size: 0.65rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--ink-muted);
+      cursor: pointer;
+      border: none;
+      border-bottom: 2px solid transparent;
+      background: none;
+      transition: all 0.15s;
+    }
+
+    .filter-btn:hover { color: var(--ink); }
+    .filter-btn.active { color: var(--accent); border-bottom-color: var(--accent); }
+
+    .connector-table {
+      width: 100%;
+      border-collapse: collapse;
+    }
+
+    .connector-table th {
+      font-family: var(--mono);
+      font-size: 0.55rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--ink-muted);
+      padding: 0.55rem 0.85rem;
+      text-align: left;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .connector-table th.num, .connector-table td.num { text-align: right; }
+
+    .connector-table td {
+      font-family: var(--font-sans);
+      font-size: 0.72rem;
+      padding: 0.65rem 0.85rem;
+      border-bottom: 1px solid var(--border);
+      color: var(--ink-muted);
+      vertical-align: top;
+    }
+
+    .connector-table tr:last-child td { border-bottom: none; }
+    .connector-table tr:hover td { background: var(--surface-alt); }
+    .connector-table .name { color: var(--ink); font-weight: 600; font-size: 0.76rem; }
+    .connector-table .name span { display: block; font-weight: 400; font-size: 0.64rem; color: var(--ink-muted); }
+    .connector-table td.num { font-family: var(--mono); font-size: 0.72rem; color: var(--ink); }
+
+    .badge {
+      font-family: var(--mono);
+      font-size: 0.55rem;
+      padding: 2px 7px;
+      border-radius: 3px;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      white-space: nowrap;
+      border: 1px solid;
+    }
+
+    .badge-adopted { background: var(--dash-green-bg); color: var(--dash-green); border-color: var(--dash-green-border); }
+    .badge-launched { background: var(--dash-blue-bg); color: var(--dash-blue); border-color: var(--dash-blue-border); }
+    .badge-build { background: var(--dash-amber-bg); color: var(--dash-amber); border-color: var(--dash-amber-border); }
+
+    .idx-cell { display: flex; align-items: center; justify-content: flex-end; gap: 8px; }
+
+    .idx-bar-track {
+      width: 64px;
+      height: 4px;
+      background: var(--surface-alt);
+      border-radius: 2px;
+      overflow: hidden;
+    }
+
+    .idx-bar-fill {
+      height: 100%;
+      border-radius: 2px;
+      background: var(--dash-blue);
+      transition: width 1s ease;
+    }
+
+    /* Methodology */
+    .dash-caveat {
+      margin-top: 2rem;
+      padding: 0.85rem 1.15rem;
+      background: var(--surface-alt);
+      border-radius: 5px;
+      font-family: var(--font-sans);
+      font-size: 0.7rem;
+      color: var(--ink-muted);
+    }
+
+    .dash-caveat strong { color: var(--ink-light); }
+
+    /* Footer */
+    .dash-footer {
+      border-top: 1px solid var(--border);
+      padding: 1rem 0 0;
+      margin-top: 1.5rem;
+      display: flex;
+      justify-content: space-between;
+      gap: 1rem;
+      font-family: var(--mono);
+      font-size: 0.6rem;
+      color: var(--ink-muted);
+      letter-spacing: 0.04em;
+    }
+
+    .dash-footer a { color: var(--accent); text-decoration: none; }
+    .dash-footer a:hover { text-decoration: underline; }
+
+    .counter { display: inline-block; }
+
+    /* Responsive */
+    @media (max-width: 900px) {
+      .stats-row { grid-template-columns: repeat(3, 1fr); }
+      .two-col { grid-template-columns: 1fr; }
+    }
+
+    @media (max-width: 600px) {
+      .stats-row { grid-template-columns: repeat(2, 1fr); }
+      .dash-wrap { padding: 1rem; }
+      .col-total { display: none; }
+      .ramp-months span:nth-child(even) { visibility: hidden; }
+      .connector-wrap { overflow-x: auto; }
+      .connector-table { min-width: 640px; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav class="top-nav">
+  <button class="hamburger" aria-label="Toggle navigation">
+    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+  </button>
+  <a href="../index.html" class="top-nav__logo">Partner Program <span>OS</span></a>
+  <ul class="top-nav__links">
+      <li><a href="../index.html">Memo</a></li>
+      <li><a href="../method/index.html">Method</a></li>
+      <li><a href="../partner-mapping/index.html">Partners</a></li>
+      <li><a href="index.html" class="active">Execution</a></li>
+  </ul>
+</nav>
+
+<!-- SIDEBAR -->
+<div class="sidebar-overlay"></div>
+<aside class="sidebar">
+
+<div class="sidebar__section">
+  <button class="sidebar__heading"><span class="caret">&#9660;</span> Memo</button>
+  <ul class="sidebar__list">
+    <li class="sidebar__item"><a href="../index.html">Homepage</a></li>
+  </ul>
+</div>
+<div class="sidebar__section">
+  <button class="sidebar__heading"><span class="caret">&#9660;</span> Method</button>
+  <ul class="sidebar__list">
+    <li class="sidebar__item"><a href="../method/index.html">Overview</a></li>
+    <li class="sidebar__item"><a href="../method/spider-chart.html">Spider Chart</a></li>
+    <li class="sidebar__item"><a href="../method/scorecard.html">Scorecard</a></li>
+  </ul>
+</div>
+<div class="sidebar__section">
+  <button class="sidebar__heading"><span class="caret">&#9660;</span> Partner Mapping</button>
+  <ul class="sidebar__list">
+    <li class="sidebar__item"><a href="../partner-mapping/index.html">Overview</a></li>
+    <li class="sidebar__item"><a href="../partner-mapping/landscape.html">Landscape</a></li>
+    <li class="sidebar__item"><a href="../partner-mapping/first-five.html">First Five</a></li>
+  </ul>
+</div>
+<div class="sidebar__section">
+  <button class="sidebar__heading"><span class="caret">&#9660;</span> Execution</button>
+  <ul class="sidebar__list">
+    <li class="sidebar__item"><a href="index.html">Overview</a></li>
+    <li class="sidebar__item"><a href="first-five-plan.html">First Five Plan</a></li>
+    <li class="sidebar__item"><a href="pod-operating-plan.html">Pod Operating Plan</a></li>
+    <li class="sidebar__item"><a href="marketplace-opportunity-map.html">Marketplace Map</a></li>
+    <li class="sidebar__item"><a href="credit-dashboard.html">Credit Dashboard</a></li>
+  </ul>
+</div>
+</aside>
+
+<!-- LAYOUT -->
+<div class="layout">
+<main class="content">
+
+<div class="dash-wrap">
+
+  <!-- Header -->
+  <header class="dash-header">
+    <h1>Credit Consumption Dashboard</h1>
+    <p>Integrations &amp; Applications pod &middot; How the integration partner program converts into IrisX credit consumption</p>
+    <div class="dash-meta">
+      <span class="live-dot">Model View</span>
+      <span>12-Month Horizon</span>
+      <span>5 Connectors &middot; 3 Cohorts</span>
+      <span id="timestamp"></span>
+    </div>
+  </header>
+
+  <!-- Assumption banner -->
+  <div class="model-banner">
+    <span class="mb-icon">&#9888;</span>
+    <div>
+      <div class="mb-title">Model with reference assumptions, not Trackunit data.</div>
+      <div class="mb-text">Every number on this page is invented to show how I would instrument the pod: the drivers, the ratios, and the reporting shape. Credit pricing is not public, so consumption is shown as an index, never as currency.</div>
+    </div>
+  </div>
+
+  <!-- KPI tiles -->
+  <div class="section-label">Pod KPIs at Month 12 (Assumptions)</div>
+  <div class="stats-row">
+    <div class="stat-card">
+      <div class="stat-label">Integration Pipeline</div>
+      <div class="stat-value"><span class="counter" data-target="12">0</span></div>
+      <div class="stat-sub">5 qualified &middot; 4 scoped &middot; 3 in build</div>
+    </div>
+    <div class="stat-card">
+      <div class="stat-label">Live Connectors</div>
+      <div class="stat-value accent"><span class="counter" data-target="5">0</span></div>
+      <div class="stat-sub">2 adopted at 5+ accounts</div>
+    </div>
+    <div class="stat-card">
+      <div class="stat-label">Active Accounts</div>
+      <div class="stat-value"><span class="counter" data-target="23">0</span></div>
+      <div class="stat-sub">across live connectors</div>
+    </div>
+    <div class="stat-card">
+      <div class="stat-label">Time-to-First-Credit</div>
+      <div class="stat-value green"><span class="counter" data-target="21">0</span>d</div>
+      <div class="stat-sub">median &middot; reference target &lt;30</div>
+    </div>
+    <div class="stat-card">
+      <div class="stat-label">Credit Run-Rate</div>
+      <div class="stat-value blue"><span class="counter" data-target="291">0</span></div>
+      <div class="stat-sub">indexed &middot; 100 = month 1 baseline</div>
+    </div>
+    <div class="stat-card">
+      <div class="stat-label">Pipeline to GTM</div>
+      <div class="stat-value"><span class="counter" data-target="10">0</span></div>
+      <div class="stat-sub">qualified opps &middot; ref: 2 per connector/qtr</div>
+    </div>
+  </div>
+
+  <!-- Funnel + credit class weights -->
+  <div class="section-label">Integration Funnel</div>
+  <div class="two-col">
+
+    <div class="panel">
+      <div class="panel-header">
+        <span class="panel-title">Demand Funnel, Cumulative over 12 Months</span>
+        <span class="panel-tag tag-amber">Assumptions</span>
+      </div>
+      <div class="funnel-wrap">
+        <div class="funnel-stage"><span class="f-label">Sourced</span><div class="f-bar-track"><div class="f-bar-fill" style="width:100%"></div></div><span class="f-count">24</span></div>
+        <div class="funnel-stage"><span class="f-label">Qualified</span><div class="f-bar-track"><div class="f-bar-fill" style="width:50%"></div></div><span class="f-count">12</span></div>
+        <div class="funnel-stage"><span class="f-label">Scoped</span><div class="f-bar-track"><div class="f-bar-fill secondary" style="width:33%"></div></div><span class="f-count">8</span></div>
+        <div class="funnel-stage"><span class="f-label">In build</span><div class="f-bar-track"><div class="f-bar-fill secondary" style="width:25%"></div></div><span class="f-count">6</span></div>
+        <div class="funnel-stage"><span class="f-label">Launched</span><div class="f-bar-track"><div class="f-bar-fill live" style="width:21%"></div></div><span class="f-count">5</span></div>
+        <div class="funnel-stage"><span class="f-label">Adopted</span><div class="f-bar-track"><div class="f-bar-fill live" style="width:8%"></div></div><span class="f-count">2</span></div>
+      </div>
+      <div class="f-note">Adopted = 5+ active accounts within two quarters of marketplace listing. Half of sourced demand is qualified out early and in writing; a fast no protects the roadmap. Pipeline coverage stays at roughly 3x quarterly build capacity.</div>
+    </div>
+
+    <div class="panel">
+      <div class="panel-header">
+        <span class="panel-title">Credit Class Weights</span>
+        <span class="panel-tag tag-blue">Reference</span>
+      </div>
+      <div class="weights-list">
+        <div class="weight-row"><span class="w-name">MCP Server call<span>AI agent queries, SQL against IrisX Analytics</span></span><span class="w-val">2.0x</span></div>
+        <div class="weight-row"><span class="w-name">Time Series API query<span>PromQL range queries over sensor metrics</span></span><span class="w-val">1.5x</span></div>
+        <div class="weight-row"><span class="w-name">GraphQL API query<span>Tailored reads from the IrisX data lake</span></span><span class="w-val">1.0x</span></div>
+        <div class="weight-row"><span class="w-name">Rental ERP sync event<span>Two-way contract and contract-item sync</span></span><span class="w-val">0.5x</span></div>
+        <div class="weight-row"><span class="w-name">Webhook delivery<span>Real-time asset events to partner endpoints</span></span><span class="w-val">0.25x</span></div>
+      </div>
+      <div class="f-note">Illustrative weights only. The index counts API calls weighted by credit class, so a connector that leans on the Time Series API or the MCP Server ramps faster than one that only receives webhooks.</div>
+    </div>
+  </div>
+
+  <!-- Consumption ramp -->
+  <div class="section-label">Credit Consumption Ramp</div>
+  <div class="panel">
+    <div class="panel-header">
+      <span class="panel-title">12-Month Consumption by Connector Cohort</span>
+      <span class="panel-tag tag-amber">Indexed, Assumptions</span>
+    </div>
+    <div class="chart-legend" id="rampLegend"></div>
+    <div class="ramp-area" id="rampArea">
+      <div class="ramp-grid" id="rampGrid"></div>
+      <div class="ramp-chart" id="rampChart"></div>
+      <div class="chart-tooltip" id="rampTooltip"></div>
+    </div>
+    <div class="ramp-months" id="rampMonths"></div>
+    <div class="chart-note">Indexed units: 100 = total consumption in month 1, before the first pod cohort goes live. Click a legend chip to toggle a cohort. Cohorts stack on a pre-pod baseline that grows slowly on its own; the gap between the gray layer and the top line is what the pod adds.</div>
+  </div>
+
+  <!-- Connector table -->
+  <div class="section-label">Connector Scorecard</div>
+  <div class="panel">
+    <div class="panel-header">
+      <span class="panel-title">Per-Connector View at Month 12</span>
+      <span class="panel-tag tag-amber">Assumptions</span>
+    </div>
+    <div class="stage-filter" id="stageFilter">
+      <button class="filter-btn active" data-stage="all">All</button>
+      <button class="filter-btn" data-stage="adopted">Adopted</button>
+      <button class="filter-btn" data-stage="launched">Launched</button>
+    </div>
+    <div class="connector-wrap">
+      <table class="connector-table">
+        <thead>
+          <tr>
+            <th>Connector</th>
+            <th>Stage</th>
+            <th class="num">Active Accounts</th>
+            <th class="num">Consumption Index</th>
+            <th>Next Milestone</th>
+          </tr>
+        </thead>
+        <tbody id="connectorRows"></tbody>
+      </table>
+    </div>
+  </div>
+
+  <!-- Methodology -->
+  <div class="dash-caveat">
+    <strong>Methodology.</strong> Consumption index = API calls weighted by credit class (see reference weights above). Trackunit does not publish credit pricing, so this model is structural, not financial: it shows the drivers and the ratios between them, never absolute credits or currency. Cohort ramps assume time-to-first-credit under 30 days from go-live and 5+ active accounts per connector within two quarters of listing, the same reference targets as the pod operating plan KPI tree.
+  </div>
+
+  <!-- Footer -->
+  <div class="dash-footer">
+    <span>Integrations &amp; Applications Pod &middot; Credit Consumption Model</span>
+    <span><a href="index.html">&larr; Back to Execution</a></span>
+  </div>
+
+</div>
+
+<script>
+// Timestamp
+document.getElementById('timestamp').textContent =
+  new Date().toLocaleString('en-GB', { day:'2-digit', month:'short', year:'numeric' });
+
+// Counter animation
+function animateCounter(el) {
+  const target = parseFloat(el.dataset.target);
+  const duration = 1100;
+  const start = performance.now();
+  function step(now) {
+    const progress = Math.min((now - start) / duration, 1);
+    const ease = 1 - Math.pow(1 - progress, 3);
+    el.textContent = Math.round(target * ease);
+    if (progress < 1) requestAnimationFrame(step);
+  }
+  requestAnimationFrame(step);
+}
+document.querySelectorAll('.counter').forEach(animateCounter);
+
+// Ramp chart data (all values are invented reference assumptions, indexed: 100 = month 1 total)
+const cohorts = [
+  { name: 'Pre-pod baseline', color: '#64748b',
+    values: [100,101,102,103,104,105,106,107,108,109,110,111] },
+  { name: 'Q1 cohort: Point of Rental deepening', color: '#0077B5',
+    values: [0,6,14,22,28,33,37,41,44,47,50,52] },
+  { name: 'Q2 cohort: Procore + Dynamics 365', color: '#2e9464',
+    values: [0,0,0,0,8,18,30,40,48,55,61,66] },
+  { name: 'Q3 cohort: SAP ETM wave + Palantir', color: '#b0790a',
+    values: [0,0,0,0,0,0,0,10,22,36,50,62] }
+];
+const MONTHS = ['M1','M2','M3','M4','M5','M6','M7','M8','M9','M10','M11','M12'];
+const CHART_MAX = 320;
+const CHART_H = 240;
+const visible = cohorts.map(() => true);
+
+const chartEl = document.getElementById('rampChart');
+const gridEl = document.getElementById('rampGrid');
+const monthsEl = document.getElementById('rampMonths');
+const legendEl = document.getElementById('rampLegend');
+const tooltip = document.getElementById('rampTooltip');
+const rampArea = document.getElementById('rampArea');
+
+// Gridlines
+[0, 100, 200, 300].forEach(v => {
+  const line = document.createElement('div');
+  line.className = 'grid-line';
+  line.style.bottom = (v / CHART_MAX * 100) + '%';
+  line.innerHTML = '<span class="grid-label">' + v + '</span>';
+  gridEl.appendChild(line);
+});
+
+// Month labels
+MONTHS.forEach(m => {
+  const s = document.createElement('span');
+  s.textContent = m;
+  monthsEl.appendChild(s);
+});
+
+// Legend chips (click to toggle cohort)
+cohorts.forEach((c, i) => {
+  const chip = document.createElement('button');
+  chip.className = 'legend-chip';
+  chip.setAttribute('aria-pressed', 'true');
+  chip.innerHTML = '<span class="swatch" style="background:' + c.color + '"></span>' + c.name;
+  chip.addEventListener('click', () => {
+    visible[i] = !visible[i];
+    chip.classList.toggle('off', !visible[i]);
+    chip.setAttribute('aria-pressed', String(visible[i]));
+    renderChart();
+  });
+  legendEl.appendChild(chip);
+});
+
+function renderChart() {
+  chartEl.innerHTML = '';
+  MONTHS.forEach((m, mi) => {
+    const col = document.createElement('div');
+    col.className = 'ramp-col';
+    let total = 0;
+    let topSeg = null;
+    cohorts.forEach((c, ci) => {
+      if (!visible[ci]) return;
+      const v = c.values[mi];
+      if (v <= 0) return;
+      total += v;
+      const seg = document.createElement('div');
+      seg.className = 'seg';
+      seg.style.background = c.color;
+      seg.style.height = Math.max(v / CHART_MAX * CHART_H - 2, 2) + 'px';
+      col.appendChild(seg);
+      topSeg = seg;
+    });
+    if (topSeg) topSeg.classList.add('top');
+    if (mi === 0 || (mi + 1) % 3 === 0) {
+      const lbl = document.createElement('div');
+      lbl.className = 'col-total';
+      lbl.textContent = total;
+      col.appendChild(lbl);
+    }
+    col.addEventListener('mousemove', e => showTooltip(e, mi));
+    col.addEventListener('mouseleave', hideTooltip);
+    chartEl.appendChild(col);
+  });
+}
+
+function showTooltip(e, mi) {
+  let rows = '';
+  let total = 0;
+  cohorts.forEach((c, ci) => {
+    if (!visible[ci] || c.values[mi] <= 0) return;
+    total += c.values[mi];
+    rows += '<div class="tt-row"><span class="swatch" style="background:' + c.color + '"></span>'
+          + c.name.split(':')[0] + '<span class="tt-val">' + c.values[mi] + '</span></div>';
+  });
+  tooltip.innerHTML = '<div class="tt-title">Month ' + (mi + 1) + ' &middot; indexed</div>' + rows
+    + '<div class="tt-row" style="margin-top:3px;border-top:1px solid rgba(255,255,255,0.25);padding-top:3px">Total<span class="tt-val">' + total + '</span></div>';
+  const areaRect = rampArea.getBoundingClientRect();
+  let x = e.clientX - areaRect.left + 14;
+  let y = e.clientY - areaRect.top - 10;
+  tooltip.style.opacity = '1';
+  const tw = tooltip.offsetWidth;
+  if (x + tw > areaRect.width - 8) x = x - tw - 28;
+  tooltip.style.left = x + 'px';
+  tooltip.style.top = y + 'px';
+}
+
+function hideTooltip() { tooltip.style.opacity = '0'; }
+
+renderChart();
+
+// Connector scorecard (all values are invented reference assumptions)
+const connectors = [
+  { name: 'Point of Rental', sub: 'Rental ERP API, two-way contract sync', stage: 'adopted',
+    accounts: 9, index: 52,
+    milestone: 'Contract-item sync v2; QBR anchored on consumption and joint pipeline' },
+  { name: 'Procore', sub: 'GraphQL API + webhooks, project-to-site mapping', stage: 'adopted',
+    accounts: 6, index: 36,
+    milestone: 'Co-marketing adoption campaign; partner-sourced pipeline handoff to GTM' },
+  { name: 'Microsoft Dynamics 365', sub: 'GraphQL API, asset and service objects', stage: 'launched',
+    accounts: 4, index: 30,
+    milestone: 'Field-mapping templates to cut time-to-first-credit below 30 days' },
+  { name: 'SAP ETM wave', sub: 'Rental ERP API + ISO 15143-3 feed', stage: 'launched',
+    accounts: 2, index: 40,
+    milestone: 'Marketplace listing quality review; third design-partner install' },
+  { name: 'Palantir Foundry', sub: 'Time Series API (PromQL) + webhook event feed', stage: 'launched',
+    accounts: 2, index: 22,
+    milestone: 'Production data pipeline sign-off; second active account' }
+];
+
+const stageBadge = {
+  adopted: '<span class="badge badge-adopted">Adopted</span>',
+  launched: '<span class="badge badge-launched">Launched</span>',
+  build: '<span class="badge badge-build">In build</span>'
+};
+
+const maxIdx = Math.max(...connectors.map(c => c.index));
+const rowsEl = document.getElementById('connectorRows');
+
+function renderTable(stage) {
+  rowsEl.innerHTML = '';
+  connectors
+    .filter(c => stage === 'all' || c.stage === stage)
+    .forEach(c => {
+      const tr = document.createElement('tr');
+      tr.innerHTML =
+        '<td><span class="name">' + c.name + '<span>' + c.sub + '</span></span></td>' +
+        '<td>' + stageBadge[c.stage] + '</td>' +
+        '<td class="num">' + c.accounts + '</td>' +
+        '<td class="num"><span class="idx-cell"><span class="idx-bar-track"><span class="idx-bar-fill" style="display:block;width:' + Math.round(c.index / maxIdx * 100) + '%"></span></span>' + c.index + '</span></td>' +
+        '<td>' + c.milestone + '</td>';
+      rowsEl.appendChild(tr);
+    });
+}
+
+document.getElementById('stageFilter').addEventListener('click', e => {
+  const btn = e.target.closest('.filter-btn');
+  if (!btn) return;
+  document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+  btn.classList.add('active');
+  renderTable(btn.dataset.stage);
+});
+
+renderTable('all');
+
+// Animate funnel bars on load
+window.addEventListener('load', () => {
+  setTimeout(() => {
+    document.querySelectorAll('.f-bar-fill, .idx-bar-fill').forEach(el => {
+      const w = el.style.width;
+      el.style.width = '0%';
+      requestAnimationFrame(() => {
+        requestAnimationFrame(() => { el.style.width = w; });
+      });
+    });
+  }, 150);
+});
+</script>
+
+</main>
+</div>
+
+<footer class="site-footer">
+  <p>A. Marushevsky &middot; Amsterdam &middot; All partner research is a first pass from public sources.</p>
+</footer>
+
+<script src="../../assets/js/sidebar.js"></script>
+</body>
+</html>

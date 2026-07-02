@@ -1,0 +1,546 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Integration Program Maturity: Spider Chart</title>
+  <link rel="stylesheet" href="../../assets/css/main.css">
+  <style>
+    .radar-container {
+      max-width: 620px;
+      margin: var(--sp-xl) auto;
+    }
+
+    .radar-svg {
+      width: 100%;
+      height: auto;
+    }
+
+    /* Level labels */
+    .radar-level-label {
+      font-family: var(--font-sans);
+      font-size: 10px;
+      fill: var(--ink-muted);
+    }
+
+    /* Axis labels */
+    .radar-axis-label {
+      font-family: var(--font-sans);
+      font-size: 12px;
+      font-weight: 500;
+      fill: var(--ink);
+    }
+
+    /* Grid rings */
+    .radar-ring {
+      fill: none;
+      stroke: var(--border);
+      stroke-width: 1;
+    }
+
+    .radar-ring--outer {
+      stroke: var(--border);
+      stroke-width: 1.5;
+    }
+
+    /* Axis spokes */
+    .radar-spoke {
+      stroke: var(--border-light);
+      stroke-width: 1;
+    }
+
+    /* Example overlay - illustrative */
+    .radar-example {
+      fill: rgba(44, 85, 69, 0.08);
+      stroke: var(--accent);
+      stroke-width: 2;
+      transition: opacity 0.3s;
+    }
+
+    .radar-example-dot {
+      fill: var(--accent);
+      r: 4;
+      transition: r 0.15s;
+    }
+
+    .radar-example-dot:hover {
+      r: 6;
+    }
+
+    .radar-wc {
+      fill: rgba(44, 85, 69, 0.04);
+      stroke: var(--accent-light);
+      stroke-width: 1;
+      stroke-dasharray: 6 3;
+    }
+
+    /* Controls */
+    .radar-controls {
+      display: flex;
+      gap: 1.5rem;
+      justify-content: center;
+      margin: var(--sp-lg) 0;
+      flex-wrap: wrap;
+    }
+
+    .radar-toggle {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      font-size: 0.8rem;
+      font-family: var(--font-sans);
+      color: var(--ink-light);
+      cursor: pointer;
+      user-select: none;
+    }
+
+    .radar-toggle input[type="checkbox"] {
+      accent-color: var(--accent);
+    }
+
+    /* Legend */
+    .radar-legend {
+      display: flex;
+      gap: 1.5rem;
+      justify-content: center;
+      margin: var(--sp-md) 0;
+      font-size: 0.75rem;
+      font-family: var(--font-sans);
+      color: var(--ink-muted);
+    }
+
+    .radar-legend__item {
+      display: flex;
+      align-items: center;
+      gap: 0.4rem;
+    }
+
+    .radar-legend__swatch {
+      width: 14px;
+      height: 3px;
+      border-radius: 1px;
+    }
+
+    .radar-legend__swatch--ring { background: var(--border); }
+    .radar-legend__swatch--wc { background: var(--accent-light); height: 2px; border-top: 1px dashed var(--accent-light); }
+    .radar-legend__swatch--example { background: var(--accent); }
+
+    /* Tooltip */
+    .radar-tooltip {
+      position: absolute;
+      background: var(--white);
+      border: 1px solid var(--border);
+      border-radius: 4px;
+      padding: 0.5rem 0.75rem;
+      font-family: var(--font-sans);
+      font-size: 0.75rem;
+      color: var(--ink-light);
+      pointer-events: none;
+      opacity: 0;
+      transition: opacity 0.15s;
+      max-width: 220px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+      z-index: 50;
+    }
+
+    .radar-tooltip.visible {
+      opacity: 1;
+    }
+
+    .radar-tooltip__stage {
+      font-weight: 600;
+      color: var(--ink);
+      margin-bottom: 2px;
+    }
+
+    .score-display {
+      text-align: center;
+      margin: var(--sp-md) 0;
+      font-family: var(--font-mono);
+      font-size: 0.8rem;
+      color: var(--ink-muted);
+    }
+  </style>
+</head>
+<body>
+
+<nav class="top-nav">
+  <button class="hamburger" aria-label="Toggle navigation">
+    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+  </button>
+  <a href="../index.html" class="top-nav__logo">Partner Program <span>OS</span></a>
+  <ul class="top-nav__links">
+      <li><a href="../index.html">Memo</a></li>
+      <li><a href="index.html" class="active">Method</a></li>
+      <li><a href="../partner-mapping/index.html">Partners</a></li>
+      <li><a href="../execution/index.html">Execution</a></li>
+  </ul>
+</nav>
+
+<!-- SIDEBAR -->
+<div class="sidebar-overlay"></div>
+<aside class="sidebar">
+
+<div class="sidebar__section">
+  <button class="sidebar__heading"><span class="caret">&#9660;</span> Memo</button>
+  <ul class="sidebar__list">
+    <li class="sidebar__item"><a href="../index.html">Homepage</a></li>
+  </ul>
+</div>
+<div class="sidebar__section">
+  <button class="sidebar__heading"><span class="caret">&#9660;</span> Method</button>
+  <ul class="sidebar__list">
+    <li class="sidebar__item"><a href="index.html">Overview</a></li>
+    <li class="sidebar__item"><a href="spider-chart.html">Spider Chart</a></li>
+    <li class="sidebar__item"><a href="scorecard.html">Scorecard</a></li>
+  </ul>
+</div>
+<div class="sidebar__section">
+  <button class="sidebar__heading"><span class="caret">&#9660;</span> Partner Mapping</button>
+  <ul class="sidebar__list">
+    <li class="sidebar__item"><a href="../partner-mapping/index.html">Overview</a></li>
+    <li class="sidebar__item"><a href="../partner-mapping/landscape.html">Landscape</a></li>
+    <li class="sidebar__item"><a href="../partner-mapping/first-five.html">First Five</a></li>
+  </ul>
+</div>
+<div class="sidebar__section">
+  <button class="sidebar__heading"><span class="caret">&#9660;</span> Execution</button>
+  <ul class="sidebar__list">
+    <li class="sidebar__item"><a href="../execution/index.html">Overview</a></li>
+    <li class="sidebar__item"><a href="../execution/first-five-plan.html">First Five Plan</a></li>
+    <li class="sidebar__item"><a href="../execution/pod-operating-plan.html">Pod Operating Plan</a></li>
+    <li class="sidebar__item"><a href="../execution/marketplace-opportunity-map.html">Marketplace Map</a></li>
+    <li class="sidebar__item"><a href="../execution/credit-dashboard.html">Credit Dashboard</a></li>
+  </ul>
+</div>
+</aside>
+
+<!-- LAYOUT -->
+<div class="layout">
+<main class="content">
+
+  <header class="page-header">
+    <div class="page-header__kicker">Framework Illustration</div>
+    <h1>Integration Program Maturity Radar</h1>
+    <p class="page-header__subtitle">Interactive visualization of the 7-stage integration partner lifecycle. Three concentric rings represent Basic, Professional, and World-class levels. Drag the dots on the example profile to explore how different maturity shapes create different program signatures.</p>
+  </header>
+
+  <div class="radar-legend">
+    <div class="radar-legend__item">
+      <span class="radar-legend__swatch radar-legend__swatch--ring"></span>
+      Maturity rings (B / P / WC)
+    </div>
+    <div class="radar-legend__item">
+      <span class="radar-legend__swatch radar-legend__swatch--wc"></span>
+      World-class target
+    </div>
+    <div class="radar-legend__item">
+      <span class="radar-legend__swatch radar-legend__swatch--example"></span>
+      Example profile (draggable)
+    </div>
+  </div>
+
+  <div class="radar-container" id="radarContainer">
+    <div class="radar-tooltip" id="tooltip"></div>
+    <!-- SVG injected by JS -->
+  </div>
+
+  <div class="score-display" id="scoreDisplay">Total: 14 / 21 (67%)</div>
+
+  <div class="radar-controls">
+    <label class="radar-toggle">
+      <input type="checkbox" id="toggleWC" checked>
+      Show world-class target ring
+    </label>
+    <label class="radar-toggle">
+      <input type="checkbox" id="toggleExample" checked>
+      Show example profile
+    </label>
+    <button id="resetBtn" style="font-family: var(--font-sans); font-size: 0.8rem; color: var(--accent); background: none; border: 1px solid var(--border); border-radius: 4px; padding: 0.3rem 0.75rem; cursor: pointer;">Reset example</button>
+  </div>
+
+  <div class="caveat">
+    Framework illustration. Not Trackunit scores. The example profile is illustrative and does not represent any specific company. When applied to a real integration program, each axis is scored using the capability checkpoints and KPI thresholds defined in the <a href="scorecard.html">scorecard</a>.
+  </div>
+
+  <p style="margin-top: var(--sp-xl);">
+    <a href="index.html" style="font-size: 0.9rem; font-weight: 500;">&larr; Back to Method overview</a>
+  </p>
+
+</main>
+</div>
+
+<footer class="site-footer">
+  <p>A. Marushevsky &middot; Amsterdam &middot; All partner research is a first pass from public sources.</p>
+</footer>
+
+<script>
+(function() {
+  const stages = [
+    { name: 'Source', short: 'Source', desc: 'Identify and attract the right integration partners.' },
+    { name: 'Qualify', short: 'Qualify', desc: 'Assess fit, capability, and mutual value before committing.' },
+    { name: 'Scope', short: 'Scope', desc: 'Define the use case, integration spec, and success criteria.' },
+    { name: 'Build', short: 'Build', desc: 'Develop the integration with API support and sandbox access.' },
+    { name: 'Launch', short: 'Launch', desc: 'Certify, list on the marketplace, and go live together.' },
+    { name: 'Adopt', short: 'Adopt', desc: 'Drive customer activation and usage of the integration.' },
+    { name: 'Scale', short: 'Scale', desc: 'Grow accounts, use cases, and revenue through the partnership.' }
+  ];
+
+  const levels = ['Basic', 'Professional', 'World-Class'];
+
+  // Example profile (illustrative, not Trackunit)
+  const defaultScores = [2, 2, 2, 2, 2, 2, 2];
+  let scores = [...defaultScores];
+
+  const cx = 300, cy = 280;
+  const maxR = 200;
+  const rings = [maxR / 3, 2 * maxR / 3, maxR];
+  const n = stages.length;
+  const angleStep = (2 * Math.PI) / n;
+  const startAngle = -Math.PI / 2; // top
+
+  function polarToXY(angle, radius) {
+    return {
+      x: cx + radius * Math.cos(angle),
+      y: cy + radius * Math.sin(angle)
+    };
+  }
+
+  function scoreToR(score) {
+    return (score / 3) * maxR;
+  }
+
+  function buildSVG() {
+    const svg = document.createElementNS('http://www.w3.org/2000/svg', 'svg');
+    svg.setAttribute('viewBox', '0 0 600 560');
+    svg.setAttribute('class', 'radar-svg');
+
+    // Grid rings
+    rings.forEach((r, i) => {
+      const pts = [];
+      for (let j = 0; j < n; j++) {
+        const a = startAngle + j * angleStep;
+        const p = polarToXY(a, r);
+        pts.push(`${p.x},${p.y}`);
+      }
+      const poly = document.createElementNS('http://www.w3.org/2000/svg', 'polygon');
+      poly.setAttribute('points', pts.join(' '));
+      poly.setAttribute('class', i === 2 ? 'radar-ring radar-ring--outer' : 'radar-ring');
+      svg.appendChild(poly);
+
+      // Level label
+      const labelAngle = startAngle + 0.5 * angleStep;
+      const lp = polarToXY(labelAngle, r - 8);
+      const label = document.createElementNS('http://www.w3.org/2000/svg', 'text');
+      label.setAttribute('x', lp.x);
+      label.setAttribute('y', lp.y);
+      label.setAttribute('class', 'radar-level-label');
+      label.setAttribute('text-anchor', 'start');
+      label.textContent = levels[i];
+      svg.appendChild(label);
+    });
+
+    // Spokes
+    for (let j = 0; j < n; j++) {
+      const a = startAngle + j * angleStep;
+      const p = polarToXY(a, maxR);
+      const line = document.createElementNS('http://www.w3.org/2000/svg', 'line');
+      line.setAttribute('x1', cx);
+      line.setAttribute('y1', cy);
+      line.setAttribute('x2', p.x);
+      line.setAttribute('y2', p.y);
+      line.setAttribute('class', 'radar-spoke');
+      svg.appendChild(line);
+    }
+
+    // World-class target polygon
+    const wcPts = [];
+    for (let j = 0; j < n; j++) {
+      const a = startAngle + j * angleStep;
+      const p = polarToXY(a, maxR);
+      wcPts.push(`${p.x},${p.y}`);
+    }
+    const wcPoly = document.createElementNS('http://www.w3.org/2000/svg', 'polygon');
+    wcPoly.setAttribute('points', wcPts.join(' '));
+    wcPoly.setAttribute('class', 'radar-wc');
+    wcPoly.setAttribute('id', 'wcTarget');
+    svg.appendChild(wcPoly);
+
+    // Example profile polygon
+    const exPoly = document.createElementNS('http://www.w3.org/2000/svg', 'polygon');
+    exPoly.setAttribute('class', 'radar-example');
+    exPoly.setAttribute('id', 'examplePoly');
+    svg.appendChild(exPoly);
+
+    // Example dots (draggable)
+    for (let j = 0; j < n; j++) {
+      const circle = document.createElementNS('http://www.w3.org/2000/svg', 'circle');
+      circle.setAttribute('class', 'radar-example-dot');
+      circle.setAttribute('data-index', j);
+      circle.setAttribute('id', `dot-${j}`);
+      circle.style.cursor = 'grab';
+      svg.appendChild(circle);
+    }
+
+    // Axis labels
+    for (let j = 0; j < n; j++) {
+      const a = startAngle + j * angleStep;
+      const lp = polarToXY(a, maxR + 28);
+      const label = document.createElementNS('http://www.w3.org/2000/svg', 'text');
+      label.setAttribute('x', lp.x);
+      label.setAttribute('y', lp.y);
+      label.setAttribute('class', 'radar-axis-label');
+      label.setAttribute('text-anchor', 'middle');
+      label.setAttribute('dominant-baseline', 'middle');
+
+      // Add stage number
+      const num = document.createElementNS('http://www.w3.org/2000/svg', 'tspan');
+      num.textContent = `${j + 1}. `;
+      num.style.fontFamily = 'var(--font-mono)';
+      num.style.fontSize = '10px';
+      num.style.fill = 'var(--ink-muted)';
+      label.appendChild(num);
+
+      const txt = document.createElementNS('http://www.w3.org/2000/svg', 'tspan');
+      txt.textContent = stages[j].short;
+      label.appendChild(txt);
+
+      svg.appendChild(label);
+    }
+
+    return svg;
+  }
+
+  function updateExample() {
+    const poly = document.getElementById('examplePoly');
+    const pts = [];
+    for (let j = 0; j < n; j++) {
+      const a = startAngle + j * angleStep;
+      const r = scoreToR(scores[j]);
+      const p = polarToXY(a, r);
+      pts.push(`${p.x},${p.y}`);
+
+      const dot = document.getElementById(`dot-${j}`);
+      dot.setAttribute('cx', p.x);
+      dot.setAttribute('cy', p.y);
+    }
+    poly.setAttribute('points', pts.join(' '));
+
+    // Update score display
+    const total = scores.reduce((a, b) => a + b, 0);
+    const pct = Math.round((total / 21) * 100);
+    document.getElementById('scoreDisplay').textContent = `Total: ${total} / 21 (${pct}%)`;
+  }
+
+  // Build and insert
+  const container = document.getElementById('radarContainer');
+  const tooltip = document.getElementById('tooltip');
+  const svg = buildSVG();
+  container.insertBefore(svg, tooltip);
+  updateExample();
+
+  // Drag logic
+  let dragging = null;
+  const svgEl = svg;
+
+  function getSVGPoint(e) {
+    const rect = svgEl.getBoundingClientRect();
+    const clientX = e.touches ? e.touches[0].clientX : e.clientX;
+    const clientY = e.touches ? e.touches[0].clientY : e.clientY;
+    const scaleX = 600 / rect.width;
+    const scaleY = 560 / rect.height;
+    return {
+      x: (clientX - rect.left) * scaleX,
+      y: (clientY - rect.top) * scaleY
+    };
+  }
+
+  function snapScore(rawDist) {
+    const normalized = Math.max(0, Math.min(1, rawDist / maxR));
+    if (normalized < 0.17) return 0;
+    if (normalized < 0.5) return 1;
+    if (normalized < 0.83) return 2;
+    return 3;
+  }
+
+  svgEl.addEventListener('mousedown', startDrag);
+  svgEl.addEventListener('touchstart', startDrag, { passive: false });
+
+  function startDrag(e) {
+    const target = e.target;
+    if (target.classList.contains('radar-example-dot')) {
+      e.preventDefault();
+      dragging = parseInt(target.dataset.index);
+      target.style.cursor = 'grabbing';
+    }
+  }
+
+  document.addEventListener('mousemove', onDrag);
+  document.addEventListener('touchmove', onDrag, { passive: false });
+
+  function onDrag(e) {
+    if (dragging === null) return;
+    e.preventDefault();
+    const pt = getSVGPoint(e);
+    const dx = pt.x - cx;
+    const dy = pt.y - cy;
+    const dist = Math.sqrt(dx * dx + dy * dy);
+    scores[dragging] = snapScore(dist);
+    updateExample();
+  }
+
+  document.addEventListener('mouseup', endDrag);
+  document.addEventListener('touchend', endDrag);
+
+  function endDrag() {
+    if (dragging !== null) {
+      const dot = document.getElementById(`dot-${dragging}`);
+      if (dot) dot.style.cursor = 'grab';
+      dragging = null;
+    }
+  }
+
+  // Tooltip on hover
+  const dots = svgEl.querySelectorAll('.radar-example-dot');
+  dots.forEach(dot => {
+    dot.addEventListener('mouseenter', (e) => {
+      const idx = parseInt(dot.dataset.index);
+      const stage = stages[idx];
+      tooltip.innerHTML = `<div class="radar-tooltip__stage">${stage.name}: ${levels[scores[idx] - 1] || 'Not scored'}</div>${stage.desc}`;
+      tooltip.classList.add('visible');
+    });
+
+    dot.addEventListener('mousemove', (e) => {
+      const rect = container.getBoundingClientRect();
+      tooltip.style.left = (e.clientX - rect.left + 12) + 'px';
+      tooltip.style.top = (e.clientY - rect.top - 10) + 'px';
+    });
+
+    dot.addEventListener('mouseleave', () => {
+      tooltip.classList.remove('visible');
+    });
+  });
+
+  // Toggle controls
+  document.getElementById('toggleWC').addEventListener('change', (e) => {
+    document.getElementById('wcTarget').style.display = e.target.checked ? '' : 'none';
+  });
+
+  document.getElementById('toggleExample').addEventListener('change', (e) => {
+    const show = e.target.checked;
+    document.getElementById('examplePoly').style.display = show ? '' : 'none';
+    dots.forEach(d => d.style.display = show ? '' : 'none');
+    document.getElementById('scoreDisplay').style.display = show ? '' : 'none';
+  });
+
+  document.getElementById('resetBtn').addEventListener('click', () => {
+    scores = [...defaultScores];
+    updateExample();
+  });
+
+})();
+</script>
+
+<script src="../../assets/js/sidebar.js"></script>
+</body>
+</html>
