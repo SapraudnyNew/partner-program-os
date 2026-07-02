@@ -1,4 +1,4 @@
-# RUNBOOK — Trackunit Branch of Partner Program OS
+# RUNBOOK: Trackunit Branch of Partner Program OS
 
 > **Purpose:** a self-sufficient instruction set for a server-side agent (Claude Code or similar)
 > to build and deploy the Trackunit application project inside this repo using a system of
@@ -12,9 +12,9 @@
 Build a job-application leave-behind site for:
 
 - **Candidate:** A. Marushevsky, Amsterdam (see `MASTER_HANDOVER.md` for locked bio decisions)
-- **Target role:** Head of Partnerships — Integrations & Applications, Trackunit (Amsterdam / global)
+- **Target role:** Head of Partnerships: Integrations & Applications, Trackunit (Amsterdam / global)
 - **Job posting:** https://careers.trackunit.com/jobs/7782454-head-of-partnerships-integrations-applications
-- **Platform context:** IrisX — Trackunit's construction operating data platform. The role owns
+- **Platform context:** IrisX: Trackunit's construction operating data platform. The role owns
   third-party integrations (ERP, rental management, fleet, ConTech, AI platforms), a cross-functional
   pod, the integration partner pipeline, and **IrisX credit consumption** as the primary commercial metric.
 - **Live URL target:** https://sapraudnynew.github.io/partner-program-os/trackunit/
@@ -65,7 +65,7 @@ correct depth prefixes).
 
 ## 3. PHASE PLAN (execute in order; parallelize inside phases)
 
-### Phase 1 — Research (parallel subagents, ~6 streams)
+### Phase 1: Research (parallel subagents, ~6 streams)
 
 Every stream writes a markdown digest to `04-trackunit/research/outputs/<stream>.md`
 with a Sources list of URLs. Streams:
@@ -74,27 +74,27 @@ with a Sources list of URLs. Streams:
 |---|---|---|
 | company | Trackunit strategy, IrisX Acceleration, business model, credits, investors (Goldman Sachs Asset Mgmt, GRO, Hg), scale, offices, culture ("eliminate downtime", human-centric) | `company.md` |
 | platform | developers.trackunit.com deep dive: IrisX APIs (GraphQL, Rental API, Time Series/PromQL), connectors, marketplace, "Works With Trackunit" program, sandbox, AI-agent direction | `platform.md` |
-| eco-erp-rental | ERP (SAP, Oracle, MS Dynamics, IFS) + rental management systems (Point of Rental, MCS, inspHire, Wynne/RentalMan, Baseplan, Systematix...) — candidates for the landscape with integration-relevant facts | `eco-erp-rental.md` |
-| eco-contech-ai | ConTech (Procore, Autodesk Construction Cloud, Hilti ON!Track, Fieldwire, PlanRadar...), fleet mgmt, AI platforms/agents in construction — same format | `eco-contech-ai.md` |
+| eco-erp-rental | ERP (SAP, Oracle, MS Dynamics, IFS) + rental management systems (Point of Rental, MCS, inspHire, Wynne/RentalMan, Baseplan, Systematix...): candidates for the landscape with integration-relevant facts | `eco-erp-rental.md` |
+| eco-contech-ai | ConTech (Procore, Autodesk Construction Cloud, Hilti ON!Track, Fieldwire, PlanRadar...), fleet mgmt, AI platforms/agents in construction: same format | `eco-contech-ai.md` |
 | eco-oem | OEM layer: existing Trackunit OEM relationships (e.g. via press: Manitou, JLG, Hiab, Skyjack...) and OEM software ecosystems | `eco-oem.md` |
 | people | Hiring manager hunt: VP of Platform at Trackunit (role reports there), plus adjacent leaders (CPTO/CTO, Head of Partnerships, VP Product). Use LinkedIn-capable people search (Apify actor if available; otherwise Exa `category:people`). Deliver 2-3 most-likely addressees with evidence and confidence levels | `people.md` |
-| marketplace-bench | Marketplace/dev-portal best practice benchmark: Procore App Marketplace, Autodesk App Store, Salesforce AppExchange, Shopify — what makes ISV activation low-touch; distill levers applicable to IrisX | `marketplace-bench.md` |
+| marketplace-bench | Marketplace/dev-portal best practice benchmark: Procore App Marketplace, Autodesk App Store, Salesforce AppExchange, Shopify: what makes ISV activation low-touch; distill levers applicable to IrisX | `marketplace-bench.md` |
 
 **Verification pass (mandatory):** after streams return, run 2-3 verifier subagents that
 adversarially re-check: (a) every person name+title, (b) every claimed Trackunit partnership,
 (c) every product/API claim used later in copy. Anything unverified gets softened or cut.
 
-### Phase 2 — Content (markdown, parallel writers after research)
+### Phase 2: Content (markdown, parallel writers after research)
 
-1. `method/` — adapt the universal 7-stage method (`01-method/`) to the **integration partner
+1. `method/`: adapt the universal 7-stage method (`01-method/`) to the **integration partner
    lifecycle**: Source → Qualify → Scope → Build → Launch → Adopt → Scale. Keep the 3-level
    maturity model (21 checkpoints) re-worded for a platform/integrations program.
-2. `partner-mapping/` — landscape of 30-40 players across 6 categories (ERP, rental, fleet,
+2. `partner-mapping/`: landscape of 30-40 players across 6 categories (ERP, rental, fleet,
    ConTech, AI, OEM), scored on 6 dimensions (adapt IPP: Strategic Fit, Market Reach,
    Technical Readiness, Commercial Model Fit, Consumption Potential, Recruitability).
    Disposition per player: Pursue / Contain / Monitor / Drop. Then **First Five** dossiers
    (deep profiles with hooks) for the top Pursue candidates.
-3. `execution/` — three artifacts:
+3. `execution/`: three artifacts:
    - **First Five Integrations plan:** per partner: why, scoping summary, commercial model,
      path from first call to live integration and credit consumption, 90-day milestones.
    - **Pod operating plan (90 days):** weekly cadence, interlocks with P&E and GTM,
@@ -102,11 +102,11 @@ adversarially re-check: (a) every person name+title, (b) every claimed Trackunit
      rooted in credit consumption.
    - **Marketplace opportunity map:** what is already strong on developers.trackunit.com and
      the marketplace + 5-7 leverage moves for low-touch ISV activation (constructive frame, R6).
-4. `index` memo — the motivation letter. Hook: builder's bridge (Hilti construction sites,
+4. `index` memo: the motivation letter. Hook: builder's bridge (Hilti construction sites,
    Boon Edam entrances → the machines on the same sites, now the data platform above them).
    Three perspectives + 30/60/90 + the AI-speed angle. Under 1 page of screen reading.
 
-### Phase 3 — Site build
+### Phase 3: Site build
 
 1. Write `tools/md2html_trackunit.py`: same template pattern as `md2html.py`, but:
    nav = Memo / Method / Partners / Execution (all inside `trackunit/`); sidebar mirrors the
@@ -122,7 +122,7 @@ adversarially re-check: (a) every person name+title, (b) every claimed Trackunit
 3. Run the converter, then **link-check**: no `href` under `docs/trackunit/` may resolve outside
    `docs/trackunit/` except `../assets/...` (CSS/JS only). Root index must not reference trackunit.
 
-### Phase 4 — CV + outreach
+### Phase 4: CV + outreach
 
 - `cv/CV_Trackunit.md`: deep rework of the master CV toward the JD language (ecosystem,
   integrations, platform consumption, marketplace, cross-functional pod leadership). Same facts,
@@ -131,17 +131,17 @@ adversarially re-check: (a) every person name+title, (b) every claimed Trackunit
   links, CV attached separately). Addressee per `people.md` findings.
 - `outreach/linkedin.md`: 300-char connection note + first message after connect.
 - `outreach/application-form.md`: short text for the careers-site free-text field
-  (Trackunit says "don't waste time on cover letters" — 5-7 sentences, link as the hook).
+  (Trackunit says "don't waste time on cover letters": 5-7 sentences, link as the hook).
 - Create Google Docs copies of CV and HM note in the user's Drive (if Drive tooling is available).
 
-### Phase 5 — Bookkeeping
+### Phase 5: Bookkeeping
 
 - Append a session entry to `STATE.md` (format: `## SESSION YYYY-MM-DD · trackunit-branch`).
 - Write `00-decisions/adr-012-trackunit-branch.md`: second campaign inside one repo, isolation
   rules, reuse of design system, runbook-driven build.
 - Write `prompts/prompt-trackunit.md`: continuation prompt for future sessions (style of existing prompts).
 
-### Phase 6 — Deploy + verify
+### Phase 6: Deploy + verify
 
 1. Commit on the working branch, push with retries (2s/4s/8s/16s backoff).
 2. Open PR to `main`, merge (Pages serves `/docs` from main). Merge permission for this build

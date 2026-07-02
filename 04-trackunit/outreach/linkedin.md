@@ -4,7 +4,7 @@
 
 **To Mikkel Dalgas (CPTO):**
 
-> Hi Mikkel, I applied for Head of Partnerships, Integrations & Applications and built a working demo of how I would run it: an integration lifecycle, 35 mapped partners, a credit consumption model. sapraudnynew.github.io/partner-program-os/trackunit/ Worth 5 minutes. Alexey, Amsterdam
+> Hi Mikkel, I applied for Head of Partnerships, Integrations & Applications and built a working demo of how I would run it: an integration lifecycle, 37 mapped partners, a credit consumption model. sapraudnynew.github.io/partner-program-os/trackunit/ Worth 5 minutes. Alexey, Amsterdam
 
 (295 characters with the URL. If it exceeds the limit in the composer, drop "Worth 5 minutes.")
 
@@ -14,7 +14,7 @@ Thank you for connecting, Mikkel.
 
 Short version: 20 years in construction's physical layer (Hilti, Boon Edam), a partner program built from scratch to 55% YoY partner-sourced growth, 30+ ABM programs inside Cisco, SAP, and Dassault ecosystems, and a P&L record of 24% ROS. I applied for the Head of Partnerships, Integrations & Applications role.
 
-Instead of a cover letter I built the job: a seven-stage integration lifecycle, a scored map of 35 ERP, rental, ConTech, AI, and OEM candidates with five prioritized (Procore whitespace, SAP ETM sunset wave, Point of Rental deepening among them), a 90-day pod operating plan, and an interactive credit consumption model. All public sources, all assumptions labeled:
+Instead of a cover letter I built the job: a seven-stage integration lifecycle, a scored map of 37 ERP, rental, ConTech, AI, and OEM candidates with five prioritized (Procore whitespace, SAP ETM sunset wave, Point of Rental deepening among them), a 90-day pod operating plan, and an interactive credit consumption model. All public sources, all assumptions labeled:
 
 sapraudnynew.github.io/partner-program-os/trackunit/
 

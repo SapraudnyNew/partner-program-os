@@ -24,7 +24,7 @@ Three perspectives inside:
 **Method:** a seven-stage integration lifecycle (Source to Scale) with a maturity model and KPIs rooted in platform economics: time-to-first-credit, active accounts per connector, credit run-rate.
 → /trackunit/method/
 
-**Partner Mapping:** 35 integration candidates across ERP, rental, fleet, ConTech, AI, and OEM data ecosystems, scored on six dimensions. Five prioritized, from the Procore telematics whitespace to the SAP ETM sunset wave.
+**Partner Mapping:** 37 integration candidates across ERP, rental, fleet, ConTech, AI, and OEM data ecosystems, scored on six dimensions. Five prioritized, from the Procore telematics whitespace to the SAP ETM sunset wave.
 → /trackunit/partner-mapping/
 
 **Execution:** a first-five integration plan with a path to first credit for each, a 90-day pod operating plan, a marketplace opportunity map benchmarked against Procore, Salesforce, Shopify, and Samsara, and an interactive credit consumption model.
