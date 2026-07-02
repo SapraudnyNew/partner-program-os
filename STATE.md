@@ -213,3 +213,5 @@ Full site redesign shipped across 4 sub-sessions. Repo switched to private (GitH
 **Verified:** 244 internal links OK, zero em/en dashes in copy, zero Cyrillic in published files, root index untouched.
 
 **NEXT:** user sends application via careers form + outreach per 04-trackunit/outreach/. Optional: PDF export of memo, German localization probe.
+
+<!-- pages deploy retry 2026-07-02 16:20 UTC: first deployment timed out in queue -->
