@@ -215,3 +215,7 @@ Full site redesign shipped across 4 sub-sessions. Repo switched to private (GitH
 **NEXT:** user sends application via careers form + outreach per 04-trackunit/outreach/. Optional: PDF export of memo, German localization probe.
 
 <!-- pages deploy retry 2026-07-02 16:20 UTC: first deployment timed out in queue -->
+
+## SESSION 2026-07-02 · repo-going-public
+
+Pages deployments for private repo stall in queue (3 timeouts; likely GitHub Pro lapse). Decision: repo goes PUBLIC (supersedes ADR-001 privacy choice). Before the flip: removed 02-akamai/03-diagnosis-scorecard.md from the working tree (real Akamai maturity scores, never published per MASTER_HANDOVER). Note: the file remains in git history; full history rewrite deliberately skipped.
