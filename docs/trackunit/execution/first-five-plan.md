@@ -1,6 +1,6 @@
 # First Five Integrations: Execution Plan
 
-This plan takes the five priority partners from [../partner-mapping/first-five.html](../partner-mapping/first-five.html) through the four lifecycle stages the pod runs: Scope, Build, Launch, Adopt. Each block below states the play, the scoping summary against the IrisX API surface, a commercial sketch, the path to first credit, the adoption motion, and one risk with its mitigation. Every number is a labeled assumption from public sources, stated to show how I set targets, not what Trackunit's targets should be. The pod KPI language matches the operating plan: scoped-to-live under 90 days median, time-to-first-credit under 30 days from go-live, both reference assumptions.
+This plan takes the five priority partners from [../partner-mapping/first-five.html](../partner-mapping/first-five.html) through the four lifecycle stages the pod runs: Scope, Build, Launch, Adopt. Each block states the play, the scoping summary against the IrisX API surface, a commercial sketch, the path to first credit, the adoption motion, and one risk with mitigation. Every number is a labeled assumption from public sources, stated to show how I set targets. The KPI language matches the pod operating plan: scoped-to-live under 90 days median, time-to-first-credit under 30 days from go-live, both reference assumptions.
 
 ## 1. Procore
 
@@ -60,7 +60,7 @@ This plan takes the five priority partners from [../partner-mapping/first-five.h
 
 ## 5. Palantir Foundry
 
-**Play.** Make IrisX the certified telematics source for ontology-level operations platforms, starting from Foundry's proven construction deployment at Thomas Cavanagh Construction, where dispatch, trucking and site operations run on Foundry with 97 percent daily employee usage.
+**Play.** Make IrisX the certified telematics source for ontology-level operations platforms, starting from Foundry's proven construction deployment at Thomas Cavanagh Construction, where dispatch, trucking and site operations run on Foundry at 97 percent daily employee usage.
 
 **Scoping summary.** Use cases: live machine data inside Foundry ontologies for dispatch, idle-time reduction and demand planning at large contractors and owners. Data flows: Time Series API with PromQL for high-frequency metrics, GraphQL for asset and site objects, webhooks for event streams; Foundry ingests streaming and geospatial data natively, so the connector is a data-source template, not an app. Certification: a documented Foundry data-connection template published on both sides.
 
