@@ -219,3 +219,4 @@ Full site redesign shipped across 4 sub-sessions. Repo switched to private (GitH
 ## SESSION 2026-07-02 · repo-going-public
 
 Pages deployments for private repo stall in queue (3 timeouts; likely GitHub Pro lapse). Decision: repo goes PUBLIC (supersedes ADR-001 privacy choice). Before the flip: removed 02-akamai/03-diagnosis-scorecard.md from the working tree (real Akamai maturity scores, never published per MASTER_HANDOVER). Note: the file remains in git history; full history rewrite deliberately skipped.
+Deployed 2026-07-02 17:30 UTC after the visibility flip: all 12 /trackunit/ URLs return 200, root has zero trackunit references, Akamai pages intact. Root cause confirmed: Pages would not deploy the private repo (3 queue timeouts); public visibility fixed it on the first build.
