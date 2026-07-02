@@ -56,7 +56,7 @@ Out of the full landscape, five candidates get a dossier. They were not picked f
 
 **The integration.** IrisX as a certified telematics source for Foundry construction ontologies: time series, location and fault data flowing into the machine objects that dispatch and scheduling logic runs on, delivered through the IrisX Time Series and GraphQL APIs and the AEMP 2.0 export.
 
-**Consumption logic (assumption).** Ontology platforms do not sample, they synchronize. A Foundry deployment reasoning from the Cavanagh pattern would pull continuously across an entire fleet to keep dispatch models current, making a single enterprise deployment a durable, high-throughput credit consumer, plausibly worth many conventional connectors. This is the least validated claim in the whole mapping and is presented as exactly that.
+**Consumption logic (assumption).** Ontology platforms do not sample, they synchronize. Reasoning from the Cavanagh pattern, a Foundry deployment would pull continuously across an entire fleet to keep dispatch models current, making a single enterprise deployment a durable, high-throughput credit consumer, plausibly worth many conventional connectors. This is the least validated claim in the whole mapping and is presented as exactly that.
 
 **First 30 days.** Identify shared prospect accounts, large contractors and equipment owners evaluating Foundry, and build one demonstration ontology object fed by IrisX data. One named joint prospect decides whether this stays on the list.
 

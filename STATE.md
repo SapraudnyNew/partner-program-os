@@ -196,3 +196,20 @@ Full site redesign shipped across 4 sub-sessions. Repo switched to private (GitH
 ### Still open
 - PDF export of homepage for Mark
 - MASTER_HANDOVER.md design tokens need updating (done in this PR)
+
+## SESSION 2026-07-02 · trackunit-branch
+
+**Goal:** second campaign per ADR-012: Head of Partnerships, Integrations & Applications at Trackunit (IrisX). Built end to end by a runbook-driven subagent system (04-trackunit/RUNBOOK.md).
+
+**Shipped:**
+- Site branch docs/trackunit/ (12 HTML pages): Memo + Method (integration lifecycle Source→Scale, scorecard, spider chart) + Partner Mapping (37 scored candidates, filterable landscape, First Five dossiers) + Execution (first-five plan, 90-day pod plan, marketplace opportunity map, credit consumption dashboard)
+- Build tool tools/md2html_trackunit.py (branch-scoped converter)
+- Research: 7 verified digests in 04-trackunit/research/outputs/ (company, platform, eco-erp-rental, eco-contech-ai, eco-oem, people, marketplace-bench)
+- CV rework 04-trackunit/cv/CV_Trackunit.md + Google Doc; outreach pack (email note, LinkedIn, application form) + Google Doc
+- ADR-012, prompts/prompt-trackunit.md
+
+**Key decisions:** First Five = Procore, SAP ETM sunset play, Point of Rental (Deepen), Dynamics 365 + Copilot, Palantir Foundry (Monitor-with-trigger). HM addressee: Mikkel Dalgas CPTO (VP of Platform seat not publicly identifiable; fallbacks David Swan, Fred Rio). Isolation from Akamai branch enforced both directions. Anti-slop pass mandatory before merge (runbook section 4).
+
+**Verified:** 244 internal links OK, zero em/en dashes in copy, zero Cyrillic in published files, root index untouched.
+
+**NEXT:** user sends application via careers form + outreach per 04-trackunit/outreach/. Optional: PDF export of memo, German localization probe.

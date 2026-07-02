@@ -1,6 +1,6 @@
 # Partner Mapping: The IrisX Integration Ecosystem
 
-The role owns one number: IrisX credit consumption. Credits are consumed when partner applications read and write IrisX data. So the mapping question is not "who could we partner with" but "which integrations, once live, pull data every day at scale." To answer it, I mapped the integration ecosystem across six categories: ERP, rental management systems, fleet and equipment management software, ConTech and jobsite platforms, AI platforms and agents, and OEM data ecosystems. Every candidate was scored on six dimensions, assigned one of four dispositions, and five were selected for full dossiers.
+The role owns one number: IrisX credit consumption. Credits are consumed when partner applications read and write IrisX data. So the mapping question is not "who could we partner with" but "which integrations, once live, pull data every day at scale." To answer it, I mapped the integration ecosystem across six categories: ERP, rental management systems, fleet and equipment management software, ConTech and jobsite platforms, AI platforms and agents, and OEM data ecosystems. I scored every candidate on six dimensions, assigned each one of four dispositions, and selected five for full dossiers.
 
 ## The six scoring dimensions
 
@@ -33,7 +33,7 @@ The scoring model is an adapted Integration Partner Profile. Each dimension is s
 
 **A migration wave is coming off SAP ETM.** Usage rights ended in 2025 in the S/4HANA context and maintenance ends 2027, per BearingPoint guidance cited by Wynne's RentalResult. Every migration to ETM.next, RentalResult or STAEDEAN needs a telematics layer. Time-bound demand, already scheduled by SAP.
 
-**AI agents are now a consumption channel, not a demo.** Trackunit launched an MCP Server at IRE 2026 connecting IrisX to ChatGPT, Claude, Gemini and Microsoft Copilot. Every agent query against fleet data is an API event, which by reasoning means every agent query is a credit event. Partnership work here shifts from connector building to distribution.
+**AI agents are now a consumption channel, not a demo.** Trackunit launched an MCP Server at IRE 2026 connecting IrisX to ChatGPT, Claude, Gemini and Microsoft Copilot. Every agent query against fleet data is an API event, and by inference every agent query is a credit event. Partnership work here shifts from connector building to distribution.
 
 ## Where to go next
 

@@ -73,7 +73,8 @@ def sidebar_html(p):
 def nav_html(prefix, active):
     items = [("memo","index.html","Memo"),("method","method/index.html","Method"),
              ("partners","partner-mapping/index.html","Partners"),("execution","execution/index.html","Execution")]
-    return "\n".join(f'    <li><a href="{prefix}{h}"{" class=\"active\"" if k==active else ""}>{l}</a></li>' for k,h,l in items)
+    cls = ' class="active"'
+    return "\n".join(f'    <li><a href="{prefix}{h}"{cls if k==active else ""}>{l}</a></li>' for k,h,l in items)
 
 TEMPLATE = """<!DOCTYPE html>
 <html lang="en">

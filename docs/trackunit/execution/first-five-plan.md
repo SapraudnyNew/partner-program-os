@@ -4,7 +4,7 @@ This plan takes the five priority partners from [../partner-mapping/first-five.h
 
 ## 1. Procore
 
-**Play.** Fill the most visible ConTech whitespace: Procore's Equipment Telematics feature lists Caterpillar, John Deere and Samsara as data sources, and Trackunit is absent, so we ship the connector that puts 6M+ connected assets inside Procore project workflows.
+**Play.** Fill the most visible ConTech whitespace: Procore's Equipment Telematics feature lists Caterpillar, John Deere and Samsara as data sources, and Trackunit is absent, so we ship the connector that puts Trackunit's claimed 6M+ connected assets inside Procore project workflows.
 
 **Scoping summary.** Use cases: machine location, hours and status in Procore schedules, cost tracking and jobsite views. Data flows: IrisX GraphQL API for asset and site queries, Time Series API for hours and utilization, webhooks pushing status events into Procore's Equipment Telematics open API. Certification: Procore's published Marketplace Approval Checklist, built and validated in the free Procore Developer Sandbox, with one beta customer before submission per Procore's guidelines.
 
