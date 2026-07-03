@@ -118,6 +118,18 @@ TEMPLATE = """<!DOCTYPE html>
 </html>"""
 
 MD_LINK_RE = re.compile(r'(href=["\'])([^"\']+?)(\.md)(["\'])')
+LINKEDIN_RE = re.compile(r'(?<!href=")(https://www\.linkedin\.com/in/[A-Za-z0-9_%\-\.]+/?)')
+
+def strip_first_h1(content):
+    lines = content.split("\n")
+    for i, line in enumerate(lines):
+        s = line.strip()
+        if not s:
+            continue
+        if s.startswith("# "):
+            return "\n".join(lines[:i] + lines[i+1:])
+        break
+    return content
 
 def convert_all():
     md_files = glob.glob(os.path.join(DOCS_DIR, "**", "*.md"), recursive=True)
@@ -133,9 +145,11 @@ def convert_all():
         with open(md_path, "r", encoding="utf-8") as f:
             content = f.read()
         content = content.replace("Alex M.", "A. Marushevsky").replace("Alex Marushevsky", "A. Marushevsky")
+        content = strip_first_h1(content)
         mc.reset()
         body = mc.convert(content)
         body = MD_LINK_RE.sub(r"\1\2.html\4", body)
+        body = LINKEDIN_RE.sub(r'<a href="\1" target="_blank" rel="noopener">LinkedIn ↗</a>', body)
         title = md_to_title(md_path)
         prefix = depth_prefix(md_path)
         asset_prefix = prefix + "../"
