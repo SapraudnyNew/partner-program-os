@@ -24,13 +24,13 @@ Wynne Systems, headquartered in Irvine, California, builds enterprise software f
 | Ashish Udeshi | Senior Product Manager | Placentia, California, United States | https://www.linkedin.com/in/ashish-udeshi | Senior PM near Irvine HQ; likely hands-on owner of specific RentalMan integration surfaces (inference) | No |
 | Steven Tripp | Marketing Director | Washington DC-Baltimore Area | https://www.linkedin.com/in/steventripp | Owns co-marketing and the Wynne User Summit surface, the October 2026 activation milestone | No |
 
-First entry point: Kenneth Kimura, Director of Product Development. Wynne has no partnerships or marketplace owner in the scan, and the web digest confirms integrations are handled inside the product org, so the connector conversation starts with the person who owns product development. Tsvety Petrova in Edinburgh is the parallel EMEA door for the RentalResult and SAP ETM thread, and the preferred first call if the initial motion is European. Clare McCormick comes in second, once there is a concrete connector proposal to price.
+First entry point: Kenneth Kimura, Director of Product Development. Wynne has no partnerships or marketplace owner in the scan, and the web digest confirms the product org handles integrations, so the connector conversation starts with the person who owns product development. Tsvety Petrova in Edinburgh is the parallel EMEA door for the RentalResult and SAP ETM thread, and the preferred first call if the initial motion is European. Clare McCormick comes in second, once there is a concrete connector proposal to price.
 
 ## 4. What the employee scan shows
 
 The scan covered 30 unique current employees, consistent with a company of roughly 116 people where LinkedIn coverage is partial.
 
-- **No partnerships function exists.** Zero titles containing partnerships, alliances or business development. Integrations and partner relationships are absorbed by product management and the executive layer, which changes who you call first.
+- **No partnerships function exists.** Zero titles containing partnerships, alliances or business development. Product management and the executive layer absorb integrations and partner relationships, which changes who you call first.
 - **Sales is the heaviest function.** Two Enterprise Account Managers, two Enterprise Sales Managers, a Sales Engineer, an Inside Sales Representative and a Revenue Operations Manager. Wynne grows by selling deeper into enterprise accounts, matching the digest's read of the hiring board.
 - **Product is small but deliberately distributed.** One Director of Product Development (Texas), one Senior PM (California, near HQ), and two PMs in Toronto and Edinburgh. The Edinburgh seat is notable: product presence where RentalResult's UK roots are (inference).
 - **EMEA is thin: two people.** Kevin Shaw (Technology Manager, UK, 1 month in role) and Tsvety Petrova (PM, Edinburgh). Combined with the open UK Enterprise Account Manager role, this reads as an early-stage European enterprise push (inference).

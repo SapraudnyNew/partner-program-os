@@ -220,3 +220,7 @@ Full site redesign shipped across 4 sub-sessions. Repo switched to private (GitH
 
 Pages deployments for private repo stall in queue (3 timeouts; likely GitHub Pro lapse). Decision: repo goes PUBLIC (supersedes ADR-001 privacy choice). Before the flip: removed 02-akamai/03-diagnosis-scorecard.md from the working tree (real Akamai maturity scores, never published per MASTER_HANDOVER). Note: the file remains in git history; full history rewrite deliberately skipped.
 Deployed 2026-07-02 17:30 UTC after the visibility flip: all 12 /trackunit/ URLs return 200, root has zero trackunit references, Akamai pages intact. Root cause confirmed: Pages would not deploy the private repo (3 queue timeouts); public visibility fixed it on the first build.
+
+## SESSION 2026-07-03 · first-five-account-plans
+
+Six account plans published under docs/trackunit/partner-mapping/accounts/ (Procore, BearingPoint ETM.next, Wynne RentalResult, Point of Rental, Microsoft, Palantir). People sourced via Apify LinkedIn actors (harvestapi family, 318 profiles harvested for ~$3), 42 key people named after adversarial two-source verification (10 rows softened with "LinkedIn scan only" notes, titles corrected where sources disagreed, hashed profile URLs replaced with vanity URLs). Web enrichment digests in 04-trackunit/research/accounts/. Sidebar gained an Accounts sub-list (converter + 3 static interactives). Raw scrape JSON kept out of the repo (scratchpad only). No outreach drafts by design.
