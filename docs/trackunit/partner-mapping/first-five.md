@@ -14,6 +14,8 @@ Out of the full landscape, five candidates get a dossier. They were not picked f
 
 **Main risk.** Procore treats telematics sources as commodity feeds and offers listing without co-marketing. Mitigation: lead with mixed-fleet coverage breadth, which Cat and Deere structurally cannot offer.
 
+[Account plan: Procore →](accounts/procore.html)
+
 ### **2. The SAP ETM sunset: a migration-wave play**
 
 **Why now.** SAP ETM, the module contractors used for internal plant and equipment rental, is being sunset: usage rights ended in 2025 in the S/4HANA context, and maintenance ends 2027 in the ERP context, per BearingPoint guidance cited by Wynne's RentalResult. Every ETM customer, including large contractors like BAM Infra which ran ETM with add-ons, must re-platform on a schedule SAP set. The named successors, BearingPoint ETM.next, Wynne RentalResult and STAEDEAN, all need a telematics layer, and none of them makes hardware.
@@ -25,6 +27,8 @@ Out of the full landscape, five candidates get a dossier. They were not picked f
 **First 30 days.** Build the ETM migration one-pager mapping each successor to an IrisX reference integration, contact BearingPoint and STAEDEAN partner teams, and extend the existing Wynne relationship to cover RentalResult explicitly. Ask sales for any current Trackunit customers running SAP ETM.
 
 **Main risk.** Timing. Migrations may already be specified without a telematics decision point, and 2027 makes this window finite. Mitigation: target the systems integrators writing the migration blueprints, not the end customers.
+
+Account plans: [BearingPoint ETM.next →](accounts/bearingpoint-etm-next.html) · [Wynne RentalResult →](accounts/wynne-rentalresult.html)
 
 ### **3. Point of Rental: the Deepen template**
 
@@ -38,6 +42,8 @@ Out of the full landscape, five candidates get a dossier. They were not picked f
 
 **Main risk.** Point of Rental offers its own Hapn telematics bundle, so deepening competes with an in-house revenue line. Mitigation: position IrisX for mixed OEM fleets Hapn hardware does not cover.
 
+[Account plan: Point of Rental →](accounts/point-of-rental.html)
+
 ### **4. Microsoft Dynamics 365 plus Copilot: two channels, one conversation**
 
 **Why now.** Dynamics 365 is already named on the IrisX integrations page, and Trackunit's MCP Server, launched at IRE 2026, connects IrisX fleet data to Microsoft Copilot (listed as coming soon in Trackunit's own support material). That means one Microsoft-facing motion covers two channels at once: the ERP backbone where rental and service transactions live, and the AI agent channel where natural-language fleet queries will run. No other candidate offers two consumption surfaces for one partner conversation.
@@ -50,6 +56,8 @@ Out of the full landscape, five candidates get a dossier. They were not picked f
 
 **Main risk.** Microsoft's scale means slow motion and generic partner treatment. Mitigation: enter through the ISVs, who are small enough to move quarterly, and let the Copilot channel ride the MCP Server that already exists.
 
+[Account plan: Microsoft →](accounts/microsoft.html)
+
 ### **5. Palantir Foundry: the bold bet**
 
 **Why now.** This is the clearly labeled bet of the five. Palantir has a proven construction deployment: Thomas Cavanagh Construction runs dispatch, trucking and site operations on Foundry, with 97% daily employee usage, connecting telematics, maintenance and demand signals to cut idle time. That case shows large contractors will run daily operations on an ontology platform, and an ontology platform is only as good as its data feeds. Foundry ingests IoT, streaming and geospatial data natively; nobody normalizes off-highway machine data across 100+ OEM integrations the way IrisX does.
@@ -61,6 +69,8 @@ Out of the full landscape, five candidates get a dossier. They were not picked f
 **First 30 days.** Identify shared prospect accounts, large contractors and equipment owners evaluating Foundry, and build one demonstration ontology object fed by IrisX data. One named joint prospect decides whether this stays on the list.
 
 **Main risk.** Deal count. Palantir deployments are few, large and slow, and construction may stay a niche vertical for them. Mitigation: cap effort until a joint prospect exists, and treat the demo asset as reusable for other AI platform conversations.
+
+[Account plan: Palantir →](accounts/palantir.html)
 
 ## Summary
 

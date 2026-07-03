@@ -57,6 +57,14 @@ def sidebar_html(p):
     <li class="sidebar__item"><a href="{p}partner-mapping/index.html">Overview</a></li>
     <li class="sidebar__item"><a href="{p}partner-mapping/landscape.html">Ecosystem Landscape</a></li>
     <li class="sidebar__item"><a href="{p}partner-mapping/first-five.html">First Five</a></li>
+    <ul class="sidebar__sublist">
+      <li class="sidebar__item"><a href="{p}partner-mapping/accounts/procore.html">Procore</a></li>
+      <li class="sidebar__item"><a href="{p}partner-mapping/accounts/bearingpoint-etm-next.html">BearingPoint ETM.next</a></li>
+      <li class="sidebar__item"><a href="{p}partner-mapping/accounts/wynne-rentalresult.html">Wynne RentalResult</a></li>
+      <li class="sidebar__item"><a href="{p}partner-mapping/accounts/point-of-rental.html">Point of Rental</a></li>
+      <li class="sidebar__item"><a href="{p}partner-mapping/accounts/microsoft.html">Microsoft</a></li>
+      <li class="sidebar__item"><a href="{p}partner-mapping/accounts/palantir.html">Palantir</a></li>
+    </ul>
   </ul>
 </div>
 <div class="sidebar__section">

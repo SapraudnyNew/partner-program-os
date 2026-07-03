@@ -1,0 +1,52 @@
+# Account Plan: Procore Technologies
+
+## Account snapshot
+
+Procore is a construction technology platform company covering project management, financials, quality and safety, and resource management, founded in 2002 by CEO Tooey Courtemanche and headquartered in Carpinteria, California. It has been public on NYSE (PCOR) since 2021, reported FY2025 revenue of about $1.3B, and raised FY2026 guidance to $1.499B-$1.53B after a Q1 2026 of $359.3M, up 16% year over year. Headcount is roughly 4,200+, international revenue is about 15% of total, and the company targets 25% by 2027 (analyst commentary, directional). Procore runs an App Marketplace of roughly 539 listed apps, a public developer platform, and a tiered Technology Partner Program launched in June 2025. The intersection with IrisX is the Equipment Telematics feature inside the Equipment tool: an open API that today ingests telemetry from Caterpillar, John Deere, Samsara, and United Rentals, with "more integrations planned" and no Trackunit connection listed. A Procore-IrisX connector would put mixed-fleet live equipment data inside the tool site teams already use, and every activated tenant pulls IrisX data on a recurring schedule, which is the credit consumption case.
+
+## Why now
+
+- **February 26, 2026: United Rentals strategic partnership.** Procore's first telematics-centered partnership: rental equipment data and telematics sync directly into Resource Management with AI-driven recommendations. Proof that Procore takes third-party fleet data natively, not just OEM feeds.
+- **January 20, 2026: Datagrid acquisition completed.** An agentic AI platform that connects data across ERPs, document repositories, and project platforms; Datagrid CEO Thiago da Costa now leads AI and data strategy at Procore. Equipment telematics is an obvious next data silo for agents to consume (inference).
+- **Groundbreak 2025: Procore Helix and Agent Builder** launched, with attendees building 1,000+ custom agents at the event. Agents built on equipment data need a mixed-fleet source behind them (inference).
+- **June 16, 2025: tiered Technology Partner Program announced**, rewarding partners on joint customer value with a globally consistent structure, owned under Ryan Butler, SVP Corporate Strategy and Operations. A formal on-ramp now exists.
+- **2025-2026: EMEA expansion.** New Dublin hub with hundreds of planned hires, UK Data Zone live, EU Data Zone planned for fall 2026. Procore is building the region where Trackunit is strongest.
+
+## Org map: key people
+
+| Name | Title | Location | LinkedIn | Owns / why relevant | EMEA |
+|---|---|---|---|---|---|
+| Samira Jabbar | VP Partnerships | Austin, Texas, United States | https://www.linkedin.com/in/ACwAAABi7t8ByRO3fQ8KpXoyPURGXT5nQkpc6QI | Most senior person in the scan with a pure partnerships title; likely owner or executive sponsor of the technology partner motion (inference); 2 months in role, still forming her agenda (LinkedIn scan only, not independently confirmed) | No |
+| Meg Baldini | VP, Corporate Development and Partnerships | Austin, Texas, United States | https://www.linkedin.com/in/meganbaldini/ | Corporate development plus partnerships in one seat; the deal-structure counterpart if the connector grows into a strategic partnership like United Rentals | No |
+| Brittany Schramm | Senior Director, Cloud Partnerships & Business Development | San Diego, California, United States | https://www.linkedin.com/in/brittschramm/ | Cloud partnerships and business development, currently driving the AWS partnership; the operating layer where a new technology alliance gets qualified and staffed (inference) | No |
+| Tony Harbour | Director of Partnerships, EMEA | City Of London, England, United Kingdom | https://www.linkedin.com/in/tony-harbour-2a51bb23/ | Owns partnerships for the region where Trackunit is headquartered and where Procore is expanding; the natural regional sponsor | Yes |
+| Lee Miles | SVP General Manager EMEA | United Kingdom | https://www.linkedin.com/in/lemiles/ | Runs the EMEA business; influence target for regional executive sponsorship once the partnerships track is live | Yes |
+| Raechele Kuskie | Senior Product Manager, Platform Services | Austin, Texas, United States | https://www.linkedin.com/in/raechele/ | Product owner in Platform Services, the layer the developer platform and marketplace integrations run on (inference); the technical counterpart for connector scoping (LinkedIn scan only, not independently confirmed) | No |
+| Stephen Perkins | Product Design Lead, Resource Management | United States | https://www.linkedin.com/in/perkinsstephen/ | Closest named person to the Resource Management product surface where Equipment Telematics data lands; a route to the Equipment tool product owner (LinkedIn scan only, not independently confirmed) | No |
+
+First entry point: Tony Harbour. He is the partnerships owner in the region where both companies have their center of gravity, Procore is actively building EMEA, and a Denmark-headquartered partner is a regional win he can sponsor. Open with Harbour, and in parallel prepare the global thread to Samira Jabbar and Brittany Schramm, because the Technology Partner Program is a global structure and Procore will make the tiering decision centrally (inference).
+
+## What the employee scan shows
+
+- The scan covered 68 unique Procore profiles pulled against marketplace, partnerships, telematics, and EMEA queries.
+- Partnerships leadership is new. Samira Jabbar (VP Partnerships, 2 months), Brittany Schramm (Senior Director Global Alliances & BD, 2 months), Dan Desmond (Strategic Alliances Manager, Dublin, 2 months), and Jane Dotsenko (Manager EMEA Brand and Partnerships, 2 months) all joined recently, consistent with Procore rebuilding its partner organization around the June 2025 tiered program (inference). New leaders need early wins, which favors a well-prepared inbound partner.
+- Resource Management is a staffed go-to-market motion, not a side feature: the scan shows at least eight people with Resource Management in their title, from solution specialists (Ian Bernadas, James Kerr, Lane Krabacher, Steven Zelnio) to a solution sales director (Wade Powell) and a product design lead (Stephen Perkins). The tool where telematics data lands has its own sales force.
+- Geography matches the stated EMEA push: a visible Dublin cluster (Dan Desmond, Sonja Arce, Rebecca Carolan) and a London cluster (Tony Harbour, Jane Dotsenko, Paul Griffiths, Lisa Murphy), alongside the dominant Austin concentration and engineering hubs in India, Cairo, and Prague.
+- Nobody in the scan carries an App Marketplace or Technology Partner Program title. The web digest places program ownership under Ryan Butler, SVP Corporate Strategy and Operations, who did not surface in the harvest, so the route to the named program owner runs through the partnerships leaders above.
+
+## Integration angle and entry path
+
+The play is a whitespace connector: Procore Equipment Telematics has an open API with four listed sources (Cat, John Deere, Samsara, United Rentals) and no mixed-fleet, OEM-agnostic source. IrisX normalizes 100+ OEM feeds, which is exactly what a per-OEM source list cannot give a contractor running a mixed fleet. The IrisX surfaces that map here: GraphQL for machine location, hours, and status snapshots feeding the Equipment Telematics API; Time Series for the recurring utilization pulls that Resource Planning and Helix recommendations would consume; and MCP as the forward story for Procore's agent strategy, where every agent query about a machine is an IrisX call (inference on the agent volume). The Rental ERP API is secondary for this account and only becomes relevant if the United Rentals pattern extends to other rental data flows (assumption). Sequence of first conversations by role: first the EMEA partnerships director to open the account regionally, second the VP Partnerships and the Senior Director of Global Alliances to place the connector inside the tiered Technology Partner Program, third the Platform Services product manager for technical scoping of the connector against the public developer platform, fourth the Resource Management product side, reached via the product design lead, to align the connector with the Equipment tool roadmap. One gap to state plainly: the longlist contains no product manager for the Equipment tool or Equipment Telematics itself, and no App Marketplace program owner, so the partnership conversations, not this scan, must produce those two names.
+
+## First 30 days and main risk
+
+- Confirm Procore's telematics partner requirements from the public developer documentation and the Technology Partner Program materials; capture what the four existing connections had to provide.
+- Build a demo feed against the Equipment Telematics open API using IrisX GraphQL, showing one mixed fleet (Cat plus non-Cat machines) in a single Procore view.
+- Ask Trackunit sales for mutual customers: contractors running both Procore and Trackunit are the proof points and the warm path into Procore's partner team.
+- Open the Tony Harbour conversation with the mutual-customer evidence, and in the same fortnight brief Samira Jabbar's organization through the partner program's formal intake.
+- Define the consumption instrumentation up front: per-tenant activation, pull frequency, credits per active project, so the partnership has a dashboard from day one.
+- Main risk: Procore treats telematics sources as commodity feeds and offers a directory listing without co-marketing, which caps activation and therefore credit consumption. Mitigation: lead with mixed-fleet coverage breadth that Cat and Deere structurally cannot offer, and tie the pitch to the Helix and agent roadmap, where broader data coverage makes Procore's own AI features better.
+
+Sources: procore.com/blog/building-stronger-together-new-tiered-technology-partner-program, procore.com/press/united-rentals-announces-telematics-integration-with-procore-to-expand, procore.com/press/procore-acquires-datagrid, procore.com/whats-new/equipment-telematics-now-available, procore.com/press/procore-establishes-new-emea-hub-in-dublin-as-regional-growth-continues-across-europe-the-middle-east-and-africa, investors.procore.com (Q1 2026 results), developers.procore.com/documentation/partner-overview.
+
+*Built from public LinkedIn and web data. First pass, presented to demonstrate account-based methodology. People data as of July 2026.*
