@@ -1,10 +1,10 @@
 # Account Plan: Wynne Systems (RentalMan / RentalResult)
 
-## 1. Account snapshot
+## Account snapshot
 
 Wynne Systems, headquartered in Irvine, California, builds enterprise software for equipment rental: RentalMan, the rental ERP that Wynne says powers the top four global rental companies (United Rentals, Sunbelt Rentals, Herc Rentals, Loxam), and RentalResult, the construction equipment and tool management product acquired with Result Group in December 2015. The company is part of Volaris Group, an operating group of Constellation Software, which acquired Wynne from United Rentals in May 2012. It is small: roughly 100 to 120 employees, with revenue in the low tens of millions (inference from third-party estimates). Clare McCormick was recently promoted to General Manager, and Robert Gray moved to Chief Revenue Officer with a mandate for new markets. Wynne already intersects IrisX today: an official Trackunit integration page covers RentalMan and TMS, and an "ERP Connector - RentalMan" listing exists on the Trackunit Marketplace. The play is to deepen that legacy connector into an IrisX-native, credit-consuming marketplace app, and to attach IrisX to RentalResult as it captures fleets migrating off SAP ETM.
 
-## 2. Why now
+## Why now
 
 - **February 2026 (content refresh):** Wynne runs an active SAP ETM sunset campaign positioning RentalResult as the purpose-built replacement. SAP ETM usage rights in S/4HANA compatibility mode ended in 2025 and maintenance ends in 2027, so contractor equipment fleets are re-platforming on a fixed schedule. The campaign page now redirects to rentalresult.com, suggesting RentalResult is being built out as a distinct contractor-facing brand (inference).
 - **January 2025:** Wynne named Foresight Intelligence its "preferred telematics provider" for RentalMan. Not stated as exclusive, but it is a competitive wedge inside Wynne's telematics stack and a reason to move now rather than later.
@@ -12,7 +12,7 @@ Wynne Systems, headquartered in Irvine, California, builds enterprise software f
 - **October 5-7, 2026:** Wynne User Summit in Charlotte, NC. A concrete co-marketing and field-engagement milestone within the first two quarters of the role.
 - **July 2026 (hiring board):** only three open roles, none in partnerships, platform or integrations. Integrations sit with the existing product org, so the window to shape the connector roadmap runs through product management and the CRO, not a partner team (inference).
 
-## 3. Org map: key people
+## Org map: key people
 
 | Name | Title | Location | LinkedIn | Owns / why relevant | EMEA |
 |---|---|---|---|---|---|
@@ -26,7 +26,7 @@ Wynne Systems, headquartered in Irvine, California, builds enterprise software f
 
 First entry point: Kenneth Kimura, Director of Product Development. Wynne has no partnerships or marketplace owner in the scan, and the web digest confirms the product org handles integrations, so the connector conversation starts with the person who owns product development. Tsvety Petrova in Edinburgh is the parallel EMEA door for the RentalResult and SAP ETM thread, and the preferred first call if the initial motion is European. Clare McCormick comes in second, once there is a concrete connector proposal to price.
 
-## 4. What the employee scan shows
+## What the employee scan shows
 
 The scan covered 30 unique current employees, consistent with a company of roughly 116 people where LinkedIn coverage is partial.
 
@@ -36,11 +36,11 @@ The scan covered 30 unique current employees, consistent with a company of rough
 - **EMEA is thin: two people.** Kevin Shaw (Technology Manager, UK, 1 month in role) and Tsvety Petrova (PM, Edinburgh). Combined with the open UK Enterprise Account Manager role, this reads as an early-stage European enterprise push (inference).
 - **Tenure and titles hint at renewal and AI interest.** Most captured tenures are under a year, which likely reflects recent role changes or scrape limits rather than mass hiring (assumption). A Senior AI Developer (8 months) is a concrete signal that even a 116-person Constellation company is staffing AI work.
 
-## 5. Integration angle and entry path
+## Integration angle and entry path
 
 The play has two legs. Leg one, Deepen: the existing RentalMan connector on the Trackunit Marketplace is legacy-grade, and the January 2025 Foresight designation shows the default telematics slot in RentalMan is contested. The counter is an IrisX-native connector that does what a preferred-provider feed does not: off-rent triggers and two-way contract sync through the IrisX Rental ERP API, utilization and meter data for billing through the Time Series API, and fleet and asset queries through GraphQL, all metered in IrisX credits across RentalMan tenants at United Rentals, Sunbelt, Herc and Loxam scale (inference on volumes). Leg two, Pursue: pair RentalResult with IrisX as the equipment data layer for the SAP ETM migration cohort, where every closed migration lands a full contractor fleet on day one. The MCP surface is a later add, once connector data flows exist to expose to agents (assumption). Sequence of first conversations by role: Director of Product Development first, to scope the connector upgrade; the EMEA Product Manager in parallel, to open the RentalResult and ETM thread; then the General Manager, to frame commercial terms; the Marketing Director next, to lock a Wynne User Summit slot; Director of Software Development last, once scope is agreed. One gap to name honestly: the longlist contains no CRO and no named RentalMan or RentalResult product line managers, although the web digest identifies Robert Gray, Jim Rosinke and Craig Richmond in those roles, so those introductions must come through the product development door or through shared customers rather than from this scan.
 
-## 6. First 30 days and main risk
+## First 30 days and main risk
 
 - Pull internal IrisX data on the existing RentalMan ERP connector: active tenants, pull frequency, credit consumption baseline. This is the before picture the whole Deepen case is measured against.
 - Identify who inside Trackunit currently owns the Wynne relationship and what the Foresight announcement changed in practice.
