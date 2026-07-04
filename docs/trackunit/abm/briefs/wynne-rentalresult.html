@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Wynne RentalResult, Executive Brief</title>
+<style>
+@page { size: A4; margin: 14mm }
+* { box-sizing: border-box }
+body { font-family: "DM Sans", system-ui, sans-serif; color: #111827; background: #fff; max-width: 720px; margin: 0 auto; padding: 24px 20px; line-height: 1.45; font-size: 14px }
+.topbar { display: flex; justify-content: space-between; gap: 12px; font-size: 12px; color: #6b7280; margin-bottom: 20px }
+.kicker { color: #009FDB; font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: .09em }
+h1 { font-size: 27px; margin: 2px 0 4px; line-height: 1.15 }
+.dateline { color: #6b7280; font-size: 12px; margin-bottom: 12px }
+h2 { font-size: 12px; text-transform: uppercase; letter-spacing: .07em; color: #009FDB; border-top: 1px solid #e5e7eb; padding-top: 10px; margin: 14px 0 5px }
+p { margin: 4px 0 }
+ul { margin: 4px 0; padding-left: 18px }
+li { margin: 3px 0 }
+table { width: 100%; border-collapse: collapse; font-size: 13px }
+th { text-align: left; font-size: 11px; text-transform: uppercase; letter-spacing: .04em; color: #6b7280; font-weight: 600; border-bottom: 1px solid #e5e7eb; padding: 3px 10px 3px 0 }
+td { border-bottom: 1px solid #f3f4f6; padding: 5px 10px 5px 0; vertical-align: top }
+a { color: #009FDB; text-decoration: none }
+a:hover { text-decoration: underline }
+footer { border-top: 1px solid #e5e7eb; margin-top: 16px; padding-top: 8px; font-size: 11px; color: #6b7280 }
+@media print { .no-print { display: none } body { padding: 0; max-width: none } }
+</style>
+</head>
+<body>
+<div class="topbar no-print">
+<a href="../index.html">&larr; Back to Partner ABM</a>
+<span>Print or save as PDF with Ctrl+P</span>
+</div>
+<header>
+<div class="kicker">Trackunit Partner ABM &middot; Executive brief</div>
+<h1>Wynne Systems (RentalMan / RentalResult)</h1>
+<div class="dateline">July 2026 &middot; Public data, first pass</div>
+</header>
+
+<h2>Snapshot</h2>
+<p>Wynne Systems, headquartered in Irvine, California, builds enterprise software for equipment rental: RentalMan, the rental ERP that Wynne says powers the top four global rental companies (United Rentals, Sunbelt Rentals, Herc Rentals, Loxam), and RentalResult, the construction equipment and tool management product. It is part of Volaris Group, an operating group of Constellation Software, and has roughly 100 to 120 employees. Wynne already intersects IrisX today: an official Trackunit integration covers RentalMan, and an ERP Connector for RentalMan is listed on the Trackunit Marketplace.</p>
+
+<h2>Why now</h2>
+<ul>
+<li><strong>January 2025:</strong> Wynne named Foresight Intelligence its "preferred telematics provider" for RentalMan. Not stated as exclusive, but a competitive wedge inside Wynne's telematics stack and a reason to move now.</li>
+<li><strong>February 2026:</strong> Wynne runs an active SAP ETM sunset campaign positioning RentalResult as the replacement; SAP ETM maintenance ends 2027, so contractor fleets are re-platforming on a fixed schedule.</li>
+<li><strong>October 5-7, 2026:</strong> Wynne User Summit in Charlotte, NC. A concrete co-marketing and field-engagement milestone within the first two quarters.</li>
+</ul>
+
+<h2>The integration</h2>
+<p>Two legs. Deepen: upgrade the legacy RentalMan connector to an IrisX-native marketplace app, with off-rent triggers and two-way contract sync through the IrisX Rental ERP API, utilization and meter data for billing through the Time Series API, and fleet and asset queries through GraphQL, metered in IrisX credits across RentalMan tenants (inference on volumes). Pursue: pair RentalResult with IrisX as the equipment data layer for the SAP ETM migration cohort, where every closed migration lands a full contractor fleet on day one. MCP is a later add (assumption).</p>
+
+<h2>Key contacts</h2>
+<table>
+<tr><th>Name</th><th>Title</th><th>LinkedIn</th></tr>
+<tr><td>Kenneth Kimura</td><td>Director of Product Development</td><td><a href="https://www.linkedin.com/in/kenneth-kimura-b897bb80" target="_blank" rel="noopener">LinkedIn</a></td></tr>
+<tr><td>Clare McCormick</td><td>General Manager</td><td><a href="https://www.linkedin.com/in/clare-mccormick-5901b99b" target="_blank" rel="noopener">LinkedIn</a></td></tr>
+<tr><td>Steve Kistler</td><td>Director Software Development</td><td><a href="https://www.linkedin.com/in/steve-kistler-b972828" target="_blank" rel="noopener">LinkedIn</a></td></tr>
+</table>
+
+<h2>First 30 days</h2>
+<ul>
+<li>Pull internal IrisX data on the existing RentalMan ERP connector: active tenants, pull frequency, credit consumption baseline. This is the before picture the Deepen case is measured against.</li>
+<li>Request a scoping call with Wynne product development leadership: one page on the IrisX-native connector (Rental ERP API, Time Series, GraphQL).</li>
+<li>Open the RentalResult thread: a reference architecture for SAP ETM migrations with IrisX as the telematics layer, reusable across the BearingPoint and STAEDEAN plays.</li>
+<li>Reserve a presence at the Wynne User Summit, October 5-7, 2026, Charlotte, as the activation deadline for a demonstrable connector.</li>
+</ul>
+
+<h2>Main risk</h2>
+<p>The Foresight Intelligence "preferred telematics provider" position hardens into a default, and Trackunit becomes one checkbox among many in RentalMan telematics. Mitigation: anchor in shared enterprise customers running mixed fleets at a scale where Trackunit's 100+ OEM normalization is the differentiator Foresight cannot match (inference).</p>
+
+<footer>Built from public LinkedIn and web data as of July 2026. Credit figures are assumptions. A. Marushevsky.</footer>
+</body>
+</html>
