@@ -12,7 +12,7 @@ Four objects carry the whole motion: the account, the people inside it, the sign
 |---|---|---|
 | Name | Legal or common name of the partner organization | Procore |
 | Category | Landscape category from the mapping work | ConTech |
-| Score | Consumption potential score carried over from [targeting](targeting.md) | 4.2 / 5 |
+| Score | Consumption potential score carried over from [targeting](targeting.md) | 4.8 / 5 |
 | Disposition | Pursue, Deepen, or Monitor | Pursue |
 | Layer mix | Which ABM layers are active: to, with, through | To |
 | Funnel stage | One of the seven stages in the table below | First contact |

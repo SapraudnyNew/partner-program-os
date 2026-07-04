@@ -10,13 +10,13 @@ This is the Source and Qualify discipline from the [method](../method/index.md),
 
 **Step 2: scored on six dimensions.** Every candidate got a 1 to 5 score on Strategic Fit, Market Reach, Technical Readiness, Commercial Fit, Consumption Potential, and Recruitability, with the total as the simple average. Consumption Potential is the dimension that carries the root metric: expected credit pull, judged on frequency, breadth of assets, and depth of data. Recruitability matters more than usual right now because the field consolidated hard in 2025 and 2026, and several otherwise attractive accounts are already spoken for.
 
-**Step 3: dispositions.** Scores convert to a disposition: 8 Pursue, 13 Deepen, 14 Monitor, 2 Deprioritize. Pursue means no integration exists and recruitment starts now. Deepen means a partnership already exists and the work is expansion and instrumentation. Monitor means real potential blocked by timing or M&A, revisit on a trigger.
+**Step 3: dispositions.** Scores convert to a disposition: 7 Pursue, 13 Deepen, 15 Monitor, 2 Deprioritize. Pursue means no integration exists and recruitment starts now. Deepen means a partnership already exists and the work is expansion and instrumentation. Monitor means real potential blocked by timing or M&A, revisit on a trigger.
 
 **Step 4: five plays.** From the top of the scored list, five plays got full dossiers, the [First Five](../partner-mapping/first-five.md). Not the top five rows mechanically: the five were chosen so that each one anchors a repeatable play type and together they cover the whole map.
 
 ## The top of the scored list
 
-The twelve highest totals from the landscape. Credit drivers are labeled assumptions throughout: Trackunit does not publish credit pricing mechanics, so these are shape arguments from public facts.
+The twelve highest totals from the landscape. The [landscape](../partner-mapping/landscape.html) is the source of truth for every score and disposition on this site; this table and the ABM data views read from it, they do not re-derive it. The "SAP ETM.next / RentalResult wave" row is the vehicle scored for the BearingPoint ETM.next account plan, which is why that plan carries the 4.3 total. Credit drivers are labeled assumptions throughout: Trackunit does not publish credit pricing mechanics, so these are shape arguments from public facts.
 
 | Partner | Category | Score | Disposition | Primary credit driver (assumption) |
 |---|---|---|---|---|
@@ -24,7 +24,7 @@ The twelve highest totals from the landscape. Credit drivers are labeled assumpt
 | Microsoft Dynamics 365 + Copilot | ERP | 4.5 | Pursue | ERP transaction pulls plus per-query agent calls via the MCP Server |
 | Point of Rental | Rental | 4.5 | Deepen | Two-way contract, billing and meter sync across 5,000+ locations |
 | SAP ETM.next / RentalResult wave | ERP | 4.3 | Pursue | Fleet-wide meter and contract sync per completed migration |
-| Palantir Foundry | AI | 4.2 | Pursue | Continuous fleet sync into Foundry ontology objects |
+| Palantir Foundry | AI | 4.2 | Monitor | Continuous fleet sync into Foundry ontology objects |
 | Hilti ON!Track | ConTech | 4.0 | Deepen | Two-way asset visibility across 500,000+ ON!Track tags |
 | Wynne Systems (RentalMan) | Rental | 4.0 | Deepen | Rental workflow sync through the published RentalMan and TMS integration |
 | Frontier AI assistants (OpenAI, Anthropic, Google) | AI | 4.0 | Deepen | Per-query agent calls through the MCP Server launched at IRE 2026 |

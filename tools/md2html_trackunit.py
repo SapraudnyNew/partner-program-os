@@ -69,16 +69,6 @@ def sidebar_html(p):
   </ul>
 </div>
 <div class="sidebar__section">
-  <button class="sidebar__heading"><span class="caret">▼</span> Execution</button>
-  <ul class="sidebar__list">
-    <li class="sidebar__item"><a href="{p}execution/index.html">Overview</a></li>
-    <li class="sidebar__item"><a href="{p}execution/first-five-plan.html">First Five Plan</a></li>
-    <li class="sidebar__item"><a href="{p}execution/pod-operating-plan.html">Pod Operating Plan</a></li>
-    <li class="sidebar__item"><a href="{p}execution/marketplace-opportunity-map.html">Marketplace Map</a></li>
-    <li class="sidebar__item"><a href="{p}execution/credit-dashboard.html">Credit Dashboard</a></li>
-  </ul>
-</div>
-<div class="sidebar__section">
   <button class="sidebar__heading"><span class="caret">▼</span> Partner ABM</button>
   <ul class="sidebar__list">
     <li class="sidebar__item"><a href="{p}abm/index.html">Overview</a></li>
@@ -90,12 +80,22 @@ def sidebar_html(p):
     <li class="sidebar__item"><a href="{p}abm/signal-radar.html">Signal Radar</a></li>
     <li class="sidebar__item"><a href="{p}abm/relationship-heatmap.html">Relationship Heatmap</a></li>
   </ul>
+</div>
+<div class="sidebar__section">
+  <button class="sidebar__heading"><span class="caret">▼</span> Execution</button>
+  <ul class="sidebar__list">
+    <li class="sidebar__item"><a href="{p}execution/index.html">Overview</a></li>
+    <li class="sidebar__item"><a href="{p}execution/first-five-plan.html">First Five Plan</a></li>
+    <li class="sidebar__item"><a href="{p}execution/pod-operating-plan.html">Pod Operating Plan</a></li>
+    <li class="sidebar__item"><a href="{p}execution/marketplace-opportunity-map.html">Marketplace Map</a></li>
+    <li class="sidebar__item"><a href="{p}execution/credit-dashboard.html">Credit Dashboard</a></li>
+  </ul>
 </div>"""
 
 def nav_html(prefix, active):
     items = [("memo","index.html","Memo"),("method","method/index.html","Method"),
-             ("partners","partner-mapping/index.html","Partners"),("execution","execution/index.html","Execution"),
-             ("abm","abm/index.html","Partner ABM")]
+             ("partners","partner-mapping/index.html","Partners"),("abm","abm/index.html","Partner ABM"),
+             ("execution","execution/index.html","Execution")]
     cls = ' class="active"'
     return "\n".join(f'    <li><a href="{prefix}{h}"{cls if k==active else ""}>{l}</a></li>' for k,h,l in items)
 

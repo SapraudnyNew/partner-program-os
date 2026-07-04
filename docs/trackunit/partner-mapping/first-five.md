@@ -79,7 +79,7 @@ Account plans: [BearingPoint ETM.next →](accounts/bearingpoint-etm-next.html) 
 | Procore | ConTech | Pursue | Daily mixed-fleet pulls by project teams (assumption) | Demo against Equipment Telematics API |
 | SAP ETM successors | ERP | Pursue | Fleet-wide meter and contract sync per migration (assumption) | Reference architecture per successor, BearingPoint and STAEDEAN contact |
 | Point of Rental | Rental management | Deepen | Two-way contract, billing and meter sync (assumption) | Marketplace-grade connector scoped, activation dashboard |
-| Microsoft Dynamics 365 + Copilot | ERP + AI | Pursue / Deepen | ERP transactions plus per-query agent calls via MCP (assumption) | ISV conversations opened, Copilot connector timeline confirmed |
-| Palantir Foundry | AI / ops platform | Monitor, upgrade on trigger | Continuous fleet sync into ontology objects (assumption) | One named joint prospect |
+| Microsoft Dynamics 365 + Copilot | ERP | Pursue | ERP transactions plus per-query agent calls via MCP (assumption) | ISV conversations opened, Copilot connector timeline confirmed |
+| Palantir Foundry | AI | Monitor | Continuous fleet sync into ontology objects (assumption) | One named joint prospect, upgrade on trigger |
 
 *First pass from public sources. Presented to demonstrate methodology, to be validated with internal data.*
