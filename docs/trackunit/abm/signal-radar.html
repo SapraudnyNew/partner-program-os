@@ -1,0 +1,473 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Signal Radar</title>
+  <link rel="stylesheet" href="../../assets/css/main.css">
+  <style>
+    :root {
+      --sig-partnership: #009FDB;
+      --sig-ma: #7C3AED;
+      --sig-product: #059669;
+      --sig-hiring: #F59E0B;
+      --sig-financial: #DC2626;
+      --mono: 'JetBrains Mono', monospace;
+    }
+
+    .radar-wrap { max-width: 1080px; margin: 0 auto; padding: 2rem 2rem 3rem; }
+
+    .radar-header { margin-bottom: 1.5rem; padding-bottom: 1.25rem; border-bottom: 1px solid var(--border); }
+    .radar-header h1 { font-family: var(--font-sans); font-size: 1.75rem; font-weight: 700; color: var(--ink); margin-bottom: 0.35rem; }
+    .radar-header .sub { font-family: var(--font-sans); font-size: 0.875rem; color: var(--ink-muted); }
+    .radar-header .meta-note {
+      margin-top: 0.85rem; padding: 0.6rem 0.9rem;
+      background: var(--surface-alt); border-left: 3px solid var(--accent); border-radius: 0 6px 6px 0;
+      font-family: var(--font-sans); font-size: 0.72rem; color: var(--ink-light);
+    }
+
+    .section-label {
+      font-family: var(--mono); font-size: 0.65rem; letter-spacing: 0.18em; text-transform: uppercase;
+      color: var(--ink-muted); margin: 2rem 0 0.85rem; display: flex; align-items: center; gap: 0.75rem;
+    }
+    .section-label::after { content: ''; flex: 1; height: 1px; background: var(--border); }
+
+    /* Filter bar */
+    .filter-bar {
+      background: var(--surface); border: 1px solid var(--border); border-radius: 8px;
+      padding: 0.85rem 1rem; display: flex; flex-direction: column; gap: 0.6rem;
+    }
+    .filter-row { display: flex; align-items: baseline; gap: 0.6rem; flex-wrap: wrap; }
+    .filter-row .f-lab {
+      font-family: var(--mono); font-size: 0.58rem; letter-spacing: 0.12em; text-transform: uppercase;
+      color: var(--ink-muted); width: 62px; flex-shrink: 0;
+    }
+    .chips { display: flex; flex-wrap: wrap; gap: 0.4rem; }
+    .chip {
+      display: inline-flex; align-items: center; gap: 6px;
+      font-family: var(--font-sans); font-size: 0.72rem; color: var(--ink-light);
+      border: 1px solid var(--border); border-radius: 100px; padding: 3px 11px;
+      background: var(--surface); cursor: pointer; transition: all 0.15s; user-select: none;
+    }
+    .chip:hover { border-color: var(--ink-muted); }
+    .chip.active { background: var(--accent); border-color: var(--accent); color: #fff; }
+    .chip.active .dot { background: #fff !important; }
+    .chip .dot { width: 8px; height: 8px; border-radius: 50%; flex-shrink: 0; }
+    .chip .n { font-family: var(--mono); font-size: 0.6rem; opacity: 0.75; }
+    .filter-count { font-family: var(--mono); font-size: 0.62rem; color: var(--ink-muted); letter-spacing: 0.05em; }
+
+    /* Density strip */
+    .density-panel { background: var(--surface); border: 1px solid var(--border); border-radius: 8px; padding: 1rem 1.15rem; overflow-x: auto; }
+    .density-grid { display: grid; gap: 3px; min-width: 640px; }
+    .dg-corner { }
+    .dg-month {
+      font-family: var(--mono); font-size: 0.52rem; color: var(--ink-muted);
+      text-align: center; align-self: end; padding-bottom: 2px; white-space: nowrap;
+    }
+    .dg-acct {
+      font-family: var(--font-sans); font-size: 0.68rem; color: var(--ink-light);
+      align-self: center; padding-right: 8px; white-space: nowrap; text-align: right;
+    }
+    .dg-cell {
+      height: 22px; border-radius: 4px; background: var(--surface-alt);
+      display: flex; align-items: center; justify-content: center;
+      font-family: var(--mono); font-size: 0.58rem; font-weight: 600; color: #fff;
+    }
+    .density-note { margin-top: 0.6rem; font-family: var(--font-sans); font-size: 0.65rem; color: var(--ink-muted); }
+
+    /* Timeline */
+    .timeline { position: relative; padding-left: 18px; }
+    .timeline::before { content: ''; position: absolute; left: 4px; top: 6px; bottom: 6px; width: 2px; background: var(--border); border-radius: 2px; }
+    .month-group { margin-bottom: 0.5rem; }
+    .month-head {
+      position: sticky; top: calc(var(--nav-height) + 6px); z-index: 3;
+      display: inline-flex; align-items: center; gap: 8px;
+      background: var(--surface-alt); border: 1px solid var(--border); border-radius: 100px;
+      padding: 3px 12px; margin: 0.85rem 0 0.65rem;
+      font-family: var(--mono); font-size: 0.62rem; letter-spacing: 0.1em; text-transform: uppercase;
+      color: var(--ink-light); font-weight: 600;
+    }
+    .month-head::before {
+      content: ''; position: absolute; left: -18.5px; top: 50%; transform: translateY(-50%);
+      width: 9px; height: 9px; border-radius: 50%; background: var(--accent); border: 2px solid var(--surface);
+    }
+    .month-head .mn { font-weight: 400; color: var(--ink-muted); }
+
+    .signal-card {
+      background: var(--surface); border: 1px solid var(--border); border-radius: 8px;
+      padding: 0.85rem 1.05rem; margin-bottom: 0.6rem; transition: border-color 0.15s, box-shadow 0.15s;
+    }
+    .signal-card:hover { border-color: var(--border-accent); box-shadow: 0 2px 10px rgba(13,33,55,0.06); }
+    .sc-top { display: flex; align-items: center; gap: 0.5rem; flex-wrap: wrap; margin-bottom: 0.35rem; }
+    .type-badge {
+      display: inline-flex; align-items: center; gap: 5px;
+      font-family: var(--mono); font-size: 0.55rem; font-weight: 600;
+      letter-spacing: 0.08em; text-transform: uppercase;
+      padding: 2px 8px; border-radius: 3px; border: 1px solid; white-space: nowrap;
+    }
+    .acct-tag {
+      font-family: var(--font-sans); font-size: 0.64rem; font-weight: 600; color: var(--ink-light);
+      background: var(--surface-alt); border: 1px solid var(--border); border-radius: 100px; padding: 1px 9px;
+    }
+    .sc-date { margin-left: auto; font-family: var(--mono); font-size: 0.6rem; color: var(--ink-muted); letter-spacing: 0.05em; }
+    .sc-title { font-family: var(--font-sans); font-size: 0.85rem; font-weight: 700; color: var(--ink); margin-bottom: 0.25rem; }
+    .sc-detail { font-family: var(--font-sans); font-size: 0.74rem; line-height: 1.55; color: var(--ink-light); }
+    .timeline-empty {
+      padding: 1.5rem; text-align: center; font-family: var(--font-sans); font-size: 0.78rem;
+      color: var(--ink-muted); background: var(--surface); border: 1px dashed var(--border); border-radius: 8px;
+    }
+
+    /* Reading guide */
+    .guide-box {
+      background: var(--surface); border: 1px solid var(--border); border-left: 4px solid var(--accent);
+      border-radius: 8px; padding: 1rem 1.15rem;
+    }
+    .guide-box h2 { font-family: var(--font-sans); font-size: 0.85rem; font-weight: 700; color: var(--ink); margin-bottom: 0.5rem; }
+    .guide-box ol { margin: 0; padding-left: 1.1rem; }
+    .guide-box li { font-family: var(--font-sans); font-size: 0.75rem; line-height: 1.6; color: var(--ink-light); margin-bottom: 0.3rem; }
+    .guide-box li:last-child { margin-bottom: 0; }
+    .guide-box a { color: var(--accent); text-decoration: none; font-weight: 600; }
+    .guide-box a:hover { text-decoration: underline; }
+
+    .radar-caveat {
+      margin-top: 2rem; padding: 0.85rem 1.15rem; background: var(--surface-alt); border-radius: 6px;
+      font-family: var(--font-sans); font-size: 0.7rem; color: var(--ink-muted);
+    }
+    .radar-caveat strong { color: var(--ink-light); }
+
+    .radar-footer {
+      border-top: 1px solid var(--border); padding-top: 1rem; margin-top: 1.5rem;
+      display: flex; justify-content: space-between; gap: 1rem;
+      font-family: var(--mono); font-size: 0.6rem; color: var(--ink-muted); letter-spacing: 0.04em;
+    }
+    .radar-footer a { color: var(--accent); text-decoration: none; }
+    .radar-footer a:hover { text-decoration: underline; }
+
+    @media (max-width: 900px) {
+      .radar-wrap { padding: 1rem 1rem 2rem; }
+      .filter-row .f-lab { width: 100%; }
+      .sc-date { margin-left: 0; width: 100%; order: 3; }
+      .month-head { top: calc(var(--nav-height) + 2px); }
+    }
+  </style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav class="top-nav">
+  <button class="hamburger" aria-label="Toggle navigation">
+    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+  </button>
+  <a href="../index.html" class="top-nav__logo">Partner Program <span>OS</span></a>
+  <ul class="top-nav__links">
+      <li><a href="../index.html">Memo</a></li>
+      <li><a href="../method/index.html">Method</a></li>
+      <li><a href="../partner-mapping/index.html">Partners</a></li>
+      <li><a href="../execution/index.html">Execution</a></li>
+      <li><a href="index.html" class="active">Partner ABM</a></li>
+  </ul>
+</nav>
+
+<!-- SIDEBAR -->
+<div class="sidebar-overlay"></div>
+<aside class="sidebar">
+
+<div class="sidebar__section">
+  <button class="sidebar__heading"><span class="caret">&#9660;</span> Memo</button>
+  <ul class="sidebar__list">
+    <li class="sidebar__item"><a href="../index.html">Homepage</a></li>
+  </ul>
+</div>
+<div class="sidebar__section">
+  <button class="sidebar__heading"><span class="caret">&#9660;</span> Method</button>
+  <ul class="sidebar__list">
+    <li class="sidebar__item"><a href="../method/index.html">Overview</a></li>
+    <li class="sidebar__item"><a href="../method/spider-chart.html">Spider Chart</a></li>
+    <li class="sidebar__item"><a href="../method/scorecard.html">Scorecard</a></li>
+  </ul>
+</div>
+<div class="sidebar__section">
+  <button class="sidebar__heading"><span class="caret">&#9660;</span> Partner Mapping</button>
+  <ul class="sidebar__list">
+    <li class="sidebar__item"><a href="../partner-mapping/index.html">Overview</a></li>
+    <li class="sidebar__item"><a href="../partner-mapping/landscape.html">Landscape</a></li>
+    <li class="sidebar__item"><a href="../partner-mapping/first-five.html">First Five</a></li>
+    <ul class="sidebar__sublist">
+      <li class="sidebar__item"><a href="../partner-mapping/accounts/procore.html">Procore</a></li>
+      <li class="sidebar__item"><a href="../partner-mapping/accounts/bearingpoint-etm-next.html">BearingPoint ETM.next</a></li>
+      <li class="sidebar__item"><a href="../partner-mapping/accounts/wynne-rentalresult.html">Wynne RentalResult</a></li>
+      <li class="sidebar__item"><a href="../partner-mapping/accounts/point-of-rental.html">Point of Rental</a></li>
+      <li class="sidebar__item"><a href="../partner-mapping/accounts/microsoft.html">Microsoft</a></li>
+      <li class="sidebar__item"><a href="../partner-mapping/accounts/palantir.html">Palantir</a></li>
+    </ul>
+  </ul>
+</div>
+<div class="sidebar__section">
+  <button class="sidebar__heading"><span class="caret">&#9660;</span> Execution</button>
+  <ul class="sidebar__list">
+    <li class="sidebar__item"><a href="../execution/index.html">Overview</a></li>
+    <li class="sidebar__item"><a href="../execution/first-five-plan.html">First Five Plan</a></li>
+    <li class="sidebar__item"><a href="../execution/pod-operating-plan.html">Pod Operating Plan</a></li>
+    <li class="sidebar__item"><a href="../execution/marketplace-opportunity-map.html">Marketplace Map</a></li>
+    <li class="sidebar__item"><a href="../execution/credit-dashboard.html">Credit Dashboard</a></li>
+  </ul>
+</div>
+<div class="sidebar__section">
+  <button class="sidebar__heading"><span class="caret">&#9660;</span> Partner ABM</button>
+  <ul class="sidebar__list">
+    <li class="sidebar__item"><a href="index.html">Overview</a></li>
+    <li class="sidebar__item"><a href="targeting.html">Targeting</a></li>
+    <li class="sidebar__item"><a href="plays.html">Play Library</a></li>
+    <li class="sidebar__item"><a href="procore-showcase.html">Procore Showcase</a></li>
+    <li class="sidebar__item"><a href="operating-system.html">Operating System</a></li>
+    <li class="sidebar__item"><a href="control-tower.html">Control Tower</a></li>
+    <li class="sidebar__item"><a href="signal-radar.html" class="active">Signal Radar</a></li>
+    <li class="sidebar__item"><a href="relationship-heatmap.html">Relationship Heatmap</a></li>
+  </ul>
+</div>
+</aside>
+
+<!-- LAYOUT -->
+<div class="layout">
+<main class="content">
+
+<div class="radar-wrap">
+
+  <!-- Header -->
+  <header class="radar-header">
+    <h1>Signal Radar</h1>
+    <p class="sub">Why-now triggers across the First Five &middot; the timing layer of partner ABM: every play in the library fires on a signal, not on a calendar</p>
+    <div class="meta-note" id="metaNote"></div>
+  </header>
+
+  <!-- Filters -->
+  <div class="section-label">Filter Signals</div>
+  <div class="filter-bar">
+    <div class="filter-row">
+      <span class="f-lab">Account</span>
+      <div class="chips" id="accountChips"></div>
+    </div>
+    <div class="filter-row">
+      <span class="f-lab">Type</span>
+      <div class="chips" id="typeChips"></div>
+    </div>
+    <div class="filter-row">
+      <span class="f-lab"></span>
+      <span class="filter-count" id="filterCount"></span>
+    </div>
+  </div>
+
+  <!-- Density strip -->
+  <div class="section-label">Signal Density &middot; Month by Account</div>
+  <div class="density-panel">
+    <div class="density-grid" id="densityGrid"></div>
+    <div class="density-note">Cell shading = number of recorded signals in that month for that account. Year columns hold signals dated to the year only. Computed from the same dataset as the timeline below.</div>
+  </div>
+
+  <!-- Timeline -->
+  <div class="section-label">Trigger Timeline &middot; Newest First</div>
+  <div class="timeline" id="timeline"></div>
+
+  <!-- Reading guide -->
+  <div class="section-label">How to Read This</div>
+  <div class="guide-box">
+    <h2>From signal to play</h2>
+    <ol>
+      <li><strong>Every signal maps to a play.</strong> A trigger type selects the entry from the <a href="plays.html">play library</a>: a partnership announcement fires the ecosystem-entry play, an M&amp;A or product launch fires the data-gap play, hiring and financial signals reshape who to call and when.</li>
+      <li><strong>Signals are reviewed on a fixed cadence.</strong> The weekly signal review in the <a href="operating-system.html">ABM operating system</a> decides which triggers convert into touches that week and which accounts get upgraded, like Palantir's monitor-until-trigger disposition.</li>
+      <li><strong>No signal, no touch.</strong> A signal is a reason to reach out this month with a message the account already cares about; density above shows where the why-now case is strongest right now.</li>
+    </ol>
+  </div>
+
+  <!-- Caveat -->
+  <div class="radar-caveat" id="caveat"></div>
+
+  <!-- Footer -->
+  <div class="radar-footer">
+    <span>Partner ABM &middot; Signal Radar</span>
+    <span><a href="index.html">&larr; Back to Partner ABM</a></span>
+  </div>
+
+</div>
+
+<script src="data.js"></script>
+<script>
+(function () {
+  'use strict';
+
+  var TYPES = {
+    partnership: { label: 'Partnership', color: 'var(--sig-partnership)' },
+    ma:          { label: 'M&A',         color: 'var(--sig-ma)' },
+    product:     { label: 'Product',     color: 'var(--sig-product)' },
+    hiring:      { label: 'Hiring',      color: 'var(--sig-hiring)' },
+    financial:   { label: 'Financial',   color: 'var(--sig-financial)' }
+  };
+  var TYPE_ORDER = ['partnership', 'ma', 'product', 'hiring', 'financial'];
+  var MONTHS = ['January','February','March','April','May','June','July','August','September','October','November','December'];
+  var MONTHS_SHORT = ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
+
+  var signals = ABM_DATA.signals;
+  var accounts = ABM_DATA.accounts;
+  var meta = ABM_DATA.meta;
+  var byId = {};
+  accounts.forEach(function (a) { byId[a.id] = a; });
+
+  function esc(s) {
+    return String(s).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;');
+  }
+
+  function monthLabel(key) {
+    if (key.length === 7) return MONTHS[parseInt(key.slice(5), 10) - 1] + ' ' + key.slice(0, 4);
+    return 'Through ' + key;
+  }
+  function monthLabelShort(key) {
+    if (key.length === 7) return MONTHS_SHORT[parseInt(key.slice(5), 10) - 1] + ' ' + key.slice(2, 4);
+    return key;
+  }
+
+  // Header meta + caveat
+  document.getElementById('metaNote').textContent =
+    meta.note + ' Signals compiled ' + meta.asOf + '. Source: ' + meta.source + '.';
+  document.getElementById('caveat').innerHTML =
+    '<strong>Caveat.</strong> ' + esc(meta.note) + ' As of ' + esc(meta.asOf) + '. Source: ' +
+    esc(meta.source) + '. Only recorded signals are shown; a quiet month means no public trigger was captured, not that nothing happened.';
+
+  // State
+  var state = { account: 'all', type: 'all' };
+
+  function matches(s, dim) {
+    // dim lets chip counts ignore their own dimension
+    var okAcct = state.account === 'all' || s.account === state.account;
+    var okType = state.type === 'all' || s.type === state.type;
+    if (dim === 'account') return okType;
+    if (dim === 'type') return okAcct;
+    return okAcct && okType;
+  }
+
+  // Filter chips
+  var accountChipsEl = document.getElementById('accountChips');
+  var typeChipsEl = document.getElementById('typeChips');
+
+  function chipHtml(value, label, dotColor) {
+    return '<button class="chip" data-value="' + esc(value) + '">' +
+      (dotColor ? '<span class="dot" style="background:' + dotColor + '"></span>' : '') +
+      esc(label) + ' <span class="n"></span></button>';
+  }
+
+  accountChipsEl.innerHTML = chipHtml('all', 'All') +
+    accounts.map(function (a) { return chipHtml(a.id, a.shortName); }).join('');
+  typeChipsEl.innerHTML = chipHtml('all', 'All') +
+    TYPE_ORDER.map(function (t) { return chipHtml(t, TYPES[t].label, TYPES[t].color); }).join('');
+
+  function bindChips(el, key) {
+    el.addEventListener('click', function (e) {
+      var btn = e.target.closest('.chip');
+      if (!btn) return;
+      state[key] = btn.dataset.value;
+      render();
+    });
+  }
+  bindChips(accountChipsEl, 'account');
+  bindChips(typeChipsEl, 'type');
+
+  function updateChips() {
+    accountChipsEl.querySelectorAll('.chip').forEach(function (c) {
+      var v = c.dataset.value;
+      c.classList.toggle('active', state.account === v);
+      var n = signals.filter(function (s) { return (v === 'all' || s.account === v) && matches(s, 'account'); }).length;
+      c.querySelector('.n').textContent = n;
+    });
+    typeChipsEl.querySelectorAll('.chip').forEach(function (c) {
+      var v = c.dataset.value;
+      c.classList.toggle('active', state.type === v);
+      var n = signals.filter(function (s) { return (v === 'all' || s.type === v) && matches(s, 'type'); }).length;
+      c.querySelector('.n').textContent = n;
+    });
+  }
+
+  // Density strip (full dataset, not filtered)
+  var monthKeys = [];
+  signals.forEach(function (s) { if (monthKeys.indexOf(s.date) < 0) monthKeys.push(s.date); });
+  monthKeys.sort();
+
+  var density = {};
+  var maxCount = 1;
+  signals.forEach(function (s) {
+    var k = s.account + '|' + s.date;
+    density[k] = (density[k] || 0) + 1;
+    if (density[k] > maxCount) maxCount = density[k];
+  });
+
+  (function renderDensity() {
+    var grid = document.getElementById('densityGrid');
+    grid.style.gridTemplateColumns = 'auto repeat(' + monthKeys.length + ', minmax(30px, 1fr))';
+    var html = '<span class="dg-corner"></span>';
+    monthKeys.forEach(function (k) { html += '<span class="dg-month">' + esc(monthLabelShort(k)) + '</span>'; });
+    accounts.forEach(function (a) {
+      html += '<span class="dg-acct">' + esc(a.shortName) + '</span>';
+      monthKeys.forEach(function (k) {
+        var n = density[a.id + '|' + k] || 0;
+        var alpha = n === 0 ? 0 : 0.35 + 0.65 * (n - 1) / Math.max(maxCount - 1, 1);
+        var style = n > 0 ? ' style="background:rgba(0,159,219,' + alpha.toFixed(2) + ')"' : '';
+        var word = n === 1 ? ' signal' : ' signals';
+        html += '<span class="dg-cell"' + style + ' title="' + esc(a.shortName) + ', ' +
+          esc(monthLabel(k)) + ': ' + n + word + '">' + (n > 0 ? n : '') + '</span>';
+      });
+    });
+    grid.innerHTML = html;
+  })();
+
+  // Timeline
+  var timelineEl = document.getElementById('timeline');
+  var groupKeys = monthKeys.slice().sort().reverse();
+
+  function cardHtml(s) {
+    var t = TYPES[s.type] || { label: s.type, color: 'var(--ink-muted)' };
+    var acct = byId[s.account];
+    return '<article class="signal-card" data-account="' + esc(s.account) + '" data-type="' + esc(s.type) + '">' +
+      '<div class="sc-top">' +
+        '<span class="type-badge" style="color:' + t.color + ';border-color:' + t.color + '">' +
+          '<span class="dot" style="width:6px;height:6px;border-radius:50%;background:' + t.color + '"></span>' + t.label + '</span>' +
+        '<span class="acct-tag">' + esc(acct ? acct.shortName : s.account) + '</span>' +
+        '<span class="sc-date">' + esc(monthLabel(s.date)) + '</span>' +
+      '</div>' +
+      '<div class="sc-title">' + esc(s.title) + '</div>' +
+      '<div class="sc-detail">' + esc(s.detail) + '</div>' +
+    '</article>';
+  }
+
+  function render() {
+    updateChips();
+    var shown = signals.filter(function (s) { return matches(s); });
+    document.getElementById('filterCount').textContent =
+      'Showing ' + shown.length + ' of ' + signals.length + ' signals';
+
+    var html = '';
+    groupKeys.forEach(function (k) {
+      var inMonth = shown.filter(function (s) { return s.date === k; });
+      if (!inMonth.length) return;
+      var word = inMonth.length === 1 ? ' signal' : ' signals';
+      html += '<section class="month-group">' +
+        '<div class="month-head">' + esc(monthLabel(k)) +
+        ' <span class="mn">&middot; ' + inMonth.length + word + '</span></div>' +
+        inMonth.map(cardHtml).join('') +
+      '</section>';
+    });
+    timelineEl.innerHTML = html ||
+      '<div class="timeline-empty">No recorded signals match this filter combination.</div>';
+  }
+
+  render();
+})();
+</script>
+
+</main>
+</div>
+
+<footer class="site-footer">
+  <p>A. Marushevsky &middot; Amsterdam &middot; All partner research is a first pass from public sources.</p>
+</footer>
+
+<script src="../../assets/js/sidebar.js"></script>
+</body>
+</html>
