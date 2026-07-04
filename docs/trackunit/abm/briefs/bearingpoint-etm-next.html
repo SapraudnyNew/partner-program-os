@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>BearingPoint ETM.next, Executive Brief</title>
+<style>
+@page { size: A4; margin: 14mm }
+* { box-sizing: border-box }
+body { font-family: "DM Sans", system-ui, sans-serif; color: #111827; background: #fff; max-width: 720px; margin: 0 auto; padding: 24px 20px; line-height: 1.45; font-size: 14px }
+.topbar { display: flex; justify-content: space-between; gap: 12px; font-size: 12px; color: #6b7280; margin-bottom: 20px }
+.kicker { color: #009FDB; font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: .09em }
+h1 { font-size: 27px; margin: 2px 0 4px; line-height: 1.15 }
+.dateline { color: #6b7280; font-size: 12px; margin-bottom: 12px }
+h2 { font-size: 12px; text-transform: uppercase; letter-spacing: .07em; color: #009FDB; border-top: 1px solid #e5e7eb; padding-top: 10px; margin: 14px 0 5px }
+p { margin: 4px 0 }
+ul { margin: 4px 0; padding-left: 18px }
+li { margin: 3px 0 }
+table { width: 100%; border-collapse: collapse; font-size: 13px }
+th { text-align: left; font-size: 11px; text-transform: uppercase; letter-spacing: .04em; color: #6b7280; font-weight: 600; border-bottom: 1px solid #e5e7eb; padding: 3px 10px 3px 0 }
+td { border-bottom: 1px solid #f3f4f6; padding: 5px 10px 5px 0; vertical-align: top }
+a { color: #009FDB; text-decoration: none }
+a:hover { text-decoration: underline }
+footer { border-top: 1px solid #e5e7eb; margin-top: 16px; padding-top: 8px; font-size: 11px; color: #6b7280 }
+@media print { .no-print { display: none } body { padding: 0; max-width: none } }
+</style>
+</head>
+<body>
+<div class="topbar no-print">
+<a href="../index.html">&larr; Back to Partner ABM</a>
+<span>Print or save as PDF with Ctrl+P</span>
+</div>
+<header>
+<div class="kicker">Trackunit Partner ABM &middot; Executive brief</div>
+<h1>BearingPoint (ETM.next)</h1>
+<div class="dateline">July 2026 &middot; Public data, first pass</div>
+</header>
+
+<h2>Snapshot</h2>
+<p>BearingPoint is a partner-owned management and technology consultancy headquartered in Amsterdam, with FY2025 revenue of EUR 1.026 billion and roughly 6,200 employees. Its product business runs ETM.next, a SaaS for equipment and tools management, SAP-endorsed and SAP's designated industry cloud successor to the legacy SAP ETM module. ETM.next runs on SAP BTP and, per its own FAQ, connects to OEM telematics platforms through RESTful OData APIs following AEMP 2.0 and ISO 15143-3, exactly the interface IrisX exposes. Public sources show no ETM.next-Trackunit integration as of July 2026.</p>
+
+<h2>Why now</h2>
+<ul>
+<li><strong>2025:</strong> usage rights for legacy SAP ETM ended in S/4HANA compatibility mode; maintenance in the ERP context ends 2027. Every remaining SAP ETM contractor must re-platform, and 2026-2027 is the peak migration window (inference).</li>
+<li><strong>7-13 April 2025:</strong> BearingPoint exhibited ETM.next at bauma in Munich; Trackunit exhibits on the same event circuit. Recent customer win: SACDE, a leading Argentine contractor.</li>
+<li><strong>5 March 2026:</strong> FY2025 results, third consecutive year above EUR 1 billion, plus a new North America JV with ABeam and Chicago-based ETM.next implementation hiring.</li>
+</ul>
+
+<h2>The integration</h2>
+<p>Instead of ETM.next maintaining per-OEM connections, IrisX becomes the single governed telematics feed in every migration: 100+ OEM integrations normalized behind one interface, with credit consumption scaling per connected asset from day one of each go-live. IrisX surfaces: the ISO 15143-3 (AEMP 2.0) export and GraphQL API feed fleet position, hours, fuel and status into ETM.next utilization, idle-time and billing logic; the Rental ERP API handles two-way contract and asset sync for internal rental workflows; Time Series backs meter-based cost allocation.</p>
+
+<h2>Key contacts</h2>
+<table>
+<tr><th>Name</th><th>Title</th><th>LinkedIn</th></tr>
+<tr><td>Ernest de Weert</td><td>Business Development Sr Manager</td><td><a href="https://www.linkedin.com/in/ernestdeweert/" target="_blank" rel="noopener">LinkedIn</a></td></tr>
+<tr><td>Frank Zeidler</td><td>Director of Product Management</td><td><a href="https://www.linkedin.com/in/frank-zeidler-a0446215/" target="_blank" rel="noopener">LinkedIn</a></td></tr>
+<tr><td>Donald Wachs</td><td>Member of Management Committee - Products</td><td><a href="https://www.linkedin.com/in/donald-wachs-b827608b/" target="_blank" rel="noopener">LinkedIn</a></td></tr>
+</table>
+
+<h2>First 30 days</h2>
+<ul>
+<li>Build a one-page reference architecture, IrisX as the telematics layer for ETM.next, mapped to their published OData/AEMP 2.0 interface; validate internally which Trackunit customers run SAP ETM or ETM.next today.</li>
+<li>Ask Trackunit sales and customer success for warm paths into BearingPoint and shared contractor accounts that could anchor a joint reference.</li>
+<li>First outreach to business development to confirm who owns ETM.next third-party integrations; parallel note to the SAP transformation practice whose teams write the migration blueprints.</li>
+<li>Technical validation call with product management; scope a proof of concept feeding one mixed fleet into an ETM.next sandbox via the ISO 15143-3 export, then decide the executive escalation.</li>
+</ul>
+
+<h2>Main risk</h2>
+<p>BearingPoint treats telematics as a commodity input, keeps per-OEM OData connections, and sees no reason to standardize on one aggregator while Wynne and STAEDEAN court the same install base. Mitigation: sell delivery economics to the practice; one IrisX connection replacing N per-OEM integrations shortens their fast-track implementations and gives consultants a repeatable blueprint (inference).</p>
+
+<footer>Built from public LinkedIn and web data as of July 2026. Credit figures are assumptions. A. Marushevsky.</footer>
+</body>
+</html>

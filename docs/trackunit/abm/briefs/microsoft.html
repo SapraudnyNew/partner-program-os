@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Microsoft, Executive Brief</title>
+<style>
+@page { size: A4; margin: 14mm }
+* { box-sizing: border-box }
+body { font-family: "DM Sans", system-ui, sans-serif; color: #111827; background: #fff; max-width: 720px; margin: 0 auto; padding: 24px 20px; line-height: 1.45; font-size: 14px }
+.topbar { display: flex; justify-content: space-between; gap: 12px; font-size: 12px; color: #6b7280; margin-bottom: 20px }
+.kicker { color: #009FDB; font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: .09em }
+h1 { font-size: 27px; margin: 2px 0 4px; line-height: 1.15 }
+.dateline { color: #6b7280; font-size: 12px; margin-bottom: 12px }
+h2 { font-size: 12px; text-transform: uppercase; letter-spacing: .07em; color: #009FDB; border-top: 1px solid #e5e7eb; padding-top: 10px; margin: 14px 0 5px }
+p { margin: 4px 0 }
+ul { margin: 4px 0; padding-left: 18px }
+li { margin: 3px 0 }
+table { width: 100%; border-collapse: collapse; font-size: 13px }
+th { text-align: left; font-size: 11px; text-transform: uppercase; letter-spacing: .04em; color: #6b7280; font-weight: 600; border-bottom: 1px solid #e5e7eb; padding: 3px 10px 3px 0 }
+td { border-bottom: 1px solid #f3f4f6; padding: 5px 10px 5px 0; vertical-align: top }
+a { color: #009FDB; text-decoration: none }
+a:hover { text-decoration: underline }
+footer { border-top: 1px solid #e5e7eb; margin-top: 16px; padding-top: 8px; font-size: 11px; color: #6b7280 }
+@media print { .no-print { display: none } body { padding: 0; max-width: none } }
+</style>
+</head>
+<body>
+<div class="topbar no-print">
+<a href="../index.html">&larr; Back to Partner ABM</a>
+<span>Print or save as PDF with Ctrl+P</span>
+</div>
+<header>
+<div class="kicker">Trackunit Partner ABM &middot; Executive brief</div>
+<h1>Microsoft</h1>
+<div class="dateline">July 2026 &middot; Public data, first pass</div>
+</header>
+
+<h2>Snapshot</h2>
+<p>Microsoft (NASDAQ: MSFT), headquartered in Redmond, Washington, has roughly 228,000 employees; FY2025 revenue reached $281.7B, up 15%, with Azure passing $75B. Three parts matter for IrisX: the commercial marketplace and ISV programs inside Global Partner Solutions, the Dynamics 365 Field Service and Finance &amp; Operations products, and the Manufacturing &amp; Mobility industry cloud, where construction lives (inference). Microsoft bills partner agents through Copilot Credits, a consumption model that mirrors the IrisX credit metric. No Trackunit listing exists today on AppSource or Azure Marketplace: everything here is greenfield.</p>
+
+<h2>Why now</h2>
+<ul>
+<li><strong>September 2025:</strong> Azure Marketplace and AppSource merged into a single Microsoft Marketplace with one Partner Center listing flow and 6M+ monthly unique visitors; a dedicated AI Apps category launched in 2026.</li>
+<li><strong>November 2025 (Ignite), launching 2026:</strong> App Accelerate unifies ISV Success, Marketplace Rewards and co-sell resources into one pathway, with early co-sell access no longer gated only by the $100K revenue threshold.</li>
+<li><strong>April to September 2026:</strong> Dynamics 365 release wave 1 is explicitly agentic, and D365 Finance adds support for rental-based business models. MCP support went GA in Copilot Studio, with ISV agents distributed through the Agent Store.</li>
+</ul>
+
+<h2>The integration</h2>
+<p>One relationship, two consumption lanes. Lane one, ERP: IrisX Rental ERP API and GraphQL feeds into Dynamics 365 Finance &amp; Operations rental and invoicing workflows, plus IrisX Time Series and machine events pushed into Field Service as a custom IoT provider, filling the whitespace left by the 2025 deprecations of legacy Field Service IoT integrations. Lane two, agents: the Trackunit MCP Server, already built and already naming Copilot, published through Copilot Studio's MCP connector infrastructure and distributed via the Agent Store, where every natural-language fleet question becomes an IrisX credit event.</p>
+
+<h2>Key contacts</h2>
+<table>
+<tr><th>Name</th><th>Title</th><th>LinkedIn</th></tr>
+<tr><td>Kelly Curran</td><td>Senior Director ISV Strategic Partnerships</td><td><a href="https://www.linkedin.com/in/kellycurran/" target="_blank" rel="noopener">LinkedIn</a></td></tr>
+<tr><td>Carol S. Scott</td><td>Senior Director, EMEA, Software &amp; Development Platforms- Sales &amp; Customer Success for Partners</td><td><a href="https://www.linkedin.com/in/carolsscott/" target="_blank" rel="noopener">LinkedIn</a></td></tr>
+<tr><td>Zehra SyedaSarwat</td><td>Senior Director Global ISV Partnerships, Data &amp; AI</td><td><a href="https://www.linkedin.com/in/zehra-syedasarwat-7127a211/" target="_blank" rel="noopener">LinkedIn</a></td></tr>
+</table>
+
+<h2>First 30 days</h2>
+<ul>
+<li>Register Trackunit in Partner Center and enroll in ISV Success; map the exact requirements for a transactable Microsoft Marketplace listing and for App Accelerate eligibility.</li>
+<li>Confirm internally the state of the Copilot connection of the MCP Server and scope what Copilot Studio GA MCP support requires: auth, VNet, DLP controls.</li>
+<li>Book the first EMEA ISV partnerships conversation with a one-page architecture: IrisX MCP into Copilot Studio, IrisX Rental ERP API into D365 F&amp;O.</li>
+<li>Define the credit-consumption instrumentation for both lanes before any listing goes live, so the partnership reports IrisX credits from day one.</li>
+</ul>
+
+<h2>Main risk</h2>
+<p>Microsoft's scale produces slow motion and generic treatment; a small Danish ISV can wait quarters for a co-sell decision. Mitigation: do not gate anything on Microsoft; ship the listing and the MCP-to-Copilot connection through self-service programs, and use the D365 rental ISVs (STAEDEAN, Sycor, HSO) as the fast-moving ERP channel.</p>
+
+<footer>Built from public LinkedIn and web data as of July 2026. Credit figures are assumptions. A. Marushevsky.</footer>
+</body>
+</html>
