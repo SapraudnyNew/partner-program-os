@@ -151,6 +151,29 @@ adversarially re-check: (a) every person name+title, (b) every claimed Trackunit
 4. Re-run the isolation check against the live site.
 5. Report: live links, PR link, Google Doc links, HM addressees found.
 
+### Phase 7: Partner ABM module (added 2026-07-04, ADR-013)
+
+Fifth site section `docs/trackunit/abm/`: partner ABM in three layers (to / with / through).
+
+1. **Data first.** `abm/data.js` is the single source for all three interactives. Compile it
+   from `partner-mapping/accounts/*.md` org maps (people: exact names/titles/URLs, stage,
+   role, emea, confirmed flag), the dated "Why now" bullets (signals) and landscape scores
+   (accounts). Never edit an interactive's numbers directly: change data.js, reload.
+   `node --check` before commit.
+2. **Pages.** index (three layers), targeting (funnel 37 to five, reuses landscape scoring),
+   plays (layer playbook + five play cards), procore-showcase (full depth: committee,
+   12-week cadence, content matrix, joint ABM, marketplace channel, KPI tree),
+   operating-system (stack-agnostic CRM objects, signal stack, cadence, 12-week launch).
+3. **Interactives.** control-tower.html, signal-radar.html, relationship-heatmap.html: all
+   read ABM_DATA from data.js, compute every figure at render time, copy page chrome from
+   credit-dashboard.html with abm/ relative paths.
+4. **Briefs.** `abm/briefs/*.html`: six standalone print-ready executive briefs (inline CSS,
+   @page A4, .no-print top bar). Not wired into the converter; keep them self-contained.
+5. **Update discipline.** When an account plan changes, regenerate data.js entries and the
+   affected brief; the md pages reference people by name, so grep the name across abm/
+   before renaming anyone. Honesty labels are mandatory: stages are starting-point
+   estimates, credit figures are assumptions.
+
 ## 4. QUALITY CHECKLIST (before merge)
 
 - [ ] **Anti-slop pass over every new md/html file (mandatory, dedicated agent):**
