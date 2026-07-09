@@ -1,7 +1,7 @@
 # ADR-012: Second Campaign (Trackunit) as Isolated Branch Inside One Repo
 
 **Date:** 2026-07-02
-**Status:** Accepted
+**Status:** Superseded by ADR-014 (2026-07-09). The Trackunit campaign moved out of this public repo into its own private repo hosted on Cloudflare Pages, so that the campaign source (including draft outreach material) is no longer public. `docs/trackunit/`, `04-trackunit/`, `tools/md2html_trackunit.py`, and `prompts/prompt-trackunit.md` were removed from this repo's working tree in that move; they remain in this repo's git history. ADR-014 lives in the private repo.
 
 ## Decision
 
